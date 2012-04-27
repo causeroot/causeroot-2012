@@ -1,13 +1,9 @@
 class ChallengesController < ApplicationController
-  # GET /challenges
-  # GET /challenges.json
+  respond_to :html, :json
   def index
     @challenges = Challenge.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @challenges }
-    end
+    respond_with(@challenges)
   end
 
   # GET /challenges/1
