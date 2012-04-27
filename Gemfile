@@ -7,7 +7,7 @@ gem 'sqlite3'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-
+  gem 'therubyracer', '~> 0.10.1'
   gem 'uglifier', '>= 1.0.3'
 end
 
@@ -26,3 +26,5 @@ gem 'omniauth-openid', '~> 1.0.1'
 gem 'omniauth-twitter', '~> 0.0.10'
 
 gem 'whenever', '~> 0.7.3'
+
+gem "twitter-bootstrap-rails", '~> 2.0.6'

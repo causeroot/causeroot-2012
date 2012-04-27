@@ -10,26 +10,20 @@ class User < ActiveRecord::Base
 
   def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)
     data = access_token.extra.raw_info
-    if user = self.find_by_email(data.email)
-      user
-    else # Create a user with a stub password. 
-      self.new(:email => data.email, :first_name => data.first_name, :last_name => data.last_name)
-   end
+    find_by_email(data.email)
   end
 
   def self.find_for_open_id(access_token, signed_in_resource=nil)
     data = access_token.info
-    if user = User.where(:email => data["email"]).first
-      user
-    else
-      User.create!(:email => data["email"], :password => Devise.friendly_token[0,20])
-    end
+    where(:email => data["email"]).first
   end
 
   def self.new_with_session(params, session)
     super.tap do |user|
       if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
         user.email = data["email"]
+        user.first_name = data["first_name"]
+        user.last_name = data["last_name"]
       end
     end
   end
