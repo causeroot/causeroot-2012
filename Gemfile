@@ -22,3 +22,5 @@ gem 'debugger', '~> 1.1.1'
 
 gem 'devise', '~> 2.0.4'
 gem 'omniauth-facebook', '~> 1.2.0'
+gem 'omniauth-openid', '~> 1.0.1'
+gem 'omniauth-twitter', '~> 0.0.10'
