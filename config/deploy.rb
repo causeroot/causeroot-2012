@@ -23,7 +23,7 @@ default_run_options[:pty] = true
 # Configure application
 ################################################################################
 set :application, "mensch"
-server "monkian.dreamhost.com", :web, :app, :db, :primary => true
+server "foobar.com", :web, :app, :db, :primary => true
 set :deploy_to, "/home/carrio_org/carrio.org"
 set :rails_env, "production"
 set :migrate_target, :current
@@ -41,7 +41,7 @@ set :git_enable_submodules, 1
 ################################################################################
 # Set deploy user
 ################################################################################
-set :user, "carrio_org"
+set :user, "deploy"
 set :use_sudo, false
 
 ################################################################################
