@@ -1,0 +1,66 @@
+Greetings folks,
+
+You guys are on this list because you have keen interest in getting the
+"'Economically Incentive-Oriented Contests/Challenges to Address Global
+Problems and Crowd-source Creative Innovations for Betterment of the Global
+Culture', User Friendly Database and Public Access Interface Point" website
+off the ground and to up-and-running.  Roux and I came up with "GeoGoals"
+as the working title until we can all come up with better branding (*.com
+in hand, as well).  As of yet, I've talked with each of you personally
+about the focus and overall design, to varying degrees.  I'm working on
+writing up a draft document that attempts to summarize many of the details
+of the site, detailing the impetus, overall intended function, mission
+statement, audience, and stages of functional maturity - just so we're all
+on the same page.  I hope to be done with that by the end of the week or so.
+
+
+On of the first items requiring definition to begin actual work involves
+coming up with database parameters that each challenge/competition entry
+should contain (bolded = required, italics = optional or potential future
+upgrade).  Here's a first stab at it:
+
+
+   1. *Title*
+   2. *Short Description*
+   3. *Award*
+   4. *Dates *
+      - *Deadline
+      *
+      - *Post Date*
+   5. *Icon/Image*
+   6. *Keyword Tag list
+   *
+   7. *Challenge Data*
+      - *Rule Specifics*
+      - *Datasets**
+      *
+   8. *URL Reference(s)*
+   9. *Discussion Board*
+   10. *FAQ*
+   11. *Winner
+   *
+
+
+Note: Not certain if Sponsorship is more applicable to Short Description,
+Rules, Title, or should be its own separate category.  Present assumption
+is that its embedded.
+
+The above is certainly up for discussion debate.  Marvin gets back to the
+bay at some-point next week or so - we can wait to meet until then or the
+remainder of us can meet sometime this week (time permitting).  Thoughts?
+
+Regarding database population, before the crawling is up and functional,
+we've been putting together a database of site urls to scrape and urls of
+individual challenges in order to get an initial framework going, in the
+meanwhile.  Entries contain a loose title, reference url, and series of
+notes, if applicable.  There's an additional page that references well
+defined problems that presently off no prize (more to discuss on that arena
+as well when I send out the aforementioned document).  I'll share the (very
+rough) google-doc with you guys right after sending this.
+
+
+Let me know if you guys have any questions - hopefully we can organize this
+a bit better in the days to come,
+
+
+Luis
