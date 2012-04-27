@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  description: MyText
+  award: MyString
+  deadline: 2012-04-26 22:29:57
+  post_date: 2012-04-26 22:29:57
+  image: MyString
+  url_reference: MyString
+  discussion_board: MyString
+
+two:
+  title: MyString
+  description: MyText
+  award: MyString
+  deadline: 2012-04-26 22:29:57
+  post_date: 2012-04-26 22:29:57
+  image: MyString
+  url_reference: MyString
+  discussion_board: MyString

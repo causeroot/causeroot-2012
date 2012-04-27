@@ -11,7 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120427050747) do
+ActiveRecord::Schema.define(:version => 20120427052957) do
+
+  create_table "challenges", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.string   "award"
+    t.datetime "deadline"
+    t.datetime "post_date"
+    t.string   "image"
+    t.string   "url_reference"
+    t.string   "discussion_board"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

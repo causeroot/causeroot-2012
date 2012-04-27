@@ -76,7 +76,7 @@ Devise.setup do |config|
 
   # Options to be passed to the created cookie. For instance, you can set
   # :secure => true in order to force SSL only cookies.
-  config.cookie_options = { :secure => true }
+  config.rememberable_options = { :secure => true }
 
   # ==> Configuration for :validatable
   # Range for password length. Default is 6..128.
@@ -159,7 +159,7 @@ Devise.setup do |config|
 
   # ==> OmniAuth
   require "omniauth-facebook"
-  config.omniauth :facebook, "APP_ID", "APP_SECRET"
+  config.omniauth :facebook, "229014007199471", "949de67f08071de0fb92080e5b88ea70"
 
   require 'openid/store/filesystem'
   config.omniauth :open_id, :store => OpenID::Store::Filesystem.new('/tmp'), :name => 'google', :identifier => 'https://www.google.com/accounts/o8/id', :require => 'omniauth-openid'
