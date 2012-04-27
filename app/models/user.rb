@@ -5,14 +5,15 @@ class User < ActiveRecord::Base
          :omniauthable, :lockable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :password, :password_confirmation, :remember_me,
+                  :first_name, :last_name
 
   def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)
     data = access_token.extra.raw_info
     if user = self.find_by_email(data.email)
       user
     else # Create a user with a stub password. 
-      self.create!(:email => data.email, :password => Devise.friendly_token[0,20]) 
+      self.new(:email => data.email, :first_name => data.first_name, :last_name => data.last_name)
    end
   end
 
