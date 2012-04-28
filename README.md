@@ -5,7 +5,7 @@ Get Ready
 * Install rvm: https://rvm.io//rvm/install/
 * Install ruby `rvm install 1.9.3-p194`
 * Use ruby 1.9.3: `rvm use 1.9.3-p194 --default`
-* Update RubyGems: `gem update --system`
+* Update RubyGems: `gem update --system` 
 * Install bundler: `gem install bundler`
 
 Install
