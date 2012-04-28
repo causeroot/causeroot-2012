@@ -12,6 +12,6 @@ Install
 ======
 * Check out the source: `git clone git://github.com/gardner/mensch.git`
 * Change into src dir: `cd mensch`
-* Install required gems: `bundle install` [read this if you receive errors](http://blog.55minutes.com/2012/01/fixing-a-segmentation-fault-in-ruby-193/ "Troubleshoot")
+* Install required gems: `bundle install` [read this if you receive errors](http://stackoverflow.com/questions/9345622/error-running-bundle-install-using-ruby-1-9-3 "Troubleshoot")
 * Run the app: `rails server`
 * Go to http://127.0.0.1:3000 
