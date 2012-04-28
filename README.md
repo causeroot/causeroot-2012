@@ -14,3 +14,5 @@ Install
 * Change into src dir: `cd mensch`
 * Install required gems: `bundle install`
 * Run the app: `rails server`
+* Go to http://127.0.0.1:3000
+* 
