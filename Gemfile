@@ -28,3 +28,6 @@ gem 'omniauth-twitter', '~> 0.0.10'
 gem 'whenever', '~> 0.7.3'
 
 gem "twitter-bootstrap-rails", '~> 2.0.6'
+
+gem "mechanize", '~> 2.4'
+gem "hpricot", '~> 0.8.6'
