@@ -31,3 +31,4 @@ gem "twitter-bootstrap-rails", '~> 2.0.6'
 
 gem "mechanize", '~> 2.4'
 gem "hpricot", '~> 0.8.6'
+gem "unf_ext", '~> 0.0.4'

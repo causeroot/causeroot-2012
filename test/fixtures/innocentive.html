@@ -1,0 +1,2148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>InnoCentive - Challenge Browser</title>
+    <!-- include prototype ajax library javascript dependencies -->
+    
+
+    <!-- include yui ajax library javascript dependencies -->
+    <script type="text/javascript" src="/ar/js/yui/yahoo-dom-event/yahoo-dom-event.js"></script>
+
+    <script type="text/javascript" src="/ar/js/sevenup.0.3.js"></script>
+    
+    
+
+
+    <!--Nifty corners library is included for creating curved edge boxes -->
+    <script type="text/javascript" src="/ar/js/innocentive/nifty.js"></script>
+    <link rel="stylesheet" type="text/css" href="/ar/css/niftyCorners.css">
+    <link rel="stylesheet" type="text/css" href="/ar/css/niftyPrint.css" media="print">
+    
+     <!-- include innocentive application stylesheet dependencies -->
+    <link rel="stylesheet" type="text/css" href="https://www.innocentive.com/sites/innocentive.com/themes/ninesixty/styles/framework/reset.css" media="all"/>
+    <link type="text/css" rel="stylesheet" media="all" href="https://www.innocentive.com/sites/innocentive.com/themes/ninesixty/styles/framework/text.css?"/>
+    <link type="text/css" rel="stylesheet" media="all" href="https://www.innocentive.com/sites/innocentive.com/themes/ninesixty/styles/framework/960-12-col.css?"/>
+    <link type="text/css" rel="stylesheet" media="all" href="/ar/css/font-face.css"/>
+    <link type="text/css" rel="stylesheet" media="all" href="https://www.innocentive.com/sites/innocentive.com/themes/ninesixty/innocentive_960/css/page.css?"/>
+    <link type="text/css" rel="stylesheet" media="all" href="https://www.innocentive.com/sites/innocentive.com/themes/ninesixty/innocentive_960/css/style.css?"/>
+    <link type="text/css" rel="stylesheet" media="all" href="https://www.innocentive.com/modules/system/system-menus.css?"/>
+    <link rel="stylesheet" type="text/css" href="/ar/css/fck.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="/ar/css/main-redesign.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="/ar/css/component.css" media="all"/>
+    <link rel="shortcut icon" href="/ar/images/favicon.ico" type="image/x-icon"/>
+
+    <!--[if IE]>
+        <link rel="stylesheet" href="/ar/css/ie.css" media="all"/>
+    <![endif]-->
+
+    <!--[if IE7]>
+        <link rel="stylesheet" href="/ar/css/ie7.css" media="all"/>
+        <link rel="stylesheet" href="/ar/css/ie7-redesign.css" media="all"/>
+
+        <![endif]-->
+
+    <!--[if IE 6]>
+        <link rel="stylesheet" href="/ar/css/ie6-redesign.css" media="all"/>
+        <![endif]-->
+
+    <!--[if gte IE 9]>
+        <link rel="stylesheet" type="text/css" href="/ar/css/ie9-redesign.css" media="all" />
+<![endif]-->
+
+    <script type="text/javascript">
+        if (navigator.userAgent.toLowerCase().match('chrome')){
+            document.write('<link rel="stylesheet" type="text/css" href="/ar/css/chrome.css">');
+        }
+    </script>
+
+    <!-- include innocentive application javascript dependencies -->
+    
+    <script type="text/javascript" src="/ar/js/innocentive/navigationPanel.js"></script>
+
+
+
+    
+    <meta name="layout" content="topnavchallengebrowse"/>
+    
+    <link rel="stylesheet" type="text/css" href="/ar/css/standard/challengeBrowser.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="/ar/css/standard/myInnoCentive.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="/ar/css/image-nav.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="/ar/js/yui/2.7.0/container/assets/container.css"/>
+    <script type="text/javascript" src="/ar/js/yui/yahoo-dom-event/yahoo-dom-event.js"></script>
+
+    <script type="text/javascript" src="/ar/js/yui/2.7.0/animation/animation-min.js"></script>
+
+    <script type="text/javascript" src="/ar/js/yui/2.7.0/dragdrop/dragdrop-min.js"></script>
+
+    <script type="text/javascript" src="/ar/js/yui/2.7.0/container/container-min.js"></script>
+
+    <script type="text/javascript" src="/ar/js/jquery/jquery-1.4.2.min.js"></script>
+
+    <script type="text/javascript" src="/ar/js/jquery/jquery-ui-1.8.custom.min.js"></script>
+
+    <script type="text/javascript" src="/ar/js/jquery/jquery.cookie.js"></script>
+
+    <link rel="stylesheet" href="/ar/css/redmond/jquery-ui-1.8.custom.css"/>
+    <script type="text/javascript">
+        var $j = jQuery.noConflict();
+    </script>
+    <script type="text/javascript" src="/ar/js/prototype/prototype.js"></script>
+
+    
+    <script type="text/javascript" src= /ar/js/innocentive/challengeBrowse.js></script>
+    <script type="text/javascript" src="https://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4ddadfad274479e6"></script>
+    <script type="text/javascript">
+        var settingsPanel = new YAHOO.widget.Panel();
+        var referralPanel = new YAHOO.widget.Panel();
+        YAHOO.util.Event.addListener(window, "load", init);
+
+        function init() {
+            settingsPanel = new YAHOO.widget.Panel("settings_panel", {fixedcenter: true,visible: false, zIndex: 5, effect: {effect:YAHOO.widget.ContainerEffect.FADE,duration:0.2}, draggable: true, modal: true, context:['saveSettingAnchor','tr','tl'], constraintoviewport: true,close:false});
+            settingsPanel.render(document.body);
+        
+        
+        }
+
+    </script>
+    <script type="text/javascript">
+    if (navigator.userAgent.toLowerCase().match('chrome')){
+        document.write('<link rel="stylesheet" type="text/css" href="/ar/css/chrome.css">');
+    }
+    </script>
+
+    <script type="text/javascript" src="/ar/js/application.js"></script>
+
+</head>
+<body>
+
+<div id="page" class="clearfix">
+    <div id="header" >
+    <div id="header-inner" class="container-12 clearfix">
+        <h1 id="site-name" class="grid-3"><a href="https://www.innocentive.com" rel="home"><span>InnoCentive</span></a></h1>
+        <div id="header-region" class="grid-9">
+            <div id="block-innocentive_core-0" class="block block-innocentive_core">
+                <div class="content">
+                    <span class="js-links">
+                        <ul class="links">
+                            
+                                <li class="register">
+                                    <a href="/ar/registration" title="Click here to register">Register</a>
+                                </li>
+                                
+                                    <li class="login">
+                                        <a href="/ar/login/index" title="Click here to log in"><b>Login</b></a>
+                                    </li>
+                                
+                            
+                            
+                        </ul>
+                    </span>
+                </div>
+            </div>
+            <div id="block-menu-menu-header-links" class="block block-menu">
+
+                <div class="content">
+                    <ul class="menu">
+                        <li class="leaf first"><a href="https://www.innocentive.com/contact-innocentive">1-855-CROWDNOW</a></li>
+                        <li class="leaf"><a href="https://www.innocentive.com/node/1316">Contact Us</a></li>
+                        <li class="leaf"><a href="http://blog.innocentive.com/">Blog</a>&nbsp;&nbsp;&nbsp;|&nbsp;</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <div id="page-frame">
+        <div id='nav' ><div id="nav-inner" class="container-12 clearfix"><div  class="grid-12" ><ul id="primary" class="main-menu links"><li><a class='' href='/ar/workspace/index'><span>My IC</span></a></li><li><a class='' href='https://www.innocentive.com/innovation-solutions/corporate-innovation'><span>Products/Services</span></a></li><li><a class='' href='https://www.innocentive.com/why-solve2'><span>For Solvers</span></a></li><li><a class='active' href='/ar/challenge/browse'><span>Challenge Center</span></a></li><li><a class='' href='https://www.innocentive.com/seekers/innovation-case-studies'><span>Resources</span></a></li><li><a class='' href='https://www.innocentive.com/about-innocentive'><span>About Us</span></a></li></ul><div id='search-box'  ><form action="/ar/challenge/browse" method="get" name="searchForm" id="searchForm" >
+<div>
+<div class="search-form">
+<input type='text' name='search' class='form-text' value='Challenge Search' onFocus="if(this.value == 'Challenge Search') {this.value = '';}" onBlur="if (this.value == '') {this.value = 'Challenge Search';}" />
+                            </div>
+                        <input type="image" src="/ar/images/search-button.gif" class="form-submit" id="edit-submit-1" name="submit">
+                        </div>
+                    </form></div></div></div></div>
+        <form action="/ar/challenge/saveFilterSettings" method="post" name="filterForm" id="filterForm" >
+            <div id="subnav" class="clearfix" style="">
+                <div id="subnav-inner" class="container-12 clearfix">
+                    <ul id="secondary" class="grid-12 sub-menu links">
+                        <li id="innocentive-list-item" class="active" onmouseover="setActiveImage(true, $('innocentive-challenges'));" onmouseout="setActiveImage(false, $('innocentive-challenges'));">
+                            <a id="innocentiveChallengelink" onclick='setSource("InnoCentive Challenges");'>
+                                
+                                    <img id="innocentive-challenges" class="sub-nav-img" src="/ar/images/challenge/innocentive-challenges-on.gif"/>
+                                
+
+                                <p class="challenge-tab-menu">InnoCentive Challenges</p>
+                            </a>
+                        </li>
+                        <li id="pavilion-list-item" onmouseover="setActivePavilion(true);" class="" onmouseout="setActivePavilion(false);">
+                            <a id="pavilionListLink">
+                                
+                                    <img id="private-pavillions" class="sub-nav-img" src="/ar/images/challenge/private-pavillions-off.gif"/>
+                                
+                                <p class="challenge-tab-menu">Pavilions</p>
+
+                            </a>
+                            <div id="pavilion-overlay"><table style="margin:14px;border-collapse:separate;"><tr><td style="cursor:pointer;" onmouseover="highlightPavilionCell(true,this);" onmouseout="highlightPavilionCell(false,this);" onclick="window.location = '/ar/challenge/browse?pavilionName=Cleveland+Clinic&pavilionId=17&source=pavilion';" ><span class="pavilion-list-text" ><img src="/ar/images/pavilions/cc-p-52x30.gif" width="50" height="30" style="margin:4px;border:1px solid #cdcdcd;vertical-align:middle;"/> Cleveland Clinic </span></td><td style="cursor:pointer;" onmouseover="highlightPavilionCell(true,this);" onmouseout="highlightPavilionCell(false,this);" onclick="window.location = '/ar/challenge/browse?pavilionName=EDF&pavilionId=15&source=pavilion';" ><span class="pavilion-list-text" ><img src="/ar/images/pavilions/edf-p-52x30.gif" width="50" height="30" style="margin:4px;border:1px solid #cdcdcd;vertical-align:middle;"/> EDF </span></td></tr><tr><td style="cursor:pointer;" onmouseover="highlightPavilionCell(true,this);" onmouseout="highlightPavilionCell(false,this);" onclick="window.location = '/ar/challenge/browse?pavilionName=Life+Grand+Challenges&pavilionId=14&source=pavilion';" ><span class="pavilion-list-text" ><img src="/ar/images/pavilions/life-p-52x30.gif" width="50" height="30" style="margin:4px;border:1px solid #cdcdcd;vertical-align:middle;"/> Life Grand Challenges </span></td><td style="cursor:pointer;" onmouseover="highlightPavilionCell(true,this);" onmouseout="highlightPavilionCell(false,this);" onclick="window.location = '/ar/challenge/browse?pavilionName=NASA&pavilionId=8&source=pavilion';" ><span class="pavilion-list-text" ><img src="/ar/images/pavilions/nasa-p-52x30.gif" width="50" height="30" style="margin:4px;border:1px solid #cdcdcd;vertical-align:middle;"/> NASA </span></td></tr><tr><td style="cursor:pointer;" onmouseover="highlightPavilionCell(true,this);" onmouseout="highlightPavilionCell(false,this);" onclick="window.location = '/ar/challenge/browse?pavilionName=Nature&pavilionId=7&source=pavilion';" ><span class="pavilion-list-text" ><img src="/ar/images/pavilions/nature-p-52x30.gif" width="50" height="30" style="margin:4px;border:1px solid #cdcdcd;vertical-align:middle;"/> Nature </span></td><td style="cursor:pointer;" onmouseover="highlightPavilionCell(true,this);" onmouseout="highlightPavilionCell(false,this);" onclick="window.location = '/ar/challenge/browse?pavilionName=Popular+Science&pavilionId=16&source=pavilion';" ><span class="pavilion-list-text" ><img src="/ar/images/pavilions/popsci-p-52x30.gif" width="50" height="30" style="margin:4px;border:1px solid #cdcdcd;vertical-align:middle;"/> Popular Science </span></td></tr><tr><td style="cursor:pointer;" onmouseover="highlightPavilionCell(true,this);" onmouseout="highlightPavilionCell(false,this);" onclick="window.location = '/ar/challenge/browse?pavilionName=SAP&pavilionId=6&source=pavilion';" ><span class="pavilion-list-text" ><img src="/ar/images/pavilions/sap-p-52x30.gif" width="50" height="30" style="margin:4px;border:1px solid #cdcdcd;vertical-align:middle;"/> SAP </span></td><td style="cursor:pointer;" onmouseover="highlightPavilionCell(true,this);" onmouseout="highlightPavilionCell(false,this);" onclick="window.location = '/ar/challenge/browse?pavilionName=Tec%5EEdge+%28Air+Force%29&pavilionId=13&source=pavilion';" ><span class="pavilion-list-text" ><img src="/ar/images/pavilions/tec^edge-p-52x30.gif" width="50" height="30" style="margin:4px;border:1px solid #cdcdcd;vertical-align:middle;"/> Tec^Edge (Air Force) </span></td></tr><tr><td style="cursor:pointer;" onmouseover="highlightPavilionCell(true,this);" onmouseout="highlightPavilionCell(false,this);" onclick="window.location = '/ar/challenge/browse?pavilionName=The+Economist&pavilionId=11&source=pavilion';" ><span class="pavilion-list-text" ><img src="/ar/images/pavilions/economist-p-52x30.gif" width="50" height="30" style="margin:4px;border:1px solid #cdcdcd;vertical-align:middle;"/> The Economist </span></td><td style="cursor:pointer;" onmouseover="highlightPavilionCell(true,this);" onmouseout="highlightPavilionCell(false,this);" onclick="window.location = '/ar/challenge/browse?pavilionName=Clean+Tech&pavilionId=2&source=pavilion';" ><span class="pavilion-list-text" ><img src="/ar/images/pavilions/clean-p-52x30.gif" width="50" height="30" style="margin:4px;border:1px solid #cdcdcd;vertical-align:middle;"/> Clean Tech </span></td></tr><tr><td style="cursor:pointer;" onmouseover="highlightPavilionCell(true,this);" onmouseout="highlightPavilionCell(false,this);" onclick="window.location = '/ar/challenge/browse?pavilionName=Developing+Countries&pavilionId=1&source=pavilion';" ><span class="pavilion-list-text" ><img src="/ar/images/pavilions/developing-p-52x30.gif" width="50" height="30" style="margin:4px;border:1px solid #cdcdcd;vertical-align:middle;"/> Developing Countries </span></td><td style="cursor:pointer;" onmouseover="highlightPavilionCell(true,this);" onmouseout="highlightPavilionCell(false,this);" onclick="window.location = '/ar/challenge/browse?pavilionName=Emergency+Response&pavilionId=9&source=pavilion';" ><span class="pavilion-list-text" ><img src="/ar/images/pavilions/emergency-p-52x30.gif" width="50" height="30" style="margin:4px;border:1px solid #cdcdcd;vertical-align:middle;"/> Emergency Response </span></td></tr><tr><td style="cursor:pointer;" onmouseover="highlightPavilionCell(true,this);" onmouseout="highlightPavilionCell(false,this);" onclick="window.location = '/ar/challenge/browse?pavilionName=Environment&pavilionId=18&source=pavilion';" ><span class="pavilion-list-text" ><img src="/ar/images/pavilions/environment-p-52x30.jpg" width="50" height="30" style="margin:4px;border:1px solid #cdcdcd;vertical-align:middle;"/> Environment </span></td><td style="cursor:pointer;" onmouseover="highlightPavilionCell(true,this);" onmouseout="highlightPavilionCell(false,this);" onclick="window.location = '/ar/challenge/browse?pavilionName=Global+Health&pavilionId=3&source=pavilion';" ><span class="pavilion-list-text" ><img src="/ar/images/pavilions/health-p-52x30.gif" width="50" height="30" style="margin:4px;border:1px solid #cdcdcd;vertical-align:middle;"/> Global Health </span></td></tr><tr><td style="cursor:pointer;" onmouseover="highlightPavilionCell(true,this);" onmouseout="highlightPavilionCell(false,this);" onclick="window.location = '/ar/challenge/browse?pavilionName=Novel+Molecules&pavilionId=12&source=pavilion';" ><span class="pavilion-list-text" ><img src="/ar/images/pavilions/nmc_pavilion_button.jpg" width="50" height="30" style="margin:4px;border:1px solid #cdcdcd;vertical-align:middle;"/> Novel Molecules </span></td><td style="cursor:pointer;" onmouseover="highlightPavilionCell(true,this);" onmouseout="highlightPavilionCell(false,this);" onclick="window.location = '/ar/challenge/browse?pavilionName=Public+Good&pavilionId=4&source=pavilion';" ><span class="pavilion-list-text" ><img src="/ar/images/pavilions/public-p-52x30.gif" width="50" height="30" style="margin:4px;border:1px solid #cdcdcd;vertical-align:middle;"/> Public Good </span></td></tr></table></div>
+                        </li>
+                        
+                            <li id="partner-list-item" class="" onmouseover="setActiveImage(true, $('other-challenges'));" onmouseout="setActiveImage(false, $('other-challenges'));">
+                                <a onclick='setSource("Partner Challenges");' id="partnerChallengelink">
+                                    
+                                        <img id="other-challenges" class="sub-nav-img" src="/ar/images/challenge/other-challenges-off.gif"/>
+                                    
+                                    <p class="challenge-tab-menu">External  Challenges</p>
+                                </a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div><!--End subnav -->
+            <div id="main" class="container-12" style="margin-top:20px">
+                <div id="pavilion-banner" style="display:none">
+                    <div id="pavilion-header">
+                        
+                    </div>
+                    
+                    <div class="tabContainer" style="margin-top:30px;height:20px"><div style='float:left'><ul class="tabList"></ul></div><div style='float:right'><span float='float:right'><a href='/ar/feeds/rss'><img src='/ar/images/challenge_rss.gif'  alt='RSS Feed' title='RSS Feed'></a></span></div></div><div class='clear'></div>
+                    <div class="pavilion-border"></div>
+                </div><!--End pavilion-banner -->
+                <div id="filters-panel">
+                    <div id="filters">
+                        <input type="hidden" id="sortProp" name="sortProp" value="Posted"/>
+                        <input type="hidden" id="sortOrder" name="sortOrder" value="desc"/>
+                        <input type="hidden" id="expandAction" name="expandAction" value="expand"/>
+                        <input type="hidden" id="pavilionId" name="pavilionId" value=""/>
+                        <input type="hidden" id="pavilionName" name="pavilionName" value=""/>
+                        <input type="hidden" id="categoryName" name="categoryName" value=""/>
+                        <input type="hidden" id="filterId" name="filterId" value=""/>
+                        <input type="hidden" id="refreshOffset" name="refreshOffset" value=""/>
+                        <input type="hidden" id="pagefiltered" name="pagefiltered" value=""/>
+                        
+                            <input type="hidden" id="source" name="source" value="innocentive"/>
+                        
+                        <input type="hidden" name="max" value="10"/>
+                        <div id="partners" style="display:none">
+                            <div class="heading">Filters</div>
+                            <span><div id='partner_tree'><input type='checkbox' class='partner' name='pt_all' id='pt_all' onclick="checkPartners(this);" /> <label for='cb_all' style='font-size:12px'>All Challenges</label></span><br/><span><input type='checkbox' class='partner' name='pt_1' style='margin-left:13px' id='pt_1' onclick="checkPartners(this);" /> <span style='white-space:nowrap' ><label for='cb_1'>Partner A</label></span></span><br/><span><input type='checkbox' class='partner' name='pt_2' style='margin-left:13px' id='pt_2' onclick="checkPartners(this);" /> <span style='white-space:nowrap' ><label for='cb_2'>Partner B</label></span></span><br/><span><input type='checkbox' class='partner' name='pt_3' style='margin-left:13px' id='pt_3' onclick="checkPartners(this);" /> <span style='white-space:nowrap' ><label for='cb_3'>Partner C</label></span></span><br/><span><input type='checkbox' class='partner' name='pt_4' style='margin-left:13px' id='pt_4' onclick="checkPartners(this);" /> <span style='white-space:nowrap' ><label for='cb_4'>Partner D</label></span></span><br/></div>
+                        </div><!-- end partners -->
+                        <div id="categories" style="display:none">
+                            <div class="heading">Filters</div>
+                            
+                              <div id="sources" style="display:block">
+                                All Challenge Sources
+                                <span id="sourceslist">
+                        <br/>
+                        <div style="display: block ; font-weight:normal;" id="submission_type">
+                            <span  style="display: block ; font-weight:normal;"  >
+                            <input id="source_premium"
+                                    name="source_premium"
+                                    
+                                    onclick="filterResults(this.form, this);" type="checkbox">
+                                <label for="source_premium">Premium</label></span>
+                            <span><input id="source_standard"
+                                    name="source_standard"
+                                    
+                                    onclick="filterResults(this.form, this);" type="checkbox">
+                                <label for="source_standard">Brainstorm</label></span><br>
+                        </div>
+
+                        <div style="width: 200px;" class="dotted-line-style"></div>
+
+                    </span>
+                              </div>
+                            
+                            All Challenge Disciplines
+                            <span id="disciplines"><div id='discipline_tree'><span><input type='checkbox' class='discipline' name='cb_1844' id='cb_1844' onclick="$('cb_1845').checked=false;$('cb_1846').checked=false;$('cb_1847').checked=false;$('cb_1848').checked=false;$('cb_1849').checked=false;$('cb_1850').checked=false;$('cb_1851').checked=false;$('cb_1852').checked=false;$('cb_1853').checked=false;$('cb_1854').checked=false;$('cb_1855').checked=false;filterResults(this.form , this);" /> <img id="open_1844" src="/ar/images/right_arrow.gif" style="display:inline;cursor:pointer;margin-left:-2px;padding-bottom:2px" onclick="openNode('1844');" /><img id="close_1844" src="/ar/images/down_arrow.gif" style="display:none;cursor:pointer;margin-left:-2px;padding-bottom:2px" onclick="closeNode('1844');" /><label  ' for='cb_1844'>&nbsp;Business & Entrepreneurship</label></span><br/><div id='children_1844' style='display:none;'><span><input type='checkbox' class='subcategory' name='cb_1845' style='margin-left:15px;' id="cb_1845" onclick="$('cb_1844').checked=false;filterResults(this.form,this);" /><label style='white-space:nowrap;' for='cb_1845'>Business Plan Development</label></span><br/><span><input type='checkbox' class='subcategory' name='cb_1846' style='margin-left:15px;' id="cb_1846" onclick="$('cb_1844').checked=false;filterResults(this.form,this);" /><label style='white-space:nowrap;' for='cb_1846'>Business Process Engineer..</label></span><br/><span><input type='checkbox' class='subcategory' name='cb_1847' style='margin-left:15px;' id="cb_1847" onclick="$('cb_1844').checked=false;filterResults(this.form,this);" /><label style='white-space:nowrap;' for='cb_1847'>Channels & Business Devel..</label></span><br/><span><input type='checkbox' class='subcategory' name='cb_1848' style='margin-left:15px;' id="cb_1848" onclick="$('cb_1844').checked=false;filterResults(this.form,this);" /><label style='white-space:nowrap;' for='cb_1848'>Financial Planning & Anal..</label></span><br/><span><input type='checkbox' class='subcategory' name='cb_1849' style='margin-left:15px;' id="cb_1849" onclick="$('cb_1844').checked=false;filterResults(this.form,this);" /><label style='white-space:nowrap;' for='cb_1849'>IT Strategy</label></span><br/><span><input type='checkbox' class='subcategory' name='cb_1850' style='margin-left:15px;' id="cb_1850" onclick="$('cb_1844').checked=false;filterResults(this.form,this);" /><label style='white-space:nowrap;' for='cb_1850'>Market Research</label></span><br/><span><input type='checkbox' class='subcategory' name='cb_1851' style='margin-left:15px;' id="cb_1851" onclick="$('cb_1844').checked=false;filterResults(this.form,this);" /><label style='white-space:nowrap;' for='cb_1851'>Marketing - Creative Serv..</label></span><br/><span><input type='checkbox' class='subcategory' name='cb_1852' style='margin-left:15px;' id="cb_1852" onclick="$('cb_1844').checked=false;filterResults(this.form,this);" /><label style='white-space:nowrap;' for='cb_1852'>Mergers & Acquisitions</label></span><br/><span><input type='checkbox' class='subcategory' name='cb_1853' style='margin-left:15px;' id="cb_1853" onclick="$('cb_1844').checked=false;filterResults(this.form,this);" /><label style='white-space:nowrap;' for='cb_1853'>Physical Distribution & L..</label></span><br/><span><input type='checkbox' class='subcategory' name='cb_1854' style='margin-left:15px;' id="cb_1854" onclick="$('cb_1844').checked=false;filterResults(this.form,this);" /><label style='white-space:nowrap;' for='cb_1854'>Product Development & Man..</label></span><br/><span><input type='checkbox' class='subcategory' name='cb_1855' style='margin-left:15px;' id="cb_1855" onclick="$('cb_1844').checked=false;filterResults(this.form,this);" /><label style='white-space:nowrap;' for='cb_1855'>Sales & Marketing Strateg..</label></span><br/></div><span><input type='checkbox' class='discipline' name='cb_1856' id='cb_1856' onclick="$('cb_1857').checked=false;$('cb_1858').checked=false;$('cb_1859').checked=false;$('cb_1860').checked=false;$('cb_1861').checked=false;$('cb_1862').checked=false;$('cb_1863').checked=false;$('cb_1864').checked=false;$('cb_1865').checked=false;filterResults(this.form , this);" /> <img id="open_1856" src="/ar/images/right_arrow.gif" style="display:inline;cursor:pointer;margin-left:-2px;padding-bottom:2px" onclick="openNode('1856');" /><img id="close_1856" src="/ar/images/down_arrow.gif" style="display:none;cursor:pointer;margin-left:-2px;padding-bottom:2px" onclick="closeNode('1856');" /><label  ' for='cb_1856'>&nbsp;Chemistry</label></span><br/><div id='children_1856' style='display:none;'><span><input type='checkbox' class='subcategory' name='cb_1857' style='margin-left:15px;' id="cb_1857" onclick="$('cb_1856').checked=false;filterResults(this.form,this);" /><label style='white-space:nowrap;' for='cb_1857'>Analytical Chemistry</label></span><br/><span><input type='checkbox' class='subcategory' name='cb_1858' style='margin-left:15px;' id="cb_1858" onclick="$('cb_1856').checked=false;filterResults(this.form,this);" /><label style='white-space:nowrap;' for='cb_1858'>Biochemistry</label></span><br/><span><input type='checkbox' class='subcategory' name='cb_1859' style='margin-left:15px;' id="cb_1859" onclick="$('cb_1856').checked=false;filterResults(this.form,this);" /><label style='white-space:nowrap;' for='cb_1859'>Catalysis</label></span><br/><span><input type='checkbox' class='subcategory' name='cb_1860' style='margin-left:15px;' id="cb_1860" onclick="$('cb_1856').checked=false;filterResults(this.form,this);" /><label style='white-space:nowrap;' for='cb_1860'>Environmental Chemistry</label></span><br/><span><input type='checkbox' class='subcategory' name='cb_1861' style='margin-left:15px;' id="cb_1861" onclick="$('cb_1856').checked=false;filterResults(this.form,this);" /><label style='white-space:nowrap;' for='cb_1861'>Inorganic Chemistry</label></span><br/><span><input type='checkbox' class='subcategory' name='cb_1862' style='margin-left:15px;' id="cb_1862" onclick="$('cb_1856').checked=false;filterResults(this.form,this);" /><label style='white-space:nowrap;' for='cb_1862'>Organic Chemistry</label></span><br/><span><input type='checkbox' class='subcategory' name='cb_1863' style='margin-left:15px;' id="cb_1863" onclick="$('cb_1856').checked=false;filterResults(this.form,this);" /><label style='white-space:nowrap;' for='cb_1863'>Physical Chemistry</label></span><br/><span><input type='checkbox' class='subcategory' name='cb_1864' style='margin-left:15px;' id="cb_1864" onclick="$('cb_1856').checked=false;filterResults(this.form,this);" /><label style='white-space:nowrap;' for='cb_1864'>Polymer Chemistry</label></span><br/><span><input type='checkbox' class='subcategory' name='cb_1865' style='margin-left:15px;' id="cb_1865" onclick="$('cb_1856').checked=false;filterResults(this.form,this);" /><label style='white-space:nowrap;' for='cb_1865'>Synthetic Chemistry</label></span><br/></div><span><input type='checkbox' class='discipline' name='cb_1866' id='cb_1866' onclick="$('cb_1867').checked=false;$('cb_1868').checked=false;$('cb_1869').checked=false;$('cb_1870').checked=false;$('cb_1871').checked=false;$('cb_1872').checked=false;$('cb_1873').checked=false;$('cb_1874').checked=false;filterResults(this.form , this);" /> <img id="open_1866" src="/ar/images/right_arrow.gif" style="display:inline;cursor:pointer;margin-left:-2px;padding-bottom:2px" onclick="openNode('1866');" /><img id="close_1866" src="/ar/images/down_arrow.gif" style="display:none;cursor:pointer;margin-left:-2px;padding-bottom:2px" onclick="closeNode('1866');" /><label  ' for='cb_1866'>&nbsp;Computer/Info. Technology</label></span><br/><div id='children_1866' style='display:none;'><span><input type='checkbox' class='subcategory' name='cb_1867' style='margin-left:15px;' id="cb_1867" onclick="$('cb_1866').checked=false;filterResults(this.form,this);" /><label style='white-space:nowrap;' for='cb_1867'>Appns/Programming Languag..</label></span><br/><span><input type='checkbox' class='subcategory' name='cb_1868' style='margin-left:15px;' id="cb_1868" onclick="$('cb_1866').checked=false;filterResults(this.form,this);" /><label style='white-space:nowrap;' for='cb_1868'>Artificial Intelligence</label></span><br/><span><input type='checkbox' class='subcategory' name='cb_1869' style='margin-left:15px;' id="cb_1869" onclick="$('cb_1866').checked=false;filterResults(this.form,this);" /><label style='white-space:nowrap;' for='cb_1869'>Bioinformatics</label></span><br/><span><input type='checkbox' class='subcategory' name='cb_1870' style='margin-left:15px;' id="cb_1870" onclick="$('cb_1866').checked=false;filterResults(this.form,this);" /><label style='white-space:nowrap;' for='cb_1870'>Cheminformatics</label></span><br/><span><input type='checkbox' class='subcategory' name='cb_1871' style='margin-left:15px;' id="cb_1871" onclick="$('cb_1866').checked=false;filterResults(this.form,this);" /><label style='white-space:nowrap;' for='cb_1871'>Computer Algorithms</label></span><br/><span><input type='checkbox' class='subcategory' name='cb_1872' style='margin-left:15px;' id="cb_1872" onclick="$('cb_1866').checked=false;filterResults(this.form,this);" /><label style='white-space:nowrap;' for='cb_1872'>Human Interface</label></span><br/><span><input type='checkbox' class='subcategory' name='cb_1873' style='margin-left:15px;' id="cb_1873" onclick="$('cb_1866').checked=false;filterResults(this.form,this);" /><label style='white-space:nowrap;' for='cb_1873'>Internet/Web Technology</label></span><br/><span><input type='checkbox' class='subcategory' name='cb_1874' style='margin-left:15px;' id="cb_1874" onclick="$('cb_1866').checked=false;filterResults(this.form,this);" /><label style='white-space:nowrap;' for='cb_1874'>Systems Architecture/Inte..</label></span><br/></div><span><input type='checkbox' class='discipline' name='cb_1875' id='cb_1875' onclick="$('cb_1876').checked=false;$('cb_1877').checked=false;$('cb_1878').checked=false;$('cb_1879').checked=false;$('cb_1880').checked=false;$('cb_1881').checked=false;$('cb_1882').checked=false;$('cb_1883').checked=false;$('cb_1884').checked=false;$('cb_1885').checked=false;filterResults(this.form , this);" /> <img id="open_1875" src="/ar/images/right_arrow.gif" style="display:inline;cursor:pointer;margin-left:-2px;padding-bottom:2px" onclick="openNode('1875');" /><img id="close_1875" src="/ar/images/down_arrow.gif" style="display:none;cursor:pointer;margin-left:-2px;padding-bottom:2px" onclick="closeNode('1875');" /><label  ' for='cb_1875'>&nbsp;Engineering/Design</label></span><br/><div id='children_1875' style='display:none;'><span><input type='checkbox' class='subcategory' name='cb_1876' style='margin-left:15px;' id="cb_1876" onclick="$('cb_1875').checked=false;filterResults(this.form,this);" /><label style='white-space:nowrap;' for='cb_1876'>Aerospace Engineering</label></span><br/><span><input type='checkbox' class='subcategory' name='cb_1877' style='margin-left:15px;' id="cb_1877" onclick="$('cb_1875').checked=false;filterResults(this.form,this);" /><label style='white-space:nowrap;' for='cb_1877'>Bioengineering</label></span><br/><span><input type='checkbox' class='subcategory' name='cb_1878' style='margin-left:15px;' id="cb_1878" onclick="$('cb_1875').checked=false;filterResults(this.form,this);" /><label style='white-space:nowrap;' for='cb_1878'>Chemical Engineering</label></span><br/><span><input type='checkbox' class='subcategory' name='cb_1879' style='margin-left:15px;' id="cb_1879" onclick="$('cb_1875').checked=false;filterResults(this.form,this);" /><label style='white-space:nowrap;' for='cb_1879'>Civil Engineering</label></span><br/><span><input type='checkbox' class='subcategory' name='cb_1880' style='margin-left:15px;' id="cb_1880" onclick="$('cb_1875').checked=false;filterResults(this.form,this);" /><label style='white-space:nowrap;' for='cb_1880'>Electrical/Electronics</label></span><br/><span><input type='checkbox' class='subcategory' name='cb_1881' style='margin-left:15px;' id="cb_1881" onclick="$('cb_1875').checked=false;filterResults(this.form,this);" /><label style='white-space:nowrap;' for='cb_1881'>Ergonomics</label></span><br/><span><input type='checkbox' class='subcategory' name='cb_1882' style='margin-left:15px;' id="cb_1882" onclick="$('cb_1875').checked=false;filterResults(this.form,this);" /><label style='white-space:nowrap;' for='cb_1882'>Mechanical Engineering</label></span><br/><span><input type='checkbox' class='subcategory' name='cb_1883' style='margin-left:15px;' id="cb_1883" onclick="$('cb_1875').checked=false;filterResults(this.form,this);" /><label style='white-space:nowrap;' for='cb_1883'>Packaging</label></span><br/><span><input type='checkbox' class='subcategory' name='cb_1884' style='margin-left:15px;' id="cb_1884" onclick="$('cb_1875').checked=false;filterResults(this.form,this);" /><label style='white-space:nowrap;' for='cb_1884'>Process Design/Support</label></span><br/><span><input type='checkbox' class='subcategory' name='cb_1885' style='margin-left:15px;' id="cb_1885" onclick="$('cb_1875').checked=false;filterResults(this.form,this);" /><label style='white-space:nowrap;' for='cb_1885'>Robotics</label></span><br/></div><span><input type='checkbox' class='discipline' name='cb_1886' id='cb_1886' onclick="filterResults(this.form , this);" /> <img id="open_1886" src="/ar/images/right_arrow.gif" style="display:inline;cursor:pointer;margin-left:-2px;padding-bottom:2px" onclick="openNode('1886');" /><img id="close_1886" src="/ar/images/down_arrow.gif" style="display:none;cursor:pointer;margin-left:-2px;padding-bottom:2px" onclick="closeNode('1886');" /><label  ' for='cb_1886'>&nbsp;Food/Agriculture</label></span><br/><div id='children_1886' style='display:none;'></div><span><input type='checkbox' class='discipline' name='cb_1887' id='cb_1887' onclick="$('cb_1888').checked=false;$('cb_1889').checked=false;$('cb_1890').checked=false;$('cb_1891').checked=false;$('cb_1892').checked=false;$('cb_1893').checked=false;$('cb_1894').checked=false;$('cb_1895').checked=false;filterResults(this.form , this);" /> <img id="open_1887" src="/ar/images/right_arrow.gif" style="display:inline;cursor:pointer;margin-left:-2px;padding-bottom:2px" onclick="openNode('1887');" /><img id="close_1887" src="/ar/images/down_arrow.gif" style="display:none;cursor:pointer;margin-left:-2px;padding-bottom:2px" onclick="closeNode('1887');" /><label  ' for='cb_1887'>&nbsp;Life Sciences</label></span><br/><div id='children_1887' style='display:none;'><span><input type='checkbox' class='subcategory' name='cb_1888' style='margin-left:15px;' id="cb_1888" onclick="$('cb_1887').checked=false;filterResults(this.form,this);" /><label style='white-space:nowrap;' for='cb_1888'>Biology</label></span><br/><span><input type='checkbox' class='subcategory' name='cb_1889' style='margin-left:15px;' id="cb_1889" onclick="$('cb_1887').checked=false;filterResults(this.form,this);" /><label style='white-space:nowrap;' for='cb_1889'>Biomarkers/Diagnostics</label></span><br/><span><input type='checkbox' class='subcategory' name='cb_1890' style='margin-left:15px;' id="cb_1890" onclick="$('cb_1887').checked=false;filterResults(this.form,this);" /><label style='white-space:nowrap;' for='cb_1890'>Genetics/Genomics</label></span><br/><span><input type='checkbox' class='subcategory' name='cb_1891' style='margin-left:15px;' id="cb_1891" onclick="$('cb_1887').checked=false;filterResults(this.form,this);" /><label style='white-space:nowrap;' for='cb_1891'>Medicine</label></span><br/><span><input type='checkbox' class='subcategory' name='cb_1892' style='margin-left:15px;' id="cb_1892" onclick="$('cb_1887').checked=false;filterResults(this.form,this);" /><label style='white-space:nowrap;' for='cb_1892'>Molecular Biology</label></span><br/><span><input type='checkbox' class='subcategory' name='cb_1893' style='margin-left:15px;' id="cb_1893" onclick="$('cb_1887').checked=false;filterResults(this.form,this);" /><label style='white-space:nowrap;' for='cb_1893'>Pharmacology</label></span><br/><span><input type='checkbox' class='subcategory' name='cb_1894' style='margin-left:15px;' id="cb_1894" onclick="$('cb_1887').checked=false;filterResults(this.form,this);" /><label style='white-space:nowrap;' for='cb_1894'>Physiology</label></span><br/><span><input type='checkbox' class='subcategory' name='cb_1895' style='margin-left:15px;' id="cb_1895" onclick="$('cb_1887').checked=false;filterResults(this.form,this);" /><label style='white-space:nowrap;' for='cb_1895'>Toxicology</label></span><br/></div><span><input type='checkbox' class='discipline' name='cb_1896' id='cb_1896' onclick="$('cb_1897').checked=false;$('cb_1898').checked=false;$('cb_1899').checked=false;$('cb_1900').checked=false;$('cb_1901').checked=false;filterResults(this.form , this);" /> <img id="open_1896" src="/ar/images/right_arrow.gif" style="display:inline;cursor:pointer;margin-left:-2px;padding-bottom:2px" onclick="openNode('1896');" /><img id="close_1896" src="/ar/images/down_arrow.gif" style="display:none;cursor:pointer;margin-left:-2px;padding-bottom:2px" onclick="closeNode('1896');" /><label  ' for='cb_1896'>&nbsp;Math/Statistics</label></span><br/><div id='children_1896' style='display:none;'><span><input type='checkbox' class='subcategory' name='cb_1897' style='margin-left:15px;' id="cb_1897" onclick="$('cb_1896').checked=false;filterResults(this.form,this);" /><label style='white-space:nowrap;' for='cb_1897'>Game Theory</label></span><br/><span><input type='checkbox' class='subcategory' name='cb_1898' style='margin-left:15px;' id="cb_1898" onclick="$('cb_1896').checked=false;filterResults(this.form,this);" /><label style='white-space:nowrap;' for='cb_1898'>Information Processing</label></span><br/><span><input type='checkbox' class='subcategory' name='cb_1899' style='margin-left:15px;' id="cb_1899" onclick="$('cb_1896').checked=false;filterResults(this.form,this);" /><label style='white-space:nowrap;' for='cb_1899'>Modeling/Optimization</label></span><br/><span><input type='checkbox' class='subcategory' name='cb_1900' style='margin-left:15px;' id="cb_1900" onclick="$('cb_1896').checked=false;filterResults(this.form,this);" /><label style='white-space:nowrap;' for='cb_1900'>Operations Research</label></span><br/><span><input type='checkbox' class='subcategory' name='cb_1901' style='margin-left:15px;' id="cb_1901" onclick="$('cb_1896').checked=false;filterResults(this.form,this);" /><label style='white-space:nowrap;' for='cb_1901'>Probability/Statistics</label></span><br/></div><span><input type='checkbox' class='discipline' name='cb_1902' id='cb_1902' onclick="$('cb_1903').checked=false;$('cb_1904').checked=false;$('cb_1905').checked=false;$('cb_1906').checked=false;$('cb_1907').checked=false;$('cb_1908').checked=false;$('cb_1909').checked=false;$('cb_1910').checked=false;$('cb_1911').checked=false;$('cb_1912').checked=false;filterResults(this.form , this);" /> <img id="open_1902" src="/ar/images/right_arrow.gif" style="display:inline;cursor:pointer;margin-left:-2px;padding-bottom:2px" onclick="openNode('1902');" /><img id="close_1902" src="/ar/images/down_arrow.gif" style="display:none;cursor:pointer;margin-left:-2px;padding-bottom:2px" onclick="closeNode('1902');" /><label  ' for='cb_1902'>&nbsp;Physical Sciences</label></span><br/><div id='children_1902' style='display:none;'><span><input type='checkbox' class='subcategory' name='cb_1903' style='margin-left:15px;' id="cb_1903" onclick="$('cb_1902').checked=false;filterResults(this.form,this);" /><label style='white-space:nowrap;' for='cb_1903'>BioPhysics</label></span><br/><span><input type='checkbox' class='subcategory' name='cb_1904' style='margin-left:15px;' id="cb_1904" onclick="$('cb_1902').checked=false;filterResults(this.form,this);" /><label style='white-space:nowrap;' for='cb_1904'>Formulation</label></span><br/><span><input type='checkbox' class='subcategory' name='cb_1905' style='margin-left:15px;' id="cb_1905" onclick="$('cb_1902').checked=false;filterResults(this.form,this);" /><label style='white-space:nowrap;' for='cb_1905'>Geology</label></span><br/><span><input type='checkbox' class='subcategory' name='cb_1906' style='margin-left:15px;' id="cb_1906" onclick="$('cb_1902').checked=false;filterResults(this.form,this);" /><label style='white-space:nowrap;' for='cb_1906'>Materials Science</label></span><br/><span><input type='checkbox' class='subcategory' name='cb_1907' style='margin-left:15px;' id="cb_1907" onclick="$('cb_1902').checked=false;filterResults(this.form,this);" /><label style='white-space:nowrap;' for='cb_1907'>Metallurgy</label></span><br/><span><input type='checkbox' class='subcategory' name='cb_1908' style='margin-left:15px;' id="cb_1908" onclick="$('cb_1902').checked=false;filterResults(this.form,this);" /><label style='white-space:nowrap;' for='cb_1908'>Nanotechnology</label></span><br/><span><input type='checkbox' class='subcategory' name='cb_1909' style='margin-left:15px;' id="cb_1909" onclick="$('cb_1902').checked=false;filterResults(this.form,this);" /><label style='white-space:nowrap;' for='cb_1909'>Physics</label></span><br/><span><input type='checkbox' class='subcategory' name='cb_1910' style='margin-left:15px;' id="cb_1910" onclick="$('cb_1902').checked=false;filterResults(this.form,this);" /><label style='white-space:nowrap;' for='cb_1910'>Polymer Physics</label></span><br/><span><input type='checkbox' class='subcategory' name='cb_1911' style='margin-left:15px;' id="cb_1911" onclick="$('cb_1902').checked=false;filterResults(this.form,this);" /><label style='white-space:nowrap;' for='cb_1911'>Specialty Films</label></span><br/><span><input type='checkbox' class='subcategory' name='cb_1912' style='margin-left:15px;' id="cb_1912" onclick="$('cb_1902').checked=false;filterResults(this.form,this);" /><label style='white-space:nowrap;' for='cb_1912'>Surface Science</label></span><br/></div><span><input type='checkbox' class='discipline' name='cb_1913' id='cb_1913' onclick="filterResults(this.form , this);" /> <img id="open_1913" src="/ar/images/right_arrow.gif" style="display:inline;cursor:pointer;margin-left:-2px;padding-bottom:2px" onclick="openNode('1913');" /><img id="close_1913" src="/ar/images/down_arrow.gif" style="display:none;cursor:pointer;margin-left:-2px;padding-bottom:2px" onclick="closeNode('1913');" /><label  ' for='cb_1913'>&nbsp;Requests for Partners</label></span><br/><div id='children_1913' style='display:none;'></div></div></span>
+                        </div><!-- end categories -->
+
+                        <div id="pavilions" style="display:block">
+                            <div style="width:200px" class="dotted-line-style"></div>
+                            All Pavilions
+                            <span id="pavilionlist"><div id='pavlion_tree'><span><input type='checkbox' class='pavilion' name='pv_1929' id='pv_1929' onclick="filterResults(this.form,this);" /> <span style='white-space:nowrap' ><label for='cb_1929'>Cleveland Clinic</label></span>&nbsp;<span style='color:#666'>| </span><a href='/ar/challenge/browse?pavilionName=Cleveland+Clinic&pavilionId=1929&source=pavilion'><span style='color:#08509a;font-weight:bold'>visit &#187;</span></a></span><br/><span><input type='checkbox' class='pavilion' name='pv_1927' id='pv_1927' onclick="filterResults(this.form,this);" /> <span style='white-space:nowrap' ><label for='cb_1927'>EDF</label></span>&nbsp;<span style='color:#666'>| </span><a href='/ar/challenge/browse?pavilionName=EDF&pavilionId=1927&source=pavilion'><span style='color:#08509a;font-weight:bold'>visit &#187;</span></a></span><br/><span><input type='checkbox' class='pavilion' name='pv_1926' id='pv_1926' onclick="filterResults(this.form,this);" /> <span style='white-space:nowrap' ><label for='cb_1926'>Life Grand Challenge...</label></span>&nbsp;<span style='color:#666'>| </span><a href='/ar/challenge/browse?pavilionName=Life+Grand+Challenges&pavilionId=1926&source=pavilion'><span style='color:#08509a;font-weight:bold'>visit &#187;</span></a></span><br/><span><input type='checkbox' class='pavilion' name='pv_1918' id='pv_1918' onclick="filterResults(this.form,this);" /> <span style='white-space:nowrap' ><label for='cb_1918'>NASA</label></span>&nbsp;<span style='color:#666'>| </span><a href='/ar/challenge/browse?pavilionName=NASA&pavilionId=1918&source=pavilion'><span style='color:#08509a;font-weight:bold'>visit &#187;</span></a></span><br/><span><input type='checkbox' class='pavilion' name='pv_1920' id='pv_1920' onclick="filterResults(this.form,this);" /> <span style='white-space:nowrap' ><label for='cb_1920'>Nature</label></span>&nbsp;<span style='color:#666'>| </span><a href='/ar/challenge/browse?pavilionName=Nature&pavilionId=1920&source=pavilion'><span style='color:#08509a;font-weight:bold'>visit &#187;</span></a></span><br/><span><input type='checkbox' class='pavilion' name='pv_1928' id='pv_1928' onclick="filterResults(this.form,this);" /> <span style='white-space:nowrap' ><label for='cb_1928'>Popular Science</label></span>&nbsp;<span style='color:#666'>| </span><a href='/ar/challenge/browse?pavilionName=Popular+Science&pavilionId=1928&source=pavilion'><span style='color:#08509a;font-weight:bold'>visit &#187;</span></a></span><br/><span><input type='checkbox' class='pavilion' name='pv_1919' id='pv_1919' onclick="filterResults(this.form,this);" /> <span style='white-space:nowrap' ><label for='cb_1919'>SAP</label></span>&nbsp;<span style='color:#666'>| </span><a href='/ar/challenge/browse?pavilionName=SAP&pavilionId=1919&source=pavilion'><span style='color:#08509a;font-weight:bold'>visit &#187;</span></a></span><br/><span><input type='checkbox' class='pavilion' name='pv_1925' id='pv_1925' onclick="filterResults(this.form,this);" /> <span style='white-space:nowrap' ><label for='cb_1925'>Tec^Edge (Air Force)</label></span>&nbsp;<span style='color:#666'>| </span><a href='/ar/challenge/browse?pavilionName=Tec%5EEdge+%28Air+Force%29&pavilionId=1925&source=pavilion'><span style='color:#08509a;font-weight:bold'>visit &#187;</span></a></span><br/><span><input type='checkbox' class='pavilion' name='pv_1922' id='pv_1922' onclick="filterResults(this.form,this);" /> <span style='white-space:nowrap' ><label for='cb_1922'>The Economist</label></span>&nbsp;<span style='color:#666'>| </span><a href='/ar/challenge/browse?pavilionName=The+Economist&pavilionId=1922&source=pavilion'><span style='color:#08509a;font-weight:bold'>visit &#187;</span></a></span><br/><span><input type='checkbox' class='pavilion' name='pv_1915' id='pv_1915' onclick="filterResults(this.form,this);" /> <span style='white-space:nowrap' ><label for='cb_1915'>Clean Tech</label></span>&nbsp;<span style='color:#666'>| </span><a href='/ar/challenge/browse?pavilionName=Clean+Tech&pavilionId=1915&source=pavilion'><span style='color:#08509a;font-weight:bold'>visit &#187;</span></a></span><br/><span><input type='checkbox' class='pavilion' name='pv_1914' id='pv_1914' onclick="filterResults(this.form,this);" /> <span style='white-space:nowrap' ><label for='cb_1914'>Developing Countries</label></span>&nbsp;<span style='color:#666'>| </span><a href='/ar/challenge/browse?pavilionName=Developing+Countries&pavilionId=1914&source=pavilion'><span style='color:#08509a;font-weight:bold'>visit &#187;</span></a></span><br/><span><input type='checkbox' class='pavilion' name='pv_1921' id='pv_1921' onclick="filterResults(this.form,this);" /> <span style='white-space:nowrap' ><label for='cb_1921'>Emergency Response</label></span>&nbsp;<span style='color:#666'>| </span><a href='/ar/challenge/browse?pavilionName=Emergency+Response&pavilionId=1921&source=pavilion'><span style='color:#08509a;font-weight:bold'>visit &#187;</span></a></span><br/><span><input type='checkbox' class='pavilion' name='pv_1930' id='pv_1930' onclick="filterResults(this.form,this);" /> <span style='white-space:nowrap' ><label for='cb_1930'>Environment</label></span>&nbsp;<span style='color:#666'>| </span><a href='/ar/challenge/browse?pavilionName=Environment&pavilionId=1930&source=pavilion'><span style='color:#08509a;font-weight:bold'>visit &#187;</span></a></span><br/><span><input type='checkbox' class='pavilion' name='pv_1916' id='pv_1916' onclick="filterResults(this.form,this);" /> <span style='white-space:nowrap' ><label for='cb_1916'>Global Health</label></span>&nbsp;<span style='color:#666'>| </span><a href='/ar/challenge/browse?pavilionName=Global+Health&pavilionId=1916&source=pavilion'><span style='color:#08509a;font-weight:bold'>visit &#187;</span></a></span><br/><span><input type='checkbox' class='pavilion' name='pv_1924' id='pv_1924' onclick="filterResults(this.form,this);" /> <span style='white-space:nowrap' ><label for='cb_1924'>Novel Molecules</label></span>&nbsp;<span style='color:#666'>| </span><a href='/ar/challenge/browse?pavilionName=Novel+Molecules&pavilionId=1924&source=pavilion'><span style='color:#08509a;font-weight:bold'>visit &#187;</span></a></span><br/><span><input type='checkbox' class='pavilion' name='pv_1917' id='pv_1917' onclick="filterResults(this.form,this);" /> <span style='white-space:nowrap' ><label for='cb_1917'>Public Good</label></span>&nbsp;<span style='color:#666'>| </span><a href='/ar/challenge/browse?pavilionName=Public+Good&pavilionId=1917&source=pavilion'><span style='color:#08509a;font-weight:bold'>visit &#187;</span></a></span><br/></div></span>
+                        </div><!-- end pavilions -->
+
+                        
+                        <a href="javascript:toggleAdvancedFilters();" id="advanced_filter_link" style="display:none">+ Advanced Filters</a>
+                        <div id="advanced_filters" style="display:none">
+                            <div class="heading">Award Amount</div>
+                            <div style="font-weight:bold;">
+                                <input id="rb_all" type="radio" name="minAward" value="any" checked="true" onclick="filterResults(this.form, this);"/> Any Amount
+                            </div>
+                            <span style="font-weight:normal;">
+                                <div><input type="radio" name="minAward" value="25000"  onclick="filterResults(this.form, this);"/> &gt;$25,000</div>
+                                <div><input type="radio" name="minAward" value="50000"  onclick="filterResults(this.form, this);"/> &gt;$50,000</div>
+                                <div><input type="radio" name="minAward" value="100000"  onclick="filterResults(this.form, this);"/> &gt;$100,000</div>
+                            </span>
+                            <div id="submission_type">
+                                <div style="width:200px" class="dotted-line-style"></div>
+                                <span class="heading">Submission Type</span><br/>
+                                <span><input type="checkbox" id="st_individual" name="st_individual" checked onclick="filterResults(this.form, this);"/>
+                                    <label for="st_individual">Individual Solver</label></span><br/>
+                                <span><input type="checkbox" id="st_team" name="st_team" checked onclick="filterResults(this.form, this);"/>
+                                    <label for="st_team">Team</label></span><br/>
+                            </div>
+                            <div style="width:200px" class="dotted-line-style"></div>
+                            <div class="heading">Include Search Term(s)</div>
+                            <nobr>
+                                <input id="cb_search" type="checkbox" name="doTerms"  onclick="filterResults(this.form);"/>
+                                <input size='17' type="text" id='searchTerm' name="searchTerm" onkeypress="return handleTextSearchInput(event);"
+                                        onblur="filterResults(this.form);" value=""/>
+                            </nobr>
+                        </div><!-- end advanced_filters -->
+                    </div><!-- end filters -->
+                </div><!-- end filters-panel-->
+                <div id="challengeListDiv">
+                    <div id="listing-header">
+    <div id="listing-header-text">
+        
+            <div class="challenge-list-header-bg-left">&nbsp;</div>
+            <div class="challenge-list-header-bg">
+                <div style="float:left;">
+                    
+                        InnoCentive Challenges
+                    
+                </div>
+                <div style="float:right">
+                    <a href="/ar/feeds/rss"><img src="/ar/images/challenge_rss.gif" style="margin:10px 5px 0 0" alt="RSS Feed" title="RSS Feed"></a>
+                </div>
+            </div>   <!--end challenge-list-header-bg -->
+            <div class="challenge-list-header-bg-right">&nbsp;</div>
+        
+    </div><!--end listing-header-text -->
+    <div class="clear"></div>
+    <div id="challenge-content-panel">
+        <div id="challenge-content">
+            <div id="source-bar">
+                <div id="save-settings-panel">
+                    
+                        <div id="save-filter">
+                            
+                            
+                                <a onclick="submitForm();" style="cursor:pointer;">Save Settings</a>
+                             
+                        </div><!-- end save-filter -->
+                    
+                    <div class="show-bar">
+                        <div id="show-bar-text">Show:</div>&nbsp;
+                    <select name="max_select" class="select-style" onchange="syncMax(this)" id="max_select" >
+<option value="10" selected="selected" >10</option>
+<option value="25" >25</option>
+<option value="50" >50</option>
+</select>
+                        <span class="paginateButtons">
+                            <span class="currentStep">1</span><a href="/ar/challenge/filter?offset=10&max=10&source=innocentive&query=&breadCrumbs=All&pavilionName=&pavilionId=&sortProp=Posted&categoryName=&sortOrder=desc&ct_Ideation=&ct_Theoretical=&ct_RTP=&ct_eRFP=&expandAction=expand" onclick="new Ajax.Updater('challengeListDiv','/ar/challenge/filter',{asynchronous:true,evalScripts:true,parameters:'offset=10&max=10&source=innocentive&query=&breadCrumbs=All&pavilionName=&pavilionId=&sortProp=Posted&categoryName=&sortOrder=desc&ct_Ideation=&ct_Theoretical=&ct_RTP=&ct_eRFP=&expandAction=expand'});return false;" class="step">2</a><a href="/ar/challenge/filter?offset=20&max=10&source=innocentive&query=&breadCrumbs=All&pavilionName=&pavilionId=&sortProp=Posted&categoryName=&sortOrder=desc&ct_Ideation=&ct_Theoretical=&ct_RTP=&ct_eRFP=&expandAction=expand" onclick="new Ajax.Updater('challengeListDiv','/ar/challenge/filter',{asynchronous:true,evalScripts:true,parameters:'offset=20&max=10&source=innocentive&query=&breadCrumbs=All&pavilionName=&pavilionId=&sortProp=Posted&categoryName=&sortOrder=desc&ct_Ideation=&ct_Theoretical=&ct_RTP=&ct_eRFP=&expandAction=expand'});return false;" class="step">3</a><a href="/ar/challenge/filter?offset=30&max=10&source=innocentive&query=&breadCrumbs=All&pavilionName=&pavilionId=&sortProp=Posted&categoryName=&sortOrder=desc&ct_Ideation=&ct_Theoretical=&ct_RTP=&ct_eRFP=&expandAction=expand" onclick="new Ajax.Updater('challengeListDiv','/ar/challenge/filter',{asynchronous:true,evalScripts:true,parameters:'offset=30&max=10&source=innocentive&query=&breadCrumbs=All&pavilionName=&pavilionId=&sortProp=Posted&categoryName=&sortOrder=desc&ct_Ideation=&ct_Theoretical=&ct_RTP=&ct_eRFP=&expandAction=expand'});return false;" class="step">4</a><a href="/ar/challenge/filter?offset=40&max=10&source=innocentive&query=&breadCrumbs=All&pavilionName=&pavilionId=&sortProp=Posted&categoryName=&sortOrder=desc&ct_Ideation=&ct_Theoretical=&ct_RTP=&ct_eRFP=&expandAction=expand" onclick="new Ajax.Updater('challengeListDiv','/ar/challenge/filter',{asynchronous:true,evalScripts:true,parameters:'offset=40&max=10&source=innocentive&query=&breadCrumbs=All&pavilionName=&pavilionId=&sortProp=Posted&categoryName=&sortOrder=desc&ct_Ideation=&ct_Theoretical=&ct_RTP=&ct_eRFP=&expandAction=expand'});return false;" class="step">5</a><span class="step">..</span><a href="/ar/challenge/filter?offset=120&max=10&source=innocentive&query=&breadCrumbs=All&pavilionName=&pavilionId=&sortProp=Posted&categoryName=&sortOrder=desc&ct_Ideation=&ct_Theoretical=&ct_RTP=&ct_eRFP=&expandAction=expand" onclick="new Ajax.Updater('challengeListDiv','/ar/challenge/filter',{asynchronous:true,evalScripts:true,parameters:'offset=120&max=10&source=innocentive&query=&breadCrumbs=All&pavilionName=&pavilionId=&sortProp=Posted&categoryName=&sortOrder=desc&ct_Ideation=&ct_Theoretical=&ct_RTP=&ct_eRFP=&expandAction=expand'});return false;" class="step">13</a><a href="/ar/challenge/filter?offset=10&max=10&source=innocentive&query=&breadCrumbs=All&pavilionName=&pavilionId=&sortProp=Posted&categoryName=&sortOrder=desc&ct_Ideation=&ct_Theoretical=&ct_RTP=&ct_eRFP=&expandAction=expand" onclick="new Ajax.Updater('challengeListDiv','/ar/challenge/filter',{asynchronous:true,evalScripts:true,parameters:'offset=10&max=10&source=innocentive&query=&breadCrumbs=All&pavilionName=&pavilionId=&sortProp=Posted&categoryName=&sortOrder=desc&ct_Ideation=&ct_Theoretical=&ct_RTP=&ct_eRFP=&expandAction=expand'});return false;" class="nextLink">Next</a><span class="right-arrow">&#187;</span>
+                        </span>
+                    </div> <!--end show-bar-->
+                </div><!--end save-settings-panel-->
+                <div id="tag-box">
+                    <div id="you-viewing">
+                        <div id="you-viewing-header"><b>You Are Viewing:</b></div> <div class="content">All</div>
+                    </div><!-- end you-viewing -->
+                    <div id="challenge-type" >
+                        <div id="show-challenge-type-text"><b>Show Challenge Types:</b></div>
+                        <div>
+                            <div class="type-style" style="font-weight:bold"><input type="checkbox" id="ct_ALL" name="ct_ALL" onclick="setChallengeType(this);"
+                                checked="true"/> All</div>
+                            <div class="type-style" style=""><input type="checkbox" id="ct_Ideation" name="ct_Ideation" onclick="setChallengeType(this);"
+                                /> Ideation</div>
+                            <div class="type-style" style=""><input type="checkbox" id="ct_Theoretical" name="ct_Theoretical" onclick="setChallengeType(this);"
+                                /> Theoretical</div>
+                            <div class="type-style" style=""><input type="checkbox" id="ct_RTP" name="ct_RTP" onclick="setChallengeType(this);"
+                                /> RTP</div>
+                            <div class="type-style" style=""><input type="checkbox" id="ct_eRFP" name="ct_eRFP" onclick="setChallengeType(this);"
+                                /> eRFP</div>
+                        </div>
+                        <input type="hidden" id="currentOffset" name="currentOffset" value=""/>
+                        <input type="hidden" id="useCurrentOffset" name="useCurrentOffset"/>
+                    </div><!--end challenge-type-->
+                </div><!--end tag-box-->
+            </div><!--end source-bar-->
+            
+                <div id="challenge-list">
+                    <div id="challenge-header">
+                        <span class="challenge-header-bg-left">
+                            &nbsp;
+                        </span>
+                        <div style="width:75px;">
+                            <a href="javascript:expandShrinkAll(this);" style="font:normal 14px arial;line-height:28px;vertical-align:middle" id="plusminus">
+                                +
+                            </a>
+                        </div><!--end plus-minus column -->
+                        <div class='' style="width:297px;border-left:1px solid #fff;border-right:1px solid #fff;">
+                            <a href="javascript:setSortProp('Title');">Title</a>
+                        </div> <!--end title column -->
+                        <div class='desc' style="width:70px;">
+                            <a href="javascript:setSortProp('Posted');">Posted</a>
+                        </div><!--end posted column -->
+                        <div class='' style="width:69px;border-left:1px solid #fff;border-right:1px solid #fff;">
+                            <a href="javascript:setSortProp('Deadline');">Deadline</a>
+                        </div><!--end deadline column -->
+                        <div class='' style="width:90px;border-right:1px solid #fff;">
+                            <a href="javascript:setSortProp('Award');">Award</a>
+                        </div><!--end award column -->
+                        
+                            <div class='' style="width:64px;">
+                                <a class="header-style" href="javascript:setSortProp('Solvers');">Solvers</a>
+                            </div> <!--end solvers column -->
+                        
+                        <span class="challenge-header-bg-right">
+                            &nbsp;
+                        </span>
+                    </div><!--end challenge-header -->
+                    
+                        
+                        <!--row spacer -->
+                        <div style="line-height:10px">&nbsp;</div>
+
+                        <div class="clear"></div>
+
+
+                        <div class="challenge-row-standard" id="abstract_row_9933080"
+                             style="background-color:#ffffff;">
+                            
+                            <div class="clear"></div>
+                            <div id="challenge-image">
+                                
+                                  
+                                    <img border='0' src='/projectImages/challenge/ic10300000016_5.jpg' alt='' width='50' height='50' style='border:1px solid #727272;margin-left:10px;margin-top:10px;margin-bottom:10px;' />
+                                  
+                                
+                            </div><!--end challenge-image column -->
+                            <div id="challenge-details-column" style="width:297px">
+                                <div class="challenge-name">
+                                    <a  style='font-family:"Netto Bold",arial;font-size:1.1em' href="/ar/challenge/index/10300000016">Retirement Security in this Day and Age</a>
+                                </div>
+                                <div style="clear:both;width:297px">
+                                    <p style='font-size:11px;font-weight:bold;color:#333;float:left;margin:0 0 0 10px;'>TAGS:&nbsp;<span style="font-weight:normal;">&nbsp;&nbsp;<a  href="javascript:checkOnly('cb_1844')"   >Business/Entrepreneurship</a>, <a  href="javascript:checkOnly('ct_Ideation')"   >Ideation</a></span></p>
+                                </div>
+                                <div style="height:25px; clear:both; margin-left: 10px;width:297px">
+                                    <a href="javascript:viewDetails(9933080);" id="more_link_9933080" style="font-size:11px;font-weight:bold;display:">+ View More</a>
+                                    <a href="javascript:hideDetails(9933080);" id="hide_link_9933080" style="font-size:11px;font-weight:bold;display:none">- View Less</a>
+
+
+                                </div>
+                            </div>
+
+                            <!--end challenge-details-column-->
+                            <div style="width:70px" class="div-data-style1">
+                                <div style="width:70px">4/27/12</div>
+                            </div><!--end posted-date-data-column-->
+                            <div style="width:69px" class="div-data-style1">
+                                <div style="width:69px">5/27/12</div>
+                            </div><!--end deadline-date-data-column-->
+                            <div style="width:90px" class="div-data-style1">
+                                <div style="width:90px">
+                                    
+                                        
+                                            $500 USD
+                                        
+                                    
+                                </div>
+                            </div><!--end reward-data-column-->
+                            
+                                <div style="width:72px;" class="div-data-style1">
+                                  <div style="width:72px">24</div>
+                                </div><!--end solvers-count-data-column-->
+                            
+                            
+                                    <div id="challenge_links_9933080" style="float: left; clear: both; width: 678px;">
+                                        
+
+
+    <div class="icons" style="width:678px;font-size:11px;">
+          
+
+                <div class="link" style="color:#666; float:left; margin-left:10px;"><strong>Brainstorm Challenge</strong><span class="beta-ch">&#946;eta</span></div>
+
+          
+
+          <div style="float:right;margin-left:200px;">
+
+            
+
+            
+                <span class="link"><a href="https://www.addthis.com/bookmark.php?v=250&amp;pub=ra-4ddadfad274479e6" onmouseover="return addthis_open(this, '', 'http://www.innocentive.com/ar/challenge/index/10300000016', 'Retirement Security in this Day and Age')" onmouseout="addthis_close()" onclick="return addthis_sendto()"><img src="/ar/images/challenge/share.gif" alt="Share Challenge" title="Share Challenge" style="margin-right:5px"/><span style="margin-right:10px">Share</span></a></span>
+                <script>
+                    var addthis_config = {
+                        pubid: 'ra-4ddadfad274479e6',
+                        data_track_clickback:true,
+                        services_compact: 'email, facebook, twitter, delicious, linkedin, more',
+                        services_expanded: 'email, facebook, twitter, blogger, delicious, digg, google, linkedin, reddit, slashdot, stumbleupon, technorati, typepad, wordpress, more',
+                        services_exclude: 'print, myspace'
+                    }
+                </script>
+            
+            
+        </div>
+    </div><!--end icons -->
+
+                                    </div>
+                                
+                            <div id="details_9933080" class="challenge-brief-ie6style" style="display:none;height:auto;overflow:hidden;width:678px">
+
+                                <div id="challenge-text-style">
+                                    <div id="challenge-brief-style">
+                                        <p>How do we best get people to understand how important it is to plan for, and take specific action steps today, to create a steady and reliable stream of income for their retirement years? What would be the best, most compelling way to spur people to take important action for themselves TODAY in this very important arena - in a way &#160;that does not overwhelm people with the complex issues involved in this topic?</p>
+                                        <a  href="/ar/challenge/index/10300000016" style="white-space:nowrap">Read Challenge Details</a>
+                                        <span class="right-arrow">&nbsp;&#187;</span>
+                                    </div>
+                                    <p class="challenge-source-style">
+                                        <b>Source:</b>&nbsp;  InnoCentive&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Challenge ID:</b> &nbsp; 10300000016&nbsp;&nbsp;&nbsp;
+                                    </p>
+                                </div><!--end challenge-text-style -->
+
+                            
+                                
+
+
+    <div class="icons" style="width:678px;font-size:11px;">
+          
+
+                <div class="link" style="color:#666; float:left; margin-left:10px;"><strong>Brainstorm Challenge</strong><span class="beta-ch">&#946;eta</span></div>
+
+          
+
+          <div style="float:right;margin-left:200px;">
+
+            
+
+            
+                <span class="link"><a href="https://www.addthis.com/bookmark.php?v=250&amp;pub=ra-4ddadfad274479e6" onmouseover="return addthis_open(this, '', 'http://www.innocentive.com/ar/challenge/index/10300000016', 'Retirement Security in this Day and Age')" onmouseout="addthis_close()" onclick="return addthis_sendto()"><img src="/ar/images/challenge/share.gif" alt="Share Challenge" title="Share Challenge" style="margin-right:5px"/><span style="margin-right:10px">Share</span></a></span>
+                <script>
+                    var addthis_config = {
+                        pubid: 'ra-4ddadfad274479e6',
+                        data_track_clickback:true,
+                        services_compact: 'email, facebook, twitter, delicious, linkedin, more',
+                        services_expanded: 'email, facebook, twitter, blogger, delicious, digg, google, linkedin, reddit, slashdot, stumbleupon, technorati, typepad, wordpress, more',
+                        services_exclude: 'print, myspace'
+                    }
+                </script>
+            
+            
+        </div>
+    </div><!--end icons -->
+
+                            
+
+                            </div><!--end challenge-details -->
+                        </div><!--end challenge-row -->
+                        <div class="clear"></div>
+                    
+                        
+                        <!--row spacer -->
+                        <div style="line-height:10px">&nbsp;</div>
+
+                        <div class="clear"></div>
+
+
+                        <div class="challenge-row" id="abstract_row_9932924"
+                             style="">
+                            
+                            <div class="clear"></div>
+                            <div id="challenge-image">
+                                
+                                  
+                                    <img border='0' src='/projectImages/challenge/ic9932924_5.jpg' alt='' width='50' height='50' style='border:1px solid #727272;margin-left:10px;margin-top:10px;margin-bottom:10px;' />
+                                  
+                                
+                            </div><!--end challenge-image column -->
+                            <div id="challenge-details-column" style="width:297px">
+                                <div class="challenge-name">
+                                    <a  style='font-family:"Netto Bold",arial;font-size:1.1em' href="/ar/challenge/index/9932924">Seeking Nitrile-Substituted Pyridine-2-carboxaldehydes</a>
+                                </div>
+                                <div style="clear:both;width:297px">
+                                    <p style='font-size:11px;font-weight:bold;color:#333;float:left;margin:0 0 0 10px;'>TAGS:&nbsp;<span style="font-weight:normal;">&nbsp;&nbsp;<a  href="javascript:checkOnly('cb_1856')"   >Chemistry</a>, <a  href="javascript:checkOnly('pv_1924')"   >Novel Molecules</a>, <a  href="javascript:checkOnly('ct_RTP')"   >RTP</a></span></p>
+                                </div>
+                                <div style="height:25px; clear:both; margin-left: 10px;width:297px">
+                                    <a href="javascript:viewDetails(9932924);" id="more_link_9932924" style="font-size:11px;font-weight:bold;display:">+ View More</a>
+                                    <a href="javascript:hideDetails(9932924);" id="hide_link_9932924" style="font-size:11px;font-weight:bold;display:none">- View Less</a>
+
+
+                                </div>
+                            </div>
+
+                            <!--end challenge-details-column-->
+                            <div style="width:70px" class="div-data-style1">
+                                <div style="width:70px">4/26/12</div>
+                            </div><!--end posted-date-data-column-->
+                            <div style="width:69px" class="div-data-style1">
+                                <div style="width:69px">5/26/12</div>
+                            </div><!--end deadline-date-data-column-->
+                            <div style="width:90px" class="div-data-style1">
+                                <div style="width:90px">
+                                    
+                                        
+                                            varies
+                                        
+                                    
+                                </div>
+                            </div><!--end reward-data-column-->
+                            
+                                <div style="width:72px;" class="div-data-style1">
+                                  <div style="width:72px">18</div>
+                                </div><!--end solvers-count-data-column-->
+                            
+                            
+                                    <div id="challenge_links_9932924" style="float: left; clear: both; width: 678px;">
+                                        
+
+
+    <div class="icons" style="width:678px;font-size:11px;">
+          
+
+                <div class="prem-image">&nbsp;</div>
+
+          
+
+          <div style="float:right;margin-left:200px;">
+
+            
+                
+                <div class="link" style="float:left"><a href="http://www2.innocentive.com/faq/Solver#26n1733" target="_blank"><img src="https://www.innocentive.com/ar/images/challenge/team.gif" alt="Team Project Rooms are available on this Challenge." title="Team Project Rooms are available on this Challenge." border="0" align="bottom" style="margin:0 5px 0 5px"/>Team</a></div>
+            
+                
+                <div class="link" style="float:left"><a href="https://www.collaborativedrug.com/register/innocentive/" target="_blank"><img src="https://www.innocentive.com/ar/images/challenge/cdd.gif" alt="The CDD database enables scientists to archive, mine, and collaborate around pre-clinical chemical and biological drug discovery data through a web-based interface" title="The CDD database enables scientists to archive, mine, and collaborate around pre-clinical chemical and biological drug discovery data through a web-based interface" border="0" align="bottom" style="margin:0 5px 0 5px"/>Database</a></div>
+            
+
+            
+                <span class="link"><a href="https://www.addthis.com/bookmark.php?v=250&amp;pub=ra-4ddadfad274479e6" onmouseover="return addthis_open(this, '', 'http://www.innocentive.com/ar/challenge/index/9932924', 'Seeking Nitrile-Substituted Pyridine-2-carboxaldehydes')" onmouseout="addthis_close()" onclick="return addthis_sendto()"><img src="/ar/images/challenge/share.gif" alt="Share Challenge" title="Share Challenge" style="margin-right:5px"/><span style="margin-right:10px">Share</span></a></span>
+                <script>
+                    var addthis_config = {
+                        pubid: 'ra-4ddadfad274479e6',
+                        data_track_clickback:true,
+                        services_compact: 'email, facebook, twitter, delicious, linkedin, more',
+                        services_expanded: 'email, facebook, twitter, blogger, delicious, digg, google, linkedin, reddit, slashdot, stumbleupon, technorati, typepad, wordpress, more',
+                        services_exclude: 'print, myspace'
+                    }
+                </script>
+            
+            
+                <span class="link">
+                    
+                        <a href="/ar/challenge/referralLink/9932924">
+                            <img src="/ar/images/challenge/referral.gif" alt="Refer Challenge" title="Refer Challenge" style="margin-right:5px"/><span style="margin-right:10px">Referral: varies</span>
+                        </a>
+                    
+                    
+                </span>
+            
+        </div>
+    </div><!--end icons -->
+
+                                    </div>
+                                
+                            <div id="details_9932924" class="challenge-brief-ie6style" style="display:none;height:auto;overflow:hidden;width:678px">
+
+                                <div id="challenge-text-style">
+                                    <div id="challenge-brief-style">
+                                        <p>
+	Material supply of non-commercial compounds matching the shown core structure is desired.&nbsp; &nbsp;&nbsp;The Seeker intends to award multiple Solvers for each of their qualifying submissions.&nbsp;</p>
+<p>
+	<u>Intellectual Property</u>:&nbsp; In return for the Initial Transfer Fee of $600 per compound, you are expected to grant the Seeker only a <u>non-exclusive</u> license to use your compound for internal, research purposes (for example, researching the molecule&rsquo;s properties or preparing derivatives of the molecule).</p>
+
+                                        <a  href="/ar/challenge/index/9932924" style="white-space:nowrap">Read Challenge Details</a>
+                                        <span class="right-arrow">&nbsp;&#187;</span>
+                                    </div>
+                                    <p class="challenge-source-style">
+                                        <b>Source:</b>&nbsp;  InnoCentive&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Challenge ID:</b> &nbsp; 9932924&nbsp;&nbsp;&nbsp;
+                                    </p>
+                                </div><!--end challenge-text-style -->
+
+                            
+                                
+
+
+    <div class="icons" style="width:678px;font-size:11px;">
+          
+
+                <div class="prem-image">&nbsp;</div>
+
+          
+
+          <div style="float:right;margin-left:200px;">
+
+            
+                
+                <div class="link" style="float:left"><a href="http://www2.innocentive.com/faq/Solver#26n1733" target="_blank"><img src="https://www.innocentive.com/ar/images/challenge/team.gif" alt="Team Project Rooms are available on this Challenge." title="Team Project Rooms are available on this Challenge." border="0" align="bottom" style="margin:0 5px 0 5px"/>Team</a></div>
+            
+                
+                <div class="link" style="float:left"><a href="https://www.collaborativedrug.com/register/innocentive/" target="_blank"><img src="https://www.innocentive.com/ar/images/challenge/cdd.gif" alt="The CDD database enables scientists to archive, mine, and collaborate around pre-clinical chemical and biological drug discovery data through a web-based interface" title="The CDD database enables scientists to archive, mine, and collaborate around pre-clinical chemical and biological drug discovery data through a web-based interface" border="0" align="bottom" style="margin:0 5px 0 5px"/>Database</a></div>
+            
+
+            
+                <span class="link"><a href="https://www.addthis.com/bookmark.php?v=250&amp;pub=ra-4ddadfad274479e6" onmouseover="return addthis_open(this, '', 'http://www.innocentive.com/ar/challenge/index/9932924', 'Seeking Nitrile-Substituted Pyridine-2-carboxaldehydes')" onmouseout="addthis_close()" onclick="return addthis_sendto()"><img src="/ar/images/challenge/share.gif" alt="Share Challenge" title="Share Challenge" style="margin-right:5px"/><span style="margin-right:10px">Share</span></a></span>
+                <script>
+                    var addthis_config = {
+                        pubid: 'ra-4ddadfad274479e6',
+                        data_track_clickback:true,
+                        services_compact: 'email, facebook, twitter, delicious, linkedin, more',
+                        services_expanded: 'email, facebook, twitter, blogger, delicious, digg, google, linkedin, reddit, slashdot, stumbleupon, technorati, typepad, wordpress, more',
+                        services_exclude: 'print, myspace'
+                    }
+                </script>
+            
+            
+                <span class="link">
+                    
+                        <a href="/ar/challenge/referralLink/9932924">
+                            <img src="/ar/images/challenge/referral.gif" alt="Refer Challenge" title="Refer Challenge" style="margin-right:5px"/><span style="margin-right:10px">Referral: varies</span>
+                        </a>
+                    
+                    
+                </span>
+            
+        </div>
+    </div><!--end icons -->
+
+                            
+
+                            </div><!--end challenge-details -->
+                        </div><!--end challenge-row -->
+                        <div class="clear"></div>
+                    
+                        
+                        <!--row spacer -->
+                        <div style="line-height:10px">&nbsp;</div>
+
+                        <div class="clear"></div>
+
+
+                        <div class="challenge-row" id="abstract_row_9932822"
+                             style="">
+                            
+                            <div class="clear"></div>
+                            <div id="challenge-image">
+                                
+                                  
+                                    <img border='0' src='/projectImages/challenge/ic9932822_5.jpg' alt='' width='50' height='50' style='border:1px solid #727272;margin-left:10px;margin-top:10px;margin-bottom:10px;' />
+                                  
+                                
+                            </div><!--end challenge-image column -->
+                            <div id="challenge-details-column" style="width:297px">
+                                <div class="challenge-name">
+                                    <a  style='font-family:"Netto Bold",arial;font-size:1.1em' href="/ar/challenge/index/9932822">Neutralization of Carbon Nanotubes (CNTs) with Metallic Properties</a>
+                                </div>
+                                <div style="clear:both;width:297px">
+                                    <p style='font-size:11px;font-weight:bold;color:#333;float:left;margin:0 0 0 10px;'>TAGS:&nbsp;<span style="font-weight:normal;">&nbsp;&nbsp;<a  href="javascript:checkOnly('cb_1856')"   >Chemistry</a>, <a  href="javascript:checkOnly('cb_1902')"   >Physical Sciences</a>, <a  href="javascript:checkOnly('ct_RTP')"   >RTP</a></span></p>
+                                </div>
+                                <div style="height:25px; clear:both; margin-left: 10px;width:297px">
+                                    <a href="javascript:viewDetails(9932822);" id="more_link_9932822" style="font-size:11px;font-weight:bold;display:">+ View More</a>
+                                    <a href="javascript:hideDetails(9932822);" id="hide_link_9932822" style="font-size:11px;font-weight:bold;display:none">- View Less</a>
+
+
+                                </div>
+                            </div>
+
+                            <!--end challenge-details-column-->
+                            <div style="width:70px" class="div-data-style1">
+                                <div style="width:70px">4/24/12</div>
+                            </div><!--end posted-date-data-column-->
+                            <div style="width:69px" class="div-data-style1">
+                                <div style="width:69px">7/24/12</div>
+                            </div><!--end deadline-date-data-column-->
+                            <div style="width:90px" class="div-data-style1">
+                                <div style="width:90px">
+                                    
+                                        
+                                            $50,000 USD
+                                        
+                                    
+                                </div>
+                            </div><!--end reward-data-column-->
+                            
+                                <div style="width:72px;" class="div-data-style1">
+                                  <div style="width:72px">80</div>
+                                </div><!--end solvers-count-data-column-->
+                            
+                            
+                                    <div id="challenge_links_9932822" style="float: left; clear: both; width: 678px;">
+                                        
+
+
+    <div class="icons" style="width:678px;font-size:11px;">
+          
+
+                <div class="prem-image">&nbsp;</div>
+
+          
+
+          <div style="float:right;margin-left:200px;">
+
+            
+                
+                <div class="link" style="float:left"><a href="http://www2.innocentive.com/faq/Solver#26n1733" target="_blank"><img src="https://www.innocentive.com/ar/images/challenge/team.gif" alt="Team Project Rooms are available on this Challenge." title="Team Project Rooms are available on this Challenge." border="0" align="bottom" style="margin:0 5px 0 5px"/>Team</a></div>
+            
+
+            
+                <span class="link"><a href="https://www.addthis.com/bookmark.php?v=250&amp;pub=ra-4ddadfad274479e6" onmouseover="return addthis_open(this, '', 'http://www.innocentive.com/ar/challenge/index/9932822', 'Neutralization of Carbon Nanotubes (CNTs) with Metallic Properties')" onmouseout="addthis_close()" onclick="return addthis_sendto()"><img src="/ar/images/challenge/share.gif" alt="Share Challenge" title="Share Challenge" style="margin-right:5px"/><span style="margin-right:10px">Share</span></a></span>
+                <script>
+                    var addthis_config = {
+                        pubid: 'ra-4ddadfad274479e6',
+                        data_track_clickback:true,
+                        services_compact: 'email, facebook, twitter, delicious, linkedin, more',
+                        services_expanded: 'email, facebook, twitter, blogger, delicious, digg, google, linkedin, reddit, slashdot, stumbleupon, technorati, typepad, wordpress, more',
+                        services_exclude: 'print, myspace'
+                    }
+                </script>
+            
+            
+                <span class="link">
+                    
+                        <a href="/ar/challenge/referralLink/9932822">
+                            <img src="/ar/images/challenge/referral.gif" alt="Refer Challenge" title="Refer Challenge" style="margin-right:5px"/><span style="margin-right:10px">Referral: $5,000 USD</span>
+                        </a>
+                    
+                    
+                </span>
+            
+        </div>
+    </div><!--end icons -->
+
+                                    </div>
+                                
+                            <div id="details_9932822" class="challenge-brief-ie6style" style="display:none;height:auto;overflow:hidden;width:678px">
+
+                                <div id="challenge-text-style">
+                                    <div id="challenge-brief-style">
+                                        <p>
+	Carbon Nanotubes (CNTs) grown by Chemical Vapor Deposition statistically have 2/3 with semiconductor properties and 1/3 with metallic properties. We are looking for ways to remove or electronically neutralize CNT&rsquo;s with metallic properties such that the CNT array acts as a semiconductor.&nbsp;</p>
+
+                                        <a  href="/ar/challenge/index/9932822" style="white-space:nowrap">Read Challenge Details</a>
+                                        <span class="right-arrow">&nbsp;&#187;</span>
+                                    </div>
+                                    <p class="challenge-source-style">
+                                        <b>Source:</b>&nbsp;  InnoCentive&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Challenge ID:</b> &nbsp; 9932822&nbsp;&nbsp;&nbsp;
+                                    </p>
+                                </div><!--end challenge-text-style -->
+
+                            
+                                
+
+
+    <div class="icons" style="width:678px;font-size:11px;">
+          
+
+                <div class="prem-image">&nbsp;</div>
+
+          
+
+          <div style="float:right;margin-left:200px;">
+
+            
+                
+                <div class="link" style="float:left"><a href="http://www2.innocentive.com/faq/Solver#26n1733" target="_blank"><img src="https://www.innocentive.com/ar/images/challenge/team.gif" alt="Team Project Rooms are available on this Challenge." title="Team Project Rooms are available on this Challenge." border="0" align="bottom" style="margin:0 5px 0 5px"/>Team</a></div>
+            
+
+            
+                <span class="link"><a href="https://www.addthis.com/bookmark.php?v=250&amp;pub=ra-4ddadfad274479e6" onmouseover="return addthis_open(this, '', 'http://www.innocentive.com/ar/challenge/index/9932822', 'Neutralization of Carbon Nanotubes (CNTs) with Metallic Properties')" onmouseout="addthis_close()" onclick="return addthis_sendto()"><img src="/ar/images/challenge/share.gif" alt="Share Challenge" title="Share Challenge" style="margin-right:5px"/><span style="margin-right:10px">Share</span></a></span>
+                <script>
+                    var addthis_config = {
+                        pubid: 'ra-4ddadfad274479e6',
+                        data_track_clickback:true,
+                        services_compact: 'email, facebook, twitter, delicious, linkedin, more',
+                        services_expanded: 'email, facebook, twitter, blogger, delicious, digg, google, linkedin, reddit, slashdot, stumbleupon, technorati, typepad, wordpress, more',
+                        services_exclude: 'print, myspace'
+                    }
+                </script>
+            
+            
+                <span class="link">
+                    
+                        <a href="/ar/challenge/referralLink/9932822">
+                            <img src="/ar/images/challenge/referral.gif" alt="Refer Challenge" title="Refer Challenge" style="margin-right:5px"/><span style="margin-right:10px">Referral: $5,000 USD</span>
+                        </a>
+                    
+                    
+                </span>
+            
+        </div>
+    </div><!--end icons -->
+
+                            
+
+                            </div><!--end challenge-details -->
+                        </div><!--end challenge-row -->
+                        <div class="clear"></div>
+                    
+                        
+                        <!--row spacer -->
+                        <div style="line-height:10px">&nbsp;</div>
+
+                        <div class="clear"></div>
+
+
+                        <div class="challenge-row" id="abstract_row_9932708"
+                             style="">
+                            
+                            <div class="clear"></div>
+                            <div id="challenge-image">
+                                
+                                  
+                                    <img border='0' src='/projectImages/challenge/ic9932708_5.jpg' alt='' width='50' height='50' style='border:1px solid #727272;margin-left:10px;margin-top:10px;margin-bottom:10px;' />
+                                  
+                                
+                            </div><!--end challenge-image column -->
+                            <div id="challenge-details-column" style="width:297px">
+                                <div class="challenge-name">
+                                    <a  style='font-family:"Netto Bold",arial;font-size:1.1em' href="/ar/challenge/index/9932708">A Trustworthy Mechanism to Identify Private vs. Public Information</a>
+                                </div>
+                                <div style="clear:both;width:297px">
+                                    <p style='font-size:11px;font-weight:bold;color:#333;float:left;margin:0 0 0 10px;'>TAGS:&nbsp;<span style="font-weight:normal;">&nbsp;&nbsp;<a  href="javascript:checkOnly('cb_1866')"   >Computer Science/Information Technology</a>, <a  href="javascript:checkOnly('cb_1875')"   >Engineering/Design</a>, <a  href="javascript:checkOnly('cb_1896')"   >Math/Statistics</a>, <a  href="javascript:checkOnly('pv_1917')"   >Public Good</a>, <a  href="javascript:checkOnly('pv_1925')"   >Tec^Edge (Air Force)</a>, <a  href="javascript:checkOnly('pv_1928')"   >Popular Science</a>, <a  href="javascript:checkOnly('ct_Ideation')"   >Ideation</a></span></p>
+                                </div>
+                                <div style="height:25px; clear:both; margin-left: 10px;width:297px">
+                                    <a href="javascript:viewDetails(9932708);" id="more_link_9932708" style="font-size:11px;font-weight:bold;display:">+ View More</a>
+                                    <a href="javascript:hideDetails(9932708);" id="hide_link_9932708" style="font-size:11px;font-weight:bold;display:none">- View Less</a>
+
+
+                                </div>
+                            </div>
+
+                            <!--end challenge-details-column-->
+                            <div style="width:70px" class="div-data-style1">
+                                <div style="width:70px">4/20/12</div>
+                            </div><!--end posted-date-data-column-->
+                            <div style="width:69px" class="div-data-style1">
+                                <div style="width:69px">5/21/12</div>
+                            </div><!--end deadline-date-data-column-->
+                            <div style="width:90px" class="div-data-style1">
+                                <div style="width:90px">
+                                    
+                                        
+                                            $10,000 USD
+                                        
+                                    
+                                </div>
+                            </div><!--end reward-data-column-->
+                            
+                                <div style="width:72px;" class="div-data-style1">
+                                  <div style="width:72px">296</div>
+                                </div><!--end solvers-count-data-column-->
+                            
+                            
+                                    <div id="challenge_links_9932708" style="float: left; clear: both; width: 678px;">
+                                        
+
+
+    <div class="icons" style="width:678px;font-size:11px;">
+          
+
+                <div class="prem-image">&nbsp;</div>
+
+          
+
+          <div style="float:right;margin-left:200px;">
+
+            
+                
+                <div class="link" style="float:left"><a href="http://www2.innocentive.com/faq/Solver#26n1733" target="_blank"><img src="https://www.innocentive.com/ar/images/challenge/team.gif" alt="Team Project Rooms are available on this Challenge." title="Team Project Rooms are available on this Challenge." border="0" align="bottom" style="margin:0 5px 0 5px"/>Team</a></div>
+            
+
+            
+                <span class="link"><a href="https://www.addthis.com/bookmark.php?v=250&amp;pub=ra-4ddadfad274479e6" onmouseover="return addthis_open(this, '', 'http://www.innocentive.com/ar/challenge/index/9932708', 'A Trustworthy Mechanism to Identify Private vs. Public Information')" onmouseout="addthis_close()" onclick="return addthis_sendto()"><img src="/ar/images/challenge/share.gif" alt="Share Challenge" title="Share Challenge" style="margin-right:5px"/><span style="margin-right:10px">Share</span></a></span>
+                <script>
+                    var addthis_config = {
+                        pubid: 'ra-4ddadfad274479e6',
+                        data_track_clickback:true,
+                        services_compact: 'email, facebook, twitter, delicious, linkedin, more',
+                        services_expanded: 'email, facebook, twitter, blogger, delicious, digg, google, linkedin, reddit, slashdot, stumbleupon, technorati, typepad, wordpress, more',
+                        services_exclude: 'print, myspace'
+                    }
+                </script>
+            
+            
+                <span class="link">
+                    
+                        <a href="/ar/challenge/referralLink/9932708">
+                            <img src="/ar/images/challenge/referral.gif" alt="Refer Challenge" title="Refer Challenge" style="margin-right:5px"/><span style="margin-right:10px">Referral: $1,000 USD</span>
+                        </a>
+                    
+                    
+                </span>
+            
+        </div>
+    </div><!--end icons -->
+
+                                    </div>
+                                
+                            <div id="details_9932708" class="challenge-brief-ie6style" style="display:none;height:auto;overflow:hidden;width:678px">
+
+                                <div id="challenge-text-style">
+                                    <div id="challenge-brief-style">
+                                        <p>
+	Propose a trustworthy mechanism to distinguish private vs. public information in a massive stream of online information.&nbsp;</p>
+<p>
+	This is an Ideation Challenge with a guaranteed award for at least one submitted solution.</p>
+
+                                        <a  href="/ar/challenge/index/9932708" style="white-space:nowrap">Read Challenge Details</a>
+                                        <span class="right-arrow">&nbsp;&#187;</span>
+                                    </div>
+                                    <p class="challenge-source-style">
+                                        <b>Source:</b>&nbsp;  InnoCentive&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Challenge ID:</b> &nbsp; 9932708&nbsp;&nbsp;&nbsp;
+                                    </p>
+                                </div><!--end challenge-text-style -->
+
+                            
+                                
+
+
+    <div class="icons" style="width:678px;font-size:11px;">
+          
+
+                <div class="prem-image">&nbsp;</div>
+
+          
+
+          <div style="float:right;margin-left:200px;">
+
+            
+                
+                <div class="link" style="float:left"><a href="http://www2.innocentive.com/faq/Solver#26n1733" target="_blank"><img src="https://www.innocentive.com/ar/images/challenge/team.gif" alt="Team Project Rooms are available on this Challenge." title="Team Project Rooms are available on this Challenge." border="0" align="bottom" style="margin:0 5px 0 5px"/>Team</a></div>
+            
+
+            
+                <span class="link"><a href="https://www.addthis.com/bookmark.php?v=250&amp;pub=ra-4ddadfad274479e6" onmouseover="return addthis_open(this, '', 'http://www.innocentive.com/ar/challenge/index/9932708', 'A Trustworthy Mechanism to Identify Private vs. Public Information')" onmouseout="addthis_close()" onclick="return addthis_sendto()"><img src="/ar/images/challenge/share.gif" alt="Share Challenge" title="Share Challenge" style="margin-right:5px"/><span style="margin-right:10px">Share</span></a></span>
+                <script>
+                    var addthis_config = {
+                        pubid: 'ra-4ddadfad274479e6',
+                        data_track_clickback:true,
+                        services_compact: 'email, facebook, twitter, delicious, linkedin, more',
+                        services_expanded: 'email, facebook, twitter, blogger, delicious, digg, google, linkedin, reddit, slashdot, stumbleupon, technorati, typepad, wordpress, more',
+                        services_exclude: 'print, myspace'
+                    }
+                </script>
+            
+            
+                <span class="link">
+                    
+                        <a href="/ar/challenge/referralLink/9932708">
+                            <img src="/ar/images/challenge/referral.gif" alt="Refer Challenge" title="Refer Challenge" style="margin-right:5px"/><span style="margin-right:10px">Referral: $1,000 USD</span>
+                        </a>
+                    
+                    
+                </span>
+            
+        </div>
+    </div><!--end icons -->
+
+                            
+
+                            </div><!--end challenge-details -->
+                        </div><!--end challenge-row -->
+                        <div class="clear"></div>
+                    
+                        
+                        <!--row spacer -->
+                        <div style="line-height:10px">&nbsp;</div>
+
+                        <div class="clear"></div>
+
+
+                        <div class="challenge-row" id="abstract_row_9932707"
+                             style="">
+                            
+                            <div class="clear"></div>
+                            <div id="challenge-image">
+                                
+                                  
+                                    <img border='0' src='/projectImages/challenge/ic9932707_5.jpg' alt='' width='50' height='50' style='border:1px solid #727272;margin-left:10px;margin-top:10px;margin-bottom:10px;' />
+                                  
+                                
+                            </div><!--end challenge-image column -->
+                            <div id="challenge-details-column" style="width:297px">
+                                <div class="challenge-name">
+                                    <a  style='font-family:"Netto Bold",arial;font-size:1.1em' href="/ar/challenge/index/9932707">Durable Dielectric Coatings on Polycarbonate</a>
+                                </div>
+                                <div style="clear:both;width:297px">
+                                    <p style='font-size:11px;font-weight:bold;color:#333;float:left;margin:0 0 0 10px;'>TAGS:&nbsp;<span style="font-weight:normal;">&nbsp;&nbsp;<a  href="javascript:checkOnly('cb_1856')"   >Chemistry</a>, <a  href="javascript:checkOnly('cb_1875')"   >Engineering/Design</a>, <a  href="javascript:checkOnly('cb_1902')"   >Physical Sciences</a>, <a  href="javascript:checkOnly('pv_1925')"   >Tec^Edge (Air Force)</a>, <a  href="javascript:checkOnly('ct_Theoretical')"   >Theoretical-licensing</a></span></p>
+                                </div>
+                                <div style="height:25px; clear:both; margin-left: 10px;width:297px">
+                                    <a href="javascript:viewDetails(9932707);" id="more_link_9932707" style="font-size:11px;font-weight:bold;display:">+ View More</a>
+                                    <a href="javascript:hideDetails(9932707);" id="hide_link_9932707" style="font-size:11px;font-weight:bold;display:none">- View Less</a>
+
+
+                                </div>
+                            </div>
+
+                            <!--end challenge-details-column-->
+                            <div style="width:70px" class="div-data-style1">
+                                <div style="width:70px">4/18/12</div>
+                            </div><!--end posted-date-data-column-->
+                            <div style="width:69px" class="div-data-style1">
+                                <div style="width:69px">6/18/12</div>
+                            </div><!--end deadline-date-data-column-->
+                            <div style="width:90px" class="div-data-style1">
+                                <div style="width:90px">
+                                    
+                                        
+                                            $25,000 USD
+                                        
+                                    
+                                </div>
+                            </div><!--end reward-data-column-->
+                            
+                                <div style="width:72px;" class="div-data-style1">
+                                  <div style="width:72px">126</div>
+                                </div><!--end solvers-count-data-column-->
+                            
+                            
+                                    <div id="challenge_links_9932707" style="float: left; clear: both; width: 678px;">
+                                        
+
+
+    <div class="icons" style="width:678px;font-size:11px;">
+          
+
+                <div class="prem-image">&nbsp;</div>
+
+          
+
+          <div style="float:right;margin-left:200px;">
+
+            
+                
+                <div class="link" style="float:left"><a href="http://www2.innocentive.com/faq/Solver#26n1733" target="_blank"><img src="https://www.innocentive.com/ar/images/challenge/team.gif" alt="Team Project Rooms are available on this Challenge." title="Team Project Rooms are available on this Challenge." border="0" align="bottom" style="margin:0 5px 0 5px"/>Team</a></div>
+            
+
+            
+                <span class="link"><a href="https://www.addthis.com/bookmark.php?v=250&amp;pub=ra-4ddadfad274479e6" onmouseover="return addthis_open(this, '', 'http://www.innocentive.com/ar/challenge/index/9932707', 'Durable Dielectric Coatings on Polycarbonate')" onmouseout="addthis_close()" onclick="return addthis_sendto()"><img src="/ar/images/challenge/share.gif" alt="Share Challenge" title="Share Challenge" style="margin-right:5px"/><span style="margin-right:10px">Share</span></a></span>
+                <script>
+                    var addthis_config = {
+                        pubid: 'ra-4ddadfad274479e6',
+                        data_track_clickback:true,
+                        services_compact: 'email, facebook, twitter, delicious, linkedin, more',
+                        services_expanded: 'email, facebook, twitter, blogger, delicious, digg, google, linkedin, reddit, slashdot, stumbleupon, technorati, typepad, wordpress, more',
+                        services_exclude: 'print, myspace'
+                    }
+                </script>
+            
+            
+                <span class="link">
+                    
+                        <a href="/ar/challenge/referralLink/9932707">
+                            <img src="/ar/images/challenge/referral.gif" alt="Refer Challenge" title="Refer Challenge" style="margin-right:5px"/><span style="margin-right:10px">Referral: $2,500 USD</span>
+                        </a>
+                    
+                    
+                </span>
+            
+        </div>
+    </div><!--end icons -->
+
+                                    </div>
+                                
+                            <div id="details_9932707" class="challenge-brief-ie6style" style="display:none;height:auto;overflow:hidden;width:678px">
+
+                                <div id="challenge-text-style">
+                                    <div id="challenge-brief-style">
+                                        <p>
+	A Dielectric coating and process is required to apply a &ldquo;hot mirror&rdquo; (filter) to a polycarbonate substrate. The coating must be rugged and maintain performance under specific environmental conditions.&nbsp;</p>
+<p>
+	<em>This Challenge requires only a written proposal.</em></p>
+
+                                        <a  href="/ar/challenge/index/9932707" style="white-space:nowrap">Read Challenge Details</a>
+                                        <span class="right-arrow">&nbsp;&#187;</span>
+                                    </div>
+                                    <p class="challenge-source-style">
+                                        <b>Source:</b>&nbsp;  InnoCentive&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Challenge ID:</b> &nbsp; 9932707&nbsp;&nbsp;&nbsp;
+                                    </p>
+                                </div><!--end challenge-text-style -->
+
+                            
+                                
+
+
+    <div class="icons" style="width:678px;font-size:11px;">
+          
+
+                <div class="prem-image">&nbsp;</div>
+
+          
+
+          <div style="float:right;margin-left:200px;">
+
+            
+                
+                <div class="link" style="float:left"><a href="http://www2.innocentive.com/faq/Solver#26n1733" target="_blank"><img src="https://www.innocentive.com/ar/images/challenge/team.gif" alt="Team Project Rooms are available on this Challenge." title="Team Project Rooms are available on this Challenge." border="0" align="bottom" style="margin:0 5px 0 5px"/>Team</a></div>
+            
+
+            
+                <span class="link"><a href="https://www.addthis.com/bookmark.php?v=250&amp;pub=ra-4ddadfad274479e6" onmouseover="return addthis_open(this, '', 'http://www.innocentive.com/ar/challenge/index/9932707', 'Durable Dielectric Coatings on Polycarbonate')" onmouseout="addthis_close()" onclick="return addthis_sendto()"><img src="/ar/images/challenge/share.gif" alt="Share Challenge" title="Share Challenge" style="margin-right:5px"/><span style="margin-right:10px">Share</span></a></span>
+                <script>
+                    var addthis_config = {
+                        pubid: 'ra-4ddadfad274479e6',
+                        data_track_clickback:true,
+                        services_compact: 'email, facebook, twitter, delicious, linkedin, more',
+                        services_expanded: 'email, facebook, twitter, blogger, delicious, digg, google, linkedin, reddit, slashdot, stumbleupon, technorati, typepad, wordpress, more',
+                        services_exclude: 'print, myspace'
+                    }
+                </script>
+            
+            
+                <span class="link">
+                    
+                        <a href="/ar/challenge/referralLink/9932707">
+                            <img src="/ar/images/challenge/referral.gif" alt="Refer Challenge" title="Refer Challenge" style="margin-right:5px"/><span style="margin-right:10px">Referral: $2,500 USD</span>
+                        </a>
+                    
+                    
+                </span>
+            
+        </div>
+    </div><!--end icons -->
+
+                            
+
+                            </div><!--end challenge-details -->
+                        </div><!--end challenge-row -->
+                        <div class="clear"></div>
+                    
+                        
+                        <!--row spacer -->
+                        <div style="line-height:10px">&nbsp;</div>
+
+                        <div class="clear"></div>
+
+
+                        <div class="challenge-row-standard" id="abstract_row_9933078"
+                             style="background-color:#ffffff;">
+                            
+                            <div class="clear"></div>
+                            <div id="challenge-image">
+                                
+                                  
+                                    <img border='0' src='/projectImages/challenge/ic10300000014_5.jpg' alt='' width='50' height='50' style='border:1px solid #727272;margin-left:10px;margin-top:10px;margin-bottom:10px;' />
+                                  
+                                
+                            </div><!--end challenge-image column -->
+                            <div id="challenge-details-column" style="width:297px">
+                                <div class="challenge-name">
+                                    <a  style='font-family:"Netto Bold",arial;font-size:1.1em' href="/ar/challenge/index/10300000014">Encore Pets: Marketing ideas needed for nonprofit to reach elusive pet owners</a>
+                                </div>
+                                <div style="clear:both;width:297px">
+                                    <p style='font-size:11px;font-weight:bold;color:#333;float:left;margin:0 0 0 10px;'>TAGS:&nbsp;<span style="font-weight:normal;">&nbsp;&nbsp;<a  href="javascript:checkOnly('cb_1844')"   >Business/Entrepreneurship</a>, <a  href="javascript:checkOnly('ct_Ideation')"   >Ideation</a></span></p>
+                                </div>
+                                <div style="height:25px; clear:both; margin-left: 10px;width:297px">
+                                    <a href="javascript:viewDetails(9933078);" id="more_link_9933078" style="font-size:11px;font-weight:bold;display:">+ View More</a>
+                                    <a href="javascript:hideDetails(9933078);" id="hide_link_9933078" style="font-size:11px;font-weight:bold;display:none">- View Less</a>
+
+
+                                </div>
+                            </div>
+
+                            <!--end challenge-details-column-->
+                            <div style="width:70px" class="div-data-style1">
+                                <div style="width:70px">4/16/12</div>
+                            </div><!--end posted-date-data-column-->
+                            <div style="width:69px" class="div-data-style1">
+                                <div style="width:69px">5/16/12</div>
+                            </div><!--end deadline-date-data-column-->
+                            <div style="width:90px" class="div-data-style1">
+                                <div style="width:90px">
+                                    
+                                        
+                                            $500 USD
+                                        
+                                    
+                                </div>
+                            </div><!--end reward-data-column-->
+                            
+                                <div style="width:72px;" class="div-data-style1">
+                                  <div style="width:72px">450</div>
+                                </div><!--end solvers-count-data-column-->
+                            
+                            
+                                    <div id="challenge_links_9933078" style="float: left; clear: both; width: 678px;">
+                                        
+
+
+    <div class="icons" style="width:678px;font-size:11px;">
+          
+
+                <div class="link" style="color:#666; float:left; margin-left:10px;"><strong>Brainstorm Challenge</strong><span class="beta-ch">&#946;eta</span></div>
+
+          
+
+          <div style="float:right;margin-left:200px;">
+
+            
+
+            
+                <span class="link"><a href="https://www.addthis.com/bookmark.php?v=250&amp;pub=ra-4ddadfad274479e6" onmouseover="return addthis_open(this, '', 'http://www.innocentive.com/ar/challenge/index/10300000014', 'Encore Pets: Marketing ideas needed for nonprofit to reach elusive pet owners')" onmouseout="addthis_close()" onclick="return addthis_sendto()"><img src="/ar/images/challenge/share.gif" alt="Share Challenge" title="Share Challenge" style="margin-right:5px"/><span style="margin-right:10px">Share</span></a></span>
+                <script>
+                    var addthis_config = {
+                        pubid: 'ra-4ddadfad274479e6',
+                        data_track_clickback:true,
+                        services_compact: 'email, facebook, twitter, delicious, linkedin, more',
+                        services_expanded: 'email, facebook, twitter, blogger, delicious, digg, google, linkedin, reddit, slashdot, stumbleupon, technorati, typepad, wordpress, more',
+                        services_exclude: 'print, myspace'
+                    }
+                </script>
+            
+            
+        </div>
+    </div><!--end icons -->
+
+                                    </div>
+                                
+                            <div id="details_9933078" class="challenge-brief-ie6style" style="display:none;height:auto;overflow:hidden;width:678px">
+
+                                <div id="challenge-text-style">
+                                    <div id="challenge-brief-style">
+                                        <p>
+	Our local volunteer pet rescue organization has been able to purchase a mobile spay/neuter clinic to serve our largely rural sparsely populated county. We have made significant gains in regards to pet overpopulation in the larger towns of the county, but still have a large segment of residents who we have not reached or convinced to spay/neuter their pets.</p>
+<p>
+	How does a non-profit organization with a limited budget effectively reach pet owners who rarely use veterinarians, are not required to register pets, typically do not read the local newspaper or listen to local media news,  and rarely participate in local community events in order to convince them to use our low cost spay/neuter services?</p>
+                                        <a  href="/ar/challenge/index/10300000014" style="white-space:nowrap">Read Challenge Details</a>
+                                        <span class="right-arrow">&nbsp;&#187;</span>
+                                    </div>
+                                    <p class="challenge-source-style">
+                                        <b>Source:</b>&nbsp;  InnoCentive&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Challenge ID:</b> &nbsp; 10300000014&nbsp;&nbsp;&nbsp;
+                                    </p>
+                                </div><!--end challenge-text-style -->
+
+                            
+                                
+
+
+    <div class="icons" style="width:678px;font-size:11px;">
+          
+
+                <div class="link" style="color:#666; float:left; margin-left:10px;"><strong>Brainstorm Challenge</strong><span class="beta-ch">&#946;eta</span></div>
+
+          
+
+          <div style="float:right;margin-left:200px;">
+
+            
+
+            
+                <span class="link"><a href="https://www.addthis.com/bookmark.php?v=250&amp;pub=ra-4ddadfad274479e6" onmouseover="return addthis_open(this, '', 'http://www.innocentive.com/ar/challenge/index/10300000014', 'Encore Pets: Marketing ideas needed for nonprofit to reach elusive pet owners')" onmouseout="addthis_close()" onclick="return addthis_sendto()"><img src="/ar/images/challenge/share.gif" alt="Share Challenge" title="Share Challenge" style="margin-right:5px"/><span style="margin-right:10px">Share</span></a></span>
+                <script>
+                    var addthis_config = {
+                        pubid: 'ra-4ddadfad274479e6',
+                        data_track_clickback:true,
+                        services_compact: 'email, facebook, twitter, delicious, linkedin, more',
+                        services_expanded: 'email, facebook, twitter, blogger, delicious, digg, google, linkedin, reddit, slashdot, stumbleupon, technorati, typepad, wordpress, more',
+                        services_exclude: 'print, myspace'
+                    }
+                </script>
+            
+            
+        </div>
+    </div><!--end icons -->
+
+                            
+
+                            </div><!--end challenge-details -->
+                        </div><!--end challenge-row -->
+                        <div class="clear"></div>
+                    
+                        
+                        <!--row spacer -->
+                        <div style="line-height:10px">&nbsp;</div>
+
+                        <div class="clear"></div>
+
+
+                        <div class="challenge-row" id="abstract_row_9933042"
+                             style="">
+                            
+                            <div class="clear"></div>
+                            <div id="challenge-image">
+                                
+                                  
+                                    <img border='0' src='/projectImages/challenge/ic9933042_5.jpg' alt='' width='50' height='50' style='border:1px solid #727272;margin-left:10px;margin-top:10px;margin-bottom:10px;' />
+                                  
+                                
+                            </div><!--end challenge-image column -->
+                            <div id="challenge-details-column" style="width:297px">
+                                <div class="challenge-name">
+                                    <a  style='font-family:"Netto Bold",arial;font-size:1.1em' href="/ar/challenge/index/9933042">Imparting Durability/ Adhesion to Superhydrophobic Silica Coatings</a>
+                                </div>
+                                <div style="clear:both;width:297px">
+                                    <p style='font-size:11px;font-weight:bold;color:#333;float:left;margin:0 0 0 10px;'>TAGS:&nbsp;<span style="font-weight:normal;">&nbsp;&nbsp;<a  href="javascript:checkOnly('cb_1856')"   >Chemistry</a>, <a  href="javascript:checkOnly('cb_1875')"   >Engineering/Design</a>, <a  href="javascript:checkOnly('cb_1902')"   >Physical Sciences</a>, <a  href="javascript:checkOnly('ct_RTP')"   >RTP</a></span></p>
+                                </div>
+                                <div style="height:25px; clear:both; margin-left: 10px;width:297px">
+                                    <a href="javascript:viewDetails(9933042);" id="more_link_9933042" style="font-size:11px;font-weight:bold;display:">+ View More</a>
+                                    <a href="javascript:hideDetails(9933042);" id="hide_link_9933042" style="font-size:11px;font-weight:bold;display:none">- View Less</a>
+
+
+                                </div>
+                            </div>
+
+                            <!--end challenge-details-column-->
+                            <div style="width:70px" class="div-data-style1">
+                                <div style="width:70px">4/06/12</div>
+                            </div><!--end posted-date-data-column-->
+                            <div style="width:69px" class="div-data-style1">
+                                <div style="width:69px">5/07/12</div>
+                            </div><!--end deadline-date-data-column-->
+                            <div style="width:90px" class="div-data-style1">
+                                <div style="width:90px">
+                                    
+                                        
+                                            $50,000 USD
+                                        
+                                    
+                                </div>
+                            </div><!--end reward-data-column-->
+                            
+                                <div style="width:72px;" class="div-data-style1">
+                                  <div style="width:72px">297</div>
+                                </div><!--end solvers-count-data-column-->
+                            
+                            
+                                    <div id="challenge_links_9933042" style="float: left; clear: both; width: 678px;">
+                                        
+
+
+    <div class="icons" style="width:678px;font-size:11px;">
+          
+
+                <div class="prem-image">&nbsp;</div>
+
+          
+
+          <div style="float:right;margin-left:200px;">
+
+            
+                
+                <div class="link" style="float:left"><a href="http://www2.innocentive.com/faq/Solver#26n1733" target="_blank"><img src="https://www.innocentive.com/ar/images/challenge/team.gif" alt="Team Project Rooms are available on this Challenge." title="Team Project Rooms are available on this Challenge." border="0" align="bottom" style="margin:0 5px 0 5px"/>Team</a></div>
+            
+
+            
+                <span class="link"><a href="https://www.addthis.com/bookmark.php?v=250&amp;pub=ra-4ddadfad274479e6" onmouseover="return addthis_open(this, '', 'http://www.innocentive.com/ar/challenge/index/9933042', 'Imparting Durability/ Adhesion to Superhydrophobic Silica Coatings')" onmouseout="addthis_close()" onclick="return addthis_sendto()"><img src="/ar/images/challenge/share.gif" alt="Share Challenge" title="Share Challenge" style="margin-right:5px"/><span style="margin-right:10px">Share</span></a></span>
+                <script>
+                    var addthis_config = {
+                        pubid: 'ra-4ddadfad274479e6',
+                        data_track_clickback:true,
+                        services_compact: 'email, facebook, twitter, delicious, linkedin, more',
+                        services_expanded: 'email, facebook, twitter, blogger, delicious, digg, google, linkedin, reddit, slashdot, stumbleupon, technorati, typepad, wordpress, more',
+                        services_exclude: 'print, myspace'
+                    }
+                </script>
+            
+            
+                <span class="link">
+                    
+                        <a href="/ar/challenge/referralLink/9933042">
+                            <img src="/ar/images/challenge/referral.gif" alt="Refer Challenge" title="Refer Challenge" style="margin-right:5px"/><span style="margin-right:10px">Referral: $5,000 USD</span>
+                        </a>
+                    
+                    
+                </span>
+            
+        </div>
+    </div><!--end icons -->
+
+                                    </div>
+                                
+                            <div id="details_9933042" class="challenge-brief-ie6style" style="display:none;height:auto;overflow:hidden;width:678px">
+
+                                <div id="challenge-text-style">
+                                    <div id="challenge-brief-style">
+                                        <p>
+	The Seeker has a super hydrophobic coating. The coating is replicable, but has very limited durability. Many avenues have been pursued to impart durability/promote adhesion; however, these paths have not resulted in a coating with acceptable performance.&nbsp; We are seeking a solution that will enable the coating to be more durable as defined in the solution requirements.</p>
+
+                                        <a  href="/ar/challenge/index/9933042" style="white-space:nowrap">Read Challenge Details</a>
+                                        <span class="right-arrow">&nbsp;&#187;</span>
+                                    </div>
+                                    <p class="challenge-source-style">
+                                        <b>Source:</b>&nbsp;  InnoCentive&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Challenge ID:</b> &nbsp; 9933042&nbsp;&nbsp;&nbsp;
+                                    </p>
+                                </div><!--end challenge-text-style -->
+
+                            
+                                
+
+
+    <div class="icons" style="width:678px;font-size:11px;">
+          
+
+                <div class="prem-image">&nbsp;</div>
+
+          
+
+          <div style="float:right;margin-left:200px;">
+
+            
+                
+                <div class="link" style="float:left"><a href="http://www2.innocentive.com/faq/Solver#26n1733" target="_blank"><img src="https://www.innocentive.com/ar/images/challenge/team.gif" alt="Team Project Rooms are available on this Challenge." title="Team Project Rooms are available on this Challenge." border="0" align="bottom" style="margin:0 5px 0 5px"/>Team</a></div>
+            
+
+            
+                <span class="link"><a href="https://www.addthis.com/bookmark.php?v=250&amp;pub=ra-4ddadfad274479e6" onmouseover="return addthis_open(this, '', 'http://www.innocentive.com/ar/challenge/index/9933042', 'Imparting Durability/ Adhesion to Superhydrophobic Silica Coatings')" onmouseout="addthis_close()" onclick="return addthis_sendto()"><img src="/ar/images/challenge/share.gif" alt="Share Challenge" title="Share Challenge" style="margin-right:5px"/><span style="margin-right:10px">Share</span></a></span>
+                <script>
+                    var addthis_config = {
+                        pubid: 'ra-4ddadfad274479e6',
+                        data_track_clickback:true,
+                        services_compact: 'email, facebook, twitter, delicious, linkedin, more',
+                        services_expanded: 'email, facebook, twitter, blogger, delicious, digg, google, linkedin, reddit, slashdot, stumbleupon, technorati, typepad, wordpress, more',
+                        services_exclude: 'print, myspace'
+                    }
+                </script>
+            
+            
+                <span class="link">
+                    
+                        <a href="/ar/challenge/referralLink/9933042">
+                            <img src="/ar/images/challenge/referral.gif" alt="Refer Challenge" title="Refer Challenge" style="margin-right:5px"/><span style="margin-right:10px">Referral: $5,000 USD</span>
+                        </a>
+                    
+                    
+                </span>
+            
+        </div>
+    </div><!--end icons -->
+
+                            
+
+                            </div><!--end challenge-details -->
+                        </div><!--end challenge-row -->
+                        <div class="clear"></div>
+                    
+                        
+                        <!--row spacer -->
+                        <div style="line-height:10px">&nbsp;</div>
+
+                        <div class="clear"></div>
+
+
+                        <div class="challenge-row" id="abstract_row_9932943"
+                             style="">
+                            
+                            <div class="clear"></div>
+                            <div id="challenge-image">
+                                
+                                  
+                                    <img border='0' src='/projectImages/challenge/ic9932943_5.jpg' alt='' width='50' height='50' style='border:1px solid #727272;margin-left:10px;margin-top:10px;margin-bottom:10px;' />
+                                  
+                                
+                            </div><!--end challenge-image column -->
+                            <div id="challenge-details-column" style="width:297px">
+                                <div class="challenge-name">
+                                    <a  style='font-family:"Netto Bold",arial;font-size:1.1em' href="/ar/challenge/index/9932943">Stand Alone Field Measurement of Atmospheric Benzene & Butadiene</a>
+                                </div>
+                                <div style="clear:both;width:297px">
+                                    <p style='font-size:11px;font-weight:bold;color:#333;float:left;margin:0 0 0 10px;'>TAGS:&nbsp;<span style="font-weight:normal;">&nbsp;&nbsp;<a  href="javascript:checkOnly('cb_1856')"   >Chemistry</a>, <a  href="javascript:checkOnly('cb_1875')"   >Engineering/Design</a>, <a  href="javascript:checkOnly('cb_1902')"   >Physical Sciences</a>, <a  href="javascript:checkOnly('pv_1916')"   >Global Health</a>, <a  href="javascript:checkOnly('pv_1917')"   >Public Good</a>, <a  href="javascript:checkOnly('pv_1930')"   >Environment</a>, <a  href="javascript:checkOnly('ct_Theoretical')"   >Theoretical-licensing</a></span></p>
+                                </div>
+                                <div style="height:25px; clear:both; margin-left: 10px;width:297px">
+                                    <a href="javascript:viewDetails(9932943);" id="more_link_9932943" style="font-size:11px;font-weight:bold;display:">+ View More</a>
+                                    <a href="javascript:hideDetails(9932943);" id="hide_link_9932943" style="font-size:11px;font-weight:bold;display:none">- View Less</a>
+
+
+                                </div>
+                            </div>
+
+                            <!--end challenge-details-column-->
+                            <div style="width:70px" class="div-data-style1">
+                                <div style="width:70px">4/04/12</div>
+                            </div><!--end posted-date-data-column-->
+                            <div style="width:69px" class="div-data-style1">
+                                <div style="width:69px">6/04/12</div>
+                            </div><!--end deadline-date-data-column-->
+                            <div style="width:90px" class="div-data-style1">
+                                <div style="width:90px">
+                                    
+                                        
+                                            $30,000 USD
+                                        
+                                    
+                                </div>
+                            </div><!--end reward-data-column-->
+                            
+                                <div style="width:72px;" class="div-data-style1">
+                                  <div style="width:72px">177</div>
+                                </div><!--end solvers-count-data-column-->
+                            
+                            
+                                    <div id="challenge_links_9932943" style="float: left; clear: both; width: 678px;">
+                                        
+
+
+    <div class="icons" style="width:678px;font-size:11px;">
+          
+
+                <div class="prem-image">&nbsp;</div>
+
+          
+
+          <div style="float:right;margin-left:200px;">
+
+            
+                
+                <div class="link" style="float:left"><a href="http://www2.innocentive.com/faq/Solver#26n1733" target="_blank"><img src="https://www.innocentive.com/ar/images/challenge/team.gif" alt="Team Project Rooms are available on this Challenge." title="Team Project Rooms are available on this Challenge." border="0" align="bottom" style="margin:0 5px 0 5px"/>Team</a></div>
+            
+
+            
+                <span class="link"><a href="https://www.addthis.com/bookmark.php?v=250&amp;pub=ra-4ddadfad274479e6" onmouseover="return addthis_open(this, '', 'http://www.innocentive.com/ar/challenge/index/9932943', 'Stand Alone Field Measurement of Atmospheric Benzene &amp; Butadiene')" onmouseout="addthis_close()" onclick="return addthis_sendto()"><img src="/ar/images/challenge/share.gif" alt="Share Challenge" title="Share Challenge" style="margin-right:5px"/><span style="margin-right:10px">Share</span></a></span>
+                <script>
+                    var addthis_config = {
+                        pubid: 'ra-4ddadfad274479e6',
+                        data_track_clickback:true,
+                        services_compact: 'email, facebook, twitter, delicious, linkedin, more',
+                        services_expanded: 'email, facebook, twitter, blogger, delicious, digg, google, linkedin, reddit, slashdot, stumbleupon, technorati, typepad, wordpress, more',
+                        services_exclude: 'print, myspace'
+                    }
+                </script>
+            
+            
+                <span class="link">
+                    
+                        <a href="/ar/challenge/referralLink/9932943">
+                            <img src="/ar/images/challenge/referral.gif" alt="Refer Challenge" title="Refer Challenge" style="margin-right:5px"/><span style="margin-right:10px">Referral: $3,000 USD</span>
+                        </a>
+                    
+                    
+                </span>
+            
+        </div>
+    </div><!--end icons -->
+
+                                    </div>
+                                
+                            <div id="details_9932943" class="challenge-brief-ie6style" style="display:none;height:auto;overflow:hidden;width:678px">
+
+                                <div id="challenge-text-style">
+                                    <div id="challenge-brief-style">
+                                        <p>
+	A method or technology is required that will enable sensitive, reproducible and rapid field-based monitoring of atmospheric benzene &amp; 1,3 butadiene at low concentrations. These potent toxins needs to be detected in very low concentrations and the most sensitive methods of analysis currently require laborious sample collection and processing using laboratory-based instruments.</p>
+<p>
+	<em>This Challenge requires only a written proposal.</em></p>
+
+                                        <a  href="/ar/challenge/index/9932943" style="white-space:nowrap">Read Challenge Details</a>
+                                        <span class="right-arrow">&nbsp;&#187;</span>
+                                    </div>
+                                    <p class="challenge-source-style">
+                                        <b>Source:</b>&nbsp;  InnoCentive&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Challenge ID:</b> &nbsp; 9932943&nbsp;&nbsp;&nbsp;
+                                    </p>
+                                </div><!--end challenge-text-style -->
+
+                            
+                                
+
+
+    <div class="icons" style="width:678px;font-size:11px;">
+          
+
+                <div class="prem-image">&nbsp;</div>
+
+          
+
+          <div style="float:right;margin-left:200px;">
+
+            
+                
+                <div class="link" style="float:left"><a href="http://www2.innocentive.com/faq/Solver#26n1733" target="_blank"><img src="https://www.innocentive.com/ar/images/challenge/team.gif" alt="Team Project Rooms are available on this Challenge." title="Team Project Rooms are available on this Challenge." border="0" align="bottom" style="margin:0 5px 0 5px"/>Team</a></div>
+            
+
+            
+                <span class="link"><a href="https://www.addthis.com/bookmark.php?v=250&amp;pub=ra-4ddadfad274479e6" onmouseover="return addthis_open(this, '', 'http://www.innocentive.com/ar/challenge/index/9932943', 'Stand Alone Field Measurement of Atmospheric Benzene &amp; Butadiene')" onmouseout="addthis_close()" onclick="return addthis_sendto()"><img src="/ar/images/challenge/share.gif" alt="Share Challenge" title="Share Challenge" style="margin-right:5px"/><span style="margin-right:10px">Share</span></a></span>
+                <script>
+                    var addthis_config = {
+                        pubid: 'ra-4ddadfad274479e6',
+                        data_track_clickback:true,
+                        services_compact: 'email, facebook, twitter, delicious, linkedin, more',
+                        services_expanded: 'email, facebook, twitter, blogger, delicious, digg, google, linkedin, reddit, slashdot, stumbleupon, technorati, typepad, wordpress, more',
+                        services_exclude: 'print, myspace'
+                    }
+                </script>
+            
+            
+                <span class="link">
+                    
+                        <a href="/ar/challenge/referralLink/9932943">
+                            <img src="/ar/images/challenge/referral.gif" alt="Refer Challenge" title="Refer Challenge" style="margin-right:5px"/><span style="margin-right:10px">Referral: $3,000 USD</span>
+                        </a>
+                    
+                    
+                </span>
+            
+        </div>
+    </div><!--end icons -->
+
+                            
+
+                            </div><!--end challenge-details -->
+                        </div><!--end challenge-row -->
+                        <div class="clear"></div>
+                    
+                        
+                        <!--row spacer -->
+                        <div style="line-height:10px">&nbsp;</div>
+
+                        <div class="clear"></div>
+
+
+                        <div class="challenge-row-standard" id="abstract_row_9933077"
+                             style="background-color:#ffffff;">
+                            
+                            <div class="clear"></div>
+                            <div id="challenge-image">
+                                
+                                  
+                                    <img border='0' src='/projectImages/challenge/ic10300000010_5.jpg' alt='' width='50' height='50' style='border:1px solid #727272;margin-left:10px;margin-top:10px;margin-bottom:10px;' />
+                                  
+                                
+                            </div><!--end challenge-image column -->
+                            <div id="challenge-details-column" style="width:297px">
+                                <div class="challenge-name">
+                                    <a  style='font-family:"Netto Bold",arial;font-size:1.1em' href="/ar/challenge/index/10300000010">Creating Jobs at the Local Level </a>
+                                </div>
+                                <div style="clear:both;width:297px">
+                                    <p style='font-size:11px;font-weight:bold;color:#333;float:left;margin:0 0 0 10px;'>TAGS:&nbsp;<span style="font-weight:normal;">&nbsp;&nbsp;<a  href="javascript:checkOnly('cb_1844')"   >Business/Entrepreneurship</a>, <a  href="javascript:checkOnly('ct_Ideation')"   >Ideation</a></span></p>
+                                </div>
+                                <div style="height:25px; clear:both; margin-left: 10px;width:297px">
+                                    <a href="javascript:viewDetails(9933077);" id="more_link_9933077" style="font-size:11px;font-weight:bold;display:">+ View More</a>
+                                    <a href="javascript:hideDetails(9933077);" id="hide_link_9933077" style="font-size:11px;font-weight:bold;display:none">- View Less</a>
+
+
+                                </div>
+                            </div>
+
+                            <!--end challenge-details-column-->
+                            <div style="width:70px" class="div-data-style1">
+                                <div style="width:70px">4/04/12</div>
+                            </div><!--end posted-date-data-column-->
+                            <div style="width:69px" class="div-data-style1">
+                                <div style="width:69px">5/04/12</div>
+                            </div><!--end deadline-date-data-column-->
+                            <div style="width:90px" class="div-data-style1">
+                                <div style="width:90px">
+                                    
+                                        
+                                            $1,000 USD
+                                        
+                                    
+                                </div>
+                            </div><!--end reward-data-column-->
+                            
+                                <div style="width:72px;" class="div-data-style1">
+                                  <div style="width:72px">553</div>
+                                </div><!--end solvers-count-data-column-->
+                            
+                            
+                                    <div id="challenge_links_9933077" style="float: left; clear: both; width: 678px;">
+                                        
+
+
+    <div class="icons" style="width:678px;font-size:11px;">
+          
+
+                <div class="link" style="color:#666; float:left; margin-left:10px;"><strong>Brainstorm Challenge</strong><span class="beta-ch">&#946;eta</span></div>
+
+          
+
+          <div style="float:right;margin-left:200px;">
+
+            
+
+            
+                <span class="link"><a href="https://www.addthis.com/bookmark.php?v=250&amp;pub=ra-4ddadfad274479e6" onmouseover="return addthis_open(this, '', 'http://www.innocentive.com/ar/challenge/index/10300000010', 'Creating Jobs at the Local Level ')" onmouseout="addthis_close()" onclick="return addthis_sendto()"><img src="/ar/images/challenge/share.gif" alt="Share Challenge" title="Share Challenge" style="margin-right:5px"/><span style="margin-right:10px">Share</span></a></span>
+                <script>
+                    var addthis_config = {
+                        pubid: 'ra-4ddadfad274479e6',
+                        data_track_clickback:true,
+                        services_compact: 'email, facebook, twitter, delicious, linkedin, more',
+                        services_expanded: 'email, facebook, twitter, blogger, delicious, digg, google, linkedin, reddit, slashdot, stumbleupon, technorati, typepad, wordpress, more',
+                        services_exclude: 'print, myspace'
+                    }
+                </script>
+            
+            
+        </div>
+    </div><!--end icons -->
+
+                                    </div>
+                                
+                            <div id="details_9933077" class="challenge-brief-ie6style" style="display:none;height:auto;overflow:hidden;width:678px">
+
+                                <div id="challenge-text-style">
+                                    <div id="challenge-brief-style">
+                                        <p>
+	Help us (InnoCentive, Inc.) by coming up with an Idea Folder for local and community leaders to leverage in order to get economies moving faster in the right direction and to put more people back to work.&nbsp; InnoCentive will award up to two (2) Solvers with a $500 award for this Challenge.</p>
+
+                                        <a  href="/ar/challenge/index/10300000010" style="white-space:nowrap">Read Challenge Details</a>
+                                        <span class="right-arrow">&nbsp;&#187;</span>
+                                    </div>
+                                    <p class="challenge-source-style">
+                                        <b>Source:</b>&nbsp;  InnoCentive&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Challenge ID:</b> &nbsp; 10300000010&nbsp;&nbsp;&nbsp;
+                                    </p>
+                                </div><!--end challenge-text-style -->
+
+                            
+                                
+
+
+    <div class="icons" style="width:678px;font-size:11px;">
+          
+
+                <div class="link" style="color:#666; float:left; margin-left:10px;"><strong>Brainstorm Challenge</strong><span class="beta-ch">&#946;eta</span></div>
+
+          
+
+          <div style="float:right;margin-left:200px;">
+
+            
+
+            
+                <span class="link"><a href="https://www.addthis.com/bookmark.php?v=250&amp;pub=ra-4ddadfad274479e6" onmouseover="return addthis_open(this, '', 'http://www.innocentive.com/ar/challenge/index/10300000010', 'Creating Jobs at the Local Level ')" onmouseout="addthis_close()" onclick="return addthis_sendto()"><img src="/ar/images/challenge/share.gif" alt="Share Challenge" title="Share Challenge" style="margin-right:5px"/><span style="margin-right:10px">Share</span></a></span>
+                <script>
+                    var addthis_config = {
+                        pubid: 'ra-4ddadfad274479e6',
+                        data_track_clickback:true,
+                        services_compact: 'email, facebook, twitter, delicious, linkedin, more',
+                        services_expanded: 'email, facebook, twitter, blogger, delicious, digg, google, linkedin, reddit, slashdot, stumbleupon, technorati, typepad, wordpress, more',
+                        services_exclude: 'print, myspace'
+                    }
+                </script>
+            
+            
+        </div>
+    </div><!--end icons -->
+
+                            
+
+                            </div><!--end challenge-details -->
+                        </div><!--end challenge-row -->
+                        <div class="clear"></div>
+                    
+                        
+                        <!--row spacer -->
+                        <div style="line-height:10px">&nbsp;</div>
+
+                        <div class="clear"></div>
+
+
+                        <div class="challenge-row" id="abstract_row_9932885"
+                             style="">
+                            
+                            <div class="clear"></div>
+                            <div id="challenge-image">
+                                
+                                  
+                                    <img border='0' src='/projectImages/challenge/ic9932885_5.jpg' alt='' width='50' height='50' style='border:1px solid #727272;margin-left:10px;margin-top:10px;margin-bottom:10px;' />
+                                  
+                                
+                            </div><!--end challenge-image column -->
+                            <div id="challenge-details-column" style="width:297px">
+                                <div class="challenge-name">
+                                    <a  style='font-family:"Netto Bold",arial;font-size:1.1em' href="/ar/challenge/index/9932885">Design of Novel Scaffolds for Inhibitors of Complex III  (a.k.a. Cytochrome bc1, EC 1.10.2.2)</a>
+                                </div>
+                                <div style="clear:both;width:297px">
+                                    <p style='font-size:11px;font-weight:bold;color:#333;float:left;margin:0 0 0 10px;'>TAGS:&nbsp;<span style="font-weight:normal;">&nbsp;&nbsp;<a  href="javascript:checkOnly('cb_1856')"   >Chemistry</a>, <a  href="javascript:checkOnly('cb_1866')"   >Computer Science/Information Technology</a>, <a  href="javascript:checkOnly('cb_1887')"   >Life Sciences</a>, <a  href="javascript:checkOnly('pv_1920')"   >Nature</a>, <a  href="javascript:checkOnly('ct_Ideation')"   >Ideation</a></span></p>
+                                </div>
+                                <div style="height:25px; clear:both; margin-left: 10px;width:297px">
+                                    <a href="javascript:viewDetails(9932885);" id="more_link_9932885" style="font-size:11px;font-weight:bold;display:">+ View More</a>
+                                    <a href="javascript:hideDetails(9932885);" id="hide_link_9932885" style="font-size:11px;font-weight:bold;display:none">- View Less</a>
+
+
+                                </div>
+                            </div>
+
+                            <!--end challenge-details-column-->
+                            <div style="width:70px" class="div-data-style1">
+                                <div style="width:70px">4/03/12</div>
+                            </div><!--end posted-date-data-column-->
+                            <div style="width:69px" class="div-data-style1">
+                                <div style="width:69px">6/03/12</div>
+                            </div><!--end deadline-date-data-column-->
+                            <div style="width:90px" class="div-data-style1">
+                                <div style="width:90px">
+                                    
+                                        
+                                            $15,000 USD
+                                        
+                                    
+                                </div>
+                            </div><!--end reward-data-column-->
+                            
+                                <div style="width:72px;" class="div-data-style1">
+                                  <div style="width:72px">134</div>
+                                </div><!--end solvers-count-data-column-->
+                            
+                            
+                                    <div id="challenge_links_9932885" style="float: left; clear: both; width: 678px;">
+                                        
+
+
+    <div class="icons" style="width:678px;font-size:11px;">
+          
+
+                <div class="prem-image">&nbsp;</div>
+
+          
+
+          <div style="float:right;margin-left:200px;">
+
+            
+                
+                <div class="link" style="float:left"><a href="http://www2.innocentive.com/faq/Solver#26n1733" target="_blank"><img src="https://www.innocentive.com/ar/images/challenge/team.gif" alt="Team Project Rooms are available on this Challenge." title="Team Project Rooms are available on this Challenge." border="0" align="bottom" style="margin:0 5px 0 5px"/>Team</a></div>
+            
+
+            
+                <span class="link"><a href="https://www.addthis.com/bookmark.php?v=250&amp;pub=ra-4ddadfad274479e6" onmouseover="return addthis_open(this, '', 'http://www.innocentive.com/ar/challenge/index/9932885', 'Design of Novel Scaffolds for Inhibitors of Complex III  (a.k.a. Cytochrome bc1, EC 1.10.2.2)')" onmouseout="addthis_close()" onclick="return addthis_sendto()"><img src="/ar/images/challenge/share.gif" alt="Share Challenge" title="Share Challenge" style="margin-right:5px"/><span style="margin-right:10px">Share</span></a></span>
+                <script>
+                    var addthis_config = {
+                        pubid: 'ra-4ddadfad274479e6',
+                        data_track_clickback:true,
+                        services_compact: 'email, facebook, twitter, delicious, linkedin, more',
+                        services_expanded: 'email, facebook, twitter, blogger, delicious, digg, google, linkedin, reddit, slashdot, stumbleupon, technorati, typepad, wordpress, more',
+                        services_exclude: 'print, myspace'
+                    }
+                </script>
+            
+            
+                <span class="link">
+                    
+                        <a href="/ar/challenge/referralLink/9932885">
+                            <img src="/ar/images/challenge/referral.gif" alt="Refer Challenge" title="Refer Challenge" style="margin-right:5px"/><span style="margin-right:10px">Referral: $1,500 USD</span>
+                        </a>
+                    
+                    
+                </span>
+            
+        </div>
+    </div><!--end icons -->
+
+                                    </div>
+                                
+                            <div id="details_9932885" class="challenge-brief-ie6style" style="display:none;height:auto;overflow:hidden;width:678px">
+
+                                <div id="challenge-text-style">
+                                    <div id="challenge-brief-style">
+                                        <p>
+	This Challenge seeks to identify novel scaffolds for inhibitors of Complex III&nbsp; (a.k.a. Cytochrome bc<sub>1</sub> or Coenzyme Q:cytochrome c &ndash; oxidoreductase; EC 1.10.2.2).&nbsp; The Seeker is also interested in obtaining insight into recent advances in molecular modeling. They will therefore award solutions based on both their interest in the specific scaffolds as well as the novelty and validity of the modeling performed to arrive at the scaffolds.&nbsp; The Seeker may consider ongoing collaboration with the winning Solver(s) of this Challenge on both this project as well as future molecular modeling efforts.&nbsp;</p>
+<p>
+	This is an Ideation Challenge with a guaranteed award for at least one submitted solution.</p>
+
+                                        <a  href="/ar/challenge/index/9932885" style="white-space:nowrap">Read Challenge Details</a>
+                                        <span class="right-arrow">&nbsp;&#187;</span>
+                                    </div>
+                                    <p class="challenge-source-style">
+                                        <b>Source:</b>&nbsp;  InnoCentive&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Challenge ID:</b> &nbsp; 9932885&nbsp;&nbsp;&nbsp;
+                                    </p>
+                                </div><!--end challenge-text-style -->
+
+                            
+                                
+
+
+    <div class="icons" style="width:678px;font-size:11px;">
+          
+
+                <div class="prem-image">&nbsp;</div>
+
+          
+
+          <div style="float:right;margin-left:200px;">
+
+            
+                
+                <div class="link" style="float:left"><a href="http://www2.innocentive.com/faq/Solver#26n1733" target="_blank"><img src="https://www.innocentive.com/ar/images/challenge/team.gif" alt="Team Project Rooms are available on this Challenge." title="Team Project Rooms are available on this Challenge." border="0" align="bottom" style="margin:0 5px 0 5px"/>Team</a></div>
+            
+
+            
+                <span class="link"><a href="https://www.addthis.com/bookmark.php?v=250&amp;pub=ra-4ddadfad274479e6" onmouseover="return addthis_open(this, '', 'http://www.innocentive.com/ar/challenge/index/9932885', 'Design of Novel Scaffolds for Inhibitors of Complex III  (a.k.a. Cytochrome bc1, EC 1.10.2.2)')" onmouseout="addthis_close()" onclick="return addthis_sendto()"><img src="/ar/images/challenge/share.gif" alt="Share Challenge" title="Share Challenge" style="margin-right:5px"/><span style="margin-right:10px">Share</span></a></span>
+                <script>
+                    var addthis_config = {
+                        pubid: 'ra-4ddadfad274479e6',
+                        data_track_clickback:true,
+                        services_compact: 'email, facebook, twitter, delicious, linkedin, more',
+                        services_expanded: 'email, facebook, twitter, blogger, delicious, digg, google, linkedin, reddit, slashdot, stumbleupon, technorati, typepad, wordpress, more',
+                        services_exclude: 'print, myspace'
+                    }
+                </script>
+            
+            
+                <span class="link">
+                    
+                        <a href="/ar/challenge/referralLink/9932885">
+                            <img src="/ar/images/challenge/referral.gif" alt="Refer Challenge" title="Refer Challenge" style="margin-right:5px"/><span style="margin-right:10px">Referral: $1,500 USD</span>
+                        </a>
+                    
+                    
+                </span>
+            
+        </div>
+    </div><!--end icons -->
+
+                            
+
+                            </div><!--end challenge-details -->
+                        </div><!--end challenge-row -->
+                        <div class="clear"></div>
+                    
+                </div><!--end challenge-list -->
+                <div class="show-bar" style="margin:10px 0 10px 0">
+                    <div id="show-bar-text">Show:</div>&nbsp;
+                <select name="max_select_lower" class="select-style" onchange="syncMax(this)" id="max_select_lower" >
+<option value="10" selected="selected" >10</option>
+<option value="25" >25</option>
+<option value="50" >50</option>
+</select>
+                    <span class="paginateButtons">
+                        <span class="currentStep">1</span><a href="/ar/challenge/filter?offset=10&max=10&source=innocentive&query=&breadCrumbs=All&pavilionName=&pavilionId=&sortProp=Posted&categoryName=&sortOrder=desc&ct_Ideation=&ct_Theoretical=&ct_RTP=&ct_eRFP=&expandAction=expand" onclick="new Ajax.Updater('challengeListDiv','/ar/challenge/filter',{asynchronous:true,evalScripts:true,parameters:'offset=10&max=10&source=innocentive&query=&breadCrumbs=All&pavilionName=&pavilionId=&sortProp=Posted&categoryName=&sortOrder=desc&ct_Ideation=&ct_Theoretical=&ct_RTP=&ct_eRFP=&expandAction=expand'});return false;" class="step">2</a><a href="/ar/challenge/filter?offset=20&max=10&source=innocentive&query=&breadCrumbs=All&pavilionName=&pavilionId=&sortProp=Posted&categoryName=&sortOrder=desc&ct_Ideation=&ct_Theoretical=&ct_RTP=&ct_eRFP=&expandAction=expand" onclick="new Ajax.Updater('challengeListDiv','/ar/challenge/filter',{asynchronous:true,evalScripts:true,parameters:'offset=20&max=10&source=innocentive&query=&breadCrumbs=All&pavilionName=&pavilionId=&sortProp=Posted&categoryName=&sortOrder=desc&ct_Ideation=&ct_Theoretical=&ct_RTP=&ct_eRFP=&expandAction=expand'});return false;" class="step">3</a><a href="/ar/challenge/filter?offset=30&max=10&source=innocentive&query=&breadCrumbs=All&pavilionName=&pavilionId=&sortProp=Posted&categoryName=&sortOrder=desc&ct_Ideation=&ct_Theoretical=&ct_RTP=&ct_eRFP=&expandAction=expand" onclick="new Ajax.Updater('challengeListDiv','/ar/challenge/filter',{asynchronous:true,evalScripts:true,parameters:'offset=30&max=10&source=innocentive&query=&breadCrumbs=All&pavilionName=&pavilionId=&sortProp=Posted&categoryName=&sortOrder=desc&ct_Ideation=&ct_Theoretical=&ct_RTP=&ct_eRFP=&expandAction=expand'});return false;" class="step">4</a><a href="/ar/challenge/filter?offset=40&max=10&source=innocentive&query=&breadCrumbs=All&pavilionName=&pavilionId=&sortProp=Posted&categoryName=&sortOrder=desc&ct_Ideation=&ct_Theoretical=&ct_RTP=&ct_eRFP=&expandAction=expand" onclick="new Ajax.Updater('challengeListDiv','/ar/challenge/filter',{asynchronous:true,evalScripts:true,parameters:'offset=40&max=10&source=innocentive&query=&breadCrumbs=All&pavilionName=&pavilionId=&sortProp=Posted&categoryName=&sortOrder=desc&ct_Ideation=&ct_Theoretical=&ct_RTP=&ct_eRFP=&expandAction=expand'});return false;" class="step">5</a><span class="step">..</span><a href="/ar/challenge/filter?offset=120&max=10&source=innocentive&query=&breadCrumbs=All&pavilionName=&pavilionId=&sortProp=Posted&categoryName=&sortOrder=desc&ct_Ideation=&ct_Theoretical=&ct_RTP=&ct_eRFP=&expandAction=expand" onclick="new Ajax.Updater('challengeListDiv','/ar/challenge/filter',{asynchronous:true,evalScripts:true,parameters:'offset=120&max=10&source=innocentive&query=&breadCrumbs=All&pavilionName=&pavilionId=&sortProp=Posted&categoryName=&sortOrder=desc&ct_Ideation=&ct_Theoretical=&ct_RTP=&ct_eRFP=&expandAction=expand'});return false;" class="step">13</a><a href="/ar/challenge/filter?offset=10&max=10&source=innocentive&query=&breadCrumbs=All&pavilionName=&pavilionId=&sortProp=Posted&categoryName=&sortOrder=desc&ct_Ideation=&ct_Theoretical=&ct_RTP=&ct_eRFP=&expandAction=expand" onclick="new Ajax.Updater('challengeListDiv','/ar/challenge/filter',{asynchronous:true,evalScripts:true,parameters:'offset=10&max=10&source=innocentive&query=&breadCrumbs=All&pavilionName=&pavilionId=&sortProp=Posted&categoryName=&sortOrder=desc&ct_Ideation=&ct_Theoretical=&ct_RTP=&ct_eRFP=&expandAction=expand'});return false;" class="nextLink">Next</a><span class="right-arrow">&#187;</span>
+                </span>
+                </div> <!--end show-bar-->
+            
+        </div><!--end challenge-content -->
+    </div> <!--end challenge-content-panel -->
+<div id="settings_panel">
+    <div class="hd">
+        <div id="sp-header">Filter Settings</div>
+        <div class="close-link"><a href="javascript:settingsPanel.hide();">Close Window</a></div>
+    </div>
+    <div id="settings-content">
+        <div id="sp-restorelink" style="display: none;">
+            <div class="restore-filter"><a href="/ar/challenge/restoreFilterSettings">Restore My Filter Settings</a></div>
+            <div class="clear divider-style">&nbsp;</div>
+        </div>
+
+        <div class="settings_text_style">
+            <label><input class="radio-style" type="radio" name="saveRadio" id="saveRadio" checked value="1"/>&nbsp;&nbsp;<span id="sp-saveprompt"><b> Save</b> current filter settings as default, and email a weekly digest of filtered Challenges to: </span><span class="settings-email-style"></span></label><br/>
+            <label><input class="radio-style" type="radio" name="saveRadio" id="saveRadio2" value="2" />&nbsp;&nbsp;<span id="sp-saveprompt2"><b> Save</b> current filter settings as default; do not email a weekly digest. </span></label><br/>
+        
+            <span id="settings_panel_emailqn" style="display: none;">
+            <label><input class="radio-style" type="radio" name="saveRadio" id="saveRadio3" value="3" />&nbsp;&nbsp;&nbsp;Stop sending me the weekly Challenge digest; do not overwrite my filter settings. </span></label><br>
+            </span>
+
+        </div>
+        <div class="divider-style"></div>
+        <div id="settings-button-style">
+            <img id="saveSettingsButton" src="/ar/images/save-settings-btn.gif" alt="Save Settings" title="Save Settings" onclick="processSaveSettings();"/>
+            <img id="cancelSettingsButton" src="/ar/images/cancel.gif" alt="Cancel Settings" title="Cancel Settings" onclick="settingsPanel.hide();"/>
+        </div>
+    </div>
+</div>
+
+    <input type="hidden" id="has-filter" value="false"/>
+    <input type="hidden" id="email-on" value="false"/>
+</div> <!--end listing-header -->
+
+<script type="text/javascript">
+
+    var co = $('currentOffset');
+    if (co.value != '') {
+        $('refreshOffset').value = $('currentOffset').value;
+    }
+
+
+    function showSettingsPanel() {
+        var hasFilter = $('has-filter').value == 'true';
+        var emailOn = $('email-on').value == 'true';
+        if (emailOn) {
+          $('settings_panel_emailqn').style.display = 'block';
+        } else {
+          $('settings_panel_emailqn').style.display = 'none';
+        }
+      $('saveRadio').checked = true;
+      $('settings_panel').style.display = 'block';
+        if (hasFilter) {
+            $('sp-restorelink').style.display = 'block';
+            $('sp-header').innerHTML = 'My Filter Settings';
+            $('sp-saveprompt').innerHTML = '<b> Overwrite</b> my saved settings with current filter settings, and email a weekly digest of these filtered Challenges to: ';
+            $('sp-saveprompt2').innerHTML = '<b> Overwrite</b> my saved settings with current filter settings; do not email a weekly digest.';
+
+        }
+        else {
+            $('sp-restorelink').style.display = 'none';
+            $('sp-header').innerHTML = 'Filter Settings';
+            $('sp-saveprompt').innerHTML = '<b> Save</b> current filter settings as default, and email a weekly digest of filtered Challenges to:';
+            $('sp-saveprompt2').innerHTML = '<b> Save</b> current filter settings as default; do not email a weekly digest.';
+
+        }
+      //$('emailCheckBox').checked = emailOn;
+        settingsPanel.show();
+    }
+</script>
+
+                </div><!-- end challengeListDiv -->
+            </div><!-- end main -->
+        </form> <!--End  filterForm -->
+        <div id="footer" class="clearfix" >
+    <div id="footer-inner" class="container-12">
+        <div class="grid-2">
+            <h2 id="footer-logo"><a href="https://www.innocentive.com" rel="home"><span>InnoCentive</span></a></h2>
+        </div>
+        <div class="menu-container">
+            <div id="footer-region">
+                <div id="block-menu-secondary-links" class="block block-menu">
+                    <div class="content">
+                        <div class="left-links">
+                            <ul class="menu">
+                                <li class="leaf first"><a href="https://www.innocentive.com/innovation-solutions/psoverview">Products/Services</a></li>
+                                <li class dir="leaf"><a href="/ar/contract/view">Terms of Use</a></li>
+                                <li class="leaf"><a href="https://www.innocentive.com/privacy-policy">Privacy Policy</a></li>
+                                <li class="leaf"><a href="https://www.innocentive.com/contact-us/innocentive-support">Help</a></li>
+                                <li class="leaf"><a href="https://www.innocentive.com/contact-innocentive">1-855-CROWDNOW</a></li>
+                                <li class="leaf"><a href="https://www.innocentive.com/contact-innocentive">Contact Us</a></li>
+                            </ul>
+                        </div>
+                        <div class="copyright">
+                            <ul class="menu">
+                                <a href="https://www.innocentive.com/node/1434">Copyright</a>&nbsp;&copy;&nbsp;2012  InnoCentive, Inc. All rights reserved.
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>   <!--End of footer -->
+<!-- Start: Google Analytics -->
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-168764-1']);
+  _gaq.push(['_setDomainName', 'innocentive.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+<!-- End: Google Analytics -->
+
+
+<!-- Start: HubSpot Logging Code  -->
+
+<script type="text/javascript" language="javascript">
+    var hs_portalid = 1556;
+    var hs_salog_version = "2.00";
+    var hs_ppa = "innocentive.hubspot.com"
+    document.write(unescape("%3Cscript src='" + document.location.protocol + "//" + hs_ppa + "/salog.js.aspx' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+<!-- End: HubSpot Logging Code -->
+    </div>  <!--End  page-frame -->
+</div>  <!--end page -->
+
+<script type="text/javascript">
+    var pf = $('pagefiltered');
+    $('currentOffset').value = $('refreshOffset').value;
+    $('useCurrentOffset').value = 'true';
+    if (pf.value == 'true') {
+        filterResults(document.filterForm);
+    }
+    if ("partner" == "innocentive") {
+        setSource("Partner Challenges");
+    } else if ('innocentive' == 'innocentive') {
+        setSource('InnoCentive Challenges');
+    } else {
+        setSource('pavilion');
+    }
+</script>
+
+
+</body>
+</html>
