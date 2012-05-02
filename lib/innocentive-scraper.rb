@@ -6,6 +6,8 @@ require 'date'
 
 class InnocentiveScraper
   @url = 'https://www.innocentive.com/ar/challenge/browse'
+  /html/body/div[2]/div[2]/form/div[2]/div[3]/div/div[3]/div/div[2]/div[4]/div[3]/div
+  /html/body/div[2]/div[2]/form/div[2]/div[3]/div/div[3]/div/div[2]/div[8]/div[3]/div
 
   def get_page
     agent = Mechanize.new
@@ -33,9 +35,10 @@ class InnocentiveScraper
 
     # DESCRIPTION
     puts (doc/prex + x + ']/div[9]/div/div/p')[0].innerHTML
+  	Challenge.create(:award => award, :title => title ).  
   end
 
-# Challenge.create(:award => award, ).
+# 
 
 
 #/html/body/div[2]/div[2]/form/div[2]/div[3]/div/div[3]/div/div[2]/div[8]/div[3]/div/a
