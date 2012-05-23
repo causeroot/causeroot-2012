@@ -1,4 +1,6 @@
 Mensch::Application.routes.draw do
+  resources :sites
+
   resources :scrapers
 
   resources :challenges

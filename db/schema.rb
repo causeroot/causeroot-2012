@@ -11,19 +11,38 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120427052957) do
+ActiveRecord::Schema.define(:version => 20120502040033) do
 
   create_table "challenges", :force => true do |t|
     t.string   "title"
+    t.string   "url"
     t.text     "description"
     t.string   "award"
     t.datetime "deadline"
     t.datetime "post_date"
     t.string   "image"
-    t.string   "url_reference"
-    t.string   "discussion_board"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.text     "rules"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "scrapers", :force => true do |t|
+    t.string   "name"
+    t.string   "url"
+    t.string   "title_xpath"
+    t.text     "description_xpath"
+    t.string   "award_xpath"
+    t.datetime "deadline_xpath"
+    t.datetime "post_date_xpath"
+    t.string   "image_xpath"
+    t.text     "rules_xpath"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
+  create_table "sites", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|
