@@ -2,7 +2,7 @@ class CreateChallenges < ActiveRecord::Migration
   def change
     create_table :challenges do |t|
       t.string :title
-      t.string :url
+      t.integer :url_id
       t.text :description
       t.string :award
       t.datetime :deadline

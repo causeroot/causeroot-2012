@@ -11,11 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120502040033) do
+ActiveRecord::Schema.define(:version => 20120523055228) do
 
   create_table "challenges", :force => true do |t|
     t.string   "title"
-    t.string   "url"
+    t.integer  "url_id"
     t.text     "description"
     t.string   "award"
     t.datetime "deadline"
@@ -26,21 +26,32 @@ ActiveRecord::Schema.define(:version => 20120502040033) do
     t.datetime "updated_at",  :null => false
   end
 
+  create_table "rules", :force => true do |t|
+    t.string  "type"
+    t.string  "xpath"
+    t.string  "regex"
+    t.string  "token"
+    t.string  "modifier"
+    t.string  "field"
+    t.integer "scraper_id"
+  end
+
   create_table "scrapers", :force => true do |t|
     t.string   "name"
-    t.string   "url"
-    t.string   "title_xpath"
-    t.text     "description_xpath"
-    t.string   "award_xpath"
-    t.datetime "deadline_xpath"
-    t.datetime "post_date_xpath"
-    t.string   "image_xpath"
-    t.text     "rules_xpath"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.string   "url_regex"
+    t.integer  "scraper_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "sites", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "urls", :force => true do |t|
+    t.string   "url"
+    t.string   "rank"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
