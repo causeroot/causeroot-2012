@@ -1,15 +1,30 @@
 class Rule < ActiveRecord::Base
-	unloadable
-  attr_accessible :type, :xpath, :regex
+  attr_accessible :type, :xpath, :regex, :field_name
   belongs_to :scraper
   
-  def self.abstract_class?
-    true
+  def getUrls(doc)
+  	# if xpath matches something then apply regex and return [value_after_regex]
+  	# else return []
+  	value = (doc/self.xpath)[0].innerHTML
+  	
   end
-  def urls(doc)
-  	return []
+
+  def get_urls(doc)
+    # while xpath_with_token_replaced_by_modifier matches url
+    # add url to returnValues[] array
   end
+
   def name_values(doc)
-  	return []
-  end
+		nvs = Array.new
+
+  	# if xpath matches something
+  	value = (doc/self.xpath)[0].innerHTML
+  	
+  	# then apply regex and return [:field, value_after_regex]
+  	value = /self.regex/.match(value)
+  	
+  	# then push field, value
+		nvs.push([self.field, value])
+		return nvs		
+  end  
 end

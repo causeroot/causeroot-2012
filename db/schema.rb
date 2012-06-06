@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120523055228) do
+ActiveRecord::Schema.define(:version => 20120606050916) do
 
   create_table "challenges", :force => true do |t|
     t.string   "title"
@@ -26,14 +26,29 @@ ActiveRecord::Schema.define(:version => 20120523055228) do
     t.datetime "updated_at",  :null => false
   end
 
+  create_table "routines", :force => true do |t|
+    t.string   "name"
+    t.string   "type"
+    t.string   "xpath"
+    t.string   "regex"
+    t.string   "token"
+    t.string   "modifier"
+    t.string   "field_name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "rules", :force => true do |t|
-    t.string  "type"
-    t.string  "xpath"
-    t.string  "regex"
-    t.string  "token"
-    t.string  "modifier"
-    t.string  "field"
-    t.integer "scraper_id"
+    t.string   "name"
+    t.string   "type"
+    t.string   "xpath"
+    t.string   "regex"
+    t.string   "token"
+    t.string   "modifier"
+    t.string   "field_name"
+    t.integer  "scraper_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "scrapers", :force => true do |t|

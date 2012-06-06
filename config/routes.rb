@@ -1,7 +1,5 @@
 Carrio::Application.routes.draw do
-  resources :drilldown_rules
-
-  resources :populate_rules
+  resources :routines
 
   resources :iterate_rules
 
