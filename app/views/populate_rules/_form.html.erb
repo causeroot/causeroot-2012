@@ -1,0 +1,17 @@
+<%= form_for(@populate_rule) do |f| %>
+  <% if @populate_rule.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@populate_rule.errors.count, "error") %> prohibited this populate_rule from being saved:</h2>
+
+      <ul>
+      <% @populate_rule.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

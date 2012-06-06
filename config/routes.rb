@@ -1,4 +1,10 @@
 Carrio::Application.routes.draw do
+  resources :drilldown_rules
+
+  resources :populate_rules
+
+  resources :iterate_rules
+
   resources :sites
 
   resources :scrapers

@@ -1,0 +1,21 @@
+<h1>Listing populate_rules</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @populate_rules.each do |populate_rule| %>
+  <tr>
+    <td><%= link_to 'Show', populate_rule %></td>
+    <td><%= link_to 'Edit', edit_populate_rule_path(populate_rule) %></td>
+    <td><%= link_to 'Destroy', populate_rule, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Populate rule', new_populate_rule_path %>

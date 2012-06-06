@@ -1,0 +1,17 @@
+<%= form_for(@iterate_rule) do |f| %>
+  <% if @iterate_rule.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@iterate_rule.errors.count, "error") %> prohibited this iterate_rule from being saved:</h2>
+
+      <ul>
+      <% @iterate_rule.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

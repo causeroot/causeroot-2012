@@ -1,0 +1,21 @@
+<h1>Listing iterate_rules</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @iterate_rules.each do |iterate_rule| %>
+  <tr>
+    <td><%= link_to 'Show', iterate_rule %></td>
+    <td><%= link_to 'Edit', edit_iterate_rule_path(iterate_rule) %></td>
+    <td><%= link_to 'Destroy', iterate_rule, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Iterate rule', new_iterate_rule_path %>
