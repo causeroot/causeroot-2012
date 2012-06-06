@@ -1,6 +1,4 @@
 Carrio::Application.routes.draw do
-  resources :routines
-
   resources :iterate_rules
 
   resources :sites
