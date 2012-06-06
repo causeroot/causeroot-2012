@@ -39,7 +39,6 @@ ActiveRecord::Schema.define(:version => 20120606050916) do
   end
 
   create_table "rules", :force => true do |t|
-    t.string   "name"
     t.string   "type"
     t.string   "xpath"
     t.string   "regex"
