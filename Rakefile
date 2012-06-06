@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Mensch::Application.load_tasks
+Carrio::Application.load_tasks

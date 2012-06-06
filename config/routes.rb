@@ -1,4 +1,4 @@
-Mensch::Application.routes.draw do
+Carrio::Application.routes.draw do
   resources :sites
 
   resources :scrapers

@@ -22,20 +22,20 @@ default_run_options[:pty] = true
 ################################################################################
 # Configure application
 ################################################################################
-set :application, "mensch"
+set :application, "carrio"
 server "foobar.com", :web, :app, :db, :primary => true
 set :deploy_to, "/home/carrio_org/carrio.org"
 set :rails_env, "production"
 set :migrate_target, :current
 set :keep_releases, 5
 set :deploy_via, :remote_cache
-set :production_database, "mensch_production"
+set :production_database, "carrio_production"
 
 ################################################################################
 # Configure source control
 ################################################################################
 set :scm, :git
-set :repository,  "git@github.com:gardner/mensch.git"
+set :repository,  "git@github.com:gardner/carrio.git"
 set :git_enable_submodules, 1
 
 ################################################################################

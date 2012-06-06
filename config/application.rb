@@ -9,7 +9,7 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
 end
 
-module Mensch
+module Carrio
   class Application < Rails::Application
 		config.generators do |g|
 			g.fixture_replacement :machinist
