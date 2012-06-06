@@ -27,13 +27,15 @@ ActiveRecord::Schema.define(:version => 20120523055228) do
   end
 
   create_table "rules", :force => true do |t|
-    t.string  "type"
-    t.string  "xpath"
-    t.string  "regex"
-    t.string  "token"
-    t.string  "modifier"
-    t.string  "field"
-    t.integer "scraper_id"
+    t.string   "type"
+    t.string   "xpath"
+    t.string   "regex"
+    t.string   "token"
+    t.string   "modifier"
+    t.string   "field_name"
+    t.integer  "scraper_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "scrapers", :force => true do |t|

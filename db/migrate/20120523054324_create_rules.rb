@@ -6,9 +6,10 @@ class CreateRules < ActiveRecord::Migration
       t.string :regex
       t.string :token
       t.string :modifier
-      t.string :field
+      t.string :field_name
 
       t.integer :scraper_id
+      t.timestamps
     end
     
   end

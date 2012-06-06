@@ -1,5 +1,5 @@
 class PopulateRule < Rule
-  attr_accessible :type, :xpath, :regex, :field
+  attr_accessible :type, :xpath, :regex, :field_name
 
   def name_values(doc)
 		nvs = Array.new
@@ -8,10 +8,10 @@ class PopulateRule < Rule
   	value = (doc/self.xpath)[0].innerHTML
   	
   	# then apply regex and return [:field, value_after_regex]
-  	value = /self.regex/.match(@value)
+  	value = /self.regex/.match(value)
   	
   	# then push field, value
-		nvs.push([self.field, @value)
+		nvs.push([self.field, value])
 		return nvs		
   end
 end
