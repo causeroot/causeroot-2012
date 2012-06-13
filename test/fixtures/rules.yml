@@ -4,8 +4,27 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
+one:
+	name: Default Populate Rule
+	type: populate
+	xpath: /html/body/blockquote/p[5]
+	regex: 
+	token: 
+	modifier: 
+	field_name: description
+	scraper_id: 1
+	rule_id: -1
+
 # column: value
 #
 two: {}
-#  column: value
+	name: Default Drilldown Rule
+	type: drilldown
+	xpath: /html/body/div[3]/div[TOKEN]/div/p[2]
+	regex: 
+	token: TOKEN
+	modifier: 4
+	field_name: 
+	scraper_id: 
+
+

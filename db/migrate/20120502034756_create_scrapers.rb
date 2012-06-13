@@ -3,7 +3,7 @@ class CreateScrapers < ActiveRecord::Migration
     create_table :scrapers do |t|
       t.string :name
       t.string :url_regex
-      t.integer :scraper_id
+      t.integer :rule_id
 
       t.timestamps
     end

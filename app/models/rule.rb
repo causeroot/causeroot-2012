@@ -1,6 +1,6 @@
 class Rule < ActiveRecord::Base
-  attr_accessible :type, :xpath, :regex, :field_name
-  belongs_to :scraper
+  attr_accessible :name, :type, :xpath, :regex, :token, :modifier, :field_name
+  has_many :rules
   
   def getUrls(doc)
   	# if xpath matches something then apply regex and return [value_after_regex]

@@ -9,9 +9,9 @@ class CreateRules < ActiveRecord::Migration
       t.string :modifier
       t.string :field_name
       t.integer :scraper_id
+    	t.integer :rule_id
 
       t.timestamps
     end
-    
   end
 end
