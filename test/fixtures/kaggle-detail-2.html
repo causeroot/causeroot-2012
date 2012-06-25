@@ -1,0 +1,340 @@
+
+<!DOCTYPE html>
+
+<!--[if lt IE 7 ]><html class="ie ie6 lte7 lte8 lte9"><![endif]-->
+<!--[if IE 7 ]><html class="ie ie7 lte7 lte8 lte9"><![endif]-->
+<!--[if IE 8 ]><html class="ie" ie8 lte8 lte9"><![endif]-->
+<!--[if IE 9 ]><html class="ie ie9 lte9"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html ><!--<![endif]-->
+
+<head>
+    
+    <title>Evaluation - GigaOM WordPress Challenge, Powered by Splunk - Kaggle</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="robots" content="index, follow" />
+    <link href="/content/v/e7918c3028a4/kaggle/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    
+        <meta name="keywords" content="Kaggle, data science, data mining, forecasting, statistics, prediction, bioinformatics, competitions, contests, crowdsourced analytics" />
+        
+        <meta name="description" content="Kaggle is a platform for data prediction competitions. Companies, organizations and researchers post their data and have it scrutinized by the world&#39;s best statisticians." />
+        
+        <link rel="stylesheet" href="/content/v/1f8ad63337d0/shared/css/base.less" type="text/css" />
+        <link rel="stylesheet" href="/content/v/b299deb87cd7/kaggle/css/kaggle-site.less" type="text/css" />
+
+    
+        <!--[if !IE]>-->
+        <meta name="viewport" content="width=device-width" />
+        <link rel="stylesheet" href="/content/v/7c6a23452b69/shared/css/mobile.less" type="text/css" media="only screen and (max-device-width: 959px)" />
+        <!--<![endif]-->
+
+    
+
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+            <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+    
+
+</head>
+<body class="logged-out ">
+    <div id="wrap"><!-- needed for sticky footer -->
+        
+
+<div id="top-bar">
+    <div id="top-bar-inside">
+                
+        <ul id="top-bar-links">
+                <li><a href="" class="login-link">Sign in</a>
+    
+                <div id="top-bar-signin">    
+                               
+<div id="social-authentication-top">
+    <div id="social-authentication-top-head">
+        Log in<br/>
+        with &mdash;
+    </div>
+    <div id="social-authentication-top-buttons">
+        <a href="/account/authenticate/facebook" class="socialSignIn" title="Log in with Facebook"><img src="/content/v/2fb131da9df7/shared/img/authentication-32-facebook.png" alt="Log in with Facebook" /></a>
+        <a href="/account/authenticate/google" class="socialSignIn" title="Log in with Google"><img src="/content/v/23b0bed83b54/shared/img/authentication-32-google.png" alt="Log in with Google" /></a>
+        <a href="/account/authenticate/yahoo" class="socialSignIn" title="Log in with Yahoo"><img src="/content/v/698ad9225944/shared/img/authentication-32-yahoo.png" alt="Log in with Yahoo" /></a>
+        
+    </div>
+    
+    <script type="text/javascript">
+        var socialSignInLinks = $('a.socialSignIn');
+        socialSignInLinks.attr("href", function(i,v){
+            return v + '?js=1';
+        });
+        socialSignInLinks.click(function(){
+            _gaq.push(['_trackEvent', 'action', 'login', 'top-bar']);
+            return true;
+        });
+    </script>
+</div>
+    
+
+<form action="https://www.kaggle.com/account/login" id="signin" method="post"><input data-val="true" data-val-length="The field User name must be a string with a minimum length of 2 and a maximum length of 255." data-val-length-max="255" data-val-length-min="2" data-val-required="The User name field is required." id="UserName" name="UserName" placeholder="Email / username" type="text" value="" /><span class="field-validation-valid" data-valmsg-for="UserName" data-valmsg-replace="true"></span><input data-val="true" data-val-length="The field Password must be a string with a minimum length of 1 and a maximum length of 255." data-val-length-max="255" data-val-length-min="1" data-val-required="The Password field is required." id="Password" name="Password" placeholder="Password" type="password" /><span class="field-validation-valid" data-valmsg-for="Password" data-valmsg-replace="true"></span>    <div id="remember-me">
+        <input data-val="true" data-val-required="The Remember me? field is required." id="RememberMe" name="RememberMe" type="checkbox" value="true" /><input name="RememberMe" type="hidden" value="false" />            
+        <label for="RememberMe">Remember me?</label>
+    </div>   
+    <input type="submit" value="Sign In" />
+<input name="__RequestVerificationToken" type="hidden" value="evmUcu2pQTm56leI/eRLdn/QDzaU+bUMqAFYBPsusK/oXbzA7j6f/a5GPQfEgiHbnXJg3cqCPSx2jf2F7O85iiQ2stq9K5a92BORIrXk335tEUppo9gr2HAoefke8jcL1gBdTLlLD9N3YmH+WD0Yo7hCips=" />    <input id="signinjs" type="hidden" name="JavaScriptEnabled" value="false" />    
+</form>
+<script type="text/javascript">
+    $('#signinjs').attr('value', 'true');
+    $('#signin').submit(function () { _gaq.push(['_trackEvent', 'action', 'login', 'top-bar']); });
+</script>
+
+<div id="forgot-links">        
+    Forgot your <a href="/forgot/username">Username</a> 
+    / 
+    <a href="/forgot/password">Password</a>?
+</div>
+                        
+                </div><!-- signin -->
+                </li>
+        </ul>             
+    </div>            
+</div>
+                        
+        <div id="header">
+            <div id="header-inside">
+                <div id="logo">
+                    <a href="/"><img alt="Kaggle" height="43" src="/content/v/3cf25b52f2f7/kaggle/img/site-logo.png" width="120" /></a>
+                </div>
+                <!--logo-->
+                           
+<ul id="top-menu">
+            <li><a href="/account/register"><strong>Sign Up</strong></a></li>        
+
+    <li><a href="/about">About Kaggle</a></li>  
+<li><a href="/host" title="Get started with hosting your own competition today!">Create a Competition</a></li>
+<li><a href="/competitions" title="Search or browse all Kaggle competitions">Competitions</a></li>
+<li><a href="/users" title="View the global Kaggle leaderboard" id="users-link">Rankings</a></li>
+<li><a href="/forums" title="Kaggle Forums.">Forums</a></li>
+<li><a href="/wiki" title="Kaggle Public Wiki">Wiki</a></li>
+<li><a href="http://blog.kaggle.com/" title="Visit No Free Hunch, the official Kaggle blog">Blog</a></li>
+<li><a href="/careers">Careers</a></li>        
+</ul>
+<!-- top-menu -->
+
+            </div> <!-- header-inside -->
+        </div> <!-- header -->
+            
+
+        <!-- header-inside and header -->
+                                                                                                                   
+        <div id="main">
+                       
+ 
+            
+
+
+
+
+<div id="competition"  >
+
+        <div id="comp-header">
+		    <h1>GigaOM WordPress Challenge, Powered by Splunk
+		    </h1>
+                <ul id="stat-boxes">
+                    <li>
+                        <h5>
+                            Prize pool</h5>
+                        <div class="stat">$25,000</div>
+                    </li>
+                    <li>
+                        <h5>
+                            Teams</h5>
+                        <div class="stat">8</div>
+                    </li>
+                    <li>
+                        <h5>Ends</h5>
+                        <div class="stat">2 months</div>
+                    </li>
+                </ul>
+        </div> <!-- comp-header -->
+
+	<ul id="comp-menu">
+		<li class="selected"><a href="/c/predict-wordpress-likes">Information</a></li>    
+		
+		<li class=""><a class="comp-link" href="/c/predict-wordpress-likes/data">Data</a></li>
+
+
+    
+    
+			<li class=""><a href="http://www.kaggle.com/c/predict-wordpress-likes/forums">Forum</a></li>
+			<li class=""><a class="comp-link" href="/c/predict-wordpress-likes/leaderboard">Leaderboard</a></li>
+        
+    
+	</ul>
+
+        <div id="comp-sidebar">
+            
+
+    
+        
+            
+        
+            
+
+    <div class="widget" id="compside-discussions">
+        <h4>3 discussions</h4>
+        in this <a href="http://www.kaggle.com/c/predict-wordpress-likes/forums">competition's forum</a>
+    </div>    
+        <ul class="widget" id="compside-forumposts">
+                <li>
+                    <div class="post-title"><a href="http://www.kaggle.com/c/predict-wordpress-likes/forums/t/2067/likes-in-testpoststhin-json/11830#post11830">&quot;likes&quot; in testPostsThin.json</a></div>
+                    <div class="post-time">yesterday</div>
+                </li>
+                <li>
+                    <div class="post-title"><a href="http://www.kaggle.com/c/predict-wordpress-likes/forums/t/2064/splunk-feedback/11811#post11811">Splunk Feedback</a></div>
+                    <div class="post-time">2 days ago</div>
+                </li>
+                <li>
+                    <div class="post-title"><a href="http://www.kaggle.com/c/predict-wordpress-likes/forums/t/2059/welcome/11771#post11771">Welcome!</a></div>
+                    <div class="post-time">4 days ago</div>
+                </li>
+        </ul>
+        
+                       
+    <div class="widget" id="compside-leaderboard">
+        
+        <h4> Leaderboard  <a href="/c/predict-wordpress-likes/leaderboard">more &raquo;</a></h4>
+        <ol>
+            
+            
+                    <li value="1"><a href="/c/predict-wordpress-likes/leaderboard#0.30215">Rani Nelken (4)</a></li>
+                    <li value="2"><a href="/c/predict-wordpress-likes/leaderboard#0.28303">:) (3)</a></li>
+                    <li value="3"><a href="/c/predict-wordpress-likes/leaderboard#0.28276">svgiri (1)</a></li>
+                    <li value="4"><a href="/c/predict-wordpress-likes/leaderboard#0.27802">Favorite Blogs Submission (1)</a></li>
+                    <li value="5"><a href="/c/predict-wordpress-likes/leaderboard#0.00003">poochi (1)</a></li>
+                    <li value="6"><a href="/c/predict-wordpress-likes/leaderboard#0.00003">Uniform Sample Submission (1)</a></li>
+                    <li value="6"><a href="/c/predict-wordpress-likes/leaderboard#0.00003">InvincibleGuy (1)</a></li>
+                    <li value="8"><a href="/c/predict-wordpress-likes/leaderboard#0.00000">antinucleon (1)</a></li>
+        </ol>
+    </div> <!-- compside-leaderboard -->
+        
+        
+            <div id="stats-ticker">      
+    <div id="players" class="ticker">
+            <div class="ticker-caption">8 teams with</div>
+        <div class="numbers">8</div>
+        <div class="ticker-caption">players</div>
+    </div>
+      
+    <div id="entries" class="ticker">
+        
+        <div class="numbers">13</div>
+        <div class="ticker-caption">entries</div>
+    </div>      
+</div>     
+        
+            
+        </div>
+
+    <div id="comp-content" class="evaluation" >
+    
+        <div id="comp-info-header">       
+
+                    <ul id="comp-homepage-subpages">
+                <li><a href="/c/predict-wordpress-likes">Description</a></li>
+                <li class="selected"><a href="/c/predict-wordpress-likes/details/Evaluation">Evaluation</a></li>
+                <li><a href="/c/predict-wordpress-likes/details/Rules">Rules</a></li>
+                <li><a href="/c/predict-wordpress-likes/details/SubmissionInstructions">Submission Instructions</a></li>
+                <li><a href="/c/predict-wordpress-likes/details/Prizes">Prizes</a></li>
+                <li><a href="/c/predict-wordpress-likes/details/Timeline">Timeline</a></li>
+        </ul>
+        
+        </div> 
+
+            <div id="comp-homepage-content" class="cms-page">
+                
+        <img id="comp-image" src="http://kaggle2.blob.core.windows.net/competitions/kaggle/2758/logos/front_page.png" alt="GigaOM WordPress Challenge, Powered by Splunk" />
+
+
+<p>The evaluation metric for this competition is Mean Average Precision at 100 (MAP@100). For more information, please refer to the
+<a href="https://www.kaggle.com/wiki/MeanAveragePrecision">wiki page</a>.</p>
+
+
+    
+
+
+
+
+            </div>
+    </div><!-- comp-content -->
+</div><!-- competition -->
+        </div> <!-- main -->
+    </div> <!-- wrap -->   
+    <div id="footer">
+        <div id="footer-inside">
+            <div id="footer-copyright">
+                
+&copy; 2010 onwards Kaggle Inc            </div>
+            <div id="footer-links">
+                <a href="/terms">Terms &amp; Conditions</a> &bull;  
+<a href="/privacy">Privacy Policy</a> &bull;  
+<a href="/team">Our Team</a> &bull;  
+<a href="/careers">Careers</a> &bull;  
+<a href="/contact/press">Press</a> &bull;  
+<a href="/papers">Academic Papers</a> &bull;  
+<a href="/contact">Contact Us</a>
+            </div> <!-- footer-links -->
+        </div> <!-- footer-inside -->
+    </div> <!--footer-->
+    
+        <script type="text/x-mathjax-config">
+                MathJax.Hub.Config(
+                {
+                    "HTML-CSS": {
+                        preferredFont: "TeX",
+                        availableFonts: ["STIX","TeX"],
+                        linebreaks: {
+                            automatic: true
+                        },
+                        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+                    },
+                    tex2jax: {
+                        inlineMath: [ ["\\\\(","\\\\)"] ],
+                        displayMath: [ ["$$","$$"], ["\\[", "\\]"] ],
+                        processEscapes: true,
+                        ignoreClass: "tex2jax_ignore|dno"
+                    },
+                    TeX: {
+                        noUndefined: {
+                            attributes: {
+                                mathcolor: "red",
+                                mathbackground: "#FFEEEE",
+                                mathsize: "90%"
+                            }
+                            }
+                        },
+                        messageStyle: "none"
+            });
+        </script>
+        <script type="text/javascript" src="/content/v/54a477d9c297/shared/js/head.load-0.96.min.js"></script>
+        <script type="text/javascript">
+            head.js("/content/v/7181fed5e426/shared/js/jquery.validate-1.7.min.js","/content/v/80f5a775857e/shared/js/design.js","/content/v/8be4750ee4c9/shared/js/jquery.validate.unobtrusive.min.js","http://c328740.r40.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS_HTML");
+        </script>
+    
+    
+
+    
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-12629138-1']);
+            _gaq.push(['_trackPageview']);
+            _gaq.push(['_trackPageLoadTime']);
+            _gaq.push(['_setCustomVar', 1, 'usertype', 'anonymous', 2]);
+
+            (function () {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+
+    
+
+    <!-- G'day 208.90.212.158! Cheers, Web_IN_1 -->
+</body>
+</html>
