@@ -1,61 +1,56 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+# The fixtures below only test against kaggle right now.
 
-# This model initially had no columns defined.  If you add columns to the
-# model remove the '{}' from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
 main:
 	name: Kaggle Main Index
 	type: index
 	xpath: //div[@class='competition-details']//a[@href]
-#	xpath: /html/body/div/div[3]/div/div/div/table/tbody/tr/td/div/a/h4
-
-competition:
-	name: Kaggle Competition Index
-	type: index
-	xpath: //ul[@id='comp-homepage-subpages']//a[@herf]
+	rule_id: -1
 
 title:
 	name: Kaggle Title
 	type: populate
 	xpath: //div[@id='comp-header']/h1
 	field_name: title
-	apply_to_regex: http://www.kaggle.com/c/[.^/]*^
-
-deadline:
-	name: Kaggle Deadline
-	type: populate
-	xpath: //p[@id='end-time-note']/strong[2]
-	field_name: deadline
-	apply_to_regex: http://www.kaggle.com/c/[.^/]*^
-
-post_date:
-	name: Kaggle Post Date
-	type: populate
-	xpath: //p[@id='end-time-note']/strong[1]
-	field_name: post_date
-	apply_to_regex: http://www.kaggle.com/c/[.^/]*^
-
-image:
-	name: Kaggle Image
-	type: populate
-	xpath: //img[@id='comp-img']
-	field_name: image
-	apply_to_regex: http://www.kaggle.com/c/[.^/]*^
+	rule: main
 
 description:
 	name: Kaggle Description
 	type: populate
 	xpath: //div[@id='comp-homepage-content']
 	field_name: description
-	apply_to_urls_that_match: $http://www.kaggle.com/c/.*/details/Evaluation^
+	rule: main
 
-award:
+deadline:
+	name: Kaggle Deadline
+	type: populate
+	xpath: //p[@id='end-time-note']/strong[2]
+	field_name: deadline
+	rule: main
+	
+image:
+	name: Kaggle Image
+	type: populate
+	xpath: //img[@id='comp-img']
+	field_name: image
+	rule: main
+
+post_date:
+	name: Kaggle Post Date
+	type: populate
+	xpath: //p[@id='end-time-note']/strong[1]
+	field_name: post_date
+	rule: main
+
+## Award
+get_award:
+	name: Get Award Page
+	type: index
+	xpath: //ul[@id='comp-homepage-subpages']/li/a[.='Prizes']
+	rule: main
+
+populate_award:
 	name: Kaggle Award
 	type: populate
 	xpath: //div[@id='comp-homepage-content']
 	field_name: award
-	apply_to_urls_that_match: $http://www.kaggle.com/c/.*/details/Prizes^
-
-
-
+	rule: get_award

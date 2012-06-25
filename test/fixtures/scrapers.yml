@@ -6,7 +6,8 @@
 #
 
 # matches the challenge url where more details are
-one: 
+kaggle_scraper: 
 	name: Kaggle
-	url_regex: *.kaggle.com/*
-	rule_id: 1
+	site: kagle_site
+	url: kaggle_competition_url
+	rule: main

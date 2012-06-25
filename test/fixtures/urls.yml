@@ -4,8 +4,12 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-#  column: value
+
+kaggle_main_url:
+	url: http://www.kaggle.com
+	rank: 55
+	
+kaggle_competition_url:
+	url: http://www.kaggle.com/competitions
+	rank: 65
+	
