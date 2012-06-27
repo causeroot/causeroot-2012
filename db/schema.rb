@@ -42,12 +42,16 @@ ActiveRecord::Schema.define(:version => 20120523055228) do
 
   create_table "scrapers", :force => true do |t|
     t.string   "name"
-    t.string   "url_regex"
+    t.integer  "url_id"
+    t.integer  "site_id"
+    t.integer  "rule_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
   create_table "sites", :force => true do |t|
+    t.string   "name"
+    t.integer  "url_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

@@ -6,10 +6,10 @@
 #
 
 kaggle_main_url:
-	url: http://www.kaggle.com
-	rank: 55
-	
+  url: http://www.kaggle.com
+  rank: 55
+  
 kaggle_competition_url:
-	url: http://www.kaggle.com/competitions
-	rank: 65
-	
+  url: file://test/fixtures/kaggle-index.html
+  rank: 65
+  

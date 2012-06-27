@@ -28,13 +28,13 @@ Rule.blueprint(:tree) do
 	token { "TOKEN" }
 	modifier { 4 }
 	field_name { "" }
-	rule { Rule.make
+	rule { Rule.make }
 end
 
 Challenge.blueprint do 
   title { "Challenge #{sn}" }
 #   url_id { Url.make }
-	award { "$3,000,000" },
+	award { "$3,000,000" }
 	deadline { "April 30th, 2013" }
 	post_date { "April 30th, 2013" }
 	image { "http://psychicblast.com/images/1/Image0169.jpg" }

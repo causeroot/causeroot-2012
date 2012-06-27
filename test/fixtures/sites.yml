@@ -5,5 +5,5 @@
 # below each fixture, per the syntax in the comments below
 #
 kagle_site:
-	name: Kagle
-	url: kaggle_main_url
+  name: Kagle
+  url: kaggle_main_url

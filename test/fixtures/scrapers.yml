@@ -7,7 +7,7 @@
 
 # matches the challenge url where more details are
 kaggle_scraper: 
-	name: Kaggle
-	site: kagle_site
-	url: kaggle_competition_url
-	rule: main
+  name: Kaggle
+  site: kagle_site
+  url: kaggle_competition_url
+  rule: main
