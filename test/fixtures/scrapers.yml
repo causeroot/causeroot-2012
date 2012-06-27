@@ -4,11 +4,10 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one:
-	name: Innocentive List
-	url_regex: *.innocentive.com/ar/challenge/browse*.
 
 # matches the challenge url where more details are
-two: {}
-	name: Innocentive Challenge
-	url_regex: *.innocentive.com/ar/challenge/[0-9]*
+kaggle_scraper: 
+	name: Kaggle
+	site: kagle_site
+	url: kaggle_competition_url
+	rule: main
