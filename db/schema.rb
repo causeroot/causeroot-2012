@@ -16,14 +16,15 @@ ActiveRecord::Schema.define(:version => 20120523055228) do
   create_table "challenges", :force => true do |t|
     t.string   "title"
     t.integer  "url_id"
+    t.string   "url_reference"
     t.text     "description"
     t.string   "award"
     t.datetime "deadline"
     t.datetime "post_date"
     t.string   "image"
     t.text     "rules"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "rules", :force => true do |t|
@@ -42,12 +43,16 @@ ActiveRecord::Schema.define(:version => 20120523055228) do
 
   create_table "scrapers", :force => true do |t|
     t.string   "name"
-    t.string   "url_regex"
+    t.integer  "url_id"
+    t.integer  "site_id"
+    t.integer  "rule_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
   create_table "sites", :force => true do |t|
+    t.string   "name"
+    t.integer  "url_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
