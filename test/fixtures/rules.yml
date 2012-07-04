@@ -1,7 +1,7 @@
 # The fixtures below only test against kaggle right now.
 
-main:
-  name: Kaggle Main Index
+main_rule:
+  name: Kaggle main_rule Index
   type: index
 # xpath: //div[@class='competition-details']//a[@href]
   xpath: //a[@href='/c/predict-wordpress-likes']
@@ -12,46 +12,46 @@ title:
   type: populate
   xpath: //div[@id='comp-header']/h1
   field_name: title
-  rule_id: main
+  rule: main_rule
 
 description:
   name: Kaggle Description
   type: populate
   xpath: //div[@id='comp-homepage-content']
   field_name: description
-  rule_id: main
+  rule: main_rule
 
 deadline:
   name: Kaggle Deadline
   type: populate
   xpath: //p[@id='end-time-note']/strong[2]
   field_name: deadline
-  rule_id: main
+  rule: main_rule
   
 image:
   name: Kaggle Image
   type: populate
   xpath: //img[@id='comp-img']
   field_name: image
-  rule_id: main
+  rule: main_rule
 
 post_date:
   name: Kaggle Post Date
   type: populate
   xpath: //p[@id='end-time-note']/strong[1]
   field_name: post_date
-  rule_id: main
+  rule: main_rule
 
 ## Award
 get_award:
   name: Get Award Page
   type: index
   xpath: //ul[@id='comp-homepage-subpages']/li/a[.='Prizes']
-  rule_id: main
+  rule: main_rule
 
 populate_award:
   name: Kaggle Award
   type: populate
   xpath: //div[@id='comp-homepage-content']
   field_name: award
-  rule_id: get_award
+  rule: get_award

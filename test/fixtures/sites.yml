@@ -6,4 +6,4 @@
 #
 kagle_site:
   name: Kagle
-  url_id: kaggle_main_url
+  url: kaggle_main_url

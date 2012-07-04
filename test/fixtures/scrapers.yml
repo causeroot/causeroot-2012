@@ -8,8 +8,8 @@
 # matches the challenge url where more details are
 kaggle_scraper: 
   name: Kaggle
-  site_id: kagle_site
-  url_id: kaggle_competition_url
-  rule_id: main
+  site: kagle_site
+  url: kaggle_competition_url
+  rule: main
   created_at: <%= 5.day.ago.to_s(:db) %>
   updated_at: <%= 5.day.ago.to_s(:db) %>

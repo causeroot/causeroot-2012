@@ -34,3 +34,16 @@ gem "twitter-bootstrap-rails", '~> 2.0.6'
 gem "mechanize", '~> 2.4'
 gem "hpricot", '~> 0.8.6'
 gem "unf_ext", '~> 0.0.4'
+
+gem "rspec-rails", :group => [:test, :development] # rspec in dev so the rake tasks run properly
+
+group :test do
+  gem 'cucumber-rails'
+  gem 'factory_girl_rails'
+  gem 'database_cleaner'
+  gem 'capybara'
+  gem 'guard-rspec'
+  gem 'guard-cucumber'
+  gem 'guard-livereload'
+  gem 'rb-fsevent' # Guard needs this
+end
