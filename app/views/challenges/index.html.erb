@@ -1,0 +1,37 @@
+<h1>Listing challenges</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Url</th>
+    <th>Description</th>
+    <th>Award</th>
+    <th>Deadline</th>
+    <th>Post date</th>
+    <th>Image url</th>
+    <th>Rules</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @challenges.each do |challenge| %>
+  <tr>
+    <td><%= challenge.title %></td>
+    <td><%= challenge.url_id %></td>
+    <td><%= challenge.description %></td>
+    <td><%= challenge.award %></td>
+    <td><%= challenge.deadline %></td>
+    <td><%= challenge.post_date %></td>
+    <td><%= challenge.image_url_id %></td>
+    <td><%= challenge.rules %></td>
+    <td><%= link_to 'Show', challenge %></td>
+    <td><%= link_to 'Edit', edit_challenge_path(challenge) %></td>
+    <td><%= link_to 'Destroy', challenge, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Challenge', new_challenge_path %>

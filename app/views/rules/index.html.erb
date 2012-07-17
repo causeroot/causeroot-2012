@@ -1,0 +1,33 @@
+<h1>Listing rules</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Xpath</th>
+    <th>Regex</th>
+    <th>Field name</th>
+    <th>Rule</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @rules.each do |rule| %>
+  <tr>
+    <td><%= rule.name %></td>
+    <td><%= rule.type %></td>
+    <td><%= rule.xpath %></td>
+    <td><%= rule.regex %></td>
+    <td><%= rule.field_name %></td>
+    <td><%= rule.rule_id %></td>
+    <td><%= link_to 'Show', rule %></td>
+    <td><%= link_to 'Edit', edit_rule_path(rule) %></td>
+    <td><%= link_to 'Destroy', rule, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Rule', new_rule_path %>

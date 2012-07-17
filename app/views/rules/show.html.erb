@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @rule.name %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @rule.type %>
+</p>
+
+<p>
+  <b>Xpath:</b>
+  <%= @rule.xpath %>
+</p>
+
+<p>
+  <b>Regex:</b>
+  <%= @rule.regex %>
+</p>
+
+<p>
+  <b>Field name:</b>
+  <%= @rule.field_name %>
+</p>
+
+<p>
+  <b>Rule:</b>
+  <%= @rule.rule_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_rule_path(@rule) %> |
+<%= link_to 'Back', rules_path %>
