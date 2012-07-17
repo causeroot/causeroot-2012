@@ -11,6 +11,7 @@
     </div>
   <% end %>
 
+<<<<<<< HEAD
   <div class="field">
     <%= f.label :title %><br />
     <%= f.text_field :title %>
@@ -45,5 +46,67 @@
   </div>
   <div class="actions">
     <%= f.submit %>
+=======
+      <fieldset>
+        <legend><%= title %></legend>
+
+        <div class="control-group">
+          <%= f.label :title, :class => "control-label" %>
+          <div class="controls">
+            <%= f.text_field :title, :class => "input-xlarge" %>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <%= f.label :description, :class => "control-label" %>
+          <div class="controls">
+            <%= f.text_area :description, :class => "input-xlarge" %>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <%= f.label :award, :class => "control-label" %>
+          <div class="controls">
+            <%= f.text_field :award, :class => "input-xlarge" %>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <%= f.label :deadline, :class => "control-label" %>
+          <div class="controls">
+            <%= f.datetime_select :deadline, :class => "input-xlarge", :ampm => true %>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <%= f.label :post_date, :class => "control-label" %>
+          <div class="controls">
+            <%= f.datetime_select :post_date, :class => "input-xlarge", :ampm => true %>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <%= f.label :image, :class => "control-label" %>
+          <div class="controls">
+            <%= f.text_field :image, :class => "input-xlarge" %>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <%= f.label :url_reference, :class => "control-label" %>
+          <div class="controls">
+            <%= f.text_field :url_reference, :class => "input-xlarge" %>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <%= label_tag nil, nil, :class => "control-label" %>
+          <div class="controls">
+            <%= f.submit nil, :class => "btn btn-success" %>
+          </div>
+        </div>
+      </fieldset>
+    <% end %>
+>>>>>>> 33d36c31e45af8aebb0cabfb818b6d593cb2bd8c
   </div>
 <% end %>

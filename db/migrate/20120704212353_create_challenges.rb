@@ -3,6 +3,7 @@ class CreateChallenges < ActiveRecord::Migration
     create_table :challenges do |t|
       t.string :title
       t.integer :url_id
+      t.string :url_reference
       t.text :description
       t.string :award
       t.datetime :deadline
