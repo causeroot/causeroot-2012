@@ -31,6 +31,7 @@ gem 'debugger', '~> 1.1.1'
 # RSpec
 group :development, :test do
   gem 'rspec-rails'
+  gem "factory_girl_rails", "~> 3.0"
 end
 
 # scrapping 
