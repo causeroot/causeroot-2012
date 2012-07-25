@@ -3,6 +3,7 @@ require 'bundler/capistrano'
 set :user, 'deploy'
 set :domain, 'carrio.org'
 set :applicationdir, "appdir"
+set :port, 443
 
 set :application, "carrio"
 set :scm, :git
@@ -17,7 +18,7 @@ set :deploy_to, "/home/deploy/carrio"
 
 role :web, domain                          # Your HTTP server, Apache/etc
 role :app, domain                          # This may be the same as your `Web` server
-role :db,  "127.0.0.1", :primary => true # This is where Rails migrations will run
+role :db,  domain, :primary => true # This is where Rails migrations will run
 #role :db,  "your slave db-server here"
 
 set :rails_env, "production"
@@ -30,6 +31,7 @@ namespace :deploy do
   task :start do ; end
   task :stop do ; end
   task :restart, :roles => :app, :except => { :no_release => true } do
+		run "ln -nfs #{deploy_to}/shared/config/database.yml #{release_path}/config/database.yml"
     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
   end
 end
