@@ -30,7 +30,7 @@ gem 'debugger', '~> 1.1.1'
 group :development, :test do
 	gem 'sqlite3'
 	gem 'rspec-rails'
-  gem "factory_girl_rails", "~> 3.0"
+	gem "factory_girl_rails", "~> 3.0"
 end
 
 group :production do
@@ -47,4 +47,4 @@ gem 'devise', '~> 2.0.4'
 gem 'omniauth-facebook', '~> 1.2.0'
 gem 'omniauth-openid', '~> 1.0.1'
 gem 'omniauth-twitter', '~> 0.0.10'
-gem "twitter-bootstrap-rails", '~> 2.0.6'
+gem 'bootstrap-sass', '>= 2.0.4.0'
