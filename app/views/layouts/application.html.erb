@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>IdeaFactory</title>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+  <![endif]-->
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+	<div class="navbar">
+		<div class="navbar-inner">
+			<a class="brand" href="#">IdeaFactory</a>
+			<ul class="nav">
+				<li><%= link_to 'Demo', "/" %></li>
+				<li><%= link_to 'Challenges', challenges_path %></li>
+				<li><%= link_to 'About Us', :controller => "about", :action => "index" %></li>				
+			</ul>
+		</div>
+	</div>
+    
+  <div class="container">
+    <div class="row">
+      <div class="span9"><%= yield %></div>
+      <div class="span3">
+				<a class="twitter-timeline"  href="https://twitter.com/terbeaux" data-widget-id="249385026259652608">Tweets by @terbeaux</a>
+				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+

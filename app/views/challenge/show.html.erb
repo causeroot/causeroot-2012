@@ -1,0 +1,35 @@
+<%- model_class = @challenge.class -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= @challenge.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:url) %>:</strong></dt>
+  <dd><%= @challenge.url %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
+  <dd><%= @challenge.description %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:award) %>:</strong></dt>
+  <dd><%= @challenge.award %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:deadline) %>:</strong></dt>
+  <dd><%= @challenge.deadline %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:post_date) %>:</strong></dt>
+  <dd><%= @challenge.post_date %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:image_url) %>:</strong></dt>
+  <dd><%= @challenge.image_url %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:rules) %>:</strong></dt>
+  <dd><%= @challenge.rules %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              challenge_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_challenge_path(@challenge), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              challenge_path(@challenge),
+              :method => 'delete',
+              :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+              :class => 'btn btn-danger' %>
+</div>
