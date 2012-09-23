@@ -1,9 +1,5 @@
 load 'deploy'
 
-set :user, 'netacusnet'
-set :domain, 'netacus.net'
-set :application, 'idea-factory'
-
 # Uncomment if you are using Rails' asset pipeline
 load 'deploy/assets'
 Dir['vendor/gems/*/recipes/*.rb','vendor/plugins/*/recipes/*.rb'].each { |plugin| load(plugin) }
