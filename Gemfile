@@ -39,14 +39,16 @@ gem 'jquery-rails'
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
 group :test, :development do
+	gem "brakeman"
   gem "rspec-rails", "~> 2.0"
-  gem "capybara"
 	gem "factory_girl_rails", "~> 4.0"
-	gem "faker"
+	gem "faker"	
 end
 
 group :test do
   gem 'cucumber-rails', :require => false
+  gem "capybara"
   # database_cleaner is not required, but highly recommended
   gem 'database_cleaner'
+  gem 'email_spec'
 end
