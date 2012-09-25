@@ -1,4 +1,6 @@
 IdeaFactory::Application.routes.draw do
+  devise_for :users
+
   get "about/index"
 
   get "demo/index"
