@@ -5,7 +5,7 @@ Feature: Browse Challenges
 		And I visit the challenges index
 	Scenario: View challenge index
 		Then I should see a list of challenges
-		Scenario: Sort challenges
+	Scenario: Sort challenges
 		Then I click sort by award
 		Then I should see a list of challenges sorted by award in descending order
 	Scenario: Search challenges
