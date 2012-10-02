@@ -1,5 +1,4 @@
 class ChallengesController < ApplicationController
-	before_filter :authenticate_user!
 	
   # GET /challenges
   # GET /challenges.json
