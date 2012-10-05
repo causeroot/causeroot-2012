@@ -23,7 +23,7 @@ Background:
 # TEST NOTE: Make a step of the above  
 
 #############################################################################		
-#                              NEW FEATURE                                  #
+#                         ABOUT US PAGE ACTIONS                             #
 #############################################################################
 
 @aggregate @front_end_user @challenge_index_page
@@ -43,7 +43,7 @@ Feature: General challenges index definition
 # TEST NOTE: Make a step of the above
 
 #############################################################################		
-#                              NEW FEATURE                                  #
+#                           ABOUT US PAGE ACTIONS                           #
 #############################################################################
 
 @aggregate @front_end_user @challenge_index_page
@@ -54,7 +54,7 @@ Feature: First landing page
         Then the user is at the default challenges index page		
         
 #############################################################################		
-#                              NEW FEATURE                                  #
+#                          DEFAULT LANDING PAGE                             #
 #############################################################################
 
 @aggregate @front_end_user @challenge_index_page
@@ -65,7 +65,7 @@ Feature: default landing page
         Then the challenges objects are sorted by deadline in descending order
 
 #############################################################################		
-#                              NEW FEATURE                                  #
+#                    INDIVIDUAL CHALLENGE PAGE DEFINITION                   #
 #############################################################################
 
 Feature: Individual Challenge page definition
@@ -89,7 +89,7 @@ Feature: Individual Challenge page definition
 # TEST NOTE: Make a step of the above
 
 #############################################################################		
-#                              NEW FEATURE                                  #
+#                  INDIVIDUAL CHALLENGE PAGE DEFINITION                     #
 #############################################################################
 
 @aggregate @front_end_user @about_us_page
@@ -105,7 +105,7 @@ Feature: About us page definition
 # TEST NOTE: Make a step of the above 
 
 #############################################################################		
-#                              NEW FEATURE                                  #
+#                  INDIVIDUAL CHALLENGE PAGE DEFINITION                     #
 #############################################################################
 
 @aggregate @front_end_user @challenge_index_page
@@ -297,7 +297,7 @@ Background:
 # TEST NOTE: Make a step of the above
    
 #############################################################################		
-#                              NEW FEATURE                                  #
+#                   INDIVIDUAL CHALLENGE PAGE DEFINITION                    #
 #############################################################################
 
 
@@ -336,7 +336,7 @@ Background:
         Then the user is at the about us page
         
 #############################################################################		
-#                              NEW FEATURE                                  #
+#                       ABOUT US PAGE ACTIONS                               #
 #############################################################################
 
 @aggregate @front_end_user @about_us
