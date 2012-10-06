@@ -2,6 +2,11 @@
 # This is the first draft of the Admin interface
 # It probably needs more tests and work ... please review & comment!!!
 
+## TODO: Add more password reset scenario test cases
+## TODO: Add more username retrieval scenario test case
+
+
+
 #############################################################################		
 #                              NEW FEATURE                                  #
 #############################################################################
@@ -16,6 +21,8 @@ Feature: Admin sign in page definition
         And there is a login button
         And there is a button to request a username
         And there is a button to request a password        
+
+# TEST NOTE: Make a step of the above
 
 #############################################################################		
 #                              NEW FEATURE                                  #
@@ -59,50 +66,95 @@ Background:
     
     Scenario: Successful username request
         Given the admin clicks the retrieve username button
-        And there is an empty text box for the admins email address
-        And there is a button to send the username to the admins email address
-        Then the admin enters his username that in the email address textbox
-        And the admin enters his email address that in the email address textbox
-        And the admin clicks the button to send username it his email address
+        Then a new window opens
+        And there is an empty text box for the admins email address in the new window
+        And there is a button to send the username to the admins email address in the new window
+        Then the admin enters his email address in the email address textbox in the new window
+        And the admin clicks the button to send username to his email address
         And the entered email address is recognized in the database
         Then the username associated with the admins email address is sent to the admin
-        And there is the empty text box for the admins email address is no longer there
-        And there is a button to send the username to the admins email address is no longer there
-        And a display in a new window indicates than at email was sent to the admins email address
+        And a display in the new window indicates than at email was sent to the admins email address
 
     Scenario: Unsuccessful username request
         Given the admin clicks the retrieve username button
-        And there is an empty text box for the admins email address
-        And there is a button to send the username to the admins email address
-        Then the admin enters his username that in the email address textbox
-        And the admin enters his email address that in the email address textbox
-        And the admin clicks the button to send username it his email address
+        Then a new window opens
+        And there is an empty text box for the admins email address in the new window
+        And there is a button to send the username to the admins email address in the new window
+        Then the admin enters his email address in the email address textbox in the new window
+        And the admin clicks the button to send username to his email address
         And the entered email address is not recognized in the database
-        Then a display in a new window indicates than at email address was not identified
+        Then a display in the new window indicates than at email address was not recognized
             
-    Scenario: Successful password reset
-        Given the admin clicks the reset his password button
-        And there is an empty text box for the admins email address
-        And there is a button to send the username to the admins email address
-        Then the admin enters his username that in the email address textbox
-        And the admin enters his email address that in the email address textbox
-        And the admin clicks the button to send username it his email address
+    Scenario: Successful password reset request
+        Given the admin clicks the reset password button
+        Then a new window opens
+        And there is an empty text box for the admins email address in the new window
+        And there is a button to send reset password link to the admins email address in the new window
+        Then the admin enters his email address in the email address textbox in the new window
+        And the admin clicks the button to send password reset link to his email address        
         And the entered email address is recognized in the database
-        Then the username associated with the admins email address is sent to the admin
-        And there is the empty text box for the admins email address is no longer there
-        And there is a button to send the username to the admins email address is no longer there
-        And a display in a new window indicates than at email was sent to the admins email address
+        Then a link to a password reset page for that user is send to the admins email address
+        And a display in the new window indicates than the password reset email was sent to the admins email address        
 
-    Scenario: Unsuccessful username request
-        Given the admin clicks the retrieve username button
-        And there is an empty text box for the admins email address
-        And there is a button to send the username to the admins email address
-        Then the admin enters his username that in the email address textbox
-        And the admin enters his email address that in the email address textbox
-        And the admin clicks the button to send username it his email address
+    Scenario: Successful password reset request
+        Given the admin clicks the reset password button
+        Then a new window opens
+        And there is an empty text box for the admins email address in the new window
+        And there is a button to send reset password link to the admins email address in the new window
+        Then the admin enters his email address in the email address textbox in the new window
+        And the admin clicks the button to send password reset link to his email address        
         And the entered email address is not recognized in the database
-        Then a display in a new window indicates than at email address was not identified
+        Then a display in the new window indicates than at email address was not recognized
+        
+#############################################################################		
+#                              NEW FEATURE                                  #
+#############################################################################
 
+@aggregate @admin @password_reset
+Feature: Password reset page definition
+
+Background: 
+    Given the admin is at the password reset page
+    And the admin got there via a link that was sent to his email address
+    
+    Scenario: Password reset page definition
+        Given there is the first text box to enter a new password
+        And there is the second text box to enter a new password
+        And the admin username associated with password reset page like is displayed
+        And there is a submit a new password button
+
+# TEST NOTE: Make a step of the above 
+
+#############################################################################		
+#                              NEW FEATURE                                  #
+#############################################################################
+
+@aggregate @admin @password_reset
+Feature: Password reset page action
+
+Background: 
+    Given the admin is at the password reset page
+    And the admin got there via a link that was sent to his email address
+ 
+     Scenario: Password reset
+        Given the admin is at the password reset page
+        And the first password submitted is "<pw_1>"
+        And the second password submitted is "<pw_2>"
+        And the admin click the change password button
+        Then the password "<status>" assigned to the admin username in the user database
+        And a display indicates that "<message>"
+
+        Examples:
+            | pw_1                  | pw_2                  | status        | message                                       |
+            | first_shot            | second_shot           | is not        | the passwords entered are not the same        |
+            | aefawefawe            | aefawefawe            | is            | the password reset was successful             |
+            | blue                  | blue                  | is not        | the password must be more than 6 characters   |
+            | thisisalongpassword   | thisisalongpassword   | is not        | the password must be less than 15 characters  |
+            | thisisalongpassword   | xthisisalongpassword  | is not        | the passwords entered are not the same        |
+            | xthisisalongpassword  | thisisalongpassword   | is not        | the passwords entered are not the same        |
+            | %%$$!!@               | %%$$!!@@              | is not        | the passwords entered are not the same        |
+            | %%$$!!@@              | %%$$!!@               | is not        | the passwords entered are not the same        |            
+            | %%$$!!@@              | %%$$!!@@              | is            | the password reset was successful             |
 
 #############################################################################		
 #                              NEW FEATURE                                  #
