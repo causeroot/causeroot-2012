@@ -4,6 +4,7 @@
 
 ## TODO: Add more password reset scenario test cases
 ## TODO: Add more username retrieval scenario test case
+## TODO: Remove all the user verification stuff from the admin experience
 
 
 
@@ -229,10 +230,13 @@ Background:
 @aggregate @admin @challenge_submission_page
 Feature: Challenge submission page definition
    
+# TODO: Restructure this to have 1 save button, & 1 push button
+# TODO: Figure out how to make a test to verify formatting is retained
+   
     Scenario:
         Given the admin is at the challenge submission page
         Then there is a text box for the title of a challenge object
-        And there is a save button for the titel text box for the of a challenge object
+        And there is a save button for the title text box for the of a challenge object
         And there is a text box for the URL of a challenge object
         And there is a save button for the URL text box for the of a challenge object
         And there is a text box for the description of a challenge object

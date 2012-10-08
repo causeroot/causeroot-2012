@@ -1,11 +1,22 @@
 # This is a collection of scenarios that govern the front end user interface of the aggregator
 
+#############################################################################		
+#                     CHALLENGE OBJECT: DEFINITION                          #
+#############################################################################
+
 @aggregate @front_end_user @challenge_index_page
 Feature: Challenge object definition
              
 # TODO: Add Scenario: Test sorting and string filter together
 # TODO: Add Scenario: Going back and forth in instances to make sure filtering is retained when "going back" 
+
 # TODO: Define if there is any entrance criteria of prior sorting knowledge that we may want to maintain
+# TODO: Re-label Feature note text
+# TODO: Add specific tests with each values to test ascending/descending for each sorter function
+# TODO: For the string search test, fix this so we check order by the challenge titles that happen to be (not order specific)
+# TODO: For the heading to an individual challenge, fix this so we check order by the challenge titles (not order specific)
+# TODO: fix redundancy for individual challenge definition
+
 
 Background:
     Given the user is at the general challenges index page
@@ -23,7 +34,7 @@ Background:
 # TEST NOTE: Make a step of the above  
 
 #############################################################################		
-#                         ABOUT US PAGE ACTIONS                             #
+#              CHALLENGES INDEX PAGE: GENERAL DEFINITION                    #
 #############################################################################
 
 @aggregate @front_end_user @challenge_index_page
@@ -41,31 +52,22 @@ Feature: General challenges index definition
         And there is a link to sort by start date
 
 # TEST NOTE: Make a step of the above
-
-#############################################################################		
-#                           ABOUT US PAGE ACTIONS                           #
-#############################################################################
-
-@aggregate @front_end_user @challenge_index_page
-Feature: First landing page
-
-    Scenario:
-        Given the user is arriving to the site for the first time
-        Then the user is at the default challenges index page		
         
 #############################################################################		
 #                          DEFAULT LANDING PAGE                             #
 #############################################################################
 
 @aggregate @front_end_user @challenge_index_page
-Feature: default landing page
+Feature: default challenge index page
+
+The default challenge index page shall be the landing page for this site
 
     Scenario:
         Given the user is at the default challenges index page	
         Then the challenges objects are sorted by deadline in descending order
 
 #############################################################################		
-#                    INDIVIDUAL CHALLENGE PAGE DEFINITION                   #
+#                    INDIVIDUAL CHALLENGE PAGE: DEFINITION                   #
 #############################################################################
 
 Feature: Individual Challenge page definition
@@ -89,7 +91,7 @@ Feature: Individual Challenge page definition
 # TEST NOTE: Make a step of the above
 
 #############################################################################		
-#                  INDIVIDUAL CHALLENGE PAGE DEFINITION                     #
+#                        ABOUT US PAGE: DEFINITION                          #
 #############################################################################
 
 @aggregate @front_end_user @about_us_page
@@ -105,7 +107,7 @@ Feature: About us page definition
 # TEST NOTE: Make a step of the above 
 
 #############################################################################		
-#                  INDIVIDUAL CHALLENGE PAGE DEFINITION                     #
+#                  CHALLENGES INDEX PAGE: ACTIONS                           #
 #############################################################################
 
 @aggregate @front_end_user @challenge_index_page
@@ -113,17 +115,11 @@ Feature: Actions on challenges index page
 
 Background:
     Given the user is at the general challenges index page
-                 
-	Scenario: Default challenges index page
-	    Given the user is at the default landing page
-		And the challenges are sorted by deadline in descending order
 		
-# TEST NOTE: Make a step of the above	
-
 	Scenario Outline: Sort challenges
 		Given the present order was "<old_order>"
 		And the user clicks sort by "<parameter>"
-		And the previous order was "<new_order>"
+		And the new order is "<new_order>"
 		Then the list of challenges is correctly sorted
 		And the user is at the first page of viewable challenges
 	
@@ -169,14 +165,14 @@ Background:
 		And the user should see a button that remove the string search filter
 		
 		Examples: Database 1 that should work
-	        | db    | keyword    | this_many    |
-	        | 1     | NASA       | 2            |
-	        | 1     | Millenium  | 6            |
-	        | 1     | sexfoot    | 0            |
-	        | 1     | sexfoot    | 0            |
-	        | 1     | sexfoot    | 0            |	        	        
-	        | 1     | sexfoot    | 0            |
-	        | 1     | sexfoot    | 0            |
+	        | db    | keyword    | challenge_title_1    |
+	        | 1     | NASA       | 2                    |
+	        | 1     | Millenium  | 6                    |
+	        | 1     | sexfoot    | 0                    |
+	        | 1     | sexfoot    | 0                    |
+	        | 1     | sexfoot    | 0                    |	        	        
+	        | 1     | sexfoot    | 0                    |
+	        | 1     | sexfoot    | 0                    |
 
 	    Examples: Database 2 that should work
 	        | db    | keyword    | this_many    |
@@ -232,7 +228,7 @@ Background:
 		Then the user is at an individual challenge page for the "<chosen>" challenge
 		
 	    Examples: Database 1
-	        | db    | chosen    |
+	        | db    | challenge_title   |
 	        | 1     | 1         |
 	        | 1     | 2         |
 	        | 1     | 10        |
@@ -283,12 +279,14 @@ Background:
 		And the next button is "<next_button>"  
 		Then the user clicks on the "<clicked_button>"
 		And the user is at challenge index page "<new_page_number>"
+		And the previous button is "<prev_button>" 
 		And the new square 1 button is "<new_sq_1>"
 		And the new square 2 button is "<new_sq_2>"
 		And the new square 3 button is "<new_sq_3>"
 		And the new square 4 button is "<new_sq_4>"
 		And the new square 5 button is "<new_sq_5>"
-		
+		And the next button is "<next_button>"  
+				
 		Example: 
 		    | db    | page_number   | prev_button   | sq_1      | sq_2      | sq_3      | sq_4      | sq_5      | next_button   | clicked_button    | new_page_number   | sq_1      | sq_2      | sq_3      | sq_4      | sq_5      |
 		    | 1     | 1             | not_there     | there     |           | 
@@ -297,7 +295,7 @@ Background:
 # TEST NOTE: Make a step of the above
    
 #############################################################################		
-#                   INDIVIDUAL CHALLENGE PAGE DEFINITION                    #
+#                   INDIVIDUAL CHALLENGE PAGE: ACTIONS                      #
 #############################################################################
 
 
