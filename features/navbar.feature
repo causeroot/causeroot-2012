@@ -23,4 +23,5 @@ Feature: navbar
 		
 	Scenario: new challenge
 		Given that I am logged in
-		
+	    And I click on "Create New Challenge"
+        Then I should see "New Challenge"
