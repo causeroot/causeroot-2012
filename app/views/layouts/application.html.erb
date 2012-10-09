@@ -11,19 +11,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-	<div class="navbar">
-		<div class="navbar-inner">
-			<a class="brand" href="#">IdeaFactory</a>
-			<ul class="nav">
-				<li><%= link_to 'Demo', "/" %></li>
-				<li><%= link_to 'Challenges', challenges_path %></li>
-				<li><%= link_to 'About Us', about_path %></li>				
-			</ul>
-			<form class="navbar-search pull-right">
-    		<input type="text" class="search-query" placeholder="Search">
-    	</form>
-		</div>
-	</div>
+  <%= render :partial => "layouts/navbar" %>
     
   <div class="container">
   	<div class="row">

@@ -1,0 +1,17 @@
+<%= form_for @user do |f| %>
+  <div class="form-field">
+    <%= f.label "Username" %>
+    <%= f.text_field :username %>
+  </div>
+  <div class="form-field">
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+  </div>
+  <div class="form-field">
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+  <div clas="form-button">
+    <%= f.submit %>
+  </div>
+<% end %>
