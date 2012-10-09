@@ -3,7 +3,8 @@ class ChallengesController < ApplicationController
   # GET /challenges
   # GET /challenges.json
   def index
-    @challenges = Challenge.all
+#    @challenges = Challenge.all
+    @challenges = Challenge.order(:name).page params[:page]
 
     respond_to do |format|
       format.html # index.html.erb

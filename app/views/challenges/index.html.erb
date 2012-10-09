@@ -1,15 +1,6 @@
 <h1>Listing challenges</h1>
 
-<div class="pagination">
-	<ul>
-		<li><a href="#">Prev</a></li>
-		<li><a href="#">1</a></li>
-		<li><a href="#">2</a></li>
-		<li><a href="#">3</a></li>
-		<li><a href="#">Next</a></li>
-	</ul>
-</div>
-<% will_paginate @challenges %>
+<%= paginate @challenges %>
 <% @challenges.each do |challenge| %>
 	<div class="row">
 		<div class="span2">
