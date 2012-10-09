@@ -41,11 +41,16 @@ gem "will_paginate", "~> 3.0.3"
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
+group :development do
+  gem 'guard'
+	gem 'rb-fsevent', :require => false
+end
+
 group :test, :development do
 	gem "brakeman"
   gem "rspec-rails", "~> 2.0"
 	gem "factory_girl_rails", "~> 4.0"
-	gem "faker"	
+	gem "faker"
 end
 
 group :test do
