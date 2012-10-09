@@ -94,6 +94,9 @@ GEM
     ffi (1.1.5)
     gherkin (2.11.2)
       json (>= 1.4.6)
+    guard (1.4.0)
+      listen (>= 0.4.2)
+      thor (>= 0.14.6)
     haml (3.1.7)
     highline (1.6.15)
     hike (1.2.1)
@@ -112,6 +115,7 @@ GEM
     libv8 (3.3.10.4)
     libwebsocket (0.1.5)
       addressable
+    listen (0.5.3)
     mail (2.4.4)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -144,6 +148,7 @@ GEM
       rdoc (~> 3.4)
       thor (~> 0.14.6)
     rake (0.9.2.2)
+    rb-fsevent (0.9.2)
     rdoc (3.12)
       json (~> 1.4)
     rspec (2.10.0)
@@ -217,8 +222,10 @@ DEPENDENCIES
   email_spec
   factory_girl_rails (~> 4.0)
   faker
+  guard
   jquery-rails
   rails (= 3.2.3)
+  rb-fsevent
   rspec-rails (~> 2.0)
   sass-rails (~> 3.2.3)
   sqlite3
