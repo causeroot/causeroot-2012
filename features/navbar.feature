@@ -11,17 +11,17 @@ Feature: navbar
 	
 	Scenario:	about us
 		And I click on "About Us"
-		Then I should a picture of handsom boys on skateboards
+		Then I should read about a group of passionate individuals
 	
 	Scenario: demo
 		And I click on "Demo"
 		Then I should see a youtube video
 		
 	Scenario: challenges
-		And I click on "Demo"
+		And I click on "Challenges"
 		Then I should see "Listing challenges"
 		
 	Scenario: new challenge
 		Given that I am logged in
-	    And I click on "Create New Challenge"
-        Then I should see "New Challenge"
+		And I click on "Create New Challenge"
+		Then I should see "New Challenge"
