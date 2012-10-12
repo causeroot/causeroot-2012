@@ -1,6 +1,7 @@
 FactoryGirl.define do
   factory :challenge do
-    name "Challenge Name"
+	  sequence(:name) {|n| "Challenge Name #{n}" }
+    name generate(:challenge_title)
     url  "http://challenge.com/url"
     description Faker::Lorem.paragraphs(3)
     award "$17,000"

@@ -1,5 +1,3 @@
-Testing Jenkins
-
 Get Ready
 ======
 * Sign up for github: https://github.com/signup/free
