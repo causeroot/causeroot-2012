@@ -6,7 +6,12 @@ IdeaFactory::Application.routes.draw do
   match '/about', :to => 'about#index'
   match '/demo', :to => 'demo#index'
 
+  get "logout" => "sessions#destroy", :as => "logout"
+  get "login" => "sessions#new", :as => "login"
+  get "signup" => "users#new", :as => "signup"
+
   resources :users
+  resources :sessions
   resources :challenges
 
   match '/signup', :to => 'users#new'
