@@ -13,3 +13,7 @@ When /I sign in/ do
 	fill_in 'password', :with => "secret"
   click_button 'Login'
 end
+
+When /^I click the link "(.*?)"$/ do |link|
+  click_link link
+end
