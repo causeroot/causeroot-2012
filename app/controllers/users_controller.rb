@@ -25,9 +25,11 @@ class UsersController < ApplicationController
 
   #TODO: finish the controller...
   def edit
+#    @user = User.find(params[:id])
   end
 
   def update
+  	
   end
 
   def destroy
