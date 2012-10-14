@@ -17,3 +17,10 @@ end
 When /^I click the link "(.*?)"$/ do |link|
   click_link link
 end
+
+Given /^that I am logged in$/ do
+  steps %{
+    Given that I am a valid user
+    When I sign in
+  }
+end

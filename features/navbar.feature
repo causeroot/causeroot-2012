@@ -3,6 +3,7 @@ Feature: navbar
 	
 	Background:
 		Given that I am on the main page
+		Then I should see "Listing challenges"
 		
 	Scenario: navbar is visible
 		Then I should see the link "Demo"
