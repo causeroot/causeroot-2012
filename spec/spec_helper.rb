@@ -2,7 +2,6 @@ require 'simplecov'
 require 'simplecov-rcov'
 SimpleCov.start 'rails'
 
-SimpleCov.refuse_coverage_drop
 SimpleCov.formatter = SimpleCov::Formatter::RcovFormatter
 
 # This file is copied to spec/ when you run 'rails generate rspec:install'
