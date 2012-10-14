@@ -5,7 +5,7 @@
 @aggregate @front_end_user @about_us_page
 
 Feature: About us page
-
+	@ignore
 	Scenario: About us page arrival
 	    Given the user arrives at the about us page
         Then there is a navbar
@@ -16,6 +16,7 @@ Feature: About us page
         """
         And there is at least one graphic
         
+     @ignore   
      Scenario: Message the admins
         Given the user clicks on button to message the site admins
         Then the users default email client opens a new email to compose
