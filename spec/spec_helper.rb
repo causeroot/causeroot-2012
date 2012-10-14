@@ -1,12 +1,16 @@
+require 'simplecov'
+require 'simplecov-rcov'
+SimpleCov.start 'rails'
+
+SimpleCov.refuse_coverage_drop
+SimpleCov.formatter = SimpleCov::Formatter::RcovFormatter
+
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'email_spec'
 require 'rspec/autorun'
-require 'simplecov'
-require 'simplecov-rcov'
-SimpleCov.formatter = SimpleCov::Formatter::RcovFormatter
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
@@ -30,6 +34,7 @@ RSpec.configure do |config|
   # examples within a transaction, remove the following line or assign false
   # instead of true.
   config.use_transactional_fixtures = true
+  
 
   # If true, the base class of anonymous controllers will be inferred
   # automatically. This will be the default behavior in future versions of
