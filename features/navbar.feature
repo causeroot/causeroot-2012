@@ -21,7 +21,3 @@ Feature: navbar
 		And I click on "Challenges"
 		Then I should see "Listing challenges"
 		
-	Scenario: new challenge
-		Given that I am logged in
-		And I click on "Create New Challenge"
-		Then I should see "New Challenge"
