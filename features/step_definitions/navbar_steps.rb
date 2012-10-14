@@ -21,7 +21,3 @@ end
 Then /^I should see "(.*?)"$/ do |text|
   page.should have_content text
 end
-
-Given /^that I am logged in$/ do
-  pending # express the regexp above with the code you wish you had
-end
