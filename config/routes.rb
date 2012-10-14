@@ -1,4 +1,4 @@
-IdeaFactory::Application.routes.draw do
+CauseRoot::Application.routes.draw do
 
 #  root :to => "demo#index"
   root :to => "users#new"

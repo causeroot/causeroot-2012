@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-IdeaFactory::Application.load_tasks
+CauseRoot::Application.load_tasks
