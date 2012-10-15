@@ -164,6 +164,10 @@ describe UsersController do
       delete :destroy, {:id => user.to_param}, valid_session
       response.should redirect_to(users_url)
     end
+    
+    if "fails on purpose to test jenkins" do
+    	fail_with("this was meant to fail")
+    end
   end
 
 end
