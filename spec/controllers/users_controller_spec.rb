@@ -165,8 +165,8 @@ describe UsersController do
       response.should redirect_to(users_url)
     end
     
-    if "fails on purpose to test jenkins" do
-    	fail_with("this was meant to fail")
+    it "fails on purpose to test jenkins" do
+    	fail_with "this was meant to fail"
     end
   end
 
