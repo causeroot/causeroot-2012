@@ -1,6 +1,6 @@
 require 'bundler/capistrano'
 
-set :application, "idea-factory"
+set :application, "cause-root"
 
 set :scm, :none
 set :repository, "."

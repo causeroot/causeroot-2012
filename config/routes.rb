@@ -14,7 +14,11 @@ CauseRoot::Application.routes.draw do
 
   resources :users
   resources :sessions
-  resources :challenges
+  resources :challenges do
+    collection do
+      get :search
+    end
+  end
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

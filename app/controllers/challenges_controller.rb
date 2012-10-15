@@ -1,6 +1,19 @@
 class ChallengesController < ApplicationController
-  skip_before_filter :require_login, :only => [:index, :show]
+  skip_before_filter :require_login, :only => [:index, :show, :search]
 	
+  # GET /challenges/search
+  # GET /challenges/search.xml
+  def search
+   	@challenges = Challenge.search do
+      keywords params[:q]
+    end.results
+    
+    respond_to do |format|
+      format.html { render :action => "index" }
+      format.xml { render :xml => @challenges }
+    end
+  end
+  	
   # GET /challenges
   # GET /challenges.json
   def index
