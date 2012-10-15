@@ -7,21 +7,14 @@ CauseRoot::Application.routes.draw do
   match '/demo', :to => 'demo#index'
 
   get "logout" => "sessions#destroy", :as => "logout"
+  get "signout" => "sessions#destroy", :as => "logout"
   get "login" => "sessions#new", :as => "login"
+  get "signin" => "sessions#new", :as => "login"
   get "signup" => "users#new", :as => "signup"
 
   resources :users
   resources :sessions
   resources :challenges
-
-  match '/signup', :to => 'users#new'
-  
-#  TODO
-#  match '/signin', :to => 'session#new'
-#  match '/login', :to => 'session#new'
-# match '/signout', :to => 'session#destroy'
-# match '/logout', :to => 'session#destroy'
-
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
