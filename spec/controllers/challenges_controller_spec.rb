@@ -19,6 +19,10 @@ require 'spec_helper'
 # that an instance is receiving a specific message.
 
 describe ChallengesController do
+  before(:each) do
+    @user = FactoryGirl.create(:user)
+    login_user
+  end
 
   # This should return the minimal set of attributes required to create a valid
   # Challenge. As you add validations to Challenge, be sure to
