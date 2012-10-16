@@ -4,7 +4,7 @@ class CreateChallenges < ActiveRecord::Migration
       t.string :name
       t.string :url
       t.text :description
-      t.string :award
+      t.text :award
       t.datetime :deadline
       t.datetime :post_date
       t.string :image_url

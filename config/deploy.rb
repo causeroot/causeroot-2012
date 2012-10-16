@@ -1,6 +1,19 @@
 require 'bundler/capistrano'
 require "rvm/capistrano"
 
+set :stages, %w(production staging)
+set :default_stage, "staging"
+require 'capistrano/ext/multistage'
+
+set :application, "capistrano-multistage-test"
+set :user, "www-data"
+set :group, "www-data"
+
+set :scm, :git
+set :repository, "ssh://ourserver/#{application}.git"
+set :deploy_to, "/var/www/#{application}"
+set :deploy_via, :remote_cache
+set :rails_env, 'production'
 set :rvm_type, :system  # Copy the exact line. I really mean :system here
 
 set :application, "causeroot"
@@ -49,7 +62,7 @@ namespace :deploy do
     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
   end
   task :finalize_update do
-		run "ln -nfs #{deploy_to}/shared/config/database.yml #{release_path}/config/database.yml"
+		run "ln -nfs #{deploy_to}shared/config/database.yml #{release_path}/config/database.yml"
 	end  
 end
 
