@@ -1,10 +1,6 @@
 require 'bundler/capistrano'
 require "rvm/capistrano"
 
-set :stages, %w(production staging)
-set :default_stage, "staging"
-require 'capistrano/ext/multistage'
-
 set :application, "capistrano-multistage-test"
 set :user, "www-data"
 set :group, "www-data"
