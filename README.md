@@ -7,6 +7,7 @@ Get Ready
 * Use ruby 1.9.3: `rvm use 1.9.3-p194 --default`
 * Update RubyGems: `gem update --system` 
 * Install bundler: `gem install bundler`
+* Configure the rake solr task with the test environment `rake sunspot:solr:run RAILS_ENV=test`
 
 Install
 ======
