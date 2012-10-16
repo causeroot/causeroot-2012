@@ -12,6 +12,8 @@ gem 'sunspot_solr'
 
 gem 'sorcery'
 
+gem 'rvm-capistrano'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -68,5 +70,5 @@ group :test do
 end
 
 group :production do
-	gem 'mysql2'
+	gem 'pg'
 end

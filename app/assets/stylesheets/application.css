@@ -11,3 +11,12 @@
  *= require_self
  *= require_tree .
 */
+
+.footer {
+  position: relative;
+  margin-top: 0px; /* negative value of footer height */
+  height: 150px;
+  width: 100%;
+  clear:both;
+  padding-top:20px;
+} 
