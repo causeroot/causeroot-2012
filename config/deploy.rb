@@ -1,22 +1,7 @@
 require 'bundler/capistrano'
 require "rvm/capistrano"
 
-set :application, "capistrano-multistage-test"
-set :user, "www-data"
-set :group, "www-data"
-
-set :scm, :git
-set :repository, "ssh://ourserver/#{application}.git"
-set :deploy_to, "/var/www/#{application}"
-set :deploy_via, :remote_cache
-set :rails_env, 'production'
-set :rvm_type, :system  # Copy the exact line. I really mean :system here
-
 set :application, "causeroot"
-
-set :scm, :git
-set :repository, "https://github.com/gardner/CauseRoot.git"
-set :scm_password, ""
 
 set :user, 'ubuntu'
 set :domain, 'causeroot.org'
@@ -25,9 +10,28 @@ set :applicationdir, "appdir"
 set :port, 22
 set :use_sudo, false
 
-role :web, domain
-role :app, domain
-role :db,  domain, :primary => true # This is where Rails migrations will run
+set :scm, :git
+set :repository, "https://github.com/gardner/CauseRoot.git"
+set :scm_password, ""
+
+
+task :production do
+	set :rails_env, 'production'
+	set :rvm_type, :system  # Copy the exact line. I really mean :system here
+	
+  role :web, "causeroot.org", :primary => true
+  set :deploy_to, "/u/apps/#{application}-production/"
+  set :deploy_via, :remote_cache
+  after('deploy:symlink', 'cache:clear')
+end
+
+task :staging do
+	set :rails_env, 'staging'
+  role :web, "beta.causeroot.org", :primary => true
+  set :deploy_to, "/Users/capistrano/Sites/#{application}-staging/"
+  set :deploy_via, :copy
+  after('deploy:symlink', 'cruise_control:build')
+end
 
 # if you want to clean up old releases on each deploy uncomment this:
 after "deploy:restart", "deploy:cleanup"

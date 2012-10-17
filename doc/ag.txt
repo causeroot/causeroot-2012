@@ -1,0 +1,20 @@
+index of challenges
+	arrival / what i see
+	pagination
+	sort
+	search
+	click into view challenge information
+
+view challenge information
+	arrival / what i see
+	share buttons	
+	
+navbar
+	about us
+	arrival / what i see
+	demo
+	challenges
+	new challenge (admin)
+
+collect problem statements
+
