@@ -14,5 +14,7 @@ capybara-*.html
 **.orig
 rerun.txt
 pickle-email-*.html
+solr
+.DS_Store
 *.swp
 config/database.yml

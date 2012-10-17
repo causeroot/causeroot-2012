@@ -1,0 +1,22 @@
+<h1>Listing challenges</h1>
+
+<%= paginate @challenges %>
+<% @challenges.each do |challenge| %>
+	<div class="row">
+		<div class="span2">
+			<img src="<%=asset_path "challenge.png"%>" />
+			<!-- <img src="<%= challenge.image_url %>" /> -->
+		</div>
+		<div class="span4">
+			<h5><%= challenge.name %></h5>
+			<p><%= challenge.description %></p>
+			<%= link_to 'Learn More', challenge %>
+		</div>
+		<div class="span3">
+			<p><strong>Award:</strong> <%= challenge.award %></p>
+			<p><strong>Deadline:</strong> <%= challenge.deadline %></p>
+			<p><strong>Posted:</strong> <%= challenge.post_date %></p>
+		</div>
+  </div>
+<% end %>
+
