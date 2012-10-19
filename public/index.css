@@ -10,16 +10,21 @@ body
 .emails
 {
   position: absolute;
-  left: 115px;
-  top: 575px;
-  width: 420px;
+  left: 113px;
+  top: 574px;
+  width: 450px;
+  text-align: left;
+
 }
 
 .inputbox
 {
-  width: 331;
-  height: 27;
-  background: #DDDDDD;
+  padding:0.2em 0 0em 16px;
+  width: 285px;
+  height: 23px;
+  border: 1px;
+  background: #E3E3E3;
+  color: #444444;
 }
 
 .button
@@ -28,23 +33,23 @@ body
   background: #F7941D;
   color: white;
   height: 27px;
-  width: 92px;
+  width: 93px;
   font-size: 14px;
 }
 
 .arrow1
 {
   position: absolute;
-  left: 335px;
-  top: 650px;
+  left: 115px;
+  top: 647px;
   opacity: 0;
 }
 
 .arrow2
 {
   position: absolute;
-  left: 350px;
-  top: 715px;
+  left: 115px;
+  top: 713px;
   opacity: 0;
 }
 
