@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(:version => 20121015013402) do
     t.string   "name"
     t.string   "url"
     t.text     "description"
-    t.string   "award"
+    t.text     "award"
     t.datetime "deadline"
     t.datetime "post_date"
     t.string   "image_url"

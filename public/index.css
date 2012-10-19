@@ -1,0 +1,59 @@
+body
+{
+  background-color:#333333;
+  background-image:url('CauseRoot_Landing.jpg');
+  background-repeat:no-repeat;
+  background-position:center top;
+  text-align: center;
+}
+
+.emails
+{
+  position: absolute;
+  left: 115px;
+  top: 575px;
+  width: 420px;
+}
+
+.inputbox
+{
+  width: 331;
+  height: 27;
+  background: #DDDDDD;
+}
+
+.button
+{
+  border: 0px;
+  background: #F7941D;
+  color: white;
+  height: 27px;
+  width: 92px;
+  font-size: 14px;
+}
+
+.arrow1
+{
+  position: absolute;
+  left: 335px;
+  top: 650px;
+  opacity: 0;
+}
+
+.arrow2
+{
+  position: absolute;
+  left: 350px;
+  top: 715px;
+  opacity: 0;
+}
+
+.footer
+{
+  position: absolute;
+  left: 50px;
+  top: 850px;
+  margin: 10px;
+}
+
+
