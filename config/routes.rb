@@ -1,5 +1,7 @@
 CauseRoot::Application.routes.draw do
 
+  resources :subscriptions
+
 #  root :to => "demo#index"
   root :to => "challenges#index"
 
