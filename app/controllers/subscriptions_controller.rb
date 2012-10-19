@@ -1,5 +1,6 @@
 class SubscriptionsController < ApplicationController
-  skip_before_filter :require_login
+
+  skip_before_filter :require_login, :only => [:new, :create]
   # GET /subscriptions
   # GET /subscriptions.json
   def index
@@ -41,7 +42,7 @@ class SubscriptionsController < ApplicationController
   # POST /subscriptions
   # POST /subscriptions.json
   def create
-    @subscription = Subscription.new(params[:subscription])
+    @subscription = Subscription.new(:email => params[:subscription])
 
     respond_to do |format|
       if @subscription.save
