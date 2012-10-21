@@ -9,6 +9,7 @@ namespace :deploy do
   task :stop do ; end
 
   task :restart, :roles => :app, :except => { :no_release => true } do
+		run "ln -nfs #{deploy_to}shared/config/database.yml #{release_path}/config/database.yml"
     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
   end
   task :finalize_update do

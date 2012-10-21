@@ -1,16 +1,16 @@
 body
 {
   background-color:#333333;
-  background-image:url('CauseRoot_Landing.jpg');
+  background-image:url('CauseRoot_Landing.png');
   background-repeat:no-repeat;
-  background-position:center top;
+  background-position: 150px top;
   text-align: center;
 }
 
 .emails
 {
   position: absolute;
-  left: 113px;
+  left: 190px;
   top: 574px;
   width: 450px;
   text-align: left;
