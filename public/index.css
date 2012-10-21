@@ -3,14 +3,14 @@ body
   background-color:#333333;
   background-image:url('CauseRoot_Landing.png');
   background-repeat:no-repeat;
-  background-position: 150px top;
+  background-position: 130px top;
   text-align: center;
 }
 
 .emails
 {
   position: absolute;
-  left: 190px;
+  left: 170px;
   top: 574px;
   width: 450px;
   text-align: left;
