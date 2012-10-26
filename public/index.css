@@ -4,10 +4,38 @@ body
   background-image:url('CauseRoot_Landing.png');
   background-repeat:no-repeat;
   background-position: 130px top;
-  width: 1000px;
+  width: 100%;
   text-align: center;
 }
 
+.bkg {
+    position: relative;
+    opacity:0.9;
+    horizontal-align: middle;
+    height: 800px;
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    background:#FFFFFF;
+}
+
+.sgnup {
+    position: relative;
+    background:#F7941E;
+    height: 27px;
+    left: 634px;
+    width: 312px;
+}
+
+.sgnuptxt {
+    font-family: 'Muli', sans-serif;
+    color:white;
+    font-weight: 500;
+    position:relative;
+    font-size: 16px;
+    text-align: middle;
+    top: 3.6px;
+}
 .hdr1 {
     font-family: 'Muli', sans-serif;
     font-size: 28px;
@@ -16,7 +44,7 @@ body
     position:relative;
     color:#F7941E;
     top:121px;
-    left:179px;
+    left:49.41px;
     width: 758px;
     text-align: left;
     line-height: 1.3;
@@ -29,7 +57,7 @@ body
     font-weight: 300;
     position:relative;
     top:140px;
-    left:182px;
+    left:52.64px;
     width: 586px;
     text-align: left;
     line-height: 1.4;
@@ -43,8 +71,8 @@ body
     position:relative;
     color:#000000;
     top:146px;
-    left:182px;
-    width: 588px;
+    left:52.64px;
+    width: 586px;
     text-align: left;
     line-height: 1.4;
 }
@@ -57,8 +85,8 @@ body
     position:relative;
     color:#000000;
     top:182px;
-    left:182px;
-    width: 588px;
+    left:52.64px;
+    width: 586px;
     text-align: left;
     line-height: 1.4;
 }
@@ -71,7 +99,7 @@ body
     position:relative;
     color:#000000;
     top:190px;
-    left:171px;
+    left:52.64px;
     width: 588px;
     text-align: left;
     line-height: 1.4;
