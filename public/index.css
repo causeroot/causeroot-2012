@@ -1,26 +1,26 @@
 body
 {
   background-color:#333333;
-  background-image:url('CauseRoot_Landing.png');
-  background-repeat:no-repeat;
-  background-position: 130px top;
   width: 100%;
   text-align: center;
 }
 
 .bkg {
     position: relative;
-    opacity:0.3;
+    opacity:1;
     horizontal-align: middle;
+    background:#FFFFFF;
+    background-image:url('World.jpg');
+    background-repeat:no-repeat;
+    background-position: right top;
     height: 800px;
     width: 1000px;
     margin-left: auto;
     margin-right: auto;
-    background:#FFFFFF;
 }
 
 .sgnup {
-    position: relative;
+    position: absolute;
     background:#F7941E;
     height: 27px;
     left: 634px;
@@ -41,9 +41,9 @@ body
     font-size: 28px;
     font-style:normal;
     font-weight: 300;
-    position:relative;
+    position:absolute;
     color:#F7941E;
-    top:94px;
+    top:127px;
     left:49.41px;
     width: 758px;
     text-align: left;
@@ -55,8 +55,8 @@ body
     font-size: 16px;
     font-style:normal;
     font-weight: 300;
-    position:relative;
-    top:114px;
+    position:absolute;
+    top:250px;
     left:52.64px;
     width: 586px;
     text-align: left;
@@ -68,9 +68,9 @@ body
     font-size: 16.1px;
     font-style:bold;
     font-weight: 500;
-    position:relative;
+    position:absolute;
     color:#000000;
-    top:123px;
+    top:418px;
     left:52.64px;
     width: 586px;
     text-align: left;
@@ -82,9 +82,9 @@ body
     font-size: 20px;
     font-style:bold;
     font-weight: 400;
-    position:relative;
+    position:absolute;
     color:#000000;
-    top:162px;
+    top:478px;
     left:52.64px;
     width: 586px;
     text-align: left;
@@ -96,9 +96,9 @@ body
     font-size: 16px;
     font-style:normal;
     font-weight: 300;
-    position:relative;
+    position:absolute;
     color:#000000;
-    top:170px;
+    top:514px;
     left:52.64px;
     width: 588px;
     text-align: left;
@@ -106,9 +106,9 @@ body
 }
 .emails
 {
-  position: relative;
+  position: absolute;
   left: 54px;
-  top: 200px;
+  top: 570px;
   width: 450px;
   text-align: left;
 
@@ -158,4 +158,9 @@ body
   margin: 10px;
 }
 
+.logo {
+    position: absolute;
+    top: 33px;
+    left: 37px;
+}
 
