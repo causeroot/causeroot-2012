@@ -49,6 +49,20 @@ body
     line-height: 1.4;
 }
 
+.cta2 {
+    font-family: 'Muli', sans-serif;
+    font-size: 20px;
+    font-style:bold;
+    font-weight: 400;
+    position:relative;
+    color:#000000;
+    top:182px;
+    left:182px;
+    width: 588px;
+    text-align: left;
+    line-height: 1.4;
+}
+
 .ftr {
     font-family: 'Muli', sans-serif;
     font-size: 16px;
