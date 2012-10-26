@@ -81,9 +81,9 @@ body
     font-family: 'Muli', sans-serif;
     font-size: 20px;
     font-style:bold;
-    font-weight: 400;
+    font-weight: 300;
     position:absolute;
-    color:#000000;
+    color:#58595A;
     top:478px;
     left:52.64px;
     width: 586px;
@@ -104,6 +104,18 @@ body
     text-align: left;
     line-height: 1.4;
 }
+
+.promise {
+    font-family: 'Muli', sans-serif;
+    font-size: 14px;
+    font-style:normal;
+    font-weight: 500;
+    position:absolute;
+    color:#58595A;
+    top:540px;
+    left:125.64px;
+}
+
 .emails
 {
   position: absolute;
