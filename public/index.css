@@ -10,7 +10,7 @@ body
 
 .bkg {
     position: relative;
-    opacity:0.9;
+    opacity:0.3;
     horizontal-align: middle;
     height: 800px;
     width: 1000px;
@@ -43,7 +43,7 @@ body
     font-weight: 300;
     position:relative;
     color:#F7941E;
-    top:121px;
+    top:94px;
     left:49.41px;
     width: 758px;
     text-align: left;
@@ -56,7 +56,7 @@ body
     font-style:normal;
     font-weight: 300;
     position:relative;
-    top:140px;
+    top:114px;
     left:52.64px;
     width: 586px;
     text-align: left;
@@ -65,12 +65,12 @@ body
 
 .cta {
     font-family: 'Muli', sans-serif;
-    font-size: 18px;
+    font-size: 16.1px;
     font-style:bold;
-    font-weight: 400;
+    font-weight: 500;
     position:relative;
     color:#000000;
-    top:146px;
+    top:123px;
     left:52.64px;
     width: 586px;
     text-align: left;
@@ -84,7 +84,7 @@ body
     font-weight: 400;
     position:relative;
     color:#000000;
-    top:182px;
+    top:162px;
     left:52.64px;
     width: 586px;
     text-align: left;
@@ -98,7 +98,7 @@ body
     font-weight: 300;
     position:relative;
     color:#000000;
-    top:190px;
+    top:170px;
     left:52.64px;
     width: 588px;
     text-align: left;
@@ -106,9 +106,9 @@ body
 }
 .emails
 {
-  position: absolute;
-  left: 170px;
-  top: 574px;
+  position: relative;
+  left: 54px;
+  top: 200px;
   width: 450px;
   text-align: left;
 
