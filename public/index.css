@@ -31,20 +31,19 @@ body
     top:140px;
     left:182px;
     width: 586px;
-    color: #FF0000;
     text-align: left;
     line-height: 1.4;
 }
 
 .cta {
     font-family: 'Muli', sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     font-style:bold;
-    font-weight: 300;
+    font-weight: 400;
     position:relative;
     color:#000000;
-    top:190px;
-    left:171px;
+    top:146px;
+    left:182px;
     width: 588px;
     text-align: left;
     line-height: 1.4;

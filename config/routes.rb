@@ -3,7 +3,7 @@ CauseRoot::Application.routes.draw do
   resources :subscriptions
 
 #  root :to => "demo#index"
-  root :to => "challenges#index"
+  root :to => "subscriptions#index"
 
   match '/about', :to => 'about#index'
   match '/demo', :to => 'demo#index'
