@@ -19,12 +19,21 @@ require 'spec_helper'
 # that an instance is receiving a specific message.
 
 describe SubscriptionsController do
+  before(:each) do
+    @user = FactoryGirl.create(:user)
+    login_user
+  end
 
   # This should return the minimal set of attributes required to create a valid
   # Subscription. As you add validations to Subscription, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    {}
+    obj = FactoryGirl.build(:subscription)
+    attributes = {}
+    obj._accessible_attributes[:default].each do |attribute|
+      attributes[attribute] = obj.send(attribute) unless attribute.blank?
+    end
+    attributes
   end
 
   # This should return the minimal set of values that should be in the session
@@ -36,7 +45,7 @@ describe SubscriptionsController do
 
   describe "GET index" do
     it "assigns all subscriptions as @subscriptions" do
-      subscription = Subscription.create! valid_attributes
+      subscription = FactoryGirl.create(:subscription)
       get :index, {}, valid_session
       assigns(:subscriptions).should eq([subscription])
     end
