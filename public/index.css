@@ -1,8 +1,11 @@
 body
 {
-  background-color:#333333;
-  width: 100%;
-  text-align: center;
+    background-color:#333333;
+    width: 100%;
+    text-align: center;
+    font-family: 'Muli', sans-serif;
+    color:white;
+    font-weight:500;
 }
 
 .bkg {
@@ -17,6 +20,7 @@ body
     width: 1000px;
     margin-left: auto;
     margin-right: auto;
+    padding-left: 52px;
 }
 
 .sgnup {
@@ -55,6 +59,7 @@ body
     font-size: 16px;
     font-style:normal;
     font-weight: 300;
+    color:black;
     position:absolute;
     top:250px;
     left:52.64px;
@@ -118,56 +123,56 @@ body
 
 .emails
 {
-  position: absolute;
-  left: 54px;
-  top: 570px;
-  width: 450px;
-  text-align: left;
+    position: absolute;
+    left: 54px;
+    top: 570px;
+    width: 450px;
+    text-align: left;
 
 }
 
 .inputbox
 {
-  padding:0.2em 0 0em 16px;
-  width: 285px;
-  height: 23px;
-  border: 1px;
-  background: #E3E3E3;
-  color: #444444;
+    padding:0.2em 0 0em 16px;
+    width: 285px;
+    height: 23px;
+    border: 1px;
+    background: #E3E3E3;
+    color: #444444;
 }
 
 .button
 {
-  border: 0px;
-  background: #F7941D;
-  color: white;
-  height: 27px;
-  width: 93px;
-  font-size: 14px;
+    border: 0px;
+    background: #F7941D;
+    color: white;
+    height: 27px;
+    width: 93px;
+    font-size: 14px;
 }
 
 .arrow1
 {
-  position: absolute;
-  left: 115px;
-  top: 647px;
-  opacity: 0;
+    position: absolute;
+    left: 115px;
+    top: 647px;
+    opacity: 0;
 }
 
 .arrow2
 {
-  position: absolute;
-  left: 115px;
-  top: 713px;
-  opacity: 0;
+    position: absolute;
+    left: 115px;
+    top: 713px;
+    opacity: 0;
 }
 
 .footer
 {
-  position: absolute;
-  left: 50px;
-  top: 850px;
-  margin: 10px;
+    position: absolute;
+    left: 50px;
+    top: 850px;
+    margin: 10px;
 }
 
 .logo {
@@ -176,3 +181,49 @@ body
     left: 37px;
 }
 
+.dropbox_wrapper {
+}
+
+#dropbox_title_wrapper_0 {
+    position: absolute;
+    top: 660px;
+}
+
+#dropbox_title_wrapper_1 {
+    position: absolute;
+    top: 726px;
+}
+.dropbox_title_inner_wrapper {
+    float: left;
+    font-weight: 300;
+    font-size: 20px;
+    color:#58595A;
+}
+
+.arrow_wrapper{
+    float: right;
+    width: 14px;
+    height: 10px;
+}
+
+.arrow_right{
+    left: 200px;
+    width: 0; 
+    height: 0; 
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-left: 5px solid #F7941E;
+    position: absolute;
+    left:227px;
+    top: 3px;
+}
+.arrow_down{
+    width: 0; 
+    height: 0; 
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 5px solid #F7941E;
+    position: absolute;
+    left:230px;
+    top: 10px;
+}
