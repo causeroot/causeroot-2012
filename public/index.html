@@ -58,7 +58,7 @@
                     </div>
                 </div>
             </div>
-            <div class="dropbox_wrapper" name="info_text_0">
+            <div class="dropbox_wrapper" id="info_text_0">
                 <div class="dropbox_inner_wrapper" >
                     In a world of increasing complexity, we need to be smarter about how we address the most pressing issues of our time. Our collaborative platform is designed to enable you to provide your ideas for global change in an informed, efficient, and meaningful way. Our software breaks down submitted issues and their causes to discover equivalent content submitted by different users. By distilling that content, we can create a detailed map of cause and effect interactions for issues of concern. Feeding this information back into the community, users will benefit from the wisdom of the crowd to make an informed problem definition.<br>
 
@@ -72,11 +72,11 @@
                     How CauseRoot Works 
                 </div>
                 <div class="arrow_wrapper">
-                    <div class="arrow_down" id="dropbox_arrow_1">
+                    <div class="arrow_right" id="dropbox_arrow_1">
                     </div>
                 </div>
             </div>
-            <div class="dropbox" name="info_text_1">
+            <div class="dropbox" id="info_text_1">
                 <div class="dropbox_inner_wrapper" >
                     More very real text
                 </div>
@@ -84,6 +84,29 @@
 
         </div>
         <p class="footer"> Copyright 2012</p>
+        <script>
+            $("#dropbox_arrow_0").click(function () {
+                if ($("#info_text_0").is(":hidden")) {
+                    $("#info_text_0").slideDown();
+                    $("#dropbox_arrow_0").attr('class', 'arrow_down');
+                } 
+                else {
+                    $("#info_text_0").slideUp();
+                    $("#dropbox_arrow_0").attr('class', 'arrow_right');
+                }
+            });
+            
+            $("#dropbox_arrow_1").click(function () {
+                if ($("#info_text_1").is(":hidden")) {
+                    $("#info_text_1").slideDown();
+                    $("#dropbox_arrow_1").attr('class', 'arrow_down');
+                } 
+                else {
+                    $("#info_text_1").slideUp();
+                    $("#dropbox_arrow_1").attr('class', 'arrow_right');
+                }
+            });
+            </script>
 
     </body>
 </html>

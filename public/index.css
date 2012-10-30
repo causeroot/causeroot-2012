@@ -224,6 +224,15 @@ body
     border-right: 7px solid transparent;
     border-top: 5px solid #F7941E;
     position: absolute;
-    left:230px;
-    top: 10px;
+    left:227px;
+    top: 8px;
+}
+.dropbox_wrapper {
+    color:black;
+}
+
+#info_text_0 {
+    position: absolute;
+    top: 700px;
+    display: none;
 }
