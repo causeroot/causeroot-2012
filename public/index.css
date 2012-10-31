@@ -3,6 +3,7 @@ body
     background-color:#333333;
     width: 100%;
     height: 100%;
+    min-height: 100%;
     text-align: center;
     font-family: 'Muli', sans-serif;
     color:white;
@@ -15,17 +16,18 @@ html {
 
 .bkg {
     position: relative;
+    background:#FFFFFF;
     opacity:1;
     horizontal-align: middle;
-    background:#FFFFFF;
     background-image:url('World.jpg');
     background-repeat:no-repeat;
     background-position: right top;
-    height: 100%;
     width: 1000px;
+    height: auto;
     margin-left: auto;
     margin-right: auto;
     padding-left: 52px;
+    min-height: 100%;
 }
 
 .sgnup {
@@ -190,7 +192,6 @@ html {
     position: absolute;
     top: 660px;
     width: auto;
-    min-height: 100%;
 }
 
 .info_text_wrapper {
@@ -199,24 +200,31 @@ html {
 }
 
 #dropbox_title_wrapper_0 {
-    height: 18px;
+    height:18px;
 }
 
 #dropbox_title_wrapper_1 {
-    position: relative;
-    top: 10px;
+    height:18px
 }
 .dropbox_title_inner_wrapper {
     float: left;
     font-weight: 300;
     font-size: 20px;
     color:#58595A;
+    margin-bottom: 10px;
 }
 
 .arrow_wrapper{
-    float: right;
     width: 24px;
     height: 24px;
+}
+
+#top_arrow {
+    float: left;
+}
+
+#bottom_arrow {
+    float:left;
 }
 
 .arrow_right{
@@ -247,10 +255,13 @@ html {
 
 #info_text_0 {
     position: relative;
-    min-height: 100%;
 }
 
 #info_text_1 {
     position: relative;
-    min-height: 100%;
+}
+
+.clear_div {
+    clear: both;
+    width: 100%;
 }
