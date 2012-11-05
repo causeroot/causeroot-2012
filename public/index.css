@@ -29,13 +29,12 @@ body
 }
 
 .signup_wrapper {
-
-    position: absolute; 
-    background:#F7941E;
-    height: 27px;
+    float: right;
+    background: #F7941E;
     top: 101px;
-    left: 791px;
     text-align: center;
+    margin-right: 50px;
+    margin-top: 1px;
 }
 
 .sgnuptxt { 
