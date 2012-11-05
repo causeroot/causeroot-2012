@@ -60,7 +60,8 @@ body
     font-size: 16px;
     font-weight: 300;
     color:black;
-    width: 586px;
+    /*width: 586px;*/
+    width: 547px;
     line-height: 1.4;
     margin-bottom: 12px;
 }
@@ -222,6 +223,7 @@ body
     display: none;
     font-size: 16px;
     font-weight: 400;
+    width: 560px;
     line-height: 1.4;
     margin-bottom: 25px;
 }
