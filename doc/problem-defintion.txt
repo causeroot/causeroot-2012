@@ -1,0 +1,52 @@
+Scenario: I Visit For the First Time
+  When I visit the issue page
+  Then I see a question
+  When I answer the question 
+  Then my karma goes up
+  And I am shown another question 
+
+Scenario: I Add a New Problem
+  When I visit the issue page
+  And I click new issue
+  And I enter a problem statement
+  And I enter a cause statement
+
+users are prompted to enter problem statement
+users are prompted to enter causes of the problem
+users are prompted to enter effects of problem
+
+problem
+  problem_statement :string
+  as_a_cause_statement :string
+  has_many problems as causes #problems that cause this problem
+  has_many problems as effect #problems that this problem causes
+  
+
+1) relational information
+  which is more important overall
+  which is needs to be solved more immediatly
+  which is more complex?
+  which is more costly to solve?
+  is this problem the same as that problem?
+
+2) issue data verification
+  which cause related to a problem is more important, i mean dependence?
+  click the most important effect of this problem, i mean dependence? 
+
+3) 
+  
+
+be able to set order of causes
+be able to set order of causes 
+
+cause
+  has_many effects
+
+effect
+
+as a user types similar things are shown in a dropdown
+
+testing game
+
+
+

@@ -1,7 +1,9 @@
 CauseRoot::Application.routes.draw do
 
+  resources :issues
+
 #  root :to => "demo#index"
-  root :to => "subscriptions#index"
+  root :to => "issues#index"
 
   match '/about', :to => 'about#index'
   match '/demo', :to => 'demo#index'

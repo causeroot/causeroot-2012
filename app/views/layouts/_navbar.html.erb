@@ -2,16 +2,16 @@
   <div class="navbar-inner">
     <%= link_to TITLE, root_path, :class => "brand" %>
      <ul class="nav">
-       <li><%= link_to 'Demo', demo_path %></li>
+       <li><%= link_to 'Issues', issues_path %></li>
        <li><%= link_to 'Challenges', challenges_path %></li>
        <li><%= link_to 'About Us', about_path %></li>				
-			<% if current_user %>
-     		<li><%= link_to "Edit Profile", edit_user_path(current_user.id) %></li>
-     		<li><%= link_to "Logout", :logout %></li>
-			<% else %>
-				<li><%= link_to "Register", new_user_path %></li>
-				<li><%= link_to "Login", :login %></li>
-			<% end %>     
+        <% if current_user %>
+          <li><%= link_to "Edit Profile", edit_user_path(current_user.id) %></li>
+          <li><%= link_to "Logout", :logout %></li>
+        <% else %>
+          <li><%= link_to "Register", new_user_path %></li>
+          <li><%= link_to "Login", :login %></li>
+        <% end %>     
      </ul>
 		<%= form_tag search_challenges_path, :method => :get, :class => "navbar-search pull-right" do %>
 		<p>

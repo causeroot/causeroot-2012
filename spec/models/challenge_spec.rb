@@ -11,6 +11,7 @@ describe Challenge do
 	end
 	it "should have valid factory" do
 		challenge = FactoryGirl.create(:challenge)
+                puts YAML::dump(challenge)
 		challenge.should be_valid
 	end
 end

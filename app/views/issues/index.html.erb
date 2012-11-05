@@ -1,0 +1,12 @@
+<h1>Listing issues</h1>
+
+<% @issues.each do |issue| %>
+  <p><strong>Problem:</strong> <%= issue.problem %> </p>
+  <p><strong>Cause:</strong> <%= issue.cause %> </p>
+  <p><strong>Effects:</strong> <%= issue.effects %> </p>
+  <hr size=1 />
+<% end %>
+
+<br />
+
+<%= link_to 'New Issue', new_issue_path %>

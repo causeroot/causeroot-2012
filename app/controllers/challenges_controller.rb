@@ -1,5 +1,5 @@
 class ChallengesController < ApplicationController
-  skip_before_filter :require_login, :only => [:index, :show, :search]
+  skip_before_filter :require_login
 	
   # GET /challenges/search
   # GET /challenges/search.xml
