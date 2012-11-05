@@ -10,7 +10,7 @@ body
 }
 
 #content_wrapper {
-    margin: 100px auto 0px auto;
+    margin: 40px auto 0px auto;
     width: 1000px;
     background: #ffffff;
     background-image:url('World.jpg');
@@ -60,7 +60,7 @@ body
     font-weight: 300;
     color:black;
     /*width: 586px;*/
-    width: 547px;
+    width: 590px;
     line-height: 1.4;
     margin-bottom: 12px;
 }
@@ -222,7 +222,7 @@ body
     display: none;
     font-size: 16px;
     font-weight: 400;
-    width: 560px;
+    width: 590px;
     line-height: 1.4;
     margin-bottom: 25px;
 }
