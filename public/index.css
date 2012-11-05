@@ -103,7 +103,6 @@ body
 {
     margin-top: 8px;
     width: 450px;
-
 }
 
 .inputbox
@@ -124,6 +123,7 @@ body
     height: 27px;
     width: 93px;
     font-size: 14px;
+    cursor: pointer;
 }
 
 .arrow1
@@ -242,6 +242,8 @@ body
     /*background-repeat:no-repeat;?8
     /*background-position: right top;*/
 }
+
+.teamSelector { cursor: pointer; }
 
 .clear_div {
 /* 
