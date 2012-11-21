@@ -2,6 +2,12 @@ CauseRoot::Application.routes.draw do
 
   resources :issues
 
+  resources :responses
+
+  resources :questions
+
+  resources :game_data
+
 #  root :to => "demo#index"
   root :to => "issues#index"
 

@@ -1,3 +1,5 @@
 class Issue < ActiveRecord::Base
-  attr_accessible :cause, :effects, :problem
+  attr_accessible :problem
+  has_many :causes
+  has_many :effects
 end

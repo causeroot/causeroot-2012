@@ -13,15 +13,15 @@
 
   <div class="field">
     <%= f.label :problem %><br />
-    <%= f.text_field :problem %>
+    <%= f.text_area :problem %>
   </div>
   <div class="field">
-    <%= f.label :cause %><br />
-    <%= f.text_area :cause %>
+    <%= f.label :cause_id %><br />
+    <%= f.number_field :cause_id %>
   </div>
   <div class="field">
-    <%= f.label :effects %><br />
-    <%= f.text_area :effects %>
+    <%= f.label :effect_id %><br />
+    <%= f.number_field :effect_id %>
   </div>
   <div class="actions">
     <%= f.submit %>

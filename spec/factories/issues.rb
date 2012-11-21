@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :issue do
-    problem "MyString"
-    cause "MyText"
-    effects "MyText"
+    problem "MyText"
+    cause_id 1
+    effect_id 1
   end
 end

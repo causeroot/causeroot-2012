@@ -1,6 +1,4 @@
 class IssuesController < ApplicationController
-  skip_before_filter :require_login, :only => [:index, :show, :search]
-
   # GET /issues
   # GET /issues.json
   def index
@@ -46,8 +44,8 @@ class IssuesController < ApplicationController
 
     respond_to do |format|
       if @issue.save
-        format.html { redirect_to issues_path, notice: 'Issue was successfully created.' }
-        format.json { render json: issues_path, status: :created, location: @issue }
+        format.html { redirect_to @issue, notice: 'Issue was successfully created.' }
+        format.json { render json: @issue, status: :created, location: @issue }
       else
         format.html { render action: "new" }
         format.json { render json: @issue.errors, status: :unprocessable_entity }

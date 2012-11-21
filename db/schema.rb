@@ -11,32 +11,52 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121031040316) do
+ActiveRecord::Schema.define(:version => 20121121060858) do
 
-  create_table "challenges", :force => true do |t|
-    t.string   "name"
-    t.string   "url"
-    t.text     "description"
-    t.text     "award"
-    t.datetime "deadline"
-    t.datetime "post_date"
-    t.string   "image_url"
-    t.text     "rules"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-    t.string   "xpath"
-  end
-
-  create_table "issues", :force => true do |t|
-    t.string   "problem"
+  create_table "causes", :force => true do |t|
     t.text     "cause"
-    t.text     "effects"
+    t.integer  "issue_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  create_table "subscriptions", :force => true do |t|
-    t.string   "email"
+  create_table "effects", :force => true do |t|
+    t.text     "effect"
+    t.integer  "issue_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "game_data", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "question_id"
+    t.integer  "response_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "game_data_issues", :force => true do |t|
+    t.integer "issue_id"
+    t.integer "game_data_id"
+  end
+
+  create_table "issues", :force => true do |t|
+    t.text     "problem"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "questions", :force => true do |t|
+    t.string   "question"
+    t.integer  "prob_count"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "responses", :force => true do |t|
+    t.integer  "answer"
+    t.boolean  "same"
+    t.boolean  "skip"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
