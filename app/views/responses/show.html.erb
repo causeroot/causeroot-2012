@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Answer:</b>
+  <%= @response.answer %>
+</p>
+
+<p>
+  <b>Same:</b>
+  <%= @response.same %>
+</p>
+
+<p>
+  <b>Skip:</b>
+  <%= @response.skip %>
+</p>
+
+
+<%= link_to 'Edit', edit_response_path(@response) %> |
+<%= link_to 'Back', responses_path %>

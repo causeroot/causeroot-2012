@@ -1,0 +1,47 @@
+---
+Question:
+    question:
+        "Which is more important to you?"
+    name:
+        "'Importance'"    
+    prob_count:
+        2
+Question:
+    question:
+        "Which is more of immediate concern to you?"
+    name:
+        "'Immediacy'"    
+    prob_count:
+        2
+Question:
+    question:
+        "Which of these do you believe is a more complex problem?"
+    name:
+        "'Complexity'"    
+    prob_count:
+        2 
+Question:
+    question:
+        "Which of these do you believe will cost more to address?"
+    name:
+        "'Cost'"    
+    prob_count:
+        2 
+
+    
+# : Problem Comparison Questions 
+# 1 - Which is more important to you?
+# 2 - Which is more of immediate concern to you?
+# 3 - Which of these do you believe is a more complex problem?
+# 4 - Which of these do you believe will cost more to address?
+#
+# Section 2:  Issue Data Verification
+# 7 - Does this (A) cause (B)?
+# 8 - Is (A) and effect of (B)
+# 9 - Which of these two causes has a greater affect on Problem (A)?
+# 10 - Which of these is a more significant effect of Problem (A)?
+#
+# Section 3: Matching elements from different submitted issues
+# 13 - Does one of these elements affect the other? (<-, ->, No)
+# 14 - Is this a problem?
+# 

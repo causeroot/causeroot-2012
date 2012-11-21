@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @game_datum.user_id %>
+</p>
+
+<p>
+  <b>Question:</b>
+  <%= @game_datum.question_id %>
+</p>
+
+<p>
+  <b>Response:</b>
+  <%= @game_datum.response_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_game_datum_path(@game_datum) %> |
+<%= link_to 'Back', game_data_path %>
