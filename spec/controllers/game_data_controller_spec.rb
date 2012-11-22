@@ -24,7 +24,7 @@ describe GameDataController do
   # GameDatum. As you add validations to GameDatum, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    
+    {}
   end
 
   # This should return the minimal set of values that should be in the session
@@ -54,6 +54,7 @@ describe GameDataController do
     it "assigns a new game_datum as @game_datum" do
       get :new, {}, valid_session
       assigns(:game_datum).should be_a_new(GameDatum)
+      @game_datum.issues.count.should be > 0
     end
   end
 

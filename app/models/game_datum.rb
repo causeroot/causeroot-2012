@@ -3,6 +3,7 @@ class GameDatum < ActiveRecord::Base
   belongs_to :user
   belongs_to :question
   belongs_to :response
-  has_many :issues, :through => :game_dataum_issues
+  has_many :game_datum_issues
+  has_many :issues, :through => :game_datum_issues
   accepts_nested_attributes_for :response
 end

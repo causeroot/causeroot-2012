@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121121060858) do
+ActiveRecord::Schema.define(:version => 20121122072007) do
 
   create_table "causes", :force => true do |t|
     t.text     "cause"
@@ -38,6 +38,11 @@ ActiveRecord::Schema.define(:version => 20121121060858) do
   create_table "game_data_issues", :force => true do |t|
     t.integer "issue_id"
     t.integer "game_data_id"
+  end
+
+  create_table "game_datum_issues", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "issues", :force => true do |t|
