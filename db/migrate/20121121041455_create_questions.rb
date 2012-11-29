@@ -1,9 +1,9 @@
 class CreateQuestions < ActiveRecord::Migration
   def change
     create_table :questions do |t|
-      t.string :question
       t.string :name
-      t.integer :prob_count
+      t.string :question
+      t.integer :problem_count
 
       t.timestamps
     end
