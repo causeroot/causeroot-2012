@@ -9,5 +9,10 @@ class CreateGameResults < ActiveRecord::Migration
 
       t.timestamps
     end
+    
+    create_table :game_results_issues do |t|
+    	t.integer :issue_id
+    	t.integer :game_result_id
+    end
   end
 end
