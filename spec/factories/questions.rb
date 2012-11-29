@@ -2,7 +2,8 @@
 
 FactoryGirl.define do
   factory :question do
-    question "MyString"
+    question "Is MyString a problem?"
+    name "Stringage"
     prob_count 1
   end
 end

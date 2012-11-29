@@ -53,7 +53,8 @@ ActiveRecord::Schema.define(:version => 20121122072007) do
 
   create_table "questions", :force => true do |t|
     t.string   "question"
-    t.integer  "prob_count"
+    t.string   "name"
+    t.integer  "problem_count"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
