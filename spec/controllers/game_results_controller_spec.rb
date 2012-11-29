@@ -24,7 +24,7 @@ describe GameResultsController do
   # GameResult. As you add validations to GameResult, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    {  }
+    {}
   end
 
   # This should return the minimal set of values that should be in the session
@@ -53,7 +53,9 @@ describe GameResultsController do
   describe "GET new" do
     it "assigns a new game_result as @game_result" do
       get :new, {}, valid_session
-      assigns(:game_result).should be_a_new(GameResult)
+      gr = assigns(:game_result)
+      gr.should be_a_new(GameResult)
+      gr.issues.count.should eq(gr.question.problem_count)
     end
   end
 
