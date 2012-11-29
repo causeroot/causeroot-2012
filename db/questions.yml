@@ -4,28 +4,28 @@ Question:
         "Which is more important to you?"
     name:
         "'Importance'"    
-    prob_count:
+    problem_count:
         2
 Question:
     question:
         "Which is more of immediate concern to you?"
     name:
         "'Immediacy'"    
-    prob_count:
+    problem_count:
         2
 Question:
     question:
         "Which of these do you believe is a more complex problem?"
     name:
         "'Complexity'"    
-    prob_count:
+    problem_count:
         2 
 Question:
     question:
         "Which of these do you believe will cost more to address?"
     name:
         "'Cost'"    
-    prob_count:
+    problem_count:
         2 
 
     
