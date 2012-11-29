@@ -26,7 +26,6 @@ group :assets do
   gem 'therubyracer', :platform => :ruby
 
   gem 'uglifier', '>= 1.0.3'
-  gem 'twitter-bootstrap-rails'
 end
 
 gem 'jquery-rails'
@@ -51,14 +50,14 @@ gem 'kaminari'
 group :development do
   gem 'guard'
   gem 'guard-cucumber'
-	gem 'terminal-notifier-guard'	
+  gem 'terminal-notifier-guard'	
 end
 
 group :test, :development do
-	gem "brakeman"
+  gem "brakeman"
   gem "rspec-rails", "~> 2.0"
-	gem "factory_girl_rails", "~> 4.0"
-	gem "faker"
+  gem "factory_girl_rails", "~> 4.0"
+  gem "faker"
 end
 
 group :test do
@@ -67,10 +66,10 @@ group :test do
   # database_cleaner is not required, but highly recommended
   gem 'database_cleaner'
   gem 'email_spec'
-	gem 'simplecov', :require => false
-	gem 'simplecov-rcov', :require => false
+  gem 'simplecov', :require => false
+  gem 'simplecov-rcov', :require => false
 end
 
 group :production do
-	gem 'pg'
+  gem 'pg'
 end
