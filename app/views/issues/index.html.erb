@@ -1,5 +1,135 @@
-<h1>Listing issues</h1>
+<div id="page_wrapper">
 
+<table class="page-2column">
+    	<td>
+    	<div>     
+    		<div class="form-content">
+    			<h1>STATE YOUR ISSUE</h1>
+    				<div class="form-box">
+    					<p>Identify the Issue you are most passionate about.</p>
+    				</div>	
+    						
+    		</div>
+    		
+    		<div class="form-content">
+    			<h1>CAUSES: WHAT ARE THE PROBLEMS WHICH PROVOKE THIS?</h1>
+    				<div class="form-box">
+    					<p>Problems leading to the Issue mentioned above. Please list one at a time.</p>
+    				</div>
+    				<div class="add_problems">
+    					<div class="expand_box" id="causes_box">
+    						<p>+</p>
+    					</div>
+    					<p>Add an Additional Problem</p>
+    				</div>			
+    		</div>	
+    		
+    		<div class="form-content">
+    			<h1>EFFECTS: WHAT ARE PROBLEMS THAT THIS CREATES?</h1>
+    				<div class="form-box">
+    					<p>Effects of the Issue mentioned above. Please list one at a time.</p>
+    				</div>	
+    				<div class="add_problems">
+    					<div class="expand_box" id="effects_box">
+    						<p>+</p>
+    					</div>
+    					<p>Add an Additional Problem</p>
+    				</div>			
+    		</div>
+    		
+    		<div class="submit_button">
+    			<p>SUBMIT</p>
+    		</div>
+    			
+    	</div>
+    	</td>
+    	
+    	<td valign="top">
+    	<div class="right-links">
+    		<div class="sign_in_2">
+    			<p>Sign In to Save Your Data</p>
+    		</div>
+    				
+    <!--	<div class="show_example">    		  		  			
+    			
+    			<div class="example_submission">
+    				<p>See an Example Submission</p>
+    			</div>	
+    		</div>	
+    		<div class="show_example">	
+    				<div class="expand_box2">
+    					<p>+</p>
+    				</div>
+    		</div>	-->		
+    		
+    		
+    		<div class="dots">
+            ......................................
+            </div>
+    		<!-- show example hidden --> 
+    		<div class="extra_info_wrapper">
+                        <div class="dropbox_title_wrapper" id="dropbox_title_wrapper_0">
+                            
+                        	<div class="dropbox_title_inner_wrapper">    		  		  			
+    			
+    							<div class="example_submission" id="example_title">
+    								<p>See an Example Submission</p>
+    							</div>	
+    						</div>	
+    						<div class="show_example">	
+    							<div class="expand_box2" id="example_expand_box">
+    								<p><span>+</span></p>
+    							</div>
+    						</div>	    
+                            
+                        </div> 
+                        
+                        <div class="info_text_wrapper" id="info_text_0">
+                            <div class="info_text_inner_wrapper" >
+                                <p>ISSUE <br>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tellus nunc, facilisis non tincidunt non, vehicula id nisi. Quisque mattis mollis mi.<br>
+                                <br> 
+                                CAUSES<br>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tellus nunc, facilisis non tincidunt non, vehicula id nisi. Quisque mattis mollis mi.<br>
+                                <br>
+                                EFFECTS<br>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tellus nunc, facilisis non tincidunt non, vehicula id nisi. Quisque mattis mollis mi.<br></p>
+                            </div>
+                        </div>	
+    		</div>
+    		<!-- end show example hidden -->
+    				
+    	</div>
+    	</td>
+    	
+    </table>
+<!-- example expand button function script -->
+
+<script>
+   	$("#example_expand_box").click(function () {
+                        if ($("#info_text_0").is(":hidden")) {
+                            $("#info_text_0").slideDown();
+                            $("#example_expand_box").attr('class', 'expand_box2').children("span").text("+");
+                        } 
+                        else {
+                            $("#info_text_0").slideUp();
+                            $("#example_expand_box").attr('class', 'expand_box2').children("span").text("-");
+                        }
+                    }).css("cursor", "pointer");;
+        $("#example_title").click(function () {
+                        if ($("#info_text_0").is(":hidden")) {
+                            $("#info_text_0").slideDown();
+                            $("#example_expand_box").attr('class', 'expand_box2');
+                        } 
+                        else {
+                            $("#info_text_0").slideUp();
+                            $("#example_expand_box").attr('class', 'expand_box2');
+                        }
+                    }).css("cursor", "pointer");;
+     </script>   
+<!-- end example expand button function script-->     
+
+<!-- 
 <table>
   <tr>
     <th>Problem</th>
@@ -23,5 +153,6 @@
 </table>
 
 <br />
-
 <%= link_to 'New Issue', new_issue_path %>
+</div>
+-->

@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(:version => 20121121060858) do
 
   create_table "questions", :force => true do |t|
     t.string   "question"
+    t.string   "name"
     t.integer  "prob_count"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false

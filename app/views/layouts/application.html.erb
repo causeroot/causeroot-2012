@@ -11,25 +11,52 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-  <%= render :partial => "layouts/navbar" %>
-    
-  <div class="container">
-  	<div class="row">
-  		<div class="span12">
-  			<p class="notice"><%= notice %></p>
-  			<p class="alert"><%= alert %></p>
-  		</div>
-  	</div>
-  	
-    <div class="row">
-      <div class="span9"><%= yield %></div>
-      <div class="span3">
-<a class="twitter-timeline" data-dnt=true href="https://twitter.com/CauseRoot" data-widget-id="258039376301408258">Tweets by @CauseRoot</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+	<div id="page_wrapper">
+		
+	  <%= render :partial => "layouts/navbar" %>
+		
+		<div class="container">
+			
+			<div class="row">
+				<div class="span12">
+					<p class="notice"><%= notice %></p>
+					<p class="alert"><%= alert %></p>
+				</div>
+			</div>
+			
+			<div class="row">
+			  <div class="span9"><%= yield %></div>
+			  <div class="span3">
+	<!--			<a class="twitter-timeline" data-dnt=true href="https://twitter.com/CauseRoot" data-widget-id="258039376301408258">Tweets by @CauseRoot</a>
+				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script> -->
+			  </div>
+			</div>
+		 
+		</div>
+	<div class="whitespace"></div>
+<!-- Footer -->
+	<div id="footer">
+      
+      <div class="navbar-inner">
+          
+      		<div class="container">
+          		<footer>
+          		Have any comments or questions? Email us at: <a href="mailto:info@causeroot.org">info@causeroot.org</a>
+          		<a class="twitter-timeline" data-dnt=true href="https://twitter.com/CauseRoot" data-widget-id="258039376301408258">Follow us on <img class="twitter_icon" src="twitter.png"></a>
+          		<br>Copyright 2012 CauseRoot
+          		</footer>
+        		
+        	</div>
+              
       </div>
-    </div>
-  </div>
-	<div class="footer"> Copyright 2012 CauseRoot </div>
+          
+  	</div>
+<!-- // End Of Footer -->
+	
+	 
+</div>
+
 </body>
 </html>
 
