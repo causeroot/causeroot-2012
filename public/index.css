@@ -45,6 +45,30 @@ body
     font-size: 16px;
 }
 
+.email_submit_line td {
+	width: 400px;
+	}
+	
+#invalid_message {
+	display: inline-block;
+	padding: 0px 6px;
+	font-size: 12px;
+	color: red;
+	}
+#already_subscribed_message {
+	display: inline-block;
+	padding: 0px 6px;
+	font-size: 12px;
+	color: red;
+	}
+	
+#confirm_message {
+	display: inline-block;
+	padding: 0px 6px;
+	font-size: 12px;
+	color: #F7941E;
+	}
+
 #hdr1 {
      
     font-size: 28px;
