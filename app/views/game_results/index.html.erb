@@ -1,0 +1,21 @@
+<h1>Listing game_results</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @game_results.each do |game_result| %>
+  <tr>
+    <td><%= link_to 'Show', game_result %></td>
+    <td><%= link_to 'Edit', edit_game_result_path(game_result) %></td>
+    <td><%= link_to 'Destroy', game_result, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Game result', new_game_result_path %>

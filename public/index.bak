@@ -37,22 +37,12 @@
                     <p class="promise">(We promise not to spam you, or share your email with anyone else.)</p>
         
         
-                    <form method="POST" action="/subscriptions" class="emails">
-                        <input type="text" class="inputbox" name="subscription">
-                        <input type="submit" value="Sign up" class="button" />
-                    </form>
-                    <form>
-                        <input type="hidden" id="hidden" value="Through semantic breakdown of user based content and voter input, the
-                        issues the community cares most about are identified. Once broken down to
-                        their core causes, we can then determine the most meaningful path to
-                        address the problem at hand. With an identified approach, CauseRoot
-                        crowdfunds the prize purse to award the best solution and to drive attention
-                        to subject areas that are not otherwise economically incentivized. By
-                        participating you make the world a better place-everyone wins.
-        
-                        Tell us your Cause. We'll get to the Root of it.
-        
-                        We're in a private Beta phase at the moment, but we would love to keep you updated." />
+                    <form method="post" action="http://scripts.dreamhost.com/add_list.cgi">
+                        <input type="hidden" name="list" value="info@causeroot.org" />
+                        <input type="hidden" name="domain" value="causeroot.org" />
+                        <input type="hidden" name="url" value="http://causeroot.org" />
+                        <input type="text" class="inputbox" name="email">
+                        <input type="submit" name="submit" value="Sign up" class="button" />
                     </form>
                     
                     <br>

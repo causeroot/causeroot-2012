@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 questions = YAML::load_file('db/questions.yml')
-questions.each {|key, value| Questions.create(value) }
+questions.each {|key, value| Question.create(value) }
 
 issues = YAML::load_file('db/issues.yml')
-issues.each {|key, value| Issues.create(value) }
+issues.each {|key, value| Issue.create(value) }
