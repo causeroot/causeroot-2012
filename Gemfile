@@ -47,17 +47,17 @@ gem 'kaminari'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
-group :development do
+group :test, :development do
   gem 'guard'
   gem 'guard-cucumber'
+  gem 'guard-bundler'
+  gem 'guard-rspec'
   gem 'terminal-notifier-guard'	
-end
-
-group :test, :development do
   gem "brakeman"
   gem "rspec-rails", "~> 2.0"
   gem "factory_girl_rails", "~> 4.0"
   gem "faker"
+  gem "foreman"
 end
 
 group :test do
