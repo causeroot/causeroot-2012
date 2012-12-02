@@ -143,8 +143,16 @@
 <% @issues.each do |issue| %>
   <tr>
     <td><%= issue.problem %></td>
-    <td><%= issue.cause_id %></td>
-    <td><%= issue.effect_id %></td>
+    <td>
+      <% issue.causes.each do |cause| %>
+        <p><%= cause.cause %></p>
+      <% end %>
+    </td>
+    <td>
+      <% issue.effects.each do |effect| %>
+        <p><%= effect.effect %></p>
+      <% end %>
+    </td>
     <td><%= link_to 'Show', issue %></td>
     <td><%= link_to 'Edit', edit_issue_path(issue) %></td>
     <td><%= link_to 'Destroy', issue, method: :delete, data: { confirm: 'Are you sure?' } %></td>
