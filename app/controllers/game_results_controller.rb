@@ -26,16 +26,17 @@ class GameResultsController < ApplicationController
   def new
     @game_result = GameResult.new
     
-    @game_result.question << Question.offset(rand(Issue.count)).first
+    @game_result.question = Question.offset(rand(Question.count)).first
 
-		c = Issue.count
-		# XXX inefficient and must be addressed    
-    for i in 0..@game_result.question.problem_count
-			@game_result.issues << Issue.offset(rand(c)).first
-		end
+    c = Issue.count
+    # XXX inefficient and must be addressed    
+    for i in 1..@game_result.question.problem_count
+      @game_result.issues << Issue.offset(rand(c)).first
+    end
+    @game_result.save
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html  new.html.erb
       format.json { render json: @game_result }
     end
   end

@@ -124,7 +124,7 @@ end
         end;
         
         q_set.each do |i|
-            p_key = Array.new(p_set.length,0)) { Array.new(2,0) };
+            p_key = Array.new(p_set.length,0) { Array.new(2,0) };
             gdata.values.each do |item|
                 if item[:Question] == i
                     p_key[item[:Problems][0]-1][1] = p_key[item[:Problems][0]-1][1] + 1

@@ -1,1 +1,10 @@
-"""Importance"",Immediacy"",Complexity"",Cost"","
+'Importance','Immediacy','Complexity','Cost'
+'Proliferation of Genetically Modified Food',0,0.5,1.0,0.5714285714285714
+'The magnitude of US debt',0.0,0.33333333333333337,1.0,1.0
+'Drugs',0.75,0.33333333333333337,0.0,1.0
+'Drinking and Driving',0.5,1.0,0.0,1.0
+'The lack of moral conviction in American Society',1.0,1.0,0.33333333333333337,0
+'The Middle Eastern Conflict',0.0,0.0,1.0,0.0
+'The increase of Greenhouse gases',0.0,0,0.33333333333333337,0.25
+'The threat of Biological Warefare',1.0,1.0,1.0,0.0
+'Proliferation of Nuclear Weapons',1.0,0.5,0.0,0
