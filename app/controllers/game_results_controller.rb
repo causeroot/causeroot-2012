@@ -36,7 +36,7 @@ class GameResultsController < ApplicationController
     @game_result.save
 
     respond_to do |format|
-      format.html  new.html.erb
+      format.html  #new.html.erb
       format.json { render json: @game_result }
     end
   end
