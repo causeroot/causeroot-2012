@@ -8,8 +8,7 @@
     				<div>    					
     					<div class='TextBoxesGroup'>
 							<div class="TextBoxDiv">
-							<textarea type='textbox' placeholder="Identify the Issue you are most passionate about." class="textbox" id='textbox1' name="Issue" wrap="physical">
-							</textarea>
+							<textarea type='textbox' placeholder="Identify the Issue you are most passionate about." class="textbox" id='issue_field1' name="Issue" wrap="physical"></textarea>
 							</div>
 						</div>
     				</div>	
@@ -22,22 +21,30 @@
     					
     					<div id='TextBoxesGroup1'>
 							<div id="TextBoxDiv1">
-							<textarea type='textbox1' placeholder="Problems leading to the Issue mentioned above. Please list one at a time." id='textbox1' name="Causes" wrap="physical">
-							</textarea>
+							
+								<form name="causes_form" id="the_form" method="post" action="">
+	
+									<table>
+										<tbody id="tblBody">
+											<tr>
+											<textarea id="causes_field1" name="input" height="110" placeholder="Problems leading to the Issue mentioned above."></textarea>
+											</tr>			
+										</tbody>
+									</table>
+									
+								</form>
 							</div>
-						</div>
-					<input type='button' value='Add Button' id='addButton1'>
-					<input type='button' value='Remove Button' id='removeButton1'>
-					<input type='button' value='Get Text Box Value' id='getButtonValue1'>
-    					    					
+						</div>	    					
     				
     				</div>
-    				
+    							
     				<div class="add_problems">
     					<div class="expand_box" id="causes_box">
     						<p>+</p>
     					</div>
-    					<p>Add an Additional Problem</p>
+    					<input name="count" type="hidden" id="count" value=""/>
+						<input name="add" type="button" class="button" id="add" value="Add an Additional Problem" onClick="addField('tblBody');"/>
+						
     				</div>			
     		</div>	
     		
@@ -47,20 +54,28 @@
     					
     					<div id='TextBoxesGroup2'>
 							<div id="TextBoxDiv2">
-							<textarea type='textbox' placeholder="Effects of the Issue mentioned above. Please list one at a time." id='textbox2' name="Effects" wrap="physical">
-							</textarea>
+								<form name="effects_form" id="the_form2" method="post" action="">
+	
+									<table>
+										<tbody id="tblBody2">
+											<tr>
+											<textarea id="effects_field1" name="input" height="110" placeholder="Effects of the Issue mentioned above. Please list one at a time."></textarea>
+											</tr>			
+										</tbody>
+									</table>
+									
+								</form>
+
 							</div>
 						</div>
-					<input type='button' value='Add Button' id='addButton2'>
-					<input type='button' value='Remove Button' id='removeButton2'>
-					<input type='button' value='Get Text Box Value' id='getButtonValue2'>
-    					
+					
     				</div>	
     				<div class="add_problems">
     					<div class="expand_box" id="effects_box">
     						<p>+</p>
     					</div>
-    					<p>Add an Additional Problem</p>
+    					<input name="count" type="hidden" id="count2" value=""/>
+						<input name="add" type="button" class="button" id="add2" value="Add an Additional Problem" onClick="addField('tblBody2');"/>
     				</div>			
     		</div>
     		
@@ -113,14 +128,16 @@
                         
                         <div class="info_text_wrapper" id="info_text_0">
                             <div class="info_text_inner_wrapper" >
-                                <p>ISSUE <br>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tellus nunc, facilisis non tincidunt non, vehicula id nisi. Quisque mattis mollis mi.<br>
+                                <p><span>ISSUE</span> <br>
+                                Musicals are great to watch, but some "people" never want to watch them.<br>
                                 <br> 
-                                CAUSES<br>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tellus nunc, facilisis non tincidunt non, vehicula id nisi. Quisque mattis mollis mi.<br>
+                                <span>CAUSES</span><br>
+                                Insecurity. <br>Afraid others will judge them if seen watching one. 
+                                <br>Afraid of getting in touch with the 'feminine' side.
                                 <br>
-                                EFFECTS<br>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tellus nunc, facilisis non tincidunt non, vehicula id nisi. Quisque mattis mollis mi.<br></p>
+                                <br>
+                                <span>EFFECTS</span><br>
+                                Sadness.<br></p>
                             </div>
                         </div>	
     		</div>
@@ -158,133 +175,44 @@
      </script>   
 <!-- end example expand button function script--> 
      
-<!-- Causes --> 
-     		<script type="text/javascript">
- 
-$(document).ready(function(){
- 
-    var counter = 2;
- 
-    $("#addButton1").click(function () {
- 
-	if(counter>10){
-            alert("Only 10 textboxes allow");
-            return false;
-	}   
- 
-	var newTextBoxDiv = $(document.createElement('div'))
-	     .attr("id", 'TextBoxDiv1' + counter);
- 
-	newTextBoxDiv.after().html('<label>Textbox #'+ counter + ' : </label>' +
-	      '<input type="text" name="textbox' + counter + 
-	      '" id="textbox1' + counter + '" value="" >');
- 
-	newTextBoxDiv.appendTo("#TextBoxesGroup1");
- 
- 
-	counter++;
-     });
- 
-     $("#removeButton1").click(function () {
-	if(counter==1){
-          alert("No more textbox to remove");
-          return false;
-       }   
- 
-	counter--;
- 
-        $("#TextBoxDiv1" + counter).remove();
- 
-     });
- 
-     $("#getButtonValue1").click(function () {
- 
-	var msg = '';
-	for(i=1; i<counter; i++){
-   	  msg += "\n Causes" + " : " + $('#textbox1' + i).val();
-	}
-    	  alert(msg);
-     });
-  });
-</script>
-
-
-<!-- Effects -->
-
-<script type="text/javascript">
- 
-$(document).ready(function(){
- 
-    var counter = 2;
- 
-    $("#addButton2").click(function () {
- 
-	if(counter>10){
-            alert("Only 10 textboxes allow");
-            return false;
-	}   
- 
-	var newTextBoxDiv = $(document.createElement('div'))
-	     .attr("id", 'TextBoxDiv2' + counter);
- 
-	newTextBoxDiv.after().html('<label>Textbox #'+ counter + ' : </label>' +
-	      '<input type="text" name="textbox' + counter + 
-	      '" id="textbox2' + counter + '" value="" >');
- 
-	newTextBoxDiv.appendTo("#TextBoxesGroup2");
- 
- 
-	counter++;
-     });
- 
-     $("#removeButton2").click(function () {
-	if(counter==1){
-          alert("No more textbox to remove");
-          return false;
-       }   
- 
-	counter--;
- 
-        $("#TextBoxDiv2" + counter).remove();
- 
-     });
- 
-     $("#getButtonValue2").click(function () {
- 
-	var msg = '';
-	for(i=1; i<counter; i++){
-   	  msg += "\n Effects" + " : " + $('#textbox2' + i).val();
-	}
-    	  alert(msg);
-     });
-  });
-</script>
+<!-- script for adding new form fields -->
     
+	<script language="javascript" type="text/javascript">
+	
+	
+	function addField(tag1) {
+	var tbody = document.getElementById(tag1);
+	var ctr = tbody.getElementsByTagName("input").length + 1;
+	var input;
+	
+	if ( ctr > 10 ) {
+	alert ("Please limit your Causes to 10 items.");
+	}else{
+	
+	if (document.all){ //input.name doesn't work in IE
+	input = document.createElement('<input name="field_'+ctr+'">');
+	}else{
+	input = document.createElement('textarea');
+	input.name = "field_"+ctr;
+	}
+	
+	input.id = input.name;
+	input.type = "text";
+	input.value = "";
+	input.className = "textfield";
+	var cell = document.createElement('textarea');
+	cell.style.height = '110px';
+	cell.style.width = '598px';
+	cell.appendChild(input);
+	var row = document.createElement('tr');
+	row.appendChild(cell);
+	tbody.appendChild(row);
+	
+	window.document.causes_form.count.value = ctr;
+	
+	}
+	}
+	</script>			
+	
+	
 
-<!-- 
-<table>
-  <tr>
-    <th>Problem</th>
-    <th>Cause</th>
-    <th>Effect</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @issues.each do |issue| %>
-  <tr>
-    <td><%= issue.problem %></td>
-    <td><%= issue.cause_id %></td>
-    <td><%= issue.effect_id %></td>
-    <td><%= link_to 'Show', issue %></td>
-    <td><%= link_to 'Edit', edit_issue_path(issue) %></td>
-    <td><%= link_to 'Destroy', issue, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-<%= link_to 'New Issue', new_issue_path %>
-</div>
--->
