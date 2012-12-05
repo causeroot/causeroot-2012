@@ -5,17 +5,34 @@
     	<div>     
     		<div class="form-content">
     			<h1>STATE YOUR ISSUE</h1>
-    				<div class="form-box">
-    					<p>Identify the Issue you are most passionate about.</p>
+    				<div>    					
+    					<div class='TextBoxesGroup'>
+							<div class="TextBoxDiv">
+							<textarea type='textbox' placeholder="Identify the Issue you are most passionate about." class="textbox" id='textbox1' name="Issue" wrap="physical">
+							</textarea>
+							</div>
+						</div>
     				</div>	
     						
     		</div>
     		
     		<div class="form-content">
     			<h1>CAUSES: WHAT ARE THE PROBLEMS WHICH PROVOKE THIS?</h1>
-    				<div class="form-box">
-    					<p>Problems leading to the Issue mentioned above. Please list one at a time.</p>
+    				<div>
+    					
+    					<div id='TextBoxesGroup1'>
+							<div id="TextBoxDiv1">
+							<textarea type='textbox1' placeholder="Problems leading to the Issue mentioned above. Please list one at a time." id='textbox1' name="Causes" wrap="physical">
+							</textarea>
+							</div>
+						</div>
+					<input type='button' value='Add Button' id='addButton1'>
+					<input type='button' value='Remove Button' id='removeButton1'>
+					<input type='button' value='Get Text Box Value' id='getButtonValue1'>
+    					    					
+    				
     				</div>
+    				
     				<div class="add_problems">
     					<div class="expand_box" id="causes_box">
     						<p>+</p>
@@ -26,8 +43,18 @@
     		
     		<div class="form-content">
     			<h1>EFFECTS: WHAT ARE PROBLEMS THAT THIS CREATES?</h1>
-    				<div class="form-box">
-    					<p>Effects of the Issue mentioned above. Please list one at a time.</p>
+    				<div>
+    					
+    					<div id='TextBoxesGroup2'>
+							<div id="TextBoxDiv2">
+							<textarea type='textbox' placeholder="Effects of the Issue mentioned above. Please list one at a time." id='textbox2' name="Effects" wrap="physical">
+							</textarea>
+							</div>
+						</div>
+					<input type='button' value='Add Button' id='addButton2'>
+					<input type='button' value='Remove Button' id='removeButton2'>
+					<input type='button' value='Get Text Box Value' id='getButtonValue2'>
+    					
     				</div>	
     				<div class="add_problems">
     					<div class="expand_box" id="effects_box">
@@ -105,6 +132,8 @@
     </table>
 <!-- example expand button function script -->
 
+<script type="text/javascript" src="jquery-1.3.2.min.js"></script>
+
 <script>
    	$("#example_expand_box").click(function () {
                         if ($("#info_text_0").is(":hidden")) {
@@ -127,7 +156,110 @@
                         }
                     }).css("cursor", "pointer");;
      </script>   
-<!-- end example expand button function script-->     
+<!-- end example expand button function script--> 
+     
+<!-- Causes --> 
+     		<script type="text/javascript">
+ 
+$(document).ready(function(){
+ 
+    var counter = 2;
+ 
+    $("#addButton1").click(function () {
+ 
+	if(counter>10){
+            alert("Only 10 textboxes allow");
+            return false;
+	}   
+ 
+	var newTextBoxDiv = $(document.createElement('div'))
+	     .attr("id", 'TextBoxDiv1' + counter);
+ 
+	newTextBoxDiv.after().html('<label>Textbox #'+ counter + ' : </label>' +
+	      '<input type="text" name="textbox' + counter + 
+	      '" id="textbox1' + counter + '" value="" >');
+ 
+	newTextBoxDiv.appendTo("#TextBoxesGroup1");
+ 
+ 
+	counter++;
+     });
+ 
+     $("#removeButton1").click(function () {
+	if(counter==1){
+          alert("No more textbox to remove");
+          return false;
+       }   
+ 
+	counter--;
+ 
+        $("#TextBoxDiv1" + counter).remove();
+ 
+     });
+ 
+     $("#getButtonValue1").click(function () {
+ 
+	var msg = '';
+	for(i=1; i<counter; i++){
+   	  msg += "\n Causes" + " : " + $('#textbox1' + i).val();
+	}
+    	  alert(msg);
+     });
+  });
+</script>
+
+
+<!-- Effects -->
+
+<script type="text/javascript">
+ 
+$(document).ready(function(){
+ 
+    var counter = 2;
+ 
+    $("#addButton2").click(function () {
+ 
+	if(counter>10){
+            alert("Only 10 textboxes allow");
+            return false;
+	}   
+ 
+	var newTextBoxDiv = $(document.createElement('div'))
+	     .attr("id", 'TextBoxDiv2' + counter);
+ 
+	newTextBoxDiv.after().html('<label>Textbox #'+ counter + ' : </label>' +
+	      '<input type="text" name="textbox' + counter + 
+	      '" id="textbox2' + counter + '" value="" >');
+ 
+	newTextBoxDiv.appendTo("#TextBoxesGroup2");
+ 
+ 
+	counter++;
+     });
+ 
+     $("#removeButton2").click(function () {
+	if(counter==1){
+          alert("No more textbox to remove");
+          return false;
+       }   
+ 
+	counter--;
+ 
+        $("#TextBoxDiv2" + counter).remove();
+ 
+     });
+ 
+     $("#getButtonValue2").click(function () {
+ 
+	var msg = '';
+	for(i=1; i<counter; i++){
+   	  msg += "\n Effects" + " : " + $('#textbox2' + i).val();
+	}
+    	  alert(msg);
+     });
+  });
+</script>
+    
 
 <!-- 
 <table>
