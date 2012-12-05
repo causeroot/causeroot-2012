@@ -152,7 +152,28 @@ h1 {
 	border: 1px solid #c8c8c8;
 	width: 592px;
 	height: 110px;
+	}
+		
+.textbox {	
+	border: 1px solid #c8c8c8;
+	width: 592px;
+	height: 110px;	
+	padding: 4px;
 	}	
+		
+#textbox1 {	
+	border: 1px solid #c8c8c8;
+	width: 592px;
+	height: 110px;	
+	padding: 4px;
+	}	
+	
+#textbox2 {	
+	border: 1px solid #c8c8c8;
+	width: 592px;
+	height: 110px;	
+	padding: 4px;
+	}		
 	
 .form-box p {
 	color: #707070;
