@@ -45,19 +45,16 @@
                         <input type="hidden" name="list" value="info@causeroot.org" />
                         <input type="hidden" name="domain" value="causeroot.org" />
                         <input type="hidden" name="url" value="http://causeroot.org" />
-                        <input type="hidden" name="missingrequrl" value="http://0.0.0.0:3000/missing_required_fields.html">
+                        <input type="hidden" name="invalidurl" value="http://0.0.0.0:3000"/> 
+                        <input type="hidden" name="alreadyonurl" value="http://0.0.0.0:3000"/> 
+                        <input type="hidden" name="missingrequrl" value="http://0.0.0.0:3000">
                         <input type="text" class="inputbox" name="email">
                         <input type="submit" name="submit" value="Sign up" class="button" />
                     </form>
                      </td>
                <td class="email_responses">
-               
-                        <div id="invalid_message">This email address is malformed.</div>
-                        <div id="already_subscribed_message">This email is already on our list.</div>
-                        <!-- <div id="confirm_message">THANK YOU! <getUrlVars()["missing"]> Please check your email for a confirmation link.</div>  
-                        document.write('<div id="confirm_message"> value="'THANK YOU!'+variable+'Please check your email for a confirmation link.'"</div>'); -->
-                    
-                    </td>
+                        <div id="confirm_message"></div>
+                      </td>
                 </table> 
 
                     <br>
@@ -128,14 +125,34 @@
                 function getUrlVars() {
                     var vars = {};
                     var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
-                    vars[key] = value;
+                    var val = value.replace('%40','@')
+                    var v = val.replace(/%2E/g,'.')
+                    vars[key] = v;
                     });
                     return vars;
                     }
-                    
-                    $("confirm_message").append("<strong>Hello</strong>")  
-                    
-                    </script> 
+                </script>
+                
+                <script type="text/javascript">
+                var url_address = getUrlVars()["address"];
+                var url_name = getUrlVars()["name"];
+                var url_code = getUrlVars()["code"];
+                var url_missing = getUrlVars()["missing"];
+                
+                if(url_code == -4) {
+                    if(url_missing == 'address') {
+	                    url_missing_email = 'Email Address'
+	                }
+	                $('#confirm_message').append('The following information was submitted blank: ' + url_missing_email)   
+                }
+                if(url_code == -3) {
+                    $('#confirm_message').append('The email address entered "' + url_address + '" is an invalid email.')
+                } 
+                if(url_code == -1) {
+                    $('#confirm_message').append('The email address entered "' + url_address + '" is already on our mailing list.')
+                }
+                </script>
+                
                 <script>
                     $("#dropbox_arrow_0").click(function () {
                         if ($("#info_text_0").is(":hidden")) {
