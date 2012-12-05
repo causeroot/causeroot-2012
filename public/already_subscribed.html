@@ -3,7 +3,7 @@
     <head>
         <link href='http://fonts.googleapis.com/css?family=Muli:400,300italic,400italic,300' rel='stylesheet' type='text/css'>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-        
+
         <meta charset="utf-8">
         <title>CauseRoot - Find your cause. Let's get to the root of it.</title>
         <link href="reset.css" media="all" rel="stylesheet" type="text/css"/>
@@ -25,13 +25,37 @@
                         critical issues you are passionate about, in order to&ndash;as a
                         community&ndash;discover the best solution and get results.</p>
                     </div>
-                    <p class="bod">
-                    This page should say you're already on this list!!!!. 
-
-                    </p>
+                    <p class="bod">We identify the issues your community cares the most about using
+                    semantic breakdown of user-based content and voter input. Once we break the issues
+                    down to their core causes, we determine the most meaningful path to address each 
+                    cause. With an identified approach, CauseRoot crowdfunds prize purses to drive
+                    attention to subject areas that are not otherwise economically incentivized and 
+                    award the best solution.
+                    By participating you make the world a better place - everyone wins.</p>
                     
                     <p class="cta">Tell us your Cause; We'll get to the Root of it.</p>
-        
+                    <p class="cta2">Let us notify you when we launch!</p>
+                    <p class="ftr">We're in a private Beta at the moment, but we'd love to keep you updated.</p>
+                    <p class="promise">(We promise not to spam you, or share your email with anyone else.)</p>
+
+            
+              <table class="email_submit_line">
+                    <td>
+                    <form method="post" action="http://scripts.dreamhost.com/add_list.cgi">
+                        <input type="hidden" name="list" value="info@causeroot.org" />
+                        <input type="hidden" name="domain" value="causeroot.org" />
+                        <input type="hidden" name="url" value="http://causeroot.org" />
+                        <input type="hidden" name="alreadyonurl" value="http://0.0.0.0:3000/already_subscribed.html" /> 
+                        <input type="hidden" name="missingrequrl" value="http://0.0.0.0:3000/missing_required_fields.html">
+                        <input id="email_box" type="text" class="inputbox" name="email" id="email_box">
+                        <input type="submit" name="submit" value="Sign up" class="button" />
+                    </form>
+                     </td>
+               <td class="email_responses">
+                        <div id="confirm_message"></div>
+                      </td>
+                </table> 
+                    
                     <br>
                     <div class="extra_info_wrapper">
                         <div class="dropbox_title_wrapper" id="dropbox_title_wrapper_0">
@@ -94,13 +118,33 @@
                     <div class="clear_div"></div>
                 <div id = "footer_wrapper"> 
                     <div id = "footer_inner_wrapper"> Contact Us:  <a href="mailto:info@causeroot.org">info@causeroot.org</a>   |   ©2012 CauseRoot</div>
-                </div>  
+                </div>
+                 
                 <script>
-                    function myAlertBox()
-                    {
-                    alert("Thank you for your interest in CauseRoot! We'll keep you up to date with how we're progressing.\n\nCheers,\nCauseRoot");
+                function getUrlVars() {
+                    var vars = {};
+                    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+                    var val = value.replace('%40','@')
+                    var v = val.replace(/%2E/g,'.')
+                    vars[key] = v;
+                    });
+                    return vars;
                     }
-                    </script>  
+                </script>
+                
+                <script type="text/javascript">
+                var first = getUrlVars()["address"];
+                var second = getUrlVars()["code"];
+                
+                line_in = 'TEST';
+                
+                $('#confirm_message').text('The email address ' + first + ' is already on our mailing list.')
+                
+                $('#email_box').placeholder('Test')
+                $('#email').placeholder('Test_2')
+                
+                </script>
+                    
                 <script>
                     $("#dropbox_arrow_0").click(function () {
                         if ($("#info_text_0").is(":hidden")) {
