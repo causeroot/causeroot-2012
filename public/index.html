@@ -48,12 +48,12 @@
                         <input type="hidden" name="invalidurl" value="http://0.0.0.0:3000"/> 
                         <input type="hidden" name="alreadyonurl" value="http://0.0.0.0:3000"/> 
                         <input type="hidden" name="missingrequrl" value="http://0.0.0.0:3000">
-                        <input type="text" class="inputbox" name="email">
+                        <input type="text" class="inputbox" name="email" placeholder="Email Address">
                         <input type="submit" name="submit" value="Sign up" class="button" />
                     </form>
                      </td>
                <td class="email_responses">
-                        <div id="confirm_message"></div>
+                        <div id="message"></div>
                       </td>
                 </table> 
 
@@ -143,13 +143,13 @@
                     if(url_missing == 'address') {
 	                    url_missing_email = 'Email Address'
 	                }
-	                $('#confirm_message').append('The following information was submitted blank: ' + url_missing_email)   
+	                $('#message').append('The following information was submitted blank: ' + url_missing_email)   
                 }
                 if(url_code == -3) {
-                    $('#confirm_message').append('The email address entered "' + url_address + '" is an invalid email.')
+                    $('#message').append('The email address entered "' + url_address + '" is an invalid email.')
                 } 
                 if(url_code == -1) {
-                    $('#confirm_message').append('The email address entered "' + url_address + '" is already on our mailing list.')
+                    $('#message').append('The email address entered "' + url_address + '" is already on our mailing list.')
                 }
                 </script>
                 
