@@ -3,7 +3,6 @@
     <head>
         <link href='http://fonts.googleapis.com/css?family=Muli:400,300italic,400italic,300' rel='stylesheet' type='text/css'>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-        <script src="http://code.jquery.com/jquery-latest.js"></script>
 
         <meta charset="utf-8">
         <title>CauseRoot - Find your cause. Let's get to the root of it.</title>
@@ -38,7 +37,8 @@
                     <p class="cta2">Let us notify you when we launch!</p>
                     <p class="ftr">We're in a private Beta at the moment, but we'd love to keep you updated.</p>
                     <p class="promise">(We promise not to spam you, or share your email with anyone else.)</p>
-        
+
+            
               <table class="email_submit_line">
                     <td>
                     <form method="post" action="http://scripts.dreamhost.com/add_list.cgi">
@@ -51,12 +51,8 @@
                     </form>
                      </td>
                <td class="email_responses">
-                        <div id="invalid_message">This email address is malformed.</div>
-                        <div id="already_subscribed_message">This email is already on our list.</div>
-                        <!-- <div id="confirm_message">THANK YOU! <getUrlVars()["missing"]> Please check your email for a confirmation link.</div>  
-                        document.write('<div id="confirm_message"> value="'THANK YOU!'+variable+'Please check your email for a confirmation link.'"</div>'); -->
-                    
-                    </td>
+                        <div id="confirm_message"></div>
+                      </td>
                 </table> 
                     
                     <br>
@@ -121,8 +117,8 @@
                     <div class="clear_div"></div>
                 <div id = "footer_wrapper"> 
                     <div id = "footer_inner_wrapper"> Contact Us:  <a href="mailto:info@causeroot.org">info@causeroot.org</a>   |   ©2012 CauseRoot</div>
-                </div>  
-                
+                </div>
+                 
                 <script>
                 function getUrlVars() {
                     var vars = {};
@@ -131,10 +127,19 @@
                     });
                     return vars;
                     }
+                </script>
+                
+                <script type="text/javascript">
+                var first = getUrlVars()["missing"];
+                var second = getUrlVars()["code"];
+                
+                if(first == 'address') {
+	                line_in = 'Email Address'
+                } 
+                
+                $('#confirm_message').append('The following information was submitted blank: ' + line_in)            
+                </script>
                     
-                    $("confirm_message").append("<strong>Hello</strong>")  
-                    
-                    </script> 
                 <script>
                     $("#dropbox_arrow_0").click(function () {
                         if ($("#info_text_0").is(":hidden")) {

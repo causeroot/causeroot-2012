@@ -105,6 +105,25 @@ body
     width: 450px;
 }
 
+.email_responses {
+    padding: 0px 105px;
+    }
+
+#invalid_message {
+    font-size: 12px;
+    color: red;
+    }
+    
+#already_subscribed_message {
+    font-size: 12px;
+    color: red;
+    }
+
+#confirm_message {
+    font-size: 12px;
+    color: #F7941D;
+    }    
+    
 .button
 {
 	padding: 0em 0px 0.25em;
