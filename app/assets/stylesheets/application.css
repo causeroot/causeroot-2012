@@ -422,3 +422,7 @@ footer a {
 footer a:hover {
 	color: #cc6600;
 	}	
+
+p.chosen {
+  background-color: #ddd;
+}
