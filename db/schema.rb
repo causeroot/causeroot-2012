@@ -42,6 +42,8 @@ ActiveRecord::Schema.define(:version => 20121129053134) do
     t.integer "game_result_id"
   end
 
+  add_index "game_results_issues", ["game_result_id", "issue_id"], :name => "index_game_results_issues_on_game_result_id_and_issue_id", :unique => true
+
   create_table "issues", :force => true do |t|
     t.text     "problem"
     t.datetime "created_at", :null => false

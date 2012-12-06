@@ -21,6 +21,7 @@ class GameResultsController < ApplicationController
     end
   end
 
+  # This assigns two random but unique  
   # GET /game_results/new
   # GET /game_results/new.json
   def new
@@ -29,11 +30,16 @@ class GameResultsController < ApplicationController
     @game_result.question = Question.offset(rand(Question.count)).first
 
     c = Issue.count
-    # XXX inefficient and must be addressed    
+    used = []
     for i in 1..@game_result.question.problem_count
-      @game_result.issues << Issue.offset(rand(c)).first
+      # prevent using the same random number twice
+      iid = rand(c)
+      while used.include? iid and c > 3
+        iid = rand(c)
+      end
+      used << iid
+      @game_result.issues << Issue.offset(iid).first
     end
-    @game_result.save
 
     respond_to do |format|
       format.html  #new.html.erb
@@ -49,14 +55,19 @@ class GameResultsController < ApplicationController
   # POST /game_results
   # POST /game_results.json
   def create
+    # Save user, result 
     @game_result = GameResult.new(params[:game_result])
+    params[:issues].each do |issue_id|
+      @game_result.issues << Issue.find(issue_id.last)
+    end
 
     respond_to do |format|
       if @game_result.save
-        format.html { redirect_to @game_result, notice: 'Game result was successfully created.' }
+        format.html { redirect_to :action=>'new', notice: 'Game result was successfully updated.'}
         format.json { render json: @game_result, status: :created, location: @game_result }
       else
-        format.html { render action: "new" }
+        abort "fuck"
+        format.html { render action: "new", notice: 'Game result was failed updated.' }
         format.json { render json: @game_result.errors, status: :unprocessable_entity }
       end
     end

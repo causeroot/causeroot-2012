@@ -1,6 +1,6 @@
 # Issue
 class Issue < ActiveRecord::Base
-  attr_accessible :problem, :causes, :problems
+  attr_accessible :problem, :causes, :effects, :causes_attributes, :effects_attributes
 
   has_many :causes
   has_many :effects

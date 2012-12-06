@@ -9,5 +9,21 @@
 questions = YAML::load_file('db/questions.yml')
 questions.each {|key, value| Question.create(value) }
 
-issues = YAML::load_file('db/issues.yml')
-issues.each {|key, value| Issue.create(value) }
+#issues = YAML::load_file('db/issues.yml')
+#issues.each {|key, value| Issue.create(value) }
+
+["Proliferation of Genetically Modified Food",
+  "The magnitude of US debt",
+  "The War on Drugs",
+  "Drinking and Driving",
+  "The lack of moral conviction in American Society",
+  "The Middle Eastern Conflict",
+  "The increase of Greenhouse gases",
+  "Proliferation of Nuclear Weapons"].each do |prob| 
+
+        i = FactoryGirl.create(:issue)
+        i.problem = prob
+        i.causes << FactoryGirl.create(:cause)
+        i.effects << FactoryGirl.create(:effect)
+        i.save
+end

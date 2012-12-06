@@ -14,5 +14,6 @@ class CreateGameResults < ActiveRecord::Migration
     	t.integer :issue_id
     	t.integer :game_result_id
     end
+    add_index(:game_results_issues, [:game_result_id, :issue_id], :unique => true)
   end
 end
