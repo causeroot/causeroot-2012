@@ -1,5 +1,8 @@
-body
-{
+body, html {
+	height: 100%;
+	}
+
+body {
     background-color: #5d5d5d;
     /*width: 100%;
     height: 100%;
@@ -16,6 +19,9 @@ body
     background-image:url('World.jpg');
     background-repeat:no-repeat;
     background-position: right top;
+    height: auto;
+    min-height: 100%;
+    
 
 }
 
@@ -27,6 +33,8 @@ body
 
 #logo_wrapper {
     margin-bottom: 20px;
+	margin-left: -1%;
+
 }
 
 .signup_wrapper {
@@ -92,24 +100,30 @@ body
 }
 
 .singular_page_message {
-    font-size: 24px;
-    font-weight: 400;
-    color:black;
+    font-size: 28px;
+    font-weight: 300;
+    color: #F7941D;
     /*width: 586px;*/
     width: 590px;
     line-height: 1.4;
     margin-bottom: 12px;
 }
 .singular_page_message_2 {
-    font-size: 24px;
-    font-weight: 400;
-    color:black;
+    font-size: 16px;
+    font-weight: 300;
+    color: black;
     /*width: 586px;*/
     width: 590px;
     line-height: 1.4;
     margin-bottom: 12px;
 }
 
+.thankyou_message {
+	margin-top: 45px;
+
+	}
+	
+	
 .cta {
     font-size: 16px;
     font-style:bold;
@@ -182,31 +196,8 @@ body
     background: #E3E3E3;
     color: #A0A0A0;
 }
-/*
-.expand_box {
-	position: absolute;
-	padding: 0em 0px 0em 0px;
-	width: 14px;
-	height: 14px;
-	border-radius: 2px;
-	background: #F7941D;
-	color: white;
-	text-align: center;
-	
-	}
-	
-#dropbox_0 {	
-	top: 651px;
-	}
-	
-#dropbox_1 {
-	top: 702px;
-	}
-*/	
 		
-
-.arrow1
-{
+.arrow1 {
     position: absolute;
     left: 115px;
     top: 647px;
@@ -222,17 +213,24 @@ body
 }
 
 
-#footer_wrapper
-{
-    margin-top: 50px;
+#footer_wrapper {
     width: 100%;
+	text-align: center;
+	height: 30px;
+	position: relative;
+	z-index: 10;
+	clear: both;
+	margin-top: -30px;
+
+
+	
 }
 
 #footer_inner_wrapper {
     color:#58595A;
     text-align: center;
     font-size: 12px;
-    
+
 }
 
 
@@ -243,7 +241,7 @@ a {
 	}
 	
 a:hover {
-	color: #9999ff;
+	color: #7452FF;
 	}
 		
 .dropbox_title_wrapper {
@@ -338,8 +336,5 @@ a:hover {
 .teamSelector { cursor: pointer; }
 
 .clear_div {
-/* 
-    clear: both;
-    width: 100%;
- */
+	height: 30px;
 }
