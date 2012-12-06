@@ -66,7 +66,6 @@ class GameResultsController < ApplicationController
         format.html { redirect_to :action=>'new', notice: 'Game result was successfully updated.'}
         format.json { render json: @game_result, status: :created, location: @game_result }
       else
-        abort "fuck"
         format.html { render action: "new", notice: 'Game result was failed updated.' }
         format.json { render json: @game_result.errors, status: :unprocessable_entity }
       end
