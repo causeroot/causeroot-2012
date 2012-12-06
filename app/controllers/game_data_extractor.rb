@@ -123,6 +123,8 @@ end
             idata = idata.merge(j => {})
         end;
         
+        # TODO: Double Check this code to verify that unscoped problems initialize to mid-scale
+        
         q_set.each do |i|
             p_key = Array.new(p_set.length,0) { Array.new(2,0) };
             gdata.values.each do |item|
