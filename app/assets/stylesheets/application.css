@@ -12,6 +12,8 @@
  *= require_tree .
 */
 
+
+		
 html, body {
 	margin: 0 auto;
 	padding: 0;
@@ -152,7 +154,62 @@ h1 {
 	border: 1px solid #c8c8c8;
 	width: 592px;
 	height: 110px;
+	}
+		
+.textbox {	
+	border: 1px solid #c8c8c8;
+	width: 592px;
+	height: 110px;	
+	padding: 4px;
 	}	
+		
+#issue_field1 {	
+	border: 1px solid #c8c8c8;
+	width: 592px;
+	height: 110px;	
+	padding: 4px;
+	font-family: Arial;
+	letter-spacing: .5px;
+	font-size: 12px;
+	}	
+
+
+#causes_field1 {
+	border: 1px solid #c8c8c8;
+	width: 592px;
+	height: 110px;	
+	padding: 4px;
+	margin-bottom: 4px;
+	font-family: Arial;
+	font-size: 12px;
+	letter-spacing: .5px;
+	}	
+	
+#effects_field1 {
+	border: 1px solid #c8c8c8;
+	width: 592px;
+	height: 110px;	
+	padding: 4px;
+	margin-bottom: 4px;
+	font-family: Arial;
+	font-size: 12px;
+	letter-spacing: .5px;
+	}	
+
+.button {
+	border: none;
+	font-size: 12px;
+	background: none;
+	margin-left: 10px;
+	cursor: pointer;
+	}
+	
+#textbox2 {	
+	border: 1px solid #c8c8c8;
+	width: 592px;
+	height: 110px;	
+	padding: 4px;
+	}		
 	
 .form-box p {
 	color: #707070;
@@ -165,6 +222,7 @@ h1 {
 	float: left;
 	display: inline;
 	margin-bottom: 30px;
+	margin-top: 4px;
 	width: 592px;
 	}		
 	
@@ -180,7 +238,7 @@ h1 {
 	border-radius: 2px;
 	background: #F7941D;
 	text-align: center;
-	margin-top: 14px;
+	margin-top: 3px;
 	z-index: 0;	
 	}	
 		
@@ -190,6 +248,11 @@ h1 {
 	color: white;
 	font-size: 15px;
 	}		
+
+.info_text_inner_wrapper span {
+	font-family: Arial;
+	font-weight: bold;
+	}
 	
 .dropbox_title_wrapper {
     width: 100%;
@@ -359,7 +422,3 @@ footer a {
 footer a:hover {
 	color: #cc6600;
 	}	
-
-p.chosen {
-  background-color: #ddd
-}
