@@ -95,18 +95,18 @@ end
         
         #THIS IS THE CODE THAT WILL CHANGE!!!
         gdata = GameData.new.show_data;
-        
         # gdata = @GameData.all
         #THIS IS THE CODE THAT WILL CHANGE!!!
 
         filename_out = "extracted_data.csv"
         require 'csv'
         entries = gdata.size
-        idata = {}
         
+        idata = {}
         q_temp = []
         p_temp1 = []
         p_temp2 = []
+        
         gdata.values.each do |item|
             q_temp << item[:Question]
             p_temp1 << item[:Problems][0]
@@ -114,10 +114,10 @@ end
             p_temp2 << item[:Problems].sort
         end;
         
-        q_set = q_temp.uniq.sort
-        p_set = p_temp1.uniq.sort
+        q_set = q_temp.uniq.sort  #Define an array of the Question ID's in the subset of data chosen 
+        p_set = p_temp1.uniq.sort #Define an array of the Problem ID's in the subset of data chosen
         
-        avg_trials_per_pair = p_temp2.uniq.length
+        avg_trials_per_pair = p_temp2.uniq.length #
         
         p_set.each do |j|
             idata = idata.merge(j => {})
