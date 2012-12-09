@@ -188,10 +188,25 @@ end
 ######### WRITE THE CALCULATED DATA TO CSV FILE ###########
         #TODO: Limit the numbers that are being written here
         
-        CSV.open("extracted_data.csv","wb") do |csv|
-            csv << ["'Names'"] + question_set.map{|i| Attributes_Titles[i] }
+        Question_Themes = []
+        
+        questions = YAML::load_file('db/questions.yml')
+        questions.values.each do |q|
+            Question_Themes << q['name']
+        end;
+        
+        Problems = []
+        
+        Issue.uniq.each do |i|
+            Problems << i.problem
+        end;
+        
+        
+        CSV.open("extracted_data_5.csv","wb") do |csv|
+            csv << ["Names_Poop"] + question_set.map{|i| Question_Themes[i-1] }
             idata.each do |k,v|    
-                csv << [Problems[k]] + (question_set.map{|i| v[i] })
+                csv << [Problems[k-1]] + (question_set.map{|i| v[i] })
             end;
         end;
         
+            
