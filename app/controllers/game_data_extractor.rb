@@ -155,12 +155,12 @@ end
                     problem_key[item.issue_ids[1]-1][1] = problem_key[item.issue_ids[1]-1][1] + 1 
                     
                     # If 
-                    if item[:Response][:Answer] == "A"
+                    if item.answer == item.issue_ids[0]
                         problem_key[item.issue_ids[0]-1][0] = problem_key[item.issue_ids[0]-1][0] + 1
                         problem_key[item.issue_ids[1]-1][0] = problem_key[item.issue_ids[1]-1][0] - 1
 
                     # If 
-                    elsif item[:Response][:Answer] == "B"
+                    elsif item.answer == item.issue_ids[1]
                         problem_key[item.issue_ids[0]-1][0] = problem_key[item.issue_ids[0]-1][0] - 1
                         problem_key[item.issue_ids[1]-1][0] = problem_key[item.issue_ids[1]-1][0] + 1
                     end;   
