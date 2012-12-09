@@ -92,18 +92,21 @@ end
         
         Attributes_Titles = {1=>"'Importance'",2=>"'Immediacy'",3=>"'Complexity'",4=>"'Cost'"}
         Problems = {1=>"'Proliferation of Genetically Modified Food'",2=>"'The magnitude of US debt'",3=>"'Drugs'",4=>"'Drinking and Driving'",5=>"'The lack of moral conviction in American Society'", 6=>"'The Middle Eastern Conflict'",7=>"'The increase of Greenhouse gases'",8=>"'The threat of Biological Warefare'",9=>"'Proliferation of Nuclear Weapons'"} 
-        
+    
         #TODO: Add a FLAG this Issue/Problem
         
         #THIS IS THE CODE THAT WILL CHANGE!!!
         gdata = GameData.new.show_data;
         # gdata = @GameData.all
+        
+        game_data = GameResult.all
+        
         #THIS IS THE CODE THAT WILL CHANGE!!!
 
         filename_out = "extracted_data.csv"
         require 'csv'
         
-        num_of_entries = gdata.size
+        num_of_entries = game_data.size
         
 ####### IDENTIFY THE BOUNDS OF THE DATASET ########
               
@@ -113,12 +116,12 @@ end
         problem_temp2 = []
         user_temp = []
         
-        gdata.each do |key,value|
-            question_temp << value[:Question]
-            problem_temp1 << value[:Problems][0]
-            problem_temp1 << value[:Problems][1]
-            problem_temp2 << value[:Problems].sort
-            user_temp << key[:Tag][:User_ID]
+        game_data.each do |value|
+            question_temp << value.question_id
+            problem_temp1 << value.issue_ids[0]
+            problem_temp1 << value.issue_ids[1]
+            problem_temp2 << value.issue_ids.sort
+            user_temp << value.user_id
         end;
         
         # Define an array of the Question ID's in the subset of data chosen 
@@ -145,21 +148,21 @@ end
        question_set.each do |i|
             problem_key = Array.new(problem_set.length,0) { Array.new(2,0) };
 
-            gdata.values.each do |item|
+            game_data.each do |item|
 
-                if item[:Question] == i
-                    problem_key[item[:Problems][0]-1][1] = problem_key[item[:Problems][0]-1][1] + 1
-                    problem_key[item[:Problems][1]-1][1] = problem_key[item[:Problems][1]-1][1] + 1 
+                if item.question_id == i
+                    problem_key[item.issue_ids[0]-1][1] = problem_key[item.issue_ids[0]-1][1] + 1
+                    problem_key[item.issue_ids[1]-1][1] = problem_key[item.issue_ids[1]-1][1] + 1 
                     
                     # If 
                     if item[:Response][:Answer] == "A"
-                        problem_key[item[:Problems][0]-1][0] = problem_key[item[:Problems][0]-1][0] + 1
-                        problem_key[item[:Problems][1]-1][0] = problem_key[item[:Problems][1]-1][0] - 1
+                        problem_key[item.issue_ids[0]-1][0] = problem_key[item.issue_ids[0]-1][0] + 1
+                        problem_key[item.issue_ids[1]-1][0] = problem_key[item.issue_ids[1]-1][0] - 1
 
                     # If 
                     elsif item[:Response][:Answer] == "B"
-                        problem_key[item[:Problems][0]-1][0] = problem_key[item[:Problems][0]-1][0] - 1
-                        problem_key[item[:Problems][1]-1][0] = problem_key[item[:Problems][1]-1][0] + 1
+                        problem_key[item.issue_ids[0]-1][0] = problem_key[item.issue_ids[0]-1][0] - 1
+                        problem_key[item.issue_ids[1]-1][0] = problem_key[item.issue_ids[1]-1][0] + 1
                     end;   
                 end;    
             end;
@@ -181,13 +184,12 @@ end
                 end;
             end;
         end;
-        
+
 ######### WRITE THE CALCULATED DATA TO CSV FILE ###########
-        
         #TODO: Limit the numbers that are being written here
         
         CSV.open("extracted_data.csv","wb") do |csv|
-            csv << question_set.map{|i| Attributes_Titles[i] }
+            csv << ["'Names'"] + question_set.map{|i| Attributes_Titles[i] }
             idata.each do |k,v|    
                 csv << [Problems[k]] + (question_set.map{|i| v[i] })
             end;
