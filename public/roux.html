@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript" src="d3.v2.min.js"></script>
+    </head>
+    <body>
+        <div id="visualisation"></div>
+        <script type="text/javascript">
+
+ d3.csv("data2.csv", dummy);
+
+function dummy(data) {
+
+var theDomIsStupid = 'o';
+var margin = {top: 40, right: 40, bottom: 40, left: 40},
+    width = 960,
+    height = 500;
+
+var x = pad(d3.scale.linear()
+    .domain(d3.extent(data, function(d) { return xval(d); }))
+    .range([0, width - margin.left - margin.right]), 40);
+
+var y = pad(d3.scale.linear()
+    .domain(d3.extent(data, function(d) { return yval(d); }))
+    .range([height - margin.top - margin.bottom, 0]), 40);
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom")
+    .tickPadding(8);
+
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left")
+    .tickPadding(8);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height)
+    .attr("class", "dot chart")
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+var g = svg.append("g").attr("class", "circles").selectAll("circles")
+    .data(data)
+    .enter().append("svg:g")
+    .attr("class", "c");
+
+var g2 = svg.append("g").attr("class", "text").selectAll("text")
+    .data(data)
+    .enter().append("svg:g")
+    .attr("class", "c");
+
+var txt = g2.append("svg:text")
+    .attr("class", "nodeText")
+    .attr("id", function(d) { return theDomIsStupid+hash(d.name); })
+    .attr("x", function(d) {return x(xval(d));})
+    .attr("y", function(d) {return y(yval(d));})
+    .attr("dx", function(d) {return d.count;})
+    .attr("dy", function(d) {return -d.count;})
+    .text(function(d) {return d.name;})
+    .attr("visibility", "hidden");  
+
+var circles = g.append("svg:circle")
+    .attr("class", "dot")
+    .attr("id", function(d) { return theDomIsStupid+hash(d.name); })
+    .attr("cx", function(d) { return x(xval(d)); })
+    .attr("cy", function(d) { return y(yval(d)); })
+    .attr("r", function(d) { return 2*d.count; })
+    .attr("fill", function(d) { return cinterp(shapefn(d));})
+    .on("mouseover", function(){
+        d3.select(".text").select('#'+this.id)
+                .attr("visibility","visible");})
+	.on("mouseout", function(){
+	    d3.select(".text").select('#'+this.id)
+                .attr("visibility","hidden");});
+
+
+
+
+svg.append("g")
+    .attr("class", "x axis")
+    .attr("transform", "translate(0," + y.range()[0] + ")")
+    .call(xAxis);
+
+svg.append("g")
+    .attr("class", "y axis")
+    .call(yAxis);
+//  txt.style("fill", "#2f2f3a");
+
+//window.alert('yo');
+var mouseOverFunction = function () {
+    var c = d3.select(this);
+    //window.alert('hi');
+}
+
+function pad(scale, k) {
+  var range = scale.range();
+  if (range[0] > range[1]) k *= -1;
+  return scale.domain([range[0] - k, range[1] + k].map(scale.invert)).nice();
+}
+}
+
+/* This path interpolates along any path in color space smoothly!*/
+function cinterp (t) {
+    var cl = ['#285287', '#79C7D9', '#9BF2EA', '#497358', '#9DBF8E'];
+    idx = Math.floor(t * (cl.length-1));
+    if (idx >= (cl.length-1)) {
+        return cl[cl.length-1];
+    }
+    if (idx <= 0) {
+        return cl[0];
+    }
+    return d3.interpolateHsl(cl[idx],cl[idx+1])(t);
+}
+
+function xval(d) { return d.Importance }
+function yval(d) { return d.Immediacy }
+function shapefn(d) {
+    var x = xval(d);
+    var y = yval(d);
+    return 1-2*((x-0.5)*(x-0.5)+(y-0.5)*(y-0.5));
+}
+
+/*Simple, fast, non-secure hash*/
+function hash(str) {
+    var hash = 0;
+	if (str.length == 0) return hash;
+	for (i = 0; i < str.length; i++) {
+		char = str.charCodeAt(i);
+		hash = ((hash<<5)-hash)+char;
+		hash = hash & hash; // Convert to 32bit integer
+	}
+	return hash;
+}
+
+</script>
+</body>
+</html>

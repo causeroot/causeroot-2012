@@ -1,5 +1,8 @@
 CauseRoot::Application.routes.draw do
 
+  resources :graphs
+
+
   resources :game_results
 
 
