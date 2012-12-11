@@ -191,7 +191,7 @@
         end;
 
         CSV.open("extracted_data.csv","wb") do |csv|
-            csv << ["'Question_Themes'"] + question_set.map{|i| Question_Themes[i-1] }
+            csv << ["'Problem Statements'"] + question_set.map{|i| Question_Themes[i-1] }
             idata.each do |k,v|    
                 csv <<  ["'#{Problems[k-1]}'"] + (question_set.map{|i| %Q['#{v[i]}'] })
             end
