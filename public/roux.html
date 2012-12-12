@@ -7,9 +7,10 @@
         <div id="visualisation"></div>
         <script type="text/javascript">
 
- d3.csv("data2.csv", dummy);
+ d3.csv("/graphs.csv", dummy);
 
 function dummy(data) {
+
 
 var theDomIsStupid = 'o';
 var margin = {top: 40, right: 40, bottom: 40, left: 40},
@@ -53,20 +54,20 @@ var g2 = svg.append("g").attr("class", "text").selectAll("text")
 
 var txt = g2.append("svg:text")
     .attr("class", "nodeText")
-    .attr("id", function(d) { return theDomIsStupid+hash(d.name); })
+    .attr("id", function(d) { return theDomIsStupid+hash(d.ProblemName); })
     .attr("x", function(d) {return x(xval(d));})
     .attr("y", function(d) {return y(yval(d));})
-    .attr("dx", function(d) {return d.count;})
-    .attr("dy", function(d) {return -d.count;})
-    .text(function(d) {return d.name;})
+    .attr("dx", function(d) {return rad(d);})
+    .attr("dy", function(d) {return -rad(d);})
+    .text(function(d) {return d.ProblemName;})
     .attr("visibility", "hidden");  
 
 var circles = g.append("svg:circle")
     .attr("class", "dot")
-    .attr("id", function(d) { return theDomIsStupid+hash(d.name); })
+    .attr("id", function(d) { return theDomIsStupid+hash(d.ProblemName); })
     .attr("cx", function(d) { return x(xval(d)); })
     .attr("cy", function(d) { return y(yval(d)); })
-    .attr("r", function(d) { return 2*d.count; })
+    .attr("r", function(d) { return 2*rad(d); })
     .attr("fill", function(d) { return cinterp(shapefn(d));})
     .on("mouseover", function(){
         d3.select(".text").select('#'+this.id)
@@ -116,6 +117,7 @@ function cinterp (t) {
 
 function xval(d) { return d.Importance }
 function yval(d) { return d.Immediacy }
+function rad(d) { return 10 * d.Cost }
 function shapefn(d) {
     var x = xval(d);
     var y = yval(d);
@@ -125,7 +127,7 @@ function shapefn(d) {
 /*Simple, fast, non-secure hash*/
 function hash(str) {
     var hash = 0;
-	if (str.length == 0) return hash;
+	if (!str ||	 str.length == 0) return hash;
 	for (i = 0; i < str.length; i++) {
 		char = str.charCodeAt(i);
 		hash = ((hash<<5)-hash)+char;
