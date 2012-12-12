@@ -60,9 +60,17 @@ class GameResultsController < ApplicationController
     params[:issues].each do |issue_id|
       @game_result.issues << Issue.find(issue_id.last)
     end
-
+    
     respond_to do |format|
       if @game_result.save
+        if defined?(params[:flag])
+          flagged_issue = FlaggedIssues.new do |i|
+            #i.issue_id = params[:flag].first[0]
+            i.game_result_id = @game_result.id
+            i.save
+          end
+        end  
+
         format.html { redirect_to :action=>'new', notice: 'Game result was successfully updated.'}
         format.json { render json: @game_result, status: :created, location: @game_result }
       else
@@ -99,4 +107,5 @@ class GameResultsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
 end

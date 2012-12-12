@@ -12,6 +12,9 @@ gem 'delayed_job', '~> 3.0.4'
 gem 'sunspot_rails'
 gem 'sunspot_solr'
 
+gem "acts-as-taggable-on", "~> 2.3.3"
+
+
 gem 'sorcery'
 
 gem 'rvm-capistrano'

@@ -16,8 +16,9 @@
         <table>
         <tr>
           <% @game_result.issues.each do |issue| %>
-                <td class="a_b_content">
-                        <p><%= issue.problem %>
+            <td class="a_b_content">
+              <%= f.submit "flag", :name => "flag[#{issue.id}]", :value => "flag", :confirm => "Are you sure that you want flag this issue as innapropriate?" %>
+                  <p><%= issue.problem %></p>
                 </td>
           <% end %>
         </tr>
