@@ -110,7 +110,7 @@ class GraphsController < ApplicationController
 
     csvstr = CSV.generate() do |csv|
 
-      csv << ["'Problems Statements'"] + question_set.map{|i| question_Themes[i-1] }
+      csv << ["'ProblemName'"] + question_set.map{|i| question_Themes[i-1] }
       idata.each do |k,v|    
           #csv << [problems[k-1]] + (question_set.map{|i| v[i].to_s })
           csv <<  ["'#{problems[k-1]}'"] + (question_set.map{|i| %Q['#{v[i]}'] })
