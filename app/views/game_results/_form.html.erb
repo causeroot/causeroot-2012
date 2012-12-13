@@ -11,13 +11,16 @@
       </ul>
     </div>
   <% end %>
-  <div class="about-content">
-    <h1><%= @game_result.question.question %></h1>
-        <table>
+  <div class="game-content">
+    <div id="a_b_question_header">
+    	<h1><%= @game_result.question.question %></h1>
+    </div>	
+    <div id="a_b_question_area">   
+    	<table>
         <tr>
           <% @game_result.issues.each do |issue| %>
-                <td class="a_b_content">
-                        <p><%= issue.problem %>
+                <td>
+                      <p class="a_b_content"><%= issue.problem %></p>
                 </td>
           <% end %>
         </tr>
@@ -32,5 +35,12 @@
             <% end %>
         </tr>
         </table>
+        
+        <div class="progress_bar_wrap">
+    	  <div class="progress_bar"></div> <div class="progress_bar"></div> <div class="progress_bar"></div> <div class="progress_bar"></div>
+    	</div>
+    </div>  
+    
+      
   </div>
 <% end %>
