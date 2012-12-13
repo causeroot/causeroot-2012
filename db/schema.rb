@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121129053134) do
+ActiveRecord::Schema.define(:version => 20121209010750) do
 
   create_table "causes", :force => true do |t|
     t.integer  "issue_id"
@@ -23,6 +23,11 @@ ActiveRecord::Schema.define(:version => 20121129053134) do
   create_table "effects", :force => true do |t|
     t.integer  "issue_id"
     t.text     "effect"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "game_datum_issues", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -43,6 +48,11 @@ ActiveRecord::Schema.define(:version => 20121129053134) do
   end
 
   add_index "game_results_issues", ["game_result_id", "issue_id"], :name => "index_game_results_issues_on_game_result_id_and_issue_id", :unique => true
+
+  create_table "graphs", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "issues", :force => true do |t|
     t.text     "problem"

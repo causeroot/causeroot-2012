@@ -1,3 +1,130 @@
+require 'csv'
+
+class GraphsController < ApplicationController
+  # GET /graphs
+  # GET /graphs.json
+  def index
+    #@graphs = Graph.all
+
+    game_data = GameResult.all
+
+    filename_out = "extracted_data.csv"
+    
+    num_of_entries = game_data.size
+    
+####### IDENTIFY THE BOUNDS OF THE DATASET ########
+          
+    idata = {}
+    question_temp = []
+    problem_temp1 = []
+    problem_temp2 = []
+    user_temp = []
+    
+    game_data.each do |value|
+        question_temp << value.question_id
+        problem_temp1 << value.issue_ids[0]
+        problem_temp1 << value.issue_ids[1]
+        problem_temp2 << value.issue_ids.sort
+        user_temp << value.user_id
+    end;
+    
+    # Define an array of the Question ID's in the subset of data chosen 
+    question_set = question_temp.uniq.sort  
+    
+    # Define an array of the Problem ID's in the subset of data chosen
+    problem_set = problem_temp1.uniq.sort
+    
+    # Define an array of the User ID's in the subset of data chosen
+    user_set = user_temp.uniq.sort
+    
+    # TODO: FIGURE HOW WE WOULD REALLY WANT TO USE THIS VARIABLE
+    unique_pairs = problem_temp2.uniq.length #
+
+######## CALCULATE RANKING DATA FOR ALL QUESTIONS #########
+    # TODO: Double Check this code to verify that unscoped problems initialize to mid-scale
+  
+    problem_set.each do |j|
+        # Create data arrays corresponding for each problem, where each array will have values
+        # corresponding to each of questions in the question_set
+        idata = idata.merge(j => {})
+    end;
+
+    question_set.each do |i|
+        problem_key = Array.new(problem_set.length,0) { Array.new(2,0) };
+
+        game_data.each do |item|
+
+            if item.question_id == i
+                problem_key[item.issue_ids[0]-1][1] = problem_key[item.issue_ids[0]-1][1] + 1
+                problem_key[item.issue_ids[1]-1][1] = problem_key[item.issue_ids[1]-1][1] + 1 
+                
+                # If 
+                if item.answer == item.issue_ids[0]
+                    problem_key[item.issue_ids[0]-1][0] = problem_key[item.issue_ids[0]-1][0] + 1
+                    problem_key[item.issue_ids[1]-1][0] = problem_key[item.issue_ids[1]-1][0] - 1
+                #end
+                # If 
+                elsif item.answer == item.issue_ids[1]
+                    problem_key[item.issue_ids[0]-1][0] = problem_key[item.issue_ids[0]-1][0] - 1
+                    problem_key[item.issue_ids[1]-1][0] = problem_key[item.issue_ids[1]-1][0] + 1
+                end;   
+            end;    
+        end;
+
+        hi_cnt = problem_key.sort.last[0]
+        offset = hi_cnt-problem_key.sort.first[0]
+        
+        problem_set.each do |k|   
+            entry = 0
+            if (problem_key[k-1][1].to_f) != 0
+                entry = (((problem_key[k-1][0].to_f)/(problem_key[k-1][1].to_f))+1)/2.0
+            end;
+            if i==1
+                temp = idata[k]            
+                idata[k] = {i => entry}
+            else 
+                temp = idata[k]            
+                idata[k] = {i => entry}.merge(temp)
+            end;
+        end;
+    end;
+
+######### WRITE THE CALCULATED DATA TO CSV FILE ###########
+    #TODO: Limit the numbers that are being written here
+    
+    question_Themes = []
+    
+    # TODO questions = Question.all
+    questions = YAML::load_file('db/questions.yml')
+    questions.values.each do |q|
+        question_Themes << q['name']
+    end;
+    
+    problems = []
+    
+    Issue.uniq.each do |i|
+        problems << i.problem
+    end;
+
+    debugger
+
+    csvstr = CSV.generate() do |csv|
+
+      csv << ["ProblemName"] + question_set.map{|i| question_Themes[i-1] }
+      idata.each do |k,v|    
+          #csv << [problems[k-1]] + (question_set.map{|i| v[i].to_s })
+          csv <<  ["#{problems[k-1]}"] + (question_set.map{|i| %Q[#{v[i]}] })
+      end
+    end
+        
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @graphs }
+      format.csv { send_data csvstr }
+    end
+  end
+end
+
 #!/usr/bin/env ruby
 
 # Question Type
@@ -90,111 +217,3 @@
 #
 #    def game_data_extractor
         
-        game_data = GameResult.all
-
-        filename_out = "extracted_data.csv"
-        require 'csv'
-        
-        num_of_entries = game_data.size
-        
-####### IDENTIFY THE BOUNDS OF THE DATASET ########
-              
-        idata = {}
-        question_temp = []
-        problem_temp1 = []
-        problem_temp2 = []
-        user_temp = []
-        
-        game_data.each do |value|
-            question_temp << value.question_id
-            problem_temp1 << value.issue_ids[0]
-            problem_temp1 << value.issue_ids[1]
-            problem_temp2 << value.issue_ids.sort
-            user_temp << value.user_id
-        end;
-        
-        # Define an array of the Question ID's in the subset of data chosen 
-        question_set = question_temp.uniq.sort  
-        
-        # Define an array of the Problem ID's in the subset of data chosen
-        problem_set = problem_temp1.uniq.sort
-        
-        # Define an array of the User ID's in the subset of data chosen
-        user_set = user_temp.uniq.sort
-        
-        # TODO: FIGURE HOW WE WOULD REALLY WANT TO USE THIS VARIABLE
-        unique_pairs = problem_temp2.uniq.length #
-
-######## CALCULATE RANKING DATA FOR ALL QUESTIONS #########
-        # TODO: Double Check this code to verify that unscoped problems initialize to mid-scale
-      
-        problem_set.each do |j|
-            # Create data arrays corresponding for each problem, where each array will have values
-            # corresponding to each of questions in the question_set
-            idata = idata.merge(j => {})
-        end;
-
-        question_set.each do |i|
-            problem_key = Array.new(problem_set.length,0) { Array.new(2,0) };
-
-            game_data.each do |item|
-
-                if item.question_id == i
-                    problem_key[item.issue_ids[0]-1][1] = problem_key[item.issue_ids[0]-1][1] + 1
-                    problem_key[item.issue_ids[1]-1][1] = problem_key[item.issue_ids[1]-1][1] + 1 
-                    
-                    # If 
-                    if item.answer == item.issue_ids[0]
-                        problem_key[item.issue_ids[0]-1][0] = problem_key[item.issue_ids[0]-1][0] + 1
-                        problem_key[item.issue_ids[1]-1][0] = problem_key[item.issue_ids[1]-1][0] - 1
-                    #end
-                    # If 
-                    elsif item.answer == item.issue_ids[1]
-                        problem_key[item.issue_ids[0]-1][0] = problem_key[item.issue_ids[0]-1][0] - 1
-                        problem_key[item.issue_ids[1]-1][0] = problem_key[item.issue_ids[1]-1][0] + 1
-                    end;   
-                end;    
-            end;
-
-            hi_cnt = problem_key.sort.last[0]
-            offset = hi_cnt-problem_key.sort.first[0]
-            
-            problem_set.each do |k|   
-                entry = 0
-                if (problem_key[k-1][1].to_f) != 0
-                    entry = (((problem_key[k-1][0].to_f)/(problem_key[k-1][1].to_f))+1)/2.0
-                end;
-                if i==1
-                    temp = idata[k]            
-                    idata[k] = {i => entry}
-                else 
-                    temp = idata[k]            
-                    idata[k] = {i => entry}.merge(temp)
-                end;
-            end;
-        end;
-
-######### WRITE THE CALCULATED DATA TO CSV FILE ###########
-        #TODO: Limit the numbers that are being written here
-        
-        Question_Themes = []
-        
-        questions = YAML::load_file('db/questions.yml')
-        questions.values.each do |q|
-            Question_Themes << q['name']
-        end;
-        
-        Problems = []
-        
-        Issue.uniq.each do |i|
-            Problems << i.problem
-        end;
-
-        CSV.open("extracted_data.csv","wb") do |csv|
-            csv << ["'Problem Statements'"] + question_set.map{|i| Question_Themes[i-1] }
-            idata.each do |k,v|    
-                csv <<  ["'#{Problems[k-1]}'"] + (question_set.map{|i| %Q['#{v[i]}'] })
-            end
-        end
-        
-            
