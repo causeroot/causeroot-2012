@@ -41,7 +41,6 @@ class GraphsController < ApplicationController
     unique_pairs = problem_temp2.uniq.length #
 
 ######## CALCULATE RANKING DATA FOR ALL QUESTIONS #########
-    # TODO: Double Check this code to verify that unscoped problems initialize to mid-scale
   
     problem_set.each do |j|
         # Create data arrays corresponding for each problem, where each array will have values
@@ -70,15 +69,13 @@ class GraphsController < ApplicationController
                 end;   
             end;    
         end;
-
-        hi_cnt = problem_key.sort.last[0]
-        offset = hi_cnt-problem_key.sort.first[0]
+        
+        boundry_case = problem_key.max_by {|a,b| [a.abs,b.abs].max}
+        offset = [boundry_case[0].abs,boundry_case[1].abs].max
         
         problem_set.each do |k|   
-            entry = 0
-            if (problem_key[k-1][1].to_f) != 0
-                entry = (((problem_key[k-1][0].to_f)/(problem_key[k-1][1].to_f))+1)/2.0
-            end;
+            entry = 0.0
+            entry = (problem_key[k-1][0].to_f)/(offset*2) + 0.5
             if i==1
                 temp = idata[k]            
                 idata[k] = {i => entry}
