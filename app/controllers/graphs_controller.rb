@@ -21,11 +21,13 @@ class GraphsController < ApplicationController
     user_temp = []
     
     game_data.each do |value|
-        question_temp << value.question_id
-        problem_temp1 << value.issue_ids[0]
-        problem_temp1 << value.issue_ids[1]
-        problem_temp2 << value.issue_ids.sort
-        user_temp << value.user_id
+        if value.skip == nil && value.same == nil
+            question_temp << value.question_id
+            problem_temp1 << value.issue_ids[0]
+            problem_temp1 << value.issue_ids[1]
+            problem_temp2 << value.issue_ids.sort
+            user_temp << value.user_id
+        end;
     end;
     
     # Define an array of the Question ID's in the subset of data chosen 
@@ -52,22 +54,23 @@ class GraphsController < ApplicationController
         problem_key = Array.new(problem_set.length,0) { Array.new(2,0) };
 
         game_data.each do |item|
-
-            if item.question_id == i
-                problem_key[item.issue_ids[0]-1][1] = problem_key[item.issue_ids[0]-1][1] + 1
-                problem_key[item.issue_ids[1]-1][1] = problem_key[item.issue_ids[1]-1][1] + 1 
-                
-                # If 
-                if item.answer == item.issue_ids[0]
-                    problem_key[item.issue_ids[0]-1][0] = problem_key[item.issue_ids[0]-1][0] + 1
-                    problem_key[item.issue_ids[1]-1][0] = problem_key[item.issue_ids[1]-1][0] - 1
-                #end
-                # If 
-                elsif item.answer == item.issue_ids[1]
-                    problem_key[item.issue_ids[0]-1][0] = problem_key[item.issue_ids[0]-1][0] - 1
-                    problem_key[item.issue_ids[1]-1][0] = problem_key[item.issue_ids[1]-1][0] + 1
-                end;   
-            end;    
+            # Exclude all entries where the user skipped Q's or said they were the same
+            if value.skip == nil && value.same == nil
+                if item.question_id == i
+                    problem_key[item.issue_ids[0]-1][1] = problem_key[item.issue_ids[0]-1][1] + 1
+                    problem_key[item.issue_ids[1]-1][1] = problem_key[item.issue_ids[1]-1][1] + 1 
+                    
+                    # If 
+                    if item.answer == item.issue_ids[0]
+                        problem_key[item.issue_ids[0]-1][0] = problem_key[item.issue_ids[0]-1][0] + 1
+                        problem_key[item.issue_ids[1]-1][0] = problem_key[item.issue_ids[1]-1][0] - 1
+                    # If 
+                    elsif item.answer == item.issue_ids[1]
+                        problem_key[item.issue_ids[0]-1][0] = problem_key[item.issue_ids[0]-1][0] - 1
+                        problem_key[item.issue_ids[1]-1][0] = problem_key[item.issue_ids[1]-1][0] + 1
+                    end;   
+                end;
+            end;
         end;
         
         boundry_case = problem_key.max_by {|a,b| [a.abs,b.abs].max}
