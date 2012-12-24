@@ -21,7 +21,7 @@ class GraphsController < ApplicationController
     user_temp = []
     
     game_data.each do |value|
-        if value.skip == nil && value.same == nil
+        if value.skip == nil || value.same == nil
             question_temp << value.question_id
             problem_temp1 << value.issue_ids[0]
             problem_temp1 << value.issue_ids[1]
@@ -55,17 +55,16 @@ class GraphsController < ApplicationController
 
         game_data.each do |item|
             # Exclude all entries where the user skipped Q's or said they were the same
-            if value.skip == nil && value.same == nil
+            if item.skip == nil || item.same == nil
                 if item.question_id == i
                     problem_key[item.issue_ids[0]-1][1] = problem_key[item.issue_ids[0]-1][1] + 1
                     problem_key[item.issue_ids[1]-1][1] = problem_key[item.issue_ids[1]-1][1] + 1 
-                    
                     # If 
                     if item.answer == item.issue_ids[0]
                         problem_key[item.issue_ids[0]-1][0] = problem_key[item.issue_ids[0]-1][0] + 1
                         problem_key[item.issue_ids[1]-1][0] = problem_key[item.issue_ids[1]-1][0] - 1
-                    # If 
-                    elsif item.answer == item.issue_ids[1]
+                    end; 
+                    if item.answer == item.issue_ids[1]
                         problem_key[item.issue_ids[0]-1][0] = problem_key[item.issue_ids[0]-1][0] - 1
                         problem_key[item.issue_ids[1]-1][0] = problem_key[item.issue_ids[1]-1][0] + 1
                     end;   
