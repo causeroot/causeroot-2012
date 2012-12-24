@@ -63,8 +63,7 @@ class GraphsController < ApplicationController
                     if item.answer == item.issue_ids[0]
                         problem_key[item.issue_ids[0]-1][0] = problem_key[item.issue_ids[0]-1][0] + 1
                         problem_key[item.issue_ids[1]-1][0] = problem_key[item.issue_ids[1]-1][0] - 1
-                    end; 
-                    if item.answer == item.issue_ids[1]
+                    elsif item.answer == item.issue_ids[1]
                         problem_key[item.issue_ids[0]-1][0] = problem_key[item.issue_ids[0]-1][0] - 1
                         problem_key[item.issue_ids[1]-1][0] = problem_key[item.issue_ids[1]-1][0] + 1
                     end;   
