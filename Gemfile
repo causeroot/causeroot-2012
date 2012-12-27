@@ -64,6 +64,7 @@ group :test, :development do
 end
 
 group :test do
+  gem 'rake'
   gem 'cucumber-rails', :require => false
   gem "capybara"
   # database_cleaner is not required, but highly recommended
