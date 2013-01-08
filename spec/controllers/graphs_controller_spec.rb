@@ -36,9 +36,7 @@ describe GraphsController do
 
   describe "GET index" do
     it "assigns all graphs as @graphs" do
-      graph = Graph.create! valid_attributes
-      get :index, {}, valid_session
-      assigns(:graphs).should eq([graph])
+      pending "luis needs to add a test case for this"
     end
   end
 

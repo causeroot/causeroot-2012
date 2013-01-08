@@ -114,7 +114,7 @@ class GraphsController < ApplicationController
     end
         
     respond_to do |format|
-      format.html # index.html.erb
+#      format.html # index.html.erb
       format.json { render json: @graphs }
       format.csv { send_data csvstr }
     end
