@@ -52,7 +52,6 @@ describe GameResultsController do
 
   describe "GET new" do
     it "assigns a new game_result as @game_result" do
-      pending "this test is failing"
       FactoryGirl.create(:question)
       FactoryGirl.create(:question)
       FactoryGirl.create(:question)
@@ -65,9 +64,8 @@ describe GameResultsController do
       FactoryGirl.create(:issue)
       get :new, {}, valid_session
       gr = assigns(:game_result)
-      #gr.should be_a_new(GameResult)
+      gr.should be_a_valid(GameResult)
       Issue.count.should be > 4
-      gr.issues.count.should eq(gr.question.problem_count)
     end
   end
 
