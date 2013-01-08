@@ -88,14 +88,14 @@ describe GameResultsController do
       end
 
       it "assigns a newly created game_result as @game_result" do
-        post :create, {:game_result => FactoryGirl.attributes_for(:game_result_with_issues)}, valid_session
+        post :create, {:game_result => FactoryGirl.attributes_for(:game_result), issues: ["#{Issue.first.id},#{Issue.last.id}"]}, valid_session
         assigns(:game_result).should be_a(GameResult)
         assigns(:game_result).should be_persisted
       end
 
       it "redirects to the created game_result" do
-        post :create, {:game_result => valid_attributes}, valid_session
-        response.should redirect_to(GameResult.last)
+        post :create, {:game_result => valid_attributes, issues: ["#{Issue.first.id},#{Issue.last.id}"]}, valid_session
+        response.should redirect_to("/game_results/new?notice=Game+result+was+successfully+updated.")
       end
     end
 
@@ -103,14 +103,14 @@ describe GameResultsController do
       it "assigns a newly created but unsaved game_result as @game_result" do
         # Trigger the behavior that occurs when invalid params are submitted
         GameResult.any_instance.stub(:save).and_return(false)
-        post :create, {:game_result => {  }}, valid_session
+        post :create, {:game_result => {  }, issues: ["#{Issue.first.id},#{Issue.last.id}"]}, valid_session
         assigns(:game_result).should be_a_new(GameResult)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         GameResult.any_instance.stub(:save).and_return(false)
-        post :create, {:game_result => {  }}, valid_session
+        post :create, {:game_result => {  }, issues: ["#{Issue.first.id},#{Issue.last.id}"]}, valid_session
         response.should render_template("new")
       end
     end
