@@ -24,7 +24,7 @@ describe GameResultsController do
   # GameResult. As you add validations to GameResult, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    FactoryGirl.build(:game_result).attributes.delete_nil_values
+    FactoryGirl.attributes_for(:game_result)
   end
 
   # This should return the minimal set of values that should be in the session
@@ -83,12 +83,12 @@ describe GameResultsController do
     describe "with valid params" do
       it "creates a new GameResult" do
         expect {
-          post :create, {:game_result => valid_attributes}, valid_session
+          post :create, {:game_result => FactoryGirl.attributes_for(:game_result), issues: ["#{Issue.first.id},#{Issue.last.id}"]}, valid_session
         }.to change(GameResult, :count).by(1)
       end
 
       it "assigns a newly created game_result as @game_result" do
-        post :create, {:game_result => valid_attributes}, valid_session
+        post :create, {:game_result => FactoryGirl.attributes_for(:game_result_with_issues)}, valid_session
         assigns(:game_result).should be_a(GameResult)
         assigns(:game_result).should be_persisted
       end
