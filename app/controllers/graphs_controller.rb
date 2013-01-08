@@ -104,8 +104,6 @@ class GraphsController < ApplicationController
         problems << i.problem
     end;
 
-    debugger
-
     csvstr = CSV.generate() do |csv|
 
       csv << ["Problem Name"] + question_set.map{|i| question_Themes[i-1] }
