@@ -3,16 +3,23 @@
     <head>
         <script type="text/javascript" src="d3.v2.min.js"></script>
     </head>
+    <style>
+    	.nodeText {
+    		font-family: sans-serif;
+    		font-size: 1.1em;
+    	}
+    </style>
     <body>
         <div id="visualisation"></div>
         <script type="text/javascript">
 
- d3.csv("/graphs.csv", dummy);
+ d3.csv("/graphs.csv", createSvgElements);
 
-function dummy(data) {
+function createSvgElements(data) {
 
 
-var theDomIsStupid = 'o';
+var theDomIsStupid = 'o'; // Prefix for DOM entities 
+
 var margin = {top: 40, right: 40, bottom: 40, left: 40},
     width = 960,
     height = 500;
@@ -37,7 +44,7 @@ var svg = d3.select("body").append("svg")
     .attr("width", width)
     .attr("height", height)
     .attr("class", "dot chart")
-  .append("g")
+	.append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 var g = svg.append("g").attr("class", "circles").selectAll("circles")
@@ -55,8 +62,8 @@ var txt = g2.append("svg:text")
     .attr("id", idFunc)
     .attr("x", function(d) {return x(xval(d));})
     .attr("y", function(d) {return y(yval(d));})
-    .attr("dx", function(d) {return rad(d);})
-    .attr("dy", function(d) {return -rad(d);})
+    .attr("dx", function(d) {return 3*rad(d);})
+    .attr("dy", function(d) {return -3*rad(d);})
     .text(function(d) {return d['Problem Name'];})
     .attr("visibility", "hidden");  
 
@@ -87,12 +94,9 @@ svg.append("g")
 svg.append("g")
     .attr("class", "y axis")
     .call(yAxis);
-//  txt.style("fill", "#2f2f3a");
 
-//window.alert('yo');
 var mouseOverFunction = function () {
     var c = d3.select(this);
-    //window.alert('hi');
 }
 
 function pad(scale, k) {
