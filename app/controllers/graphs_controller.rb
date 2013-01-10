@@ -26,6 +26,7 @@ class GraphsController < ApplicationController
             problem_temp1 << value.issue_ids[0]
             problem_temp1 << value.issue_ids[1]
             problem_temp2 << value.issue_ids.sort
+#### TODO: Test to make sure this works correctly when the user eventually "Owns" the issue #####
             user_temp << value.user_id
         end;
     end;
@@ -51,25 +52,27 @@ class GraphsController < ApplicationController
     end;
 
     question_set.each do |i|
-        problem_key = Array.new(problem_set.length,0) { Array.new(2,0) };
+    problem_key = Array.new(problem_set.length,0) { Array.new(2,0) };
 
         game_data.each do |item|
             # Exclude all entries where the user skipped Q's or said they were the same
             if item.skip == nil || item.same == nil
                 if item.question_id == i
-                    problem_key[item.issue_ids[0]-1][1] = problem_key[item.issue_ids[0]-1][1] + 1
-                    problem_key[item.issue_ids[1]-1][1] = problem_key[item.issue_ids[1]-1][1] + 1 
+                    problem_key[problem_set[item.issue_ids[0]-1]][1] = problem_key[problem_set[item.issue_ids[0]-1]][1]+1
+                    problem_key[problem_set[item.issue_ids[1]-1]][1] = problem_key[problem_set[item.issue_ids[1]-1]][1]+1 
+                    
                     # If 
                     if item.answer == item.issue_ids[0]
-                        problem_key[item.issue_ids[0]-1][0] = problem_key[item.issue_ids[0]-1][0] + 1
-                        problem_key[item.issue_ids[1]-1][0] = problem_key[item.issue_ids[1]-1][0] - 1
-                    elsif item.answer == item.issue_ids[1]
-                        problem_key[item.issue_ids[0]-1][0] = problem_key[item.issue_ids[0]-1][0] - 1
-                        problem_key[item.issue_ids[1]-1][0] = problem_key[item.issue_ids[1]-1][0] + 1
-                    end;   
-                end;
-            end;
-        end;
+                        problem_key[problem_set[item.issue_ids[0]-1]][0] = problem_key[problem_set[item.issue_ids[0]-1]][0]+1
+                        problem_key[problem_set[item.issue_ids[1]-1]][0] = problem_key[problem_set[item.issue_ids[1]-1]][0]-1
+                    end
+                    if item.answer == item.issue_ids[1]
+                        problem_key[problem_set[item.issue_ids[0]-1]][0] = problem_key[problem_set[item.issue_ids[0]-1]][0]-1
+                        problem_key[problem_set[item.issue_ids[1]-1]][0] = problem_key[problem_set[item.issue_ids[1]-1]][0]+1
+                    end  
+                end
+            end
+        end
         
         boundry_case = problem_key.max_by {|a,b| [a.abs,b.abs].max}
         offset = [boundry_case[0].abs,boundry_case[1].abs].max
@@ -104,6 +107,8 @@ class GraphsController < ApplicationController
         problems << i.problem
     end;
 
+   # debugger
+
     csvstr = CSV.generate() do |csv|
 
       csv << ["Problem Name"] + question_set.map{|i| question_Themes[i-1] }
@@ -114,12 +119,13 @@ class GraphsController < ApplicationController
     end
         
     respond_to do |format|
-#      format.html # index.html.erb
+      format.html # index.html.erb
       format.json { render json: @graphs }
       format.csv { send_data csvstr }
     end
   end
 end
+
 
 #!/usr/bin/env ruby
 
