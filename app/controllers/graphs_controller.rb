@@ -57,26 +57,27 @@ class GraphsController < ApplicationController
             # Exclude all entries where the user skipped Q's or said they were the same
             if item.skip == nil || item.same == nil
                 if item.question_id == i
-                    problem_key[item.issue_ids[0]-1][1] = problem_key[item.issue_ids[0]-1][1] + 1
-                    problem_key[item.issue_ids[1]-1][1] = problem_key[item.issue_ids[1]-1][1] + 1 
-                    # If 
+                    #problem_key[problem_set.index(item.issue_ids[0])][0] = problem_key[problem_set.index(item.issue_ids[0])][0]+1
+                    #problem_key[problem_set.index(item.issue_ids[1])][1] = problem_key[problem_set.index(item.issue_ids[1])][1]+1 
+                    
                     if item.answer == item.issue_ids[0]
-                        problem_key[item.issue_ids[0]-1][0] = problem_key[item.issue_ids[0]-1][0] + 1
-                        problem_key[item.issue_ids[1]-1][0] = problem_key[item.issue_ids[1]-1][0] - 1
-                    elsif item.answer == item.issue_ids[1]
-                        problem_key[item.issue_ids[0]-1][0] = problem_key[item.issue_ids[0]-1][0] - 1
-                        problem_key[item.issue_ids[1]-1][0] = problem_key[item.issue_ids[1]-1][0] + 1
-                    end;   
-                end;
+                        problem_key[problem_set.index(item.issue_ids[0])][0] = problem_key[problem_set.index(item.issue_ids[0])][0]+1
+                        problem_key[problem_set.index(item.issue_ids[1])][1] = problem_key[problem_set.index(item.issue_ids[1])][1]-1
+                    end
+                    if item.answer == item.issue_ids[1]
+                        problem_key[problem_set.index(item.issue_ids[0])][0] = problem_key[problem_set.index(item.issue_ids[0])][0]-1
+                        problem_key[problem_set.index(item.issue_ids[1])][1] = problem_key[problem_set.index(item.issue_ids[1])][1]+1
+                    end  
+                end
             end;
         end;
-        
+
         boundry_case = problem_key.max_by {|a,b| [a.abs,b.abs].max}
         offset = [boundry_case[0].abs,boundry_case[1].abs].max
         
         problem_set.each do |k|   
             entry = 0.0
-            entry = (problem_key[k-1][0].to_f)/(offset*2) + 0.5
+            entry = (problem_key[problem_set.index(k)][0].to_f+problem_key[problem_set.index(k)][1].to_f )/(offset*2) + 0.5
             if i==1
                 temp = idata[k]            
                 idata[k] = {i => entry}
