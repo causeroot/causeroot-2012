@@ -61,6 +61,7 @@ group :test, :development do
   gem "factory_girl_rails", "~> 4.0"
   gem "faker"
   gem "foreman"
+  gem 'yaml_db'
 end
 
 group :test do
