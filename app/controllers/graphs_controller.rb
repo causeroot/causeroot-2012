@@ -7,10 +7,8 @@ class GraphsController < ApplicationController
     #@graphs = Graph.all
 
     @game_data = GameResult.all
-    
 
     filename_out = "extracted_data.csv"
-    
     num_of_entries = @game_data.size
     
 ####### IDENTIFY THE BOUNDS OF THE DATASET ########
