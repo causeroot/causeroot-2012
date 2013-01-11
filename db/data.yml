@@ -1,0 +1,616 @@
+
+---
+users:
+  columns:
+  - id
+  - username
+  - email
+  - crypted_password
+  - salt
+  - created_at
+  - updated_at
+  - remember_me_token
+  - remember_me_token_expires_at
+  - last_login_at
+  - last_logout_at
+  - last_activity_at
+  - reset_password_token
+  - reset_password_token_expires_at
+  - reset_password_email_sent_at
+  records: 
+  - - 9
+    - testuser5
+    - testuser5@causeroot.org
+    - $2a$10$lhAUFFDGafqihxwUC6lrweKu2IHEcZKu/UU4RKtHXL2DMEWJ8RvOu
+    - DcPyBBCEevsrkyoCp374
+    - '2013-01-08 07:20:26.779416'
+    - '2013-01-08 07:20:26.779416'
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+  - - 10
+    - testuser1
+    - testuser1@causeroot.org
+    - $2a$10$WmPeu67hhQiSxXyz84.SmO3du/rPnhMNykHiT1xWteCSqjemDqa2W
+    - nD7bkvtq3Q22HjZGBkQC
+    - '2013-01-08 07:23:27.336266'
+    - '2013-01-08 07:23:27.336266'
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+
+---
+questions:
+  columns:
+  - id
+  - name
+  - question
+  - problem_count
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - Importance
+    - Which is more important to you?
+    - 2
+    - '2013-01-08 01:23:50.892812'
+    - '2013-01-08 01:23:50.892812'
+  - - 2
+    - Immediacy
+    - Which is more of immediate concern to you?
+    - 2
+    - '2013-01-08 01:23:50.901855'
+    - '2013-01-08 01:23:50.901855'
+  - - 3
+    - Complexity
+    - Which of these do you believe is a more complex problem?
+    - 2
+    - '2013-01-08 01:23:50.907447'
+    - '2013-01-08 01:23:50.907447'
+  - - 4
+    - Cost
+    - Which of these do you believe will cost more to address?
+    - 2
+    - '2013-01-08 01:23:50.912956'
+    - '2013-01-08 01:23:50.912956'
+  - - 5
+    - Maiores totam officia quas earum voluptatem sed.1
+    - Exercitationem itaque aut in placeat. Vero nam cumque nihil voluptas. Illum
+      aliquam aut eius incidunt. Nihil aliquam quaerat et a harum.1
+    - 2
+    - '2013-01-08 01:26:13.099083'
+    - '2013-01-08 01:26:13.099083'
+  - - 6
+    - Illo ex eveniet ipsum natus.1
+    - Cupiditate ratione sequi soluta. Sapiente repudiandae eveniet ut sit et. Ullam
+      voluptas consequuntur sunt. Rerum corporis sit et iusto quis fugit. Aliquid
+      cumque beatae.1
+    - 2
+    - '2013-01-08 07:10:14.211814'
+    - '2013-01-08 07:10:14.211814'
+  - - 7
+    - Exercitationem nam debitis velit accusamus.2
+    - Ut iusto sit et repudiandae vel ut nesciunt. Aut doloremque asperiores. Iste
+      provident aspernatur atque expedita. Harum voluptas ut quaerat itaque.2
+    - 2
+    - '2013-01-08 07:10:45.641205'
+    - '2013-01-08 07:10:45.641205'
+  - - 8
+    - Dolores impedit amet repellat eos hic vel.3
+    - Officia blanditiis veniam. Eveniet molestiae voluptatibus. Velit ducimus adipisci
+      in sequi et quia vel. Et voluptatem perspiciatis et eligendi illo dolorum. Exercitationem
+      placeat eos harum voluptas officiis alias.3
+    - 2
+    - '2013-01-08 07:10:55.506021'
+    - '2013-01-08 07:10:55.506021'
+  - - 9
+    - Sit vel harum non.4
+    - Rem magnam distinctio. Aut blanditiis fuga aut autem hic recusandae quis. Ad
+      ut error quia quis sed quo.4
+    - 2
+    - '2013-01-08 07:11:44.884758'
+    - '2013-01-08 07:11:44.884758'
+  - - 10
+    - Veritatis praesentium consequatur vel cupiditate tempore odit recusandae.1
+    - Et iusto nostrum laboriosam iure a. Quam enim assumenda est. Fugiat molestiae
+      sit sed ea suscipit. Harum ut molestiae. Ea cupiditate sunt sequi.1
+    - 2
+    - '2013-01-08 07:14:59.475024'
+    - '2013-01-08 07:14:59.475024'
+  - - 11
+    - Facilis quis eum accusamus dicta exercitationem et inventore.2
+    - Totam provident rem deleniti aut rerum. Voluptas similique harum. Sapiente dolorem
+      consequatur sed odio enim ipsa illum.2
+    - 2
+    - '2013-01-08 07:19:04.395328'
+    - '2013-01-08 07:19:04.395328'
+  - - 12
+    - Qui et molestiae illum nobis ut rerum.1
+    - Reprehenderit molestias consectetur amet et neque. Et nesciunt maiores dignissimos.
+      Iure labore aut dolorem et consequatur enim corporis.1
+    - 2
+    - '2013-01-08 07:23:27.440324'
+    - '2013-01-08 07:23:27.440324'
+
+---
+issues:
+  columns:
+  - id
+  - problem
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - Proliferation of Genetically Modified Food
+    - '2013-01-08 01:23:50.956923'
+    - '2013-01-08 01:23:51.139599'
+  - - 2
+    - The magnitude of US debt
+    - '2013-01-08 01:23:51.144950'
+    - '2013-01-08 01:23:51.163411'
+  - - 3
+    - The War on Drugs
+    - '2013-01-08 01:23:51.167794'
+    - '2013-01-08 01:23:51.185800'
+  - - 4
+    - Drinking and Driving
+    - '2013-01-08 01:23:51.189424'
+    - '2013-01-08 01:23:51.206634'
+  - - 5
+    - The lack of moral conviction in American Society
+    - '2013-01-08 01:23:51.211652'
+    - '2013-01-08 01:23:51.230320'
+  - - 6
+    - The Middle Eastern Conflict
+    - '2013-01-08 01:23:51.234656'
+    - '2013-01-08 01:23:51.253202'
+  - - 7
+    - The increase of Greenhouse gases
+    - '2013-01-08 01:23:51.257454'
+    - '2013-01-08 01:23:51.276448'
+  - - 8
+    - Proliferation of Nuclear Weapons
+    - '2013-01-08 01:23:51.281137'
+    - '2013-01-08 01:23:51.298832'
+  - - 9
+    - Ipsam dolorum temporibus laboriosam.1
+    - '2013-01-08 07:15:30.177119'
+    - '2013-01-08 07:15:30.177119'
+  - - 10
+    - Rem necessitatibus et quae.2
+    - '2013-01-08 07:15:31.745781'
+    - '2013-01-08 07:15:31.745781'
+  - - 11
+    - Error beatae deleniti placeat nostrum.1
+    - '2013-01-08 07:23:27.572130'
+    - '2013-01-08 07:23:27.572130'
+  - - 12
+    - Iure voluptatem provident neque doloremque deleniti vero at perferendis.2
+    - '2013-01-08 07:23:27.584762'
+    - '2013-01-08 07:23:27.584762'
+
+---
+causes:
+  columns:
+  - id
+  - issue_id
+  - cause
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - 1
+    - MyText
+    - '2013-01-08 01:23:51.104397'
+    - '2013-01-08 01:23:51.110541'
+  - - 2
+    - 2
+    - MyText
+    - '2013-01-08 01:23:51.148977'
+    - '2013-01-08 01:23:51.152429'
+  - - 3
+    - 3
+    - MyText
+    - '2013-01-08 01:23:51.172026'
+    - '2013-01-08 01:23:51.175189'
+  - - 4
+    - 4
+    - MyText
+    - '2013-01-08 01:23:51.193541'
+    - '2013-01-08 01:23:51.196681'
+  - - 5
+    - 5
+    - MyText
+    - '2013-01-08 01:23:51.216591'
+    - '2013-01-08 01:23:51.219923'
+  - - 6
+    - 6
+    - MyText
+    - '2013-01-08 01:23:51.239277'
+    - '2013-01-08 01:23:51.243078'
+  - - 7
+    - 7
+    - MyText
+    - '2013-01-08 01:23:51.261451'
+    - '2013-01-08 01:23:51.264853'
+  - - 8
+    - 8
+    - MyText
+    - '2013-01-08 01:23:51.285128'
+    - '2013-01-08 01:23:51.288761'
+
+---
+effects:
+  columns:
+  - id
+  - issue_id
+  - effect
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - 1
+    - MyText
+    - '2013-01-08 01:23:51.128908'
+    - '2013-01-08 01:23:51.135047'
+  - - 2
+    - 2
+    - MyText
+    - '2013-01-08 01:23:51.156143'
+    - '2013-01-08 01:23:51.159739'
+  - - 3
+    - 3
+    - MyText
+    - '2013-01-08 01:23:51.178894'
+    - '2013-01-08 01:23:51.182502'
+  - - 4
+    - 4
+    - MyText
+    - '2013-01-08 01:23:51.200014'
+    - '2013-01-08 01:23:51.203575'
+  - - 5
+    - 5
+    - MyText
+    - '2013-01-08 01:23:51.223604'
+    - '2013-01-08 01:23:51.227518'
+  - - 6
+    - 6
+    - MyText
+    - '2013-01-08 01:23:51.246772'
+    - '2013-01-08 01:23:51.250253'
+  - - 7
+    - 7
+    - MyText
+    - '2013-01-08 01:23:51.268254'
+    - '2013-01-08 01:23:51.271207'
+  - - 8
+    - 8
+    - MyText
+    - '2013-01-08 01:23:51.291892'
+    - '2013-01-08 01:23:51.295497'
+
+---
+game_results:
+  columns:
+  - id
+  - user_id
+  - question_id
+  - answer
+  - same
+  - skip
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - 1
+    - 5
+    - 1
+    - false
+    - false
+    - '2013-01-08 01:26:13.107223'
+    - '2013-01-08 01:26:13.107223'
+  - - 2
+    - 2
+    - 6
+    - 1
+    - false
+    - false
+    - '2013-01-08 07:10:14.220260'
+    - '2013-01-08 07:10:14.220260'
+  - - 3
+    - 3
+    - 7
+    - 1
+    - false
+    - false
+    - '2013-01-08 07:10:45.646988'
+    - '2013-01-08 07:10:45.646988'
+  - - 4
+    - 4
+    - 8
+    - 1
+    - false
+    - false
+    - '2013-01-08 07:10:55.511065'
+    - '2013-01-08 07:10:55.511065'
+  - - 5
+    - 5
+    - 9
+    - 1
+    - false
+    - false
+    - '2013-01-08 07:11:44.890835'
+    - '2013-01-08 07:11:44.890835'
+  - - 6
+    - 6
+    - 10
+    - 1
+    - false
+    - false
+    - '2013-01-08 07:14:59.484036'
+    - '2013-01-08 07:14:59.484036'
+  - - 7
+    - 7
+    - 11
+    - 1
+    - false
+    - false
+    - '2013-01-08 07:19:04.400702'
+    - '2013-01-08 07:19:04.400702'
+  - - 8
+    - 10
+    - 12
+    - 1
+    - false
+    - false
+    - '2013-01-08 07:23:27.448873'
+    - '2013-01-08 07:23:27.448873'
+  - - 9
+    - 
+    - 3
+    - 7
+    - false
+    - false
+    - '2013-01-08 07:57:02.788895'
+    - '2013-01-08 07:57:02.788895'
+  - - 10
+    - 
+    - 3
+    - 1
+    - false
+    - false
+    - '2013-01-08 07:57:04.641316'
+    - '2013-01-08 07:57:04.641316'
+  - - 11
+    - 
+    - 8
+    - 3
+    - false
+    - false
+    - '2013-01-11 06:09:02.814798'
+    - '2013-01-11 06:09:02.814798'
+  - - 12
+    - 
+    - 11
+    - 3
+    - false
+    - false
+    - '2013-01-11 06:09:03.848713'
+    - '2013-01-11 06:09:03.848713'
+  - - 13
+    - 
+    - 2
+    - 8
+    - false
+    - false
+    - '2013-01-11 06:09:04.991195'
+    - '2013-01-11 06:09:04.991195'
+  - - 14
+    - 
+    - 2
+    - 4
+    - false
+    - false
+    - '2013-01-11 06:09:05.916886'
+    - '2013-01-11 06:09:05.916886'
+  - - 15
+    - 
+    - 12
+    - 5
+    - false
+    - false
+    - '2013-01-11 06:09:07.137117'
+    - '2013-01-11 06:09:07.137117'
+  - - 16
+    - 
+    - 12
+    - 6
+    - false
+    - false
+    - '2013-01-11 06:09:08.041047'
+    - '2013-01-11 06:09:08.041047'
+  - - 17
+    - 
+    - 3
+    - 2
+    - false
+    - false
+    - '2013-01-11 06:09:12.615686'
+    - '2013-01-11 06:09:12.615686'
+  - - 18
+    - 
+    - 12
+    - 3
+    - false
+    - false
+    - '2013-01-11 06:09:13.782554'
+    - '2013-01-11 06:09:13.782554'
+  - - 19
+    - 
+    - 1
+    - 8
+    - false
+    - false
+    - '2013-01-11 06:09:15.001847'
+    - '2013-01-11 06:09:15.001847'
+
+---
+game_results_issues:
+  columns:
+  - id
+  - issue_id
+  - game_result_id
+  records: 
+  - - 1
+    - 9
+    - 6
+  - - 2
+    - 10
+    - 6
+  - - 3
+    - 11
+    - 8
+  - - 4
+    - 12
+    - 8
+  - - 5
+    - 7
+    - 9
+  - - 6
+    - 9
+    - 9
+  - - 7
+    - 1
+    - 10
+  - - 8
+    - 5
+    - 10
+  - - 9
+    - 3
+    - 11
+  - - 10
+    - 10
+    - 11
+  - - 11
+    - 3
+    - 12
+  - - 12
+    - 1
+    - 12
+  - - 13
+    - 8
+    - 13
+  - - 14
+    - 1
+    - 13
+  - - 15
+    - 4
+    - 14
+  - - 16
+    - 9
+    - 14
+  - - 17
+    - 5
+    - 15
+  - - 18
+    - 6
+    - 15
+  - - 19
+    - 6
+    - 16
+  - - 20
+    - 4
+    - 16
+  - - 21
+    - 2
+    - 17
+  - - 22
+    - 8
+    - 17
+  - - 23
+    - 3
+    - 18
+  - - 24
+    - 8
+    - 18
+  - - 25
+    - 8
+    - 19
+  - - 26
+    - 11
+    - 19
+
+---
+flagged_issues:
+  columns:
+  - id
+  - game_result_id
+  - issue_id
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - 9
+    - 
+    - '2013-01-08 07:57:02.834536'
+    - '2013-01-08 07:57:02.834536'
+  - - 2
+    - 10
+    - 
+    - '2013-01-08 07:57:04.648797'
+    - '2013-01-08 07:57:04.648797'
+  - - 3
+    - 11
+    - 
+    - '2013-01-11 06:09:02.867063'
+    - '2013-01-11 06:09:02.867063'
+  - - 4
+    - 12
+    - 
+    - '2013-01-11 06:09:03.864685'
+    - '2013-01-11 06:09:03.864685'
+  - - 5
+    - 13
+    - 
+    - '2013-01-11 06:09:05.008653'
+    - '2013-01-11 06:09:05.008653'
+  - - 6
+    - 14
+    - 
+    - '2013-01-11 06:09:05.925219'
+    - '2013-01-11 06:09:05.925219'
+  - - 7
+    - 15
+    - 
+    - '2013-01-11 06:09:07.145034'
+    - '2013-01-11 06:09:07.145034'
+  - - 8
+    - 16
+    - 
+    - '2013-01-11 06:09:08.048958'
+    - '2013-01-11 06:09:08.048958'
+  - - 9
+    - 17
+    - 
+    - '2013-01-11 06:09:12.622290'
+    - '2013-01-11 06:09:12.622290'
+  - - 10
+    - 18
+    - 
+    - '2013-01-11 06:09:13.789287'
+    - '2013-01-11 06:09:13.789287'
+  - - 11
+    - 19
+    - 
+    - '2013-01-11 06:09:15.010476'
+    - '2013-01-11 06:09:15.010476'
