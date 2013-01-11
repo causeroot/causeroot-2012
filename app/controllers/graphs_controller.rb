@@ -6,11 +6,12 @@ class GraphsController < ApplicationController
   def index
     #@graphs = Graph.all
 
-    game_data = GameResult.all
+    @game_data = GameResult.all
+    
 
     filename_out = "extracted_data.csv"
     
-    num_of_entries = game_data.size
+    num_of_entries = @game_data.size
     
 ####### IDENTIFY THE BOUNDS OF THE DATASET ########
           
@@ -20,7 +21,7 @@ class GraphsController < ApplicationController
     problem_temp2 = []
     user_temp = []
     
-    game_data.each do |value|
+    @game_data.each do |value|
         if value.skip == nil || value.same == nil
             question_temp << value.question_id
             problem_temp1 << value.issue_ids[0]
@@ -53,7 +54,7 @@ class GraphsController < ApplicationController
     question_set.each do |i|
         problem_key = Array.new(problem_set.length,0) { Array.new(2,0) };
 
-        game_data.each do |item|
+        @game_data.each do |item|
             # Exclude all entries where the user skipped Q's or said they were the same
             if item.skip == nil || item.same == nil
                 if item.question_id == i
@@ -212,5 +213,5 @@ end
 
 # class GameDataController #< ApplicationController
 #
-#    def game_data_extractor
+#    def @game_data_extractor
         

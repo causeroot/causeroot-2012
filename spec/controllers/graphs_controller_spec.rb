@@ -35,9 +35,11 @@ describe GraphsController do
   end
 
   describe "GET index" do
-    it "assigns all graphs as @graphs" do
-      pending "luis needs to add a test case for this"
+    it "it takes game results and outputs csv" do
+        get :index, :format => :json
+        response.should be_success
+        body = JSON.parse(response.body)
+        YAML::dump(body)
     end
   end
-
 end
