@@ -25,5 +25,3 @@ questions.each {|key, value| Question.create(value) }
         i.save
 end
 
-game_result = YAML::load_file('db/game_result.yml')
-game_result.each {|key, value| GameResult.create(value) }
