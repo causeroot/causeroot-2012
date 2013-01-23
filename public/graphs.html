@@ -66,7 +66,8 @@ var txt = g2.append("svg:text")
     .attr("dx", function(d) {return 3*rad(d);})
     .attr("dy", function(d) {return -3*rad(d);})
     .text(function(d) {return d['Problem Name'];})
-    .attr("visibility", "hidden");  
+    .attr("visibility", "hidden")
+    .attr('x', fixXValue);
 
 var circles = g.append("svg:circle")
     .attr("class", "dot")
@@ -81,7 +82,6 @@ var circles = g.append("svg:circle")
 	.on("mouseout", function(){
 	    d3.select(".text").select('#'+this.id+'t')
                 .attr("visibility","hidden");});
-
 
 function idFunc(d) {
 	return theDomIsStupid+hash(d['Problem Name']);
@@ -98,6 +98,18 @@ svg.append("g")
 
 var mouseOverFunction = function () {
     var c = d3.select(this);
+}
+
+function fixXValue() {
+	var textWidth = parseInt(d3.select('.text').select('#' + this.id)[0][0]
+					.getComputedTextLength()) + margin.left +
+					parseInt(this.getAttribute('dx')); // additions due to padding and shift.
+	var textX = parseInt(this.getAttribute('x'));
+	var textEnd = textX + textWidth;
+	if (textEnd > width) { //Sorry
+		return width - textWidth;
+	}
+	return textX;
 }
 
 function pad(scale, k) {
