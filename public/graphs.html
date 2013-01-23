@@ -6,6 +6,7 @@
     <style>
     	.nodeText {
     		font-family: sans-serif;
+    		font: arial;
     		font-size: 1.1em;
     	}
     </style>
@@ -59,7 +60,7 @@ var g2 = svg.append("g").attr("class", "text").selectAll("text")
 
 var txt = g2.append("svg:text")
     .attr("class", "nodeText")
-    .attr("id", idFunc)
+    .attr("id", function(d){return idFunc(d)+'t';})
     .attr("x", function(d) {return x(xval(d));})
     .attr("y", function(d) {return y(yval(d));})
     .attr("dx", function(d) {return 3*rad(d);})
@@ -75,10 +76,10 @@ var circles = g.append("svg:circle")
     .attr("r", function(d) { return 4*rad(d); })
     .attr("fill", function(d) { return cinterp(d.Cost);})
     .on("mouseover", function(){
-        d3.select(".text").select('#'+this.id)
+        d3.select(".text").select('#'+this.id+'t')
                 .attr("visibility","visible");})
 	.on("mouseout", function(){
-	    d3.select(".text").select('#'+this.id)
+	    d3.select(".text").select('#'+this.id+'t')
                 .attr("visibility","hidden");});
 
 
@@ -86,14 +87,14 @@ function idFunc(d) {
 	return theDomIsStupid+hash(d['Problem Name']);
 }
 
-svg.append("g")
+/*svg.append("g")
     .attr("class", "x axis")
     .attr("transform", "translate(0," + y.range()[0] + ")")
     .call(xAxis);
 
 svg.append("g")
     .attr("class", "y axis")
-    .call(yAxis);
+    .call(yAxis);*/
 
 var mouseOverFunction = function () {
     var c = d3.select(this);
