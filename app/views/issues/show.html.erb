@@ -6,13 +6,17 @@
 </p>
 
 <p>
-  <b>Cause:</b>
-  <%= @issue.cause_id %>
+  <b>Causes:</b>
+  <% @issue.causes.each do |cause| %>
+    <p><%= cause.cause %></p>
+  <% end %>
 </p>
 
 <p>
   <b>Effect:</b>
-  <%= @issue.effect_id %>
+  <% @issue.effects.each do |effect| %>
+    <p><%= effect.effect %></p>
+  <% end %>
 </p>
 
 

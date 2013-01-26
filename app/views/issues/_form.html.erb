@@ -10,20 +10,76 @@
       </ul>
     </div>
   <% end %>
+	<div class="form-content">
+		<h1>STATE YOUR ISSUE</h1>
+		<div class='TextBoxesGroup'>
+			<div class="TextBoxDiv">
+				<%= f.text_area :problem, :placeholder => "Identify the Issue you are most passionate about.2", :class => 'textbox', :id => 'issue_field1', :wrap => 'physical' %>
+			</div>
+		</div>
+	</div>	
+	
+	<div class="form-content">
+		<h1>CAUSES: WHAT ARE THE PROBLEMS WHICH PROVOKE THIS?</h1>
+		<div>
+			<div id='TextBoxesGroup1'>
+				<div id="TextBoxDiv1">
+					<table>
+						<tbody id="tblBody">
+							<tr>
+                                                          <%= f.fields_for :causes do |cause_form| %>
+                                                            <%= cause_form.text_area :cause, :placeholder => "Problems leading to the Issue mentioned above.", :class => 'textbox', :id => 'causes_field1', :wrap => 'physical' %>
+                                                            <% end %>
+							</tr>			
+						</tbody>
+					</table>
+				</div>
+			</div>	    					
+		</div>
+		<div class="add_problems">
+			<div class="expand_box" id="causes_box">
+				<p>+</p>
+			</div>
+			<input name="count" type="hidden" id="count" value=""/>
+			<input name="add" type="button" class="button" id="add" value="Add an Additional Problem" onClick="addField('tblBody');"/>
+		</div>	
+	</div>
+
+        <br />
+	
+	<div class="form-content">
+		<h1>EFFECTS: WHAT ARE PROBLEMS THAT THIS CREATES?</h1>
+		<div>
+			<div id='TextBoxesGroup2'>
+				<div id="TextBoxDiv2">
+					<table>
+						<tbody id="tblBody2">
+							<tr>
+                                                          <%= f.fields_for :effects do |effect_form| %>
+                                                            <%= effect_form.text_area :effect, :placeholder => "Effects of the Issue mentioned above. Please list one at a time.", :class => 'textbox', :id => 'effects_field1', :wrap => 'physical' %>
+                                                            <% end %>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>	
+		<div class="add_problems">
+			<div class="expand_box" id="effects_box">
+			<p>+</p>
+			</div>
+			<input name="count" type="hidden" id="count2" value=""/>
+			<input name="add" type="button" class="button" id="add2" value="Add an Additional Problem" onClick="addField('tblBody2');"/>
+		</div>			
+		<div class="submit_button">
+		<div class="actions">
+			<%= f.submit %>
+		</div>
+			<p><input type="submit" value="submit!" /></p>
+		</div>
+	</div>		
 
   <div class="field">
     <%= f.label :problem %><br />
-    <%= f.text_area :problem %>
-  </div>
-  <div class="field">
-    <%= f.label :cause_id %><br />
-    <%= f.number_field :cause_id %>
-  </div>
-  <div class="field">
-    <%= f.label :effect_id %><br />
-    <%= f.number_field :effect_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
   </div>
 <% end %>
