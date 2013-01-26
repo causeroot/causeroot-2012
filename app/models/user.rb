@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-	authenticates_with_sorcery!
+  authenticates_with_sorcery!
 	
   attr_accessible :username, :email, :password, :password_confirmation
   acts_as_tagger
