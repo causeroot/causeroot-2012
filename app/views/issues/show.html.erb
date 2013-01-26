@@ -6,6 +6,13 @@
 </p>
 
 <p>
+<b>Owner:</b>
+    <%= @issue.user.username %>
+</p>
+
+<p>
+
+<p>
   <b>Causes:</b>
   <% @issue.causes.each do |cause| %>
     <p><%= cause.cause %></p>
