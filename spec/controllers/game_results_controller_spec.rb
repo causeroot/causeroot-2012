@@ -20,7 +20,12 @@ require 'spec_helper'
 
 describe GameResultsController do
 
-  # This should return the minimal set of attributes required to create a valid
+  before(:each) do
+    @user = FactoryGirl.create(:user) 
+    login_user
+  end
+
+  # This should return the minimal set of attributes required to create a valie
   # GameResult. As you add validations to GameResult, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
@@ -37,7 +42,7 @@ describe GameResultsController do
   describe "GET index" do
     it "assigns all game_results as @game_results" do
       game_result = GameResult.create! valid_attributes
-      get :index, {}, valid_session
+     get :index, {}, valid_session
       assigns(:game_results).should eq([game_result])
     end
   end

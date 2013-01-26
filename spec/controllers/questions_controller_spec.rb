@@ -20,6 +20,11 @@ require 'spec_helper'
 
 describe QuestionsController do
 
+  before(:each) do
+    @user = FactoryGirl.create(:user)
+    login_user
+  end
+
   # This should return the minimal set of attributes required to create a valid
   # Question. As you add validations to Question, be sure to
   # update the return value of this method accordingly.
