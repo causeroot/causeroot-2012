@@ -58,6 +58,7 @@ class GameResultsController < ApplicationController
     # Save user, result 
     @game_result = GameResult.new(params[:game_result])
     @game_result.user = current_user
+    @game_result.save
     params[:issues].each do |issue_id|
       @game_result.issues << Issue.find(issue_id.last)
     end
