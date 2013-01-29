@@ -1,3 +1,10 @@
+<img align="right" src="http://treat.cc/job/causeroot-develop/rcov/graph" alt="code coverage" />
+Status
+======
+[![Build Status](http://treat.cc/job/causeroot-develop/badge/icon)](http://treat.cc/job/causeroot-develop/)
+
+https://www.pivotaltracker.com/projects/562917
+
 Get Ready
 ======
 * Sign up for github: https://github.com/signup/free
