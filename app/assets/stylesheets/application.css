@@ -21,6 +21,7 @@ html, body {
 
 a { text-decoration: none; }	
 
+
 #page_wrapper {
 	margin-left: auto;
 	margin-right: auto;
@@ -322,69 +323,120 @@ h1 {
 .game-content {
 	width: 600px;
 	margin-top: 80px;
-	margin-left: 200px;
+	margin-left: 30px;
 	}
-
+	
 #a_b_question_area {
-	position: relative;
-	padding-top: 40px;
+	display: inline-block;
+	padding-top: 30px;
 }	
 
 #a_b_question_header {
 	text-align: center;
 }
+
+.question_area {
 	
+}	
+
+.button_header {
+	width: 280px;
+	height: 30px;
+	border-radius: 5px 5px 0px 0px;
+	background: #B3BFCD;
+	text-align: center;
+	cursor: pointer;
+	font-family: Arial;
+	font-size: 17px;
+	color: white;
+	border: none;
+	}
+
+.button_header:hover {
+	background: #F7941D;
+	color: white;
+	}
+	
+.a_b_content:hover {
+	background: #FEE8C9; 
+	color: black;
+	}
+		
 .a_b_content {	
+	background: #E9EFF5;
 	font-size: 14px;
 	font-family: Arial;
 	margin-top: 0px;
 	padding: 20px;
 	text-align: center;
-	width: 250px;
-	}
-
-	
-.button_space {
-	width: 250px;
-	padding: 40px;
-	margin-top: 30px;
-	margin-right:80px;
-	}
-	
-.a_b_button {
-	width: 212px;
-	height: 57px;
-	border-radius: 5px;
-	background: #C0C0C0;
-	margin: auto;
-	margin-top: 60px;
-	margin-bottom: 50px;
-	text-align: center;
-	cursor: pointer;
-	font-family: Arial;
-	font-size: 21px;
-	color: #606060;
+	width: 280px;
+	height: 120px;
+	border-radius: 0px 0px 5px 5px;
 	border: none;
-	} 	
-
-.a_b_button:hover {
-	background: #F7941D;
-	color: #cc6600;
-	} 			
-
-.progress_bar_wrap {
-	text-align: center;
-	}
+	cursor: pointer;
+	text-wrap: suppress;
+	}		
 		
-.progress_bar {
-	margin-left: 5px;
-	background-color: #C0C0C0;
-	width: 8px;
-	height: 8px;
-	border-radius: 5px;
-	display: inline-block;
-	
+.flag {
+	border: none;
+	color: #808080;
+	background: none;
+	font-family: Arial;
+	font-size: 11px;
+	cursor: pointer;
+	padding: 0px 3px;
+
 	}
+
+.flag_issue {
+	position: relative;
+	z-index: 1;
+}
+
+.flag:hover {
+	color: #BE1E2D;
+}	
+	
+.skip_same_wrap {
+	text-align: right;
+	padding-top: 40px;
+	float: right;
+	}
+	
+#same_issue p {
+	margin-top: 0;
+	color: #808080;
+	font-family: Arial;
+	font-size: 11px;
+	display: inline-block;
+	padding: 0px 6px;
+	}
+
+#skip_question p {
+	margin-top: 10;
+	color: #808080;
+	font-family: Arial;
+	font-size: 11px;
+	display: inline-block;
+	padding: 0px 6px;
+	}
+
+#same_issue p:hover {
+	cursor: pointer;
+	color: #1C75BC;
+	}
+	
+#skip_question p:hover {
+	cursor: pointer;
+	color: #1C75BC;
+	}
+
+#skip_same_line {
+	background-color: #C8C8C8;
+	width: 190px;
+	height: 1px;
+	
+}
 	
 .whitespace {
 	height: 30px;
