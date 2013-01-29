@@ -1,4 +1,4 @@
-<img align="right" src="http://treat.cc/job/causeroot-develop/rcov/graph" alt="code coverage" />
+<a href="http://treat.cc/job/causeroot-develop/lastSuccessfulBuild/rcov/"><img align="right" src="http://treat.cc/job/causeroot-develop/rcov/graph" alt="code coverage" /></a>
 Status
 ======
 [![Build Status](http://treat.cc/job/causeroot-develop/badge/icon)](http://treat.cc/job/causeroot-develop/)
