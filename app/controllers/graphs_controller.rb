@@ -3,6 +3,9 @@ require 'csv'
 class GraphsController < ApplicationController
   # GET /graphs
   # GET /graphs.json
+  
+  caches_action :index, :expires_in => 600
+  
   def index
     #@graphs = Graph.all
 
