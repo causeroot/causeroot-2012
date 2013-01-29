@@ -8,7 +8,12 @@
     		font-family: sans-serif;
     		font: arial;
     		font-size: 1.1em;
-    	.text
+    	}
+    	.dark {
+    		fill: black;
+    	}
+    	.light {
+    		fill: #666666;
     	}
     </style>
     <body>
@@ -23,7 +28,7 @@ function createSvgElements(data) {
 var theDomIsStupid = 'o'; // Prefix for DOM entities 
 
 var margin = {top: 40, right: 40, bottom: 40, left: 40},
-    width = 960,
+    width = 700,
     height = 500,
     halfHeight = Math.floor(height / 2),
     halfWidth = Math.floor(width / 2);
@@ -36,19 +41,16 @@ var y = pad(d3.scale.linear()
     .domain(d3.extent(data, function(d) { return yval(d); }))
     .range([height - margin.top - margin.bottom, 0]), 40);
 
-/*var xAxis = d3.svg.axis().scale(x)
-    .orient("bottom");
-
-var yAxis = d3.svg.axis()
-    .scale(y)
-    .orient("left");*/
-
 var svg = d3.select("body").append("svg")
     .attr("width", width)
     .attr("height", height)
     .attr("class", "dot chart")
 	.append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+var axisColor = '#AAAAAA';
+
+var legend = svg.append('g').attr('class', 'nodeText light');
 
 var xLine = svg.append("svg:line")
 				.attr("class", "line")
@@ -57,7 +59,7 @@ var xLine = svg.append("svg:line")
 				.attr("y1", halfHeight)
 				.attr("x2", width)
 				.attr("y2", halfHeight)
-				.attr("stroke", "black");
+				.attr("stroke", axisColor);
 
 var yLine = svg.append("svg:line")
 				.attr("class", "line")
@@ -66,23 +68,30 @@ var yLine = svg.append("svg:line")
 				.attr("y1", 0)
 				.attr("x2", halfWidth)
 				.attr("y2", height)
-				.attr("stroke", "black");
+				.attr("stroke", axisColor);
 
-var legend = svg.append("svg:text")
-				.text('x-Axis: Importance')
-				.attr('class', 'nodeText');
-var legend2 = svg.append("svg:text")
-				.text('y-Axis: Immediacy')
-				.attr('dy', '20')
-				.attr('class', 'nodeText');
-var legend3 = svg.append("svg:text")
-				.text('Size: Cost')
-				.attr('dy', '40')
-				.attr('class', 'nodeText');
-var legend4 = svg.append('svg:text')
-				.text('Color: Cost')
-				.attr('class', 'nodeText')
+var legendX = legend.append("svg:text")
+				.text('x-Axis: ');
+textAppend(legendX, 'Importance');
+
+var legendY = legend.append("svg:text")
+				.text('y-Axis: ')
+				.attr('dy', '20');
+textAppend(legendY, 'Immediacy');
+
+var legendS = legend.append("svg:text")
+				.text('Size: ')
+				.attr('dy', '40');
+textAppend(legendS, 'Cost');
+
+var legendC = legend.append('svg:text')
+				.text('Color: ')
 				.attr('dy', '60');
+textAppend(legendC, 'Cost');
+
+function textAppend(obj, txt) {
+	obj.append('tspan').text(txt).attr('class', 'legend nodeText dark');
+}
 
 var g = svg.append("g").attr("class", "circles").selectAll("circles")
     .data(data)
@@ -126,15 +135,6 @@ var circles = g.append("svg:circle")
 function idFunc(d) {
 	return theDomIsStupid+hash(d['Problem Name']);
 }
-
-/*svg.append("g")
-    .attr("class", "x axis")
-    .attr("transform", "translate(0," + y.range()[0] + ")")
-    .call(xAxis);
-
-svg.append("g")
-    .attr("class", "y axis")
-    .call(yAxis);*/
 
 var mouseOverFunction = function () {
     var c = d3.select(this);
