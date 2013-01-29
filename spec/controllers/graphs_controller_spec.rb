@@ -35,11 +35,12 @@ describe GraphsController do
   end
 
   describe "GET index" do
-    it "assigns all graphs as @graphs" do
-      graph = Graph.create! valid_attributes
-      get :index, {}, valid_session
-      assigns(:graphs).should eq([graph])
+    it "it takes game results and outputs csv" do
+      pending "This needs to be done before opening private beta"
+        #get :index, :format => :json
+        #response.should be_success
+        #body = JSON.parse(response.body)
+        #YAML::dump(body)
     end
   end
-
 end

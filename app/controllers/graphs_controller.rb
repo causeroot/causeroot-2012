@@ -6,11 +6,10 @@ class GraphsController < ApplicationController
   def index
     #@graphs = Graph.all
 
-    game_data = GameResult.all
+    @game_data = GameResult.all
 
     filename_out = "extracted_data.csv"
-    
-    num_of_entries = game_data.size
+    num_of_entries = @game_data.size
     
 ####### IDENTIFY THE BOUNDS OF THE DATASET ########
           
@@ -20,12 +19,14 @@ class GraphsController < ApplicationController
     problem_temp2 = []
     user_temp = []
     
-    game_data.each do |value|
-        question_temp << value.question_id
-        problem_temp1 << value.issue_ids[0]
-        problem_temp1 << value.issue_ids[1]
-        problem_temp2 << value.issue_ids.sort
-        user_temp << value.user_id
+    @game_data.each do |value|
+        if value.skip == nil || value.same == nil
+            question_temp << value.question_id
+            problem_temp1 << value.issue_ids[0]
+            problem_temp1 << value.issue_ids[1]
+            problem_temp2 << value.issue_ids.sort
+            user_temp << value.user_id
+        end;
     end;
     
     # Define an array of the Question ID's in the subset of data chosen 
@@ -51,31 +52,31 @@ class GraphsController < ApplicationController
     question_set.each do |i|
         problem_key = Array.new(problem_set.length,0) { Array.new(2,0) };
 
-        game_data.each do |item|
-
-            if item.question_id == i
-                problem_key[item.issue_ids[0]-1][1] = problem_key[item.issue_ids[0]-1][1] + 1
-                problem_key[item.issue_ids[1]-1][1] = problem_key[item.issue_ids[1]-1][1] + 1 
-                
-                # If 
-                if item.answer == item.issue_ids[0]
-                    problem_key[item.issue_ids[0]-1][0] = problem_key[item.issue_ids[0]-1][0] + 1
-                    problem_key[item.issue_ids[1]-1][0] = problem_key[item.issue_ids[1]-1][0] - 1
-                #end
-                # If 
-                elsif item.answer == item.issue_ids[1]
-                    problem_key[item.issue_ids[0]-1][0] = problem_key[item.issue_ids[0]-1][0] - 1
-                    problem_key[item.issue_ids[1]-1][0] = problem_key[item.issue_ids[1]-1][0] + 1
-                end;   
-            end;    
+        @game_data.each do |item|
+            # Exclude all entries where the user skipped Q's or said they were the same
+            if item.skip == nil || item.same == nil
+                if item.question_id == i
+                    #problem_key[problem_set.index(item.issue_ids[0])][0] = problem_key[problem_set.index(item.issue_ids[0])][0]+1
+                    #problem_key[problem_set.index(item.issue_ids[1])][1] = problem_key[problem_set.index(item.issue_ids[1])][1]+1 
+                    
+                    if item.answer == item.issue_ids[0]
+                        problem_key[problem_set.index(item.issue_ids[0])][0] = problem_key[problem_set.index(item.issue_ids[0])][0]+1
+                        problem_key[problem_set.index(item.issue_ids[1])][1] = problem_key[problem_set.index(item.issue_ids[1])][1]-1
+                    end
+                    if item.answer == item.issue_ids[1]
+                        problem_key[problem_set.index(item.issue_ids[0])][0] = problem_key[problem_set.index(item.issue_ids[0])][0]-1
+                        problem_key[problem_set.index(item.issue_ids[1])][1] = problem_key[problem_set.index(item.issue_ids[1])][1]+1
+                    end  
+                end
+            end;
         end;
-        
+
         boundry_case = problem_key.max_by {|a,b| [a.abs,b.abs].max}
         offset = [boundry_case[0].abs,boundry_case[1].abs].max
         
         problem_set.each do |k|   
             entry = 0.0
-            entry = (problem_key[k-1][0].to_f)/(offset*2) + 0.5
+            entry = (problem_key[problem_set.index(k)][0].to_f+problem_key[problem_set.index(k)][1].to_f )/(offset*2) + 0.5
             if i==1
                 temp = idata[k]            
                 idata[k] = {i => entry}
@@ -103,11 +104,9 @@ class GraphsController < ApplicationController
         problems << i.problem
     end;
 
-    debugger
-
     csvstr = CSV.generate() do |csv|
 
-      csv << ["ProblemName"] + question_set.map{|i| question_Themes[i-1] }
+      csv << ["Problem Name"] + question_set.map{|i| question_Themes[i-1] }
       idata.each do |k,v|    
           #csv << [problems[k-1]] + (question_set.map{|i| v[i].to_s })
           csv <<  ["#{problems[k-1]}"] + (question_set.map{|i| %Q[#{v[i]}] })
@@ -115,7 +114,7 @@ class GraphsController < ApplicationController
     end
         
     respond_to do |format|
-      format.html # index.html.erb
+#      format.html # index.html.erb
       format.json { render json: @graphs }
       format.csv { send_data csvstr }
     end
@@ -212,5 +211,5 @@ end
 
 # class GameDataController #< ApplicationController
 #
-#    def game_data_extractor
+#    def @game_data_extractor
         

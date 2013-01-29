@@ -25,6 +25,8 @@ class IssuesController < ApplicationController
   # GET /issues/new.json
   def new
     @issue = Issue.new
+    @issue.causes.build
+    @issue.effects.build
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,6 +43,8 @@ class IssuesController < ApplicationController
   # POST /issues.json
   def create
     @issue = Issue.new(params[:issue])
+    @issue.user = current_user
+    @issue.save
 
     respond_to do |format|
       if @issue.save

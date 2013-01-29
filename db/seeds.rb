@@ -9,9 +9,6 @@
 questions = YAML::load_file('db/questions.yml')
 questions.each {|key, value| Question.create(value) }
 
-#issues = YAML::load_file('db/issues.yml')
-#issues.each {|key, value| Issue.create(value) }
-
 ["Proliferation of Genetically Modified Food",
   "The magnitude of US debt",
   "The War on Drugs",
@@ -27,3 +24,4 @@ questions.each {|key, value| Question.create(value) }
         i.effects << FactoryGirl.create(:effect)
         i.save
 end
+

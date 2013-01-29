@@ -20,11 +20,16 @@ require 'spec_helper'
 
 describe GameResultsController do
 
-  # This should return the minimal set of attributes required to create a valid
+  before(:each) do
+    @user = FactoryGirl.create(:user) 
+    login_user
+  end
+
+  # This should return the minimal set of attributes required to create a valie
   # GameResult. As you add validations to GameResult, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    {}
+    FactoryGirl.attributes_for(:game_result)
   end
 
   # This should return the minimal set of values that should be in the session
@@ -37,7 +42,7 @@ describe GameResultsController do
   describe "GET index" do
     it "assigns all game_results as @game_results" do
       game_result = GameResult.create! valid_attributes
-      get :index, {}, valid_session
+     get :index, {}, valid_session
       assigns(:game_results).should eq([game_result])
     end
   end
@@ -55,14 +60,17 @@ describe GameResultsController do
       FactoryGirl.create(:question)
       FactoryGirl.create(:question)
       FactoryGirl.create(:question)
-      FactoryGirl.create(:issue)
-      FactoryGirl.create(:issue)
-      FactoryGirl.create(:issue)
       FactoryGirl.create(:question)
+      FactoryGirl.create(:issue)
+      FactoryGirl.create(:issue)
+      FactoryGirl.create(:issue)
+      FactoryGirl.create(:issue)
+      FactoryGirl.create(:issue)
+      FactoryGirl.create(:issue)
       get :new, {}, valid_session
       gr = assigns(:game_result)
-      #gr.should be_a_new(GameResult)
-      gr.issues.count.should eq(gr.question.problem_count)
+      gr.should be_a_valid(GameResult)
+      Issue.count.should be > 4
     end
   end
 
@@ -78,19 +86,19 @@ describe GameResultsController do
     describe "with valid params" do
       it "creates a new GameResult" do
         expect {
-          post :create, {:game_result => valid_attributes}, valid_session
+          post :create, {:game_result => FactoryGirl.attributes_for(:game_result), issues: ["#{Issue.first.id},#{Issue.last.id}"]}, valid_session
         }.to change(GameResult, :count).by(1)
       end
 
       it "assigns a newly created game_result as @game_result" do
-        post :create, {:game_result => valid_attributes}, valid_session
+        post :create, {:game_result => FactoryGirl.attributes_for(:game_result), issues: ["#{Issue.first.id},#{Issue.last.id}"]}, valid_session
         assigns(:game_result).should be_a(GameResult)
         assigns(:game_result).should be_persisted
       end
 
       it "redirects to the created game_result" do
-        post :create, {:game_result => valid_attributes}, valid_session
-        response.should redirect_to(GameResult.last)
+        post :create, {:game_result => valid_attributes, issues: ["#{Issue.first.id},#{Issue.last.id}"]}, valid_session
+        response.should redirect_to("/game_results/new?notice=Game+result+was+successfully+updated.")
       end
     end
 
@@ -98,14 +106,14 @@ describe GameResultsController do
       it "assigns a newly created but unsaved game_result as @game_result" do
         # Trigger the behavior that occurs when invalid params are submitted
         GameResult.any_instance.stub(:save).and_return(false)
-        post :create, {:game_result => {  }}, valid_session
+        post :create, {:game_result => {  }, issues: ["#{Issue.first.id},#{Issue.last.id}"]}, valid_session
         assigns(:game_result).should be_a_new(GameResult)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         GameResult.any_instance.stub(:save).and_return(false)
-        post :create, {:game_result => {  }}, valid_session
+        post :create, {:game_result => {  }, issues: ["#{Issue.first.id},#{Issue.last.id}"]}, valid_session
         response.should render_template("new")
       end
     end

@@ -20,11 +20,16 @@ require 'spec_helper'
 
 describe QuestionsController do
 
+  before(:each) do
+    @user = FactoryGirl.create(:user)
+    login_user
+  end
+
   # This should return the minimal set of attributes required to create a valid
   # Question. As you add validations to Question, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    {}
+    FactoryGirl.attributes_for(:question)
   end
 
   # This should return the minimal set of values that should be in the session
@@ -36,9 +41,9 @@ describe QuestionsController do
 
   describe "GET index" do
     it "assigns all questions as @questions" do
-      question = Question.create! valid_attributes
+      question = Question.create valid_attributes
       get :index, {}, valid_session
-      assigns(:questions).should eq([question])
+      assigns(:questions).should include(question)
     end
   end
 

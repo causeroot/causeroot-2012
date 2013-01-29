@@ -19,6 +19,11 @@ require 'spec_helper'
 # that an instance is receiving a specific message.
 
 describe IssuesController do
+  before(:each) do
+    @user = FactoryGirl.create(:user) 
+    login_user
+  end
+
 
   # This should return the minimal set of attributes required to create a valid
   # Issue. As you add validations to Issue, be sure to
@@ -36,6 +41,7 @@ describe IssuesController do
 
   describe "GET index" do
     it "assigns all issues as @issues" do
+      pending "We need to hook up issues"
       issue = Issue.create! valid_attributes
       get :index, {}, valid_session
       assigns(:issues).should eq([issue])

@@ -3,16 +3,24 @@
     <head>
         <script type="text/javascript" src="d3.v2.min.js"></script>
     </head>
+    <style>
+    	.nodeText {
+    		font-family: sans-serif;
+    		font: arial;
+    		font-size: 1.1em;
+    	}
+    </style>
     <body>
         <div id="visualisation"></div>
         <script type="text/javascript">
 
- d3.csv("/graphs.csv", dummy);
+ d3.csv("/graphs.csv", createSvgElements);
 
-function dummy(data) {
+function createSvgElements(data) {
 
 
-var theDomIsStupid = 'o';
+var theDomIsStupid = 'o'; // Prefix for DOM entities 
+
 var margin = {top: 40, right: 40, bottom: 40, left: 40},
     width = 960,
     height = 500;
@@ -27,19 +35,17 @@ var y = pad(d3.scale.linear()
 
 var xAxis = d3.svg.axis()
     .scale(x)
-    .orient("bottom")
-    .tickPadding(8);
+    .orient("bottom");
 
 var yAxis = d3.svg.axis()
     .scale(y)
-    .orient("left")
-    .tickPadding(8);
+    .orient("left");
 
 var svg = d3.select("body").append("svg")
     .attr("width", width)
     .attr("height", height)
     .attr("class", "dot chart")
-  .append("g")
+	.append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 var g = svg.append("g").attr("class", "circles").selectAll("circles")
@@ -54,45 +60,56 @@ var g2 = svg.append("g").attr("class", "text").selectAll("text")
 
 var txt = g2.append("svg:text")
     .attr("class", "nodeText")
-    .attr("id", function(d) { return theDomIsStupid+hash(d.ProblemName); })
+    .attr("id", function(d){return idFunc(d)+'t';})
     .attr("x", function(d) {return x(xval(d));})
     .attr("y", function(d) {return y(yval(d));})
-    .attr("dx", function(d) {return rad(d);})
-    .attr("dy", function(d) {return -rad(d);})
-    .text(function(d) {return d.ProblemName;})
-    .attr("visibility", "hidden");  
+    .attr("dx", function(d) {return 3*rad(d);})
+    .attr("dy", function(d) {return -3*rad(d);})
+    .text(function(d) {return d['Problem Name'];})
+    .attr("visibility", "hidden")
+    .attr('x', fixXValue);
 
 var circles = g.append("svg:circle")
     .attr("class", "dot")
-    .attr("id", function(d) { return theDomIsStupid+hash(d.ProblemName); })
+    .attr("id", idFunc)
     .attr("cx", function(d) { return x(xval(d)); })
     .attr("cy", function(d) { return y(yval(d)); })
-    .attr("r", function(d) { return 2*rad(d); })
-    .attr("fill", function(d) { return cinterp(shapefn(d));})
+    .attr("r", function(d) { return 4*rad(d); })
+    .attr("fill", function(d) { return cinterp(d.Cost);})
     .on("mouseover", function(){
-        d3.select(".text").select('#'+this.id)
+        d3.select(".text").select('#'+this.id+'t')
                 .attr("visibility","visible");})
 	.on("mouseout", function(){
-	    d3.select(".text").select('#'+this.id)
+	    d3.select(".text").select('#'+this.id+'t')
                 .attr("visibility","hidden");});
 
+function idFunc(d) {
+	return theDomIsStupid+hash(d['Problem Name']);
+}
 
-
-
-svg.append("g")
+/*svg.append("g")
     .attr("class", "x axis")
     .attr("transform", "translate(0," + y.range()[0] + ")")
     .call(xAxis);
 
 svg.append("g")
     .attr("class", "y axis")
-    .call(yAxis);
-//  txt.style("fill", "#2f2f3a");
+    .call(yAxis);*/
 
-//window.alert('yo');
 var mouseOverFunction = function () {
     var c = d3.select(this);
-    //window.alert('hi');
+}
+
+function fixXValue() {
+	var textWidth = parseInt(d3.select('.text').select('#' + this.id)[0][0]
+					.getComputedTextLength()) + margin.left +
+					parseInt(this.getAttribute('dx')); // additions due to padding and shift.
+	var textX = parseInt(this.getAttribute('x'));
+	var textEnd = textX + textWidth;
+	if (textEnd > width) { //Sorry
+		return width - textWidth;
+	}
+	return textX;
 }
 
 function pad(scale, k) {

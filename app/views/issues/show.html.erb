@@ -6,13 +6,24 @@
 </p>
 
 <p>
-  <b>Cause:</b>
-  <%= @issue.cause_id %>
+<b>Owner:</b>
+    <%= @issue.user.username %>
+</p>
+
+<p>
+
+<p>
+  <b>Causes:</b>
+  <% @issue.causes.each do |cause| %>
+    <p><%= cause.cause %></p>
+  <% end %>
 </p>
 
 <p>
   <b>Effect:</b>
-  <%= @issue.effect_id %>
+  <% @issue.effects.each do |effect| %>
+    <p><%= effect.effect %></p>
+  <% end %>
 </p>
 
 
