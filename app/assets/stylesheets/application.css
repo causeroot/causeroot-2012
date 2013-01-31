@@ -267,6 +267,7 @@ h1 {
 }	
 	
 .submit_button {
+	border: none;
 	margin-top: 5px;
 	margin-bottom: 70px;
 	float: right;
@@ -275,15 +276,11 @@ h1 {
 	border-radius: 2px;
 	background: #F7941D;
 	text-align: center;
-	z-index: 0;	
-	}		
-	
-.submit_button p {
-	margin-top: 1%;
 	color: white;
 	font-size: 12px;
-	text-shadow: 1px 1px 0px #996600;
-	}	
+	text-shadow: 1px 1px 0px #CC6600;
+	z-index: 0;	
+	}			
 	
 .about-content {
 	margin-top: 50px;
@@ -328,17 +325,21 @@ h1 {
 	
 #a_b_question_area {
 	display: inline-block;
-	padding-top: 30px;
+	margin-top: -10px;
+	margin-left: -20px;
 }	
 
 #a_b_question_header {
 	text-align: center;
 }
 
-.question_area {
-	
+.ab-header p {
+	text-align: center;
+	font-family: Arial;
+	font-size: 17px;
 }	
 
+/*
 .button_header {
 	width: 280px;
 	height: 30px;
@@ -356,27 +357,29 @@ h1 {
 	background: #F7941D;
 	color: white;
 	}
+*/
 	
-.a_b_content:hover {
-	background: #FEE8C9; 
-	color: black;
-	}
-		
 .a_b_content {	
 	background: #E9EFF5;
 	font-size: 14px;
 	font-family: Arial;
-	margin-top: 0px;
-	padding: 20px;
+	margin-top: -25px;
+	margin-bottom: -10px;
+	padding: 0px;
 	text-align: center;
 	width: 280px;
 	height: 120px;
-	border-radius: 0px 0px 5px 5px;
+	border-radius: 5px 5px 5px 5px;
 	border: none;
 	cursor: pointer;
-	text-wrap: suppress;
+	word-wrap: break-word;
 	}		
-		
+
+.a_b_content:hover {
+	background: #FEE8C9; 
+	color: black;
+	}
+	
 .flag {
 	border: none;
 	color: #808080;
@@ -399,7 +402,8 @@ h1 {
 	
 .skip_same_wrap {
 	text-align: right;
-	padding-top: 40px;
+	padding-top: 20px;
+	padding-right: 20px;
 	float: right;
 	}
 	
@@ -434,27 +438,18 @@ h1 {
 #skip_same_line {
 	background-color: #C8C8C8;
 	width: 190px;
-	height: 1px;
-	
-}
+	height: 1px;	
+	}
 	
 .whitespace {
 	height: 30px;
 	}
 	
-.twitter_icon {
-	width: 16px;
-	height: 16px;
-	display: inline;
-	margin-bottom: -3px;
-	padding: 0px 2px;	
-	}
-	
 .twitter-follow-button {
-	margin-left: 30px;
+	margin-left: 350px;
 	}	
 	
-#footer {
+#footer-bar {
 	position: absolute;
 	margin-top: 70px; /* negative value of footer height */
 	height: 70px;
@@ -464,11 +459,15 @@ h1 {
 	left: 0;
 	}
 	
-footer {
+#footertable {	
+	margin-left: 10px;
+	}
+		
+#footer-copy {
 	font-family: Arial;
 	font-size: 11px;
 	color: #a8a8a8;
-	text-align: center;
+	text-align: left;
 	padding: 16px;
 	}
 	

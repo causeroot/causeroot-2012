@@ -71,11 +71,9 @@
 			<input name="count" type="hidden" id="count2" value=""/>
 			<input name="add" type="button" class="button" id="add2" value="Add an Additional Problem" onClick="addField('tblBody2');"/>
 		</div>			
-		<div class="submit_button">
-		<div class="actions">
-			<%= f.submit "submit!" %>
-		</div>
-		</div>
+			<div class="actions">
+				<%= f.submit "SUBMIT", :class => 'submit_button' %>
+			</div>		
 	</div>		
 
   <div class="field">

@@ -17,35 +17,42 @@
     </div>	
     <div id="a_b_question_area">   
     	
-    	<table class="question_area">
+    	<table class="question_area" cellspacing="20">
 			<tr class="row1">
 				<% @game_result.issues.each_with_index do |issue, i| %>
 				  <%= fields_for :issues do |issue_fields| %>
 					<%= issue_fields.hidden_field i, :value => issue.id %>
 				  <% end %>
-				
-					  
+			  
 				<% end %>
 			</tr>
+			<tr class="ab-header">
+				<td> <p>A</p>
+				</td>
+				<td> <p>B</p>
+				</td>
+			</tr>
+				
 			<tr class="row2"> 	
 				<% @game_result.issues.each_with_index do |issue, i| %>
-				<td> <div class="button_header"> </div>		
+				<td> <!--<div class="button_header"> </div>	-->	
 					<%= f.submit "#{i + 1}", :name => "game_result[answer]", :value => "#{issue.problem}", :class => 'a_b_content' %>				
 				</td>
 					<% end %>             
-			</tr>       
+			</tr>
+     
 			<tr>
 				<% @game_result.issues.each do |issue| %>
 				<td class="flag_issue">    
-					<%= f.submit "flag", :name => "flag[#{issue.id}]", :value => "FLAG", :class => 'flag', :confirm => "Are you sure that you want flag this issue as innapropriate?" %><img src="/Flag.png" />
+					<%= f.submit "flag", :name => "flag[#{issue.id}]", :value => "FLAG", :class => 'flag', :confirm => "Are you sure that you want flag this issue as innapropriate?" %><img id="flag-i2" src="/Flag.png" />
 				</td>   
 			  		<% end %>
 			</tr>
         </table>
         <div class="skip_same_wrap">
-        	<div id="same_issue"><p>THESE ARE THE SAME ISSUE</p><img src="/SameQ.png" /></div>
+        	<div id="same_issue"><p>THESE ARE THE SAME ISSUE</p> <img id="same-i2" src="/SameQ.png" /> </div>
         	<div id="skip_same_line"></div>
-        	<div id="skip_question"><p>SKIP THIS QUESTION</p><img src="/Skip_Arrow.png" /></div>
+        	<div id="skip_question"><p>SKIP THIS QUESTION</p><img id="skip-i1" src="/Skip_Arrow.png" /></div>
         </div>	
 
     </div>  
@@ -53,3 +60,19 @@
       
   </div>
 <% end %>
+<script>
+$('#same_issue').bind('mouseover',function(){
+    $('#same-i2').data({ original:$('#same-i2').attr('src') })
+    $('#same-i2').attr({ src:'/SameQ_blue.png' })
+}).bind('mouseout',function(){
+    $('#same-i2').attr({ src:$('#same-i2').data('original') })
+})
+
+$('.flag_issue').bind('mouseover',function(){
+    $('#flag-i2').data({ original:$('#flag-i2').attr('src') })
+    $('#flag-i2').attr({ src:'/Flag_Red.png' })
+}).bind('mouseout',function(){
+    $('#flag-i2').attr({ src:$('#flag-i2').data('original') })
+})
+
+</script>
