@@ -32,11 +32,22 @@
 				<td> <p>B</p>
 				</td>
 			</tr>
+                        <script language="javascript"> 
+                          function submitForm(answer) {
+                            $('#game_result_answer').val(answer);
+                            $('#new_game_result').submit();
+                            return false;
+                          }
+                        </script> 
+
+                        <%= f.hidden_field(:answer) %>
 				
 			<tr class="row2"> 	
 				<% @game_result.issues.each_with_index do |issue, i| %>
 				<td> <!--<div class="button_header"> </div>	-->	
-					<%= f.submit "#{i + 1}", :name => "game_result[answer]", :value => "#{issue.problem}", :class => 'a_b_content' %>				
+                                  <div class="a_b_content">
+                                  <%= link_to_function issue.problem, "submitForm(#{issue.id})", :class => "a_b_content" %>
+                                </div>
 				</td>
 					<% end %>             
 			</tr>

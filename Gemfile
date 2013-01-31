@@ -51,6 +51,7 @@ gem 'kaminari'
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
 group :test, :development do
+  gem 'debugger'
   gem 'guard'
   gem 'guard-cucumber'
   gem 'guard-bundler'

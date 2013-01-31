@@ -4,11 +4,11 @@ class GraphsController < ApplicationController
   # GET /graphs
   # GET /graphs.json
   
-  caches_action :index, :expires_in => 600
+#  caches_action :index, :expires_in => 600
   
   def index
   
-    csvstr = Graph.grabdata params[:user_id] 
+    csvstr = Graph.grabdata # params[:user_id] 
     
     respond_to do |format|
 #      format.html # index.html.erb

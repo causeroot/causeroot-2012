@@ -22,7 +22,7 @@ class Graph
     user_temp = []
     
     @game_data.each do |value|
-        if value.skip == nil || value.same == nil
+        if value.skip == false && value.same == false
             question_temp << value.question_id
             problem_temp1 << value.issue_ids[0]
             problem_temp1 << value.issue_ids[1]
@@ -30,7 +30,7 @@ class Graph
             user_temp << value.user_id
         end;
     end;
-    
+
     # Define an array of the Question ID's in the subset of data chosen 
     question_set = question_temp.uniq.sort  
     
@@ -56,7 +56,7 @@ class Graph
 
         @game_data.each do |item|
             # Exclude all entries where the user skipped Q's or said they were the same
-            if item.skip == nil || item.same == nil
+            if item.skip == false && item.same == false
                 if item.question_id == i
                     #problem_key[problem_set.index(item.issue_ids[0])][0] = problem_key[problem_set.index(item.issue_ids[0])][0]+1
                     #problem_key[problem_set.index(item.issue_ids[1])][1] = problem_key[problem_set.index(item.issue_ids[1])][1]+1 
@@ -78,7 +78,7 @@ class Graph
         
         problem_set.each do |k|   
             entry = 0.0
-            entry = (problem_key[problem_set.index(k)][0].to_f+problem_key[problem_set.index(k)][1].to_f )/(offset*2) + 0.5
+            entry = (problem_key[problem_set.index(k)][0].to_f+problem_key[problem_set.index(k)][1].to_f )/(offset*2) + 0.5 unless offset == 0
             if i==1
                 temp = idata[k]            
                 idata[k] = {i => entry}

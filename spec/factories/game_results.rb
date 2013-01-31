@@ -4,7 +4,7 @@ FactoryGirl.define do
   factory :game_result do
     user
     question
-    answer 1
+    answer 0
     same false
     skip false
 
@@ -23,6 +23,7 @@ FactoryGirl.define do
       after(:create) do |game_result, evaluator|
         #FactoryGirl.create_list(:issue, evaluator.problem_count, game_result: game_result)
         1.upto(game_result.question.problem_count) {game_result.issues << FactoryGirl.create(:issue)}
+        game_result.answer = game_result.issue_ids.sample
       end
     end
   end
