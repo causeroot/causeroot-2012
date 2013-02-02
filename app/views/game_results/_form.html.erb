@@ -12,12 +12,12 @@
     </div>
   <% end %>
   <div class="game-content">
-    <div id="a_b_question_header">
+    <div id="game_question">
     	<h1><%= @game_result.question.question %></h1>
     </div>	
-    <div id="a_b_question_area">   
-    	
-    	<table class="question_area" cellspacing="20">
+      
+    <table id="issues_wrap" cellspacing="20">
+			<tbody>
 			<tr class="row1">
 				<% @game_result.issues.each_with_index do |issue, i| %>
 				  <%= fields_for :issues do |issue_fields| %>
@@ -25,11 +25,10 @@
 				  <% end %>
 			  
 				<% end %>
-			</tr>
-			<tr class="ab-header">
-				<td> <p>A</p>
+			
+				<td class="ab_label"> <div>A</div>
 				</td>
-				<td> <p>B</p>
+				<td class="ab_label"> <div>B</div>
 				</td>
 			</tr>
                         <script language="javascript"> 
@@ -41,13 +40,13 @@
                         </script> 
 
                         <%= f.hidden_field(:answer) %>
-				
+                        				
 			<tr class="row2"> 	
 				<% @game_result.issues.each_with_index do |issue, i| %>
-				<td> <!--<div class="button_header"> </div>	-->	
-                                  <div class="a_b_content">
-                                  <%= link_to_function issue.problem, "submitForm(#{issue.id})", :class => "a_b_content" %>
-                                </div>
+				<td class="ab_content">    
+					<%= issue.problem %>          
+                    <%= link_to_function "submitbutton","submitForm(#{issue.id})", :class => "ab_content" %> 
+					
 				</td>
 					<% end %>             
 			</tr>
@@ -59,14 +58,13 @@
 				</td>   
 			  		<% end %>
 			</tr>
-        </table>
-        <div class="skip_same_wrap">
-        	<div id="same_issue"><p>THESE ARE THE SAME ISSUE</p> <img id="same-i2" src="/SameQ.png" /> </div>
-        	<div id="skip_same_line"></div>
-        	<div id="skip_question"><p>SKIP THIS QUESTION</p><img id="skip-i1" src="/Skip_Arrow.png" /></div>
-        </div>	
-
-    </div>  
+			</tbody>
+    </table>
+    <div class="skip_same_wrap">
+        <div id="same_issue"><p>THESE ARE THE SAME ISSUE</p> <img id="same-i2" src="/SameQ.png" /> </div>
+        <div id="skip_same_line"></div>
+        <div id="skip_question"><p>SKIP THIS QUESTION</p><img id="skip-i1" src="/Skip_Arrow.png" /></div>
+     </div>  
     
       
   </div>

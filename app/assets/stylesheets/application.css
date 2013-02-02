@@ -315,67 +315,45 @@ h1 {
     color:#A8A9AB;
     margin-bottom: 0px;
     margin-top: 0px;
-}
+	}
 
 .game-content {
 	width: 600px;
 	margin-top: 80px;
 	margin-left: 30px;
 	}
+
+#game_question {
+	text-align: center;
+	}
 	
-#a_b_question_area {
+#issues_wrap {
 	display: inline-block;
-	margin-top: -10px;
+	margin-top: 15px;
 	margin-left: -20px;
-}	
-
-#a_b_question_header {
-	text-align: center;
-}
-
-.ab-header p {
-	text-align: center;
-	font-family: Arial;
-	font-size: 17px;
-}	
-
-/*
-.button_header {
-	width: 280px;
-	height: 30px;
-	border-radius: 5px 5px 0px 0px;
-	background: #B3BFCD;
-	text-align: center;
-	cursor: pointer;
-	font-family: Arial;
-	font-size: 17px;
-	color: white;
-	border: none;
-	}
-
-.button_header:hover {
-	background: #F7941D;
-	color: white;
-	}
-*/
+	}	
 	
-.a_b_content {	
+.ab_label {
+	text-align: center;
+	font-family: Arial;
+	font-size: 17px;	
+	}	
+
+.ab_content {	
 	background: #E9EFF5;
 	font-size: 14px;
 	font-family: Arial;
-	margin-top: -25px;
-	margin-bottom: -10px;
-	padding: 0px;
 	text-align: center;
 	width: 280px;
 	height: 120px;
 	border-radius: 5px 5px 5px 5px;
 	border: none;
 	cursor: pointer;
-	word-wrap: break-word;
-	}		
+	color: black;
+	
+	}	
 
-.a_b_content:hover {
+.ab_content:hover {
 	background: #FEE8C9; 
 	color: black;
 	}
@@ -388,13 +366,7 @@ h1 {
 	font-size: 11px;
 	cursor: pointer;
 	padding: 0px 3px;
-
 	}
-
-.flag_issue {
-	position: relative;
-	z-index: 1;
-}
 
 .flag:hover {
 	color: #BE1E2D;
