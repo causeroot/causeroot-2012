@@ -29,9 +29,7 @@ var theDomIsStupid = 'o'; // Prefix for DOM entities
 
 var margin = {top: 40, right: 40, bottom: 40, left: 40},
     width = 700,
-    height = 500,
-    halfHeight = Math.floor(height / 2),
-    halfWidth = Math.floor(width / 2);
+    height = 500;
 
 var x = pad(d3.scale.linear()
     .domain(d3.extent(data, function(d) { return xval(d); }))
@@ -41,16 +39,20 @@ var y = pad(d3.scale.linear()
     .domain(d3.extent(data, function(d) { return yval(d); }))
     .range([height - margin.top - margin.bottom, 0]), 40);
 
-var svg = d3.select("body").append("svg")
+var halfHeight = y(0.5),
+    halfWidth = x(0.5);
+
+var canvas = d3.select("body").append("svg")
     .attr("width", width)
     .attr("height", height)
     .attr("class", "dot chart")
 	.append("g")
+var svg = canvas.append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 var axisColor = '#AAAAAA';
 
-var legend = svg.append('g').attr('class', 'nodeText light');
+
 
 var xLine = svg.append("svg:line")
 				.attr("class", "line")
@@ -70,28 +72,6 @@ var yLine = svg.append("svg:line")
 				.attr("y2", height)
 				.attr("stroke", axisColor);
 
-var legendX = legend.append("svg:text")
-				.text('x-Axis: ');
-textAppend(legendX, 'Importance');
-
-var legendY = legend.append("svg:text")
-				.text('y-Axis: ')
-				.attr('dy', '20');
-textAppend(legendY, 'Immediacy');
-
-var legendS = legend.append("svg:text")
-				.text('Size: ')
-				.attr('dy', '40');
-textAppend(legendS, 'Cost');
-
-var legendC = legend.append('svg:text')
-				.text('Color: ')
-				.attr('dy', '60');
-textAppend(legendC, 'Cost');
-
-function textAppend(obj, txt) {
-	obj.append('tspan').text(txt).attr('class', 'legend nodeText dark');
-}
 
 var g = svg.append("g").attr("class", "circles").selectAll("circles")
     .data(data)
@@ -121,7 +101,7 @@ var circles = g.append("svg:circle")
     .attr("id", idFunc)
     .attr("cx", function(d) { return x(xval(d)); })
     .attr("cy", function(d) { return y(yval(d)); })
-    .attr("r", function(d) { return 4*rad(d); })
+    .attr("r", function(d) { return 4*rad(d) + 3.0; })
     .attr("fill", function(d) { return cinterp(d.Cost);})
     .on("mouseover", function(){
         d3.select(".text").select('#'+this.id+'t')
@@ -130,7 +110,7 @@ var circles = g.append("svg:circle")
 	    d3.select(".text").select('#'+this.id+'t')
                 .attr("visibility","hidden");});
 
-
+//createLegend(canvas);
 
 function idFunc(d) {
 	return theDomIsStupid+hash(d['Problem Name']);
@@ -164,6 +144,34 @@ function fixDYValue() {
 	return textDY;
 }
 
+function createLegend(svg) {
+	var legend = svg.append('g')
+		.attr("transform", "translate(0,40)")
+		.attr('class', 'nodeText light');
+	var legendX = legend.append("svg:text")
+					.text('x-Axis: ');
+	textAppend(legendX, 'Importance');
+	
+	var legendY = legend.append("svg:text")
+					.text('y-Axis: ')
+					.attr('dy', '20');
+	textAppend(legendY, 'Immediacy');
+	
+	var legendS = legend.append("svg:text")
+					.text('Size: ')
+					.attr('dy', '40');
+	textAppend(legendS, 'Cost');
+	
+	var legendC = legend.append('svg:text')
+					.text('Color: ')
+					.attr('dy', '60');
+	textAppend(legendC, 'Cost');
+	
+	function textAppend(obj, txt) {
+		obj.append('tspan').text(txt).attr('class', 'legend nodeText dark');
+	}
+}
+
 function pad(scale, k) {
   var range = scale.range();
   if (range[0] > range[1]) k *= -1;
@@ -186,7 +194,7 @@ function cinterp (t) {
 
 function xval(d) { return d.Importance }
 function yval(d) { return d.Immediacy }
-function rad(d) { return 10 * d.Cost }
+function rad(d) { return 10 * (d.Cost) }
 function shapefn(d) {
     var x = xval(d);
     var y = yval(d);
