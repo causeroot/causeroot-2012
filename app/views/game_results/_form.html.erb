@@ -42,13 +42,11 @@
                         <%= f.hidden_field(:answer) %>
                         				
 			<tr class="row2"> 	
-				<% @game_result.issues.each_with_index do |issue, i| %>
-				<td class="ab_content">    
-					<%= issue.problem %>          
-                    <%= link_to_function "submitbutton","submitForm(#{issue.id})", :class => "ab_content" %> 
-					
-				</td>
-					<% end %>             
+                          <% @game_result.issues.each_with_index do |issue, i| %>
+                              <td class="ab_content">    
+                                <%= button_to_function "#{issue.problem}","submitForm(#{issue.id})", :class => 'ab_content' %> 
+                              </td>
+                          <% end %>             
 			</tr>
      
 			<tr>
