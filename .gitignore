@@ -17,4 +17,5 @@ pickle-email-*.html
 solr
 .DS_Store
 *.swp
+.idea
 config/database.yml
