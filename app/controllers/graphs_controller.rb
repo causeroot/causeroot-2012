@@ -8,6 +8,8 @@ class GraphsController < ApplicationController
   
   def index
   
+   #TODO: Add if statement, to catch global data request from graphes page, else current_user
+  
     csvstr = Graph.grabdata(@current_user)
     
     respond_to do |format|
