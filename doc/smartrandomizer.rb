@@ -63,19 +63,20 @@ pq_by_user_set=Hash[problems_by_user_set.sort_by{|problem, freq| freq.length}]
 problems_by_all_freq_sort = Hash[problems_by_all.counts.sort_by{|problem, freq| freq}]
 questions_by_all_freq_sort = Hash[questions_by_all.counts.sort_by{|problem, freq| freq}]
 
-problems_by_user_freq_sort = Hash[problems_by_user.counts.sort_by{|problem, freq| freq}]
+problems_by_user_freq_sort_rev = Hash[problems_by_user.counts.sort_by{|problem, freq| -freq}]
 questions_by_user_freq_sort = Hash[questions_by_user.counts.sort_by{|problem, freq| freq}]
 
-
 p_all_max = problems_by_all.max+1
+q_all_max = questions_by_all.max
 p_user_num = problems_by_user.length
-
 
 ###### If you want them sorted all in order. Take out if not needed  ####
 pq_by_user_set.each do |key,value|
+    value.uniq!
     value.sort_by!{|a,b| a*p_all_max+b}
 end
 pq_by_all_set.each do |key,value|
+    #value.uniq!
     value.sort_by!{|a,b| a*p_all_max+b}
 end  
 #######
@@ -84,10 +85,51 @@ pq_by_all_set
 pq_by_user_set
 problems_by_all_freq_sort
 questions_by_all_freq_sort
-problems_by_user_freq_sort
+problems_by_user_freq_sort_rev
 questions_by_user_freq_sort
 
-# Address skip/flag?
+# TODO: Address skip/flag?
+
+ques_order = questions_by_all_freq_sort.map{|k,v| k}
+prob_order = problems_by_user_freq_sort_rev.map{|k,v| k}
+temp = problems_by_all_freq_sort.map{|k,v| k}
+temp.each do |p|
+    if !prob_order.has_value?(p)
+        prob_order<<p
+    end
+end
+
+next_question = nil
+next_problems = nil
+num = 1
+a = 1
+b = 2
+
+while next_question == nil || next_problems == nil do
+    #for i in 0..num  
+    for q in 1..q_all_max
+        prob_order[0..num].combination(2).to_a.each do |set|
+            if pq_by_user_set[ques_order[q]].has_value?(set) && next_problems == nil
+                next_question = q
+                next_problems = set
+            end
+        end  
+        q = q_all_max+1
+    end            
+    num=num+1
+end
+
+
+
+# problems_by_all_freq_sort.each do |k,v|
+
+# If user answers not so many questions, then what should the ALL graph show
+# if all are answered, then do random
+
+
+
+
+
 
 
 123
