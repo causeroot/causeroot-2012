@@ -7,10 +7,11 @@ class GraphsController < ApplicationController
 #  caches_action :index, :expires_in => 600
   
   def index
-  
-   #TODO: Add if statement, to catch global data request from graphes page, else current_user
-  
+  if params[:allUserFlag]
+  	csvstr = Graph.grabdata(0)
+  else
     csvstr = Graph.grabdata(@current_user)
+  end
     
     respond_to do |format|
       #format.html # index.html.erb
