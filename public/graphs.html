@@ -25,7 +25,7 @@
 function createSvgElements(data) {
 
 
-var theDomIsStupid = 'o'; // Prefix for DOM entities 
+var theDomIsStupid = 'o'; // Prefix for DOM entities
 
 var margin = {top: 40, right: 40, bottom: 40, left: 40},
     width = 700,
@@ -46,13 +46,11 @@ var canvas = d3.select("body").append("svg")
     .attr("width", width)
     .attr("height", height)
     .attr("class", "dot chart")
-	.append("g")
+	.append("g");
 var svg = canvas.append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 var axisColor = '#AAAAAA';
-
-
 
 var xLine = svg.append("svg:line")
 				.attr("class", "line")
@@ -72,7 +70,6 @@ var yLine = svg.append("svg:line")
 				.attr("y2", height)
 				.attr("stroke", axisColor);
 
-
 var g = svg.append("g").attr("class", "circles").selectAll("circles")
     .data(data)
     .enter().append("svg:g")
@@ -83,7 +80,7 @@ var g2 = svg.append("g").attr("class", "text").selectAll("text")
     .enter().append("svg:g")
     .attr("class", "c");
 
-
+// Text for individual problem data points
 var txt = g2.append("svg:text")
     .attr("class", "nodeText")
     .attr("id", function(d){return idFunc(d)+'t';})
@@ -96,6 +93,7 @@ var txt = g2.append("svg:text")
     .attr('dy', fixDYValue)
     .attr('x', fixXValue);
 
+// Problem data points represented as circles
 var circles = g.append("svg:circle")
     .attr("class", "dot")
     .attr("id", idFunc)
@@ -110,6 +108,7 @@ var circles = g.append("svg:circle")
 	    d3.select(".text").select('#'+this.id+'t')
                 .attr("visibility","hidden");});
 
+createButton(canvas);
 //createLegend(canvas);
 
 function idFunc(d) {
@@ -118,7 +117,7 @@ function idFunc(d) {
 
 var mouseOverFunction = function () {
     var c = d3.select(this);
-}
+};
 
 function xValueOffset(obj) {
 	var rightPadding = 10;
@@ -129,7 +128,7 @@ function xValueOffset(obj) {
 	var textEnd = textX + textWidth;
 	return Math.max(0, textEnd - width);
 }
-		
+
 
 function fixXValue() {
 	var textX = parseInt(this.getAttribute('x'));
@@ -151,25 +150,36 @@ function createLegend(svg) {
 	var legendX = legend.append("svg:text")
 					.text('x-Axis: ');
 	textAppend(legendX, 'Importance');
-	
+
 	var legendY = legend.append("svg:text")
 					.text('y-Axis: ')
 					.attr('dy', '20');
 	textAppend(legendY, 'Immediacy');
-	
+
 	var legendS = legend.append("svg:text")
 					.text('Size: ')
 					.attr('dy', '40');
 	textAppend(legendS, 'Cost');
-	
+
 	var legendC = legend.append('svg:text')
 					.text('Color: ')
 					.attr('dy', '60');
 	textAppend(legendC, 'Cost');
-	
+
 	function textAppend(obj, txt) {
 		obj.append('tspan').text(txt).attr('class', 'legend nodeText dark');
 	}
+}
+
+function createButton(svg) {
+    var button = svg.append('g')
+            .append('svg:rect')
+            .attr('x', width-40)
+            .attr('y', height-40)
+            .attr('width', 20)
+            .attr('height', 20)
+            .attr('r', 10)
+            .attr('fill', '#3311FF');
 }
 
 function pad(scale, k) {
@@ -205,9 +215,9 @@ function shapefn(d) {
 function hash(str) {
     var hash = 0;
 	if (!str ||	 str.length == 0) return hash;
-	for (i = 0; i < str.length; i++) {
-		char = str.charCodeAt(i);
-		hash = ((hash<<5)-hash)+char;
+	for (var i = 0; i < str.length; i++) {
+		var chr = str.charCodeAt(i);
+		hash = ((hash<<5)-hash)+chr;
 		hash = hash & hash; // Convert to 32bit integer
 	}
 	return hash;
