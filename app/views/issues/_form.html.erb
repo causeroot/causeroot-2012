@@ -1,4 +1,4 @@
-<%= form_for(@issue) do |f| %>
+<%= nested_form_for(@issue) do |f| %>
   <% if @issue.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@issue.errors.count, "error") %> prohibited this issue from being saved:</h2>
@@ -21,61 +21,26 @@
 	
 	<div class="form-content">
 		<h1>CAUSES: WHAT ARE THE PROBLEMS WHICH PROVOKE THIS?</h1>
-		<div>
-			<div id='TextBoxesGroup1'>
-				<div id="TextBoxDiv1">
-					<table>
-						<tbody id="tblBody">
-							<tr>
-                                                          <%= f.fields_for :causes do |cause_form| %>
-                                                            <%= cause_form.text_area :cause, :placeholder => "Problems leading to the Issue mentioned above.", :class => 'textbox', :id => 'causes_field1', :wrap => 'physical' %>
-                                                            <% end %>
-							</tr>			
-						</tbody>
-					</table>
-				</div>
-			</div>	    					
-		</div>
-		<div class="add_problems">
-			<div class="expand_box" id="causes_box">
-				<p>+</p>
-			</div>
-			<input name="count" type="hidden" id="count" value=""/>
-			<input name="add" type="button" class="button" id="add" value="Add an Additional Problem" onClick="addField('tblBody');"/>
-		</div>	
+                  <%= f.fields_for :causes do |cause_form| %>
+                    <%= cause_form.text_area :cause, :placeholder => "Problems leading to the Issue mentioned above.", :class => 'textbox', :wrap => 'physical' %>
+                    <%= cause_form.link_to_remove "Remove this cause" %>
+                  <% end %>
+                  <%= f.link_to_add "+Add a cause", :causes %>
 	</div>
 
         <br />
 	
 	<div class="form-content">
 		<h1>EFFECTS: WHAT ARE PROBLEMS THAT THIS CREATES?</h1>
-		<div>
-			<div id='TextBoxesGroup2'>
-				<div id="TextBoxDiv2">
-					<table>
-						<tbody id="tblBody2">
-							<tr>
-                                                          <%= f.fields_for :effects do |effect_form| %>
-                                                            <%= effect_form.text_area :effect, :placeholder => "Effects of the Issue mentioned above. Please list one at a time.", :class => 'textbox', :id => 'effects_field1', :wrap => 'physical' %>
-                                                            <% end %>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-			</div>
-		</div>	
-		<div class="add_problems">
-			<div class="expand_box" id="effects_box">
-			<p>+</p>
-			</div>
-			<input name="count" type="hidden" id="count2" value=""/>
-			<input name="add" type="button" class="button" id="add2" value="Add an Additional Problem" onClick="addField('tblBody2');"/>
-		</div>			
-			<div class="actions">
-				<%= f.submit "SUBMIT", :class => 'submit_button' %>
-			</div>		
+                  <%= f.fields_for :effects do |effect_form| %>
+                    <%= effect_form.text_area :effect, :placeholder => "Effects of the Issue mentioned above. Please list one at a time.", :class => 'textbox', :wrap => 'physical' %>
+                    <%= effect_form.link_to_remove "Remove this effect" %>
+                  <% end %>
+                  <%= f.link_to_add "+Add a effect", :effects %>
+          <div class="actions">
+                  <%= f.submit "SUBMIT", :class => 'submit_button' %>
+          </div>		
 	</div>		
-
   <div class="field">
     <%= f.label :problem %><br />
   </div>

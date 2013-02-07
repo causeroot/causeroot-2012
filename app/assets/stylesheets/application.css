@@ -350,12 +350,17 @@ h1 {
 	border: none;
 	cursor: pointer;
 	color: black;
-	
+	white-space: normal; /* css-3 */
+ 
 	}	
 
 .ab_content:hover {
 	background: #FEE8C9; 
 	color: black;
+	}
+
+.flag_issue {
+
 	}
 	
 .flag {
@@ -429,6 +434,7 @@ h1 {
 	bottom: 0px;
 	background: black;
 	left: 0;
+        padding: 10px;
 	}
 	
 #footertable {	

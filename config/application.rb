@@ -55,6 +55,7 @@ module CauseRoot
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+    Rails.application.config.assets.paths << "public/javascripts"
     
     config.generators do |g|
 		  g.view_specs false
