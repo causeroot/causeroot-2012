@@ -86,12 +86,13 @@ class Graph
  
             if repeat == 0
                 problem_set.each do |k|   
-                    entry = 0.5
+                    if offset == 0
+                        entry = 0.5
                     #TODO: Contemplate whether we want to if NO data, for all of it to be smack at 0.5? (is it doing this already?)
-                    unless offset == 0
+                    else
                         entry = (problem_key[problem_set.index(k)][0].to_f+problem_key[problem_set.index(k)][1].to_f-boundry_case_min)/(offset) 
                     end
-                    
+    
                     if i==1
                         temp = idata[k]            
                         idata[k] = {i => entry}
