@@ -102,14 +102,13 @@ end
 next_question = nil
 next_problems = nil
 num = 1
-a = 1
-b = 2
 
 while next_question == nil || next_problems == nil do
     #for i in 0..num  
     for q in 1..q_all_max
         prob_order[0..num].combination(2).to_a.each do |set|
-            if pq_by_user_set[ques_order[q]].has_value?(set) && next_problems == nil
+            puts set
+            if pq_by_user_set[ques_order[q]].include?(set) && next_problems == nil
                 next_question = q
                 next_problems = set
             end
@@ -117,6 +116,7 @@ while next_question == nil || next_problems == nil do
         q = q_all_max+1
     end            
     num=num+1
+    #TODO: if all are answered, then do random
 end
 
 
