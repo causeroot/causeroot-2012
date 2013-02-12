@@ -17,12 +17,13 @@
 html, body {
 	margin: 0 auto;
 	padding: 0;
-	height: 100%;}
+	height: 97%;
+	}
 
 a { text-decoration: none; }	
 
 
-#page_wrapper {
+.page_wrapper {
 	margin-left: auto;
 	margin-right: auto;
 	min-height: 100%;
@@ -80,7 +81,12 @@ a { text-decoration: none; }
 	color: #f7941e;
 	padding: 6px;
 	}
-	            
+.notice {
+	margin-left: 30px;
+	color: #707070;
+	font-family: arial;
+	}
+		            
 .black-bar {
     height: 34px;
     background: black;
@@ -102,6 +108,10 @@ a { text-decoration: none; }
 	text-transform: uppercase;
 	}
 
+.sign_in_2 a {
+	color: black;
+	}
+	
 .example_submission {
 	margin-top: 20px;	
 	text-transform: uppercase;
@@ -115,6 +125,7 @@ a { text-decoration: none; }
 .right-links p {
 	font-size: 12px;
 	font-weight: bold;
+	font-family: Arial;
 	}
 
 .show_example {	
@@ -150,6 +161,11 @@ h1 {
 	font-family: Arial;
 	font-size: 16px;
 	}
+	
+h2 {
+	font-family: Arial;
+	font-size: 14px;
+	}	
 	
 .form-box {
 	border: 1px solid #c8c8c8;
@@ -232,17 +248,37 @@ h1 {
 	margin-left: 20px;
 	}	
 	
+.add_box {
+	display: inline-block;
+	}
+
+.add_cause {
+	display: inline-block;
+	margin-bottom: 30px;
+	margin-top: 4px;
+	width: 592px;
+	font-family: Arial;
+	color: black;
+	}
+	
+.add_effect {
+	display: inline-block;
+	margin-bottom: 30px;
+	margin-top: 4px;
+	width: 592px;
+	font-family: Arial;
+	color: black;
+	}
+				
 .expand_box {
 	position: absolute;
 	width: 14px;
 	height: 14px;
 	border-radius: 2px;
 	background: #F7941D;
-	text-align: center;
-	margin-top: 3px;
+	margin-top: 5px;
 	z-index: 0;	
 	}	
-		
 	
 .expand_box p:first-child {
 	margin-top: -18%;
@@ -277,8 +313,9 @@ h1 {
 	background: #F7941D;
 	text-align: center;
 	color: white;
+	font-family: Arial;
 	font-size: 12px;
-	text-shadow: 1px 1px 0px #CC6600;
+	cursor: pointer;
 	z-index: 0;	
 	}			
 	
@@ -289,6 +326,7 @@ h1 {
 		
 #about-body {
 	width: 580px;
+	font-family: Arial;
 	line-height: 1.6;
 	}		
 		
@@ -317,6 +355,31 @@ h1 {
     margin-top: 0px;
 	}
 
+.login_wrap {
+	margin-left: 30px;
+	margin-top: 50px;
+	}
+	
+.button_style {
+	border: none;
+	margin-top: 25px;
+	width: 100px;
+	height: 21px;
+	border-radius: 2px;
+	background: #F7941D;
+	text-align: center;
+	font-family: Arial;
+	color: white;
+	text-transform: uppercase;
+	font-size: 12px;
+	z-index: 0;
+	cursor: pointer;
+	}	
+	
+#logout-sm-icon {
+	margin-top: 20px;
+	}
+	
 .game-content {
 	width: 600px;
 	margin-top: 80px;
