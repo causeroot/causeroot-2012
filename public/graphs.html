@@ -192,7 +192,7 @@ function pad(scale, k) {
 /* This path interpolates along any path in color space smoothly!*/
 function cinterp (t) {
     var cl = ['#2FBF19', '#737223', '#F2C449', '#7A4520', '#CC322D'];
-    idx = Math.floor(t * (cl.length-1));
+    var idx = Math.floor(t * (cl.length-1));
     if (idx >= (cl.length-1)) {
         return cl[cl.length-1];
     }

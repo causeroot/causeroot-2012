@@ -5,8 +5,6 @@ describe Graph do
   it "should generate csv" do
     10.times { FactoryGirl.create(:game_result_with_issues) }
     str = Graph.grabdata
-    debugger
-    YAML::dump(str)
-
+    pending "Someone needs to write a test for graph"
   end
 end
