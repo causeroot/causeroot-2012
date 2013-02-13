@@ -44,7 +44,7 @@ describe IssuesController do
       pending "We need to hook up issues"
       issue = Issue.create! valid_attributes
       get :index, {}, valid_session
-      assigns(:issues).should not eq([issue])
+      assigns(:issues).should eq([issue])
     end
   end
 
