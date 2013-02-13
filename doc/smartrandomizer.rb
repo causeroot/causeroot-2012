@@ -70,7 +70,6 @@ p_all_max = problems_by_all.max+1
 q_all_max = questions_by_all.max
 p_user_num = problems_by_user.length
 
-###### If you want them sorted all in order. Take out if not needed  ####
 pq_by_user_set.each do |key,value|
     value.uniq!
     value.sort_by!{|a,b| a*p_all_max+b}
@@ -78,8 +77,7 @@ end
 pq_by_all_set.each do |key,value|
     #value.uniq!
     value.sort_by!{|a,b| a*p_all_max+b}
-end  
-#######
+end 
 
 pq_by_all_set
 pq_by_user_set
@@ -94,7 +92,7 @@ ques_order = questions_by_all_freq_sort.map{|k,v| k}
 prob_order = problems_by_user_freq_sort_rev.map{|k,v| k}
 temp = problems_by_all_freq_sort.map{|k,v| k}
 temp.each do |p|
-    if !prob_order.has_value?(p)
+    if !prob_order.include?(p)
         prob_order<<p
     end
 end
@@ -108,7 +106,7 @@ while next_question == nil || next_problems == nil do
     for q in 1..q_all_max
         prob_order[0..num].combination(2).to_a.each do |set|
             puts set
-            if pq_by_user_set[ques_order[q]].include?(set) && next_problems == nil
+            if pq_by_user_set[ques_order[q-1]].include?(set) && next_problems == nil
                 next_question = q
                 next_problems = set
             end
@@ -119,18 +117,10 @@ while next_question == nil || next_problems == nil do
     #TODO: if all are answered, then do random
 end
 
-
-
 # problems_by_all_freq_sort.each do |k,v|
 
 # If user answers not so many questions, then what should the ALL graph show
 # if all are answered, then do random
-
-
-
-
-
-
 
 123
 12 - [1-4]
@@ -156,7 +146,3 @@ end
 25
 35
 45
-
-
-
-
