@@ -86,15 +86,6 @@ class GameResultsController < ApplicationController
         value.sort_by!{|a,b| a*p_all_max+b}
     end 
     
-    pq_by_all_set
-    pq_by_user_set
-    problems_by_all_freq_sort
-    questions_by_all_freq_sort
-    problems_by_user_freq_sort_rev
-    questions_by_user_freq_sort
-    
-    # TODO: Address skip/flag?
-    
     ques_order = questions_by_all_freq_sort.map{|k,v| k}
     prob_order = problems_by_user_freq_sort_rev.map{|k,v| k}
     temp = problems_by_all_freq_sort.map{|k,v| k}
@@ -104,10 +95,6 @@ class GameResultsController < ApplicationController
             prob_order<<p
         end
     end
-    
-    #################################################################################
-    # This code limits the number of questions that are asked to a particular user
-    # based upon the number of questions that the user has answered up until this point
     
     # Define Constants
     def_priority_num_of_questions = 15
@@ -126,7 +113,6 @@ class GameResultsController < ApplicationController
     @game_result.question = Question.offset(next_question-1).first
     
     # TODO: Reorder some of this to only group stuff based on the "choice" variable to reduce required computation
-    
     
     # THIS CODE CHOOSE THE APPROPRIATE PROBLEMS TO POSE (with a randomizer function as well)
     if !pq_by_user_set[next_question] == nil
