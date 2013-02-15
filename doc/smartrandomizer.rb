@@ -1,11 +1,3 @@
-
-module Enumerable
-    def sort_distinct_by_frequency
-        histogram = inject(Hash.new(0)) { |hash, x| hash[x] += 1; hash }
-        histogram.keys.sort_by { |x| [histogram[x], x] }
-    end
-end
-
 class Array
 	def counts
 		inject( Hash.new(0) ){ |hash,element|
@@ -14,17 +6,13 @@ class Array
 		}
 	end
 end
-
-#TODO: Operating system schedulers? Read up to optimize algorithm (simple)
-
-uId = 3
+# TODO: REMOVE THE INITIALIZATION BELOW
+uId = 5
 
 @gdata_all = GameResult.all
 @gdata_user = GameResult.where({:user_id => uId})
 
-    
-####### IDENTIFY THE BOUNDS OF THE DATASET ########
-          
+####### IDENTIFY THE BOUNDS OF THE DATASET ########    
 idata = {}
 questions_by_all = []
 questions_by_user = []
@@ -57,8 +45,8 @@ end;
     end;
 end;
 
-pq_by_all_set=Hash[problems_by_all_set.sort_by{|problem, freq| freq.length}]
-pq_by_user_set=Hash[problems_by_user_set.sort_by{|problem, freq| freq.length}]
+pq_by_all_set=Hash[pq_by_all_set.sort_by{|problem, freq| freq.length}]
+pq_by_user_set=Hash[pq_by_user_set.sort_by{|problem, freq| freq.length}]
 
 problems_by_all_freq_sort = Hash[problems_by_all.counts.sort_by{|problem, freq| freq}]
 questions_by_all_freq_sort = Hash[questions_by_all.counts.sort_by{|problem, freq| freq}]
@@ -68,7 +56,7 @@ questions_by_user_freq_sort = Hash[questions_by_user.counts.sort_by{|problem, fr
 
 p_all_max = problems_by_all.max+1
 q_all_max = questions_by_all.max
-p_user_num = problems_by_user.length
+p_user_num = problems_by_user.length/2
 
 pq_by_user_set.each do |key,value|
     value.uniq!
@@ -91,58 +79,42 @@ questions_by_user_freq_sort
 ques_order = questions_by_all_freq_sort.map{|k,v| k}
 prob_order = problems_by_user_freq_sort_rev.map{|k,v| k}
 temp = problems_by_all_freq_sort.map{|k,v| k}
+#TODO: Add Code here that throws out FLAGGED (SAME & SKIP?) type dudes
 temp.each do |p|
     if !prob_order.include?(p)
         prob_order<<p
     end
 end
 
-next_question = nil
-next_problems = nil
-num = 1
+#################################################################################
+# This code limits the number of questions that are asked to a particular user
+# based upon the number of questions that the user has answered up until this point
 
-while next_question == nil || next_problems == nil do
-    #for i in 0..num  
-    for q in 1..q_all_max
-        prob_order[0..num].combination(2).to_a.each do |set|
-            puts set
-            if pq_by_user_set[ques_order[q-1]].include?(set) && next_problems == nil
-                next_question = q
-                next_problems = set
-            end
-        end  
-        q = q_all_max+1
-    end            
-    num=num+1
-    #TODO: if all are answered, then do random
+# Define Constants
+def_priority_num_of_questions = 15
+percent_weight_focus_on_completion = 0.8
+
+q_order = questions_by_all_freq_sort.map{|k,v| Hash[k=>questions_by_user.counts[k] ]}
+# If needed, we can use: q_order = Hash[Hash[q_order.map!{|k| k.flatten}].sort_by{|k,v| v}]
+next_question = Hash[q_order.map!{|k| k.flatten}].min_by{|k,v| v}[0]
+
+# TODO: Reorder some of this to only group stuff based on the "choice" variable to reduce required computation
+
+if !pq_by_user_set[next_question] == nil
+    problems_left_focus = prob_order[0..def_priority_num_of_questions].combination(2).to_a-pq_by_user_set[next_question]
+    problems_left_rest_remaining = (prob_order.combination(2).to_a-pq_by_user_set[next_question])-problems_left_focus
+else
+    problems_left_focus = prob_order[0..def_priority_num_of_questions].combination(2).to_a
+    problems_left_rest_remaining = prob_order.combination(2).to_a-problems_left_focus
 end
 
-# problems_by_all_freq_sort.each do |k,v|
+choice = rand()+0.00000001
 
-# If user answers not so many questions, then what should the ALL graph show
-# if all are answered, then do random
+if choice < percent_weight_focus_on_completion && problems_left_focus.length > 0
+    next_question = problems_left_focus[(choice*(1.0/percent_weight_focus_on_completion))*problems_left_focus.length-1]
+elsif !problems_left_rest_remaining.length == 0
+    next_question = problems_left_rest_remaining[(rand()+0.00000001)*problems_left_rest_remaining.length-1 ]
+else
+    next_question = prob_order.combination(2).to_a[(rand()+0.00000001)]
+end
 
-123
-12 - [1-4]
-13 - [1-4]
-23 - [1-4]
-
-1234
-12 - [1-4]
-13 - [1-4]
-23 - [1-4]
-14
-24
-34
-
-12345
-12 - [1-4]
-13 - [1-4]
-23 - [1-4]
-14
-24
-34
-15
-25
-35
-45
