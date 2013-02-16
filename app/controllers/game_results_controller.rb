@@ -93,7 +93,7 @@ class GameResultsController < ApplicationController
     problems_by_user_freq_sort_rev = Hash[problems_by_user.counts.sort_by{|problem, freq| -freq}]
     questions_by_user_freq_sort = Hash[questions_by_user.counts.sort_by{|problem, freq| freq}]
     
-    p_user_num = problems_by_user.length/2
+    #p_user_num = problems_by_user.length/2
     
     pq_by_user_set.each do |key,value|
         value.uniq!
