@@ -25,6 +25,12 @@ class GameResultsController < ApplicationController
   # GET /game_results/new
   # GET /game_results/new.json
   def new
+  
+    # Define Constants
+    def_priority_num_of_questions = 15
+    percent_weight_focus_on_completion = 0.7
+    epsilon = 0.00000001
+    
     @gdata_all = GameResult.all
     @gdata_user = GameResult.where({:user_id => @current_user}) 
     #TODO: The inputs for the question and issues should be Hash referenced, and not an Arrays
@@ -37,6 +43,8 @@ class GameResultsController < ApplicationController
     questions_by_user = []
     problems_by_all = []
     problems_by_user = []
+    question_list = []
+    problem_list = []
     pq_by_all_set = {}
     pq_by_user_set = {}
     
@@ -64,17 +72,27 @@ class GameResultsController < ApplicationController
         end;
     end;
     
+    Issue.all.each do |i|
+        problem_list << i.id
+    end
+    p_all_max = problem_list.max
+    
+    Question.all.each do |q|
+        question_list << q.id
+    end
+    q_all_max = question_list.max
+    
     pq_by_all_set=Hash[pq_by_all_set.sort_by{|problem, freq| freq.length}]
     pq_by_user_set=Hash[pq_by_user_set.sort_by{|problem, freq| freq.length}]
     
-    problems_by_all_freq_sort = Hash[problems_by_all.counts.sort_by{|problem, freq| freq}]
-    questions_by_all_freq_sort = Hash[questions_by_all.counts.sort_by{|problem, freq| freq}]
+    problems_by_all_freq_sort = Hash[(problems_by_all.counts.sort_by{|problem, freq| freq} + (problem_list-problems_by_all.uniq).map{|v| [v,0]}).sort_by{|problem, freq| freq}]
+    questions_by_all_freq_sort = Hash[(questions_by_all.counts.sort_by{|question, freq| freq} + (question_list-questions_by_all.uniq).map{|v| [v,0]}).sort_by{|question, freq| freq}]
+    
+    # TODO: This needs to be modified at some point to not only ask a single question excessively/heavily when a new one is added to the mix
     
     problems_by_user_freq_sort_rev = Hash[problems_by_user.counts.sort_by{|problem, freq| -freq}]
     questions_by_user_freq_sort = Hash[questions_by_user.counts.sort_by{|problem, freq| freq}]
     
-    p_all_max = problems_by_all.max+1
-    q_all_max = questions_by_all.max
     p_user_num = problems_by_user.length/2
     
     pq_by_user_set.each do |key,value|
@@ -86,21 +104,11 @@ class GameResultsController < ApplicationController
         value.sort_by!{|a,b| a*p_all_max+b}
     end 
     
-    ques_order = questions_by_all_freq_sort.map{|k,v| k}
-    prob_order = problems_by_user_freq_sort_rev.map{|k,v| k}
-    temp = problems_by_all_freq_sort.map{|k,v| k}
+    ques_order_partial = questions_by_all_freq_sort.map{|k,v| k}
+    ques_order = ques_order_partial + (questions_by_all_freq_sort.map{|k,v| k}-ques_order_partial)
+    prob_order_partial = problems_by_user_freq_sort_rev.map{|k,v| k}
+    prob_order = prob_order_partial + (problems_by_all_freq_sort.map{|k,v| k}-prob_order_partial)
     #TODO: Add Code here that throws out FLAGGED (SAME & SKIP?) type dudes
-    temp.each do |p|
-        if !prob_order.include?(p)
-            prob_order<<p
-        end
-    end
-    
-    # Define Constants
-    def_priority_num_of_questions = 15
-    percent_weight_focus_on_completion = 0.8
-    epsilon = 0.00000001
-    
     
     # THIS CODE CHOOSE THE APPROPRIATE QUESTION TO ASK (with a randomizer function as well)
     q_order = questions_by_all_freq_sort.map{|k,v| Hash[k=>questions_by_user.counts[k] ]}
@@ -108,7 +116,7 @@ class GameResultsController < ApplicationController
     if (rand()+epsilon) < percent_weight_focus_on_completion
         next_question = Hash[q_order.map!{|k| k.flatten}].min_by{|k,v| v}[0]
     else
-        next_question = rand(q_all_max)
+        next_question = question_list[rand(q_all_max)]
     end
     @game_result.question = Question.offset(next_question-1).first
     
