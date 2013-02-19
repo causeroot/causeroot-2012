@@ -39,7 +39,7 @@
 		<h1>EFFECTS: WHAT ARE PROBLEMS THAT THIS CREATES?</h1>
                   <%= f.fields_for :effects do |effect_form| %>
                     <%= effect_form.text_area :effect, :placeholder => "Effects of the Issue mentioned above - Please list one at a time", :class => 'textbox', :wrap => 'physical' %>
-                    <%= cause_form.link_to_remove "Remove this cause" %>
+                    <%= effect_form.link_to_remove "Remove this cause" %>
                   <% end %>
                   <%= f.link_to_add "Add an Effect", :effects, :class => 'add_effect' %>
           <div class="actions">
