@@ -445,7 +445,7 @@ h2 {
 
 	}
 	
-#same_issue p {
+#same_issue a {
 	margin-top: 0;
 	color: #808080;
 	font-family: Arial;
@@ -454,7 +454,7 @@ h2 {
 	padding: 0px 6px 0px 0px;
 	}
 
-#skip_question p {
+#skip_question a {
 	margin-top: 10;
 	color: #808080;
 	font-family: Arial;
@@ -463,12 +463,12 @@ h2 {
 	padding: 0px 6px 0px 0px;
 	}
 
-#same_issue p:hover {
+#same_issue a:hover {
 	cursor: pointer;
 	color: #1C75BC;
 	}
 	
-#skip_question p:hover {
+#skip_question a:hover {
 	cursor: pointer;
 	color: #1C75BC;
 	}

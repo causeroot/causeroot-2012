@@ -4,7 +4,6 @@
        <div class="container">
                      
                <ul class="nav">
-               	
                	    
                	     <li class="menu-item-beta">*BETA*</li>
                	     <li class="menu-item-game"><%= link_to "PLAY THE GAME", new_game_result_path %></li>
@@ -12,21 +11,17 @@
                	     <li class="menu-item-about"><%= link_to "ABOUT CAUSEROOT", about_path %></li>
                	     
                	     <% if current_user %>
-					  <li class="sign-in"><%= link_to "Edit Profile", edit_user_path(current_user.id) %><span> | </span><%= link_to "Logout", :logout %></li>
-					<% else %>
-					  <li class="sign-in"><%= link_to "Register", new_user_path %><span> | </span><%= link_to "Login", :login %></li>				
-					<% end %>
+                      <li class="sign-in"><%= link_to "Edit Profile", edit_user_path(current_user.id) %><span> | </span><%= link_to "Logout", :logout %></li>
+		     <% else %>
+		      <li class="sign-in"><%= link_to "Register", new_user_path %><span> | </span><%= link_to "Login", :login %></li>			                    <% end %>
                </ul>
-                              
         </div>       
-           
    </div>
-       
 </div>
 
 <div class="black-bar"></div>
 <div id="wrap">		
-    			
+		
     	<div id = "logo_wrapper">
           <%= image_tag("CauseRoot.gif", :class => 'logo') %>
         </div> 	
