@@ -96,6 +96,7 @@ function createSvgElements(data) {
             .text(function(d) {return d['Problem Name'];})
             .attr("visibility", "hidden")
             .attr('dy', fixDYValue)
+            .attr('dy', fixYDYValue)
             .attr('x', fixXValue);
 
 // Problem data points represented as circles
@@ -149,6 +150,13 @@ function createSvgElements(data) {
     function fixXValue() {
         var textX = parseInt(this.getAttribute('x'));
         return textX - xValueOffset(this);
+    }
+
+    function fixYDYValue() {
+        var textY = parseInt(this.getAttribute('y'));
+        var textDY = parseInt(this.getAttribute('dy'));
+        var boxHeight = this.getBBox().height;
+        return (textY+textDY-boxHeight >= 0) ? textDY : textY - boxHeight;
     }
 
     function fixDYValue() {
