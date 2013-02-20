@@ -26,7 +26,7 @@
 d3.csv("/graphs.csv", createSvgElements);
 
 function createSvgElements(data) {
-
+    data.sort(function(a,b) {return b.Cost - a.Cost;});
 
     var theDomIsStupid = 'o'; // Prefix for DOM entities
 
@@ -105,7 +105,7 @@ function createSvgElements(data) {
             .attr("cx", function(d) { return x(xval(d)); })
             .attr("cy", function(d) { return y(yval(d)); })
             .attr("r", function(d) { return rad(d); })
-            .attr("fill", function(d) { return cinterp(d.Cost);})
+            .attr("fill", function(d) { return cinterp(d.Complexity);})
             .on("mouseover", function(){
                 d3.select(".text").select('#'+this.id+'t')
                         .attr("visibility","visible");})
