@@ -1,11 +1,9 @@
 <div class="navbar-fixed-top">
    
-   <div class="navbar-inner">
-       <div class="container">
-                     
+   <div class="navbar-innerwrap">
+                   
                <ul class="nav">
-               	
-               	    
+               	             	    
                	     <li class="menu-item-beta">*BETA*</li>
                	     <li class="menu-item-game"><%= link_to "PLAY THE GAME", new_game_result_path %></li>
                	     <li class="menu-item-data"><%= link_to "SUBMIT YOUR OWN DATA", new_issue_path %></li>
@@ -17,18 +15,8 @@
 					  <li class="sign-in"><%= link_to "Register", new_user_path %><span> | </span><%= link_to "Login", :login %></li>				
 					<% end %>
                </ul>
-                              
-        </div>       
-           
+                 
    </div>
        
 </div>
 
-<div class="black-bar"></div>
-<div id="wrap">		
-    			
-    	<div id = "logo_wrapper">
-          <%= image_tag("CauseRoot.gif", :class => 'logo') %>
-        </div> 	
-    
-</div>

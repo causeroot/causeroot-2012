@@ -25,38 +25,31 @@ a { text-decoration: none; }
 .container {  
     min-height: 100%;
     position: relative;
+
 	}
 	
 .page_wrapper {
 	margin-left: auto;
 	margin-right: auto;
+	padding-top: auto;
 	padding-bottom: 70px;
 	z-index: 100;
-	}      
+	width: 100%;
+	height: 100%;
 
-.nav {	
-	float: left;
-	width: 1000px;
-	position: absolute;
-	z-index: 200;
-	}
-	
-.nav ul {
-	text-align: center;
-	display: inline-block;
-	}
+	}      
 		
 .nav li {
-
 	list-style-type: none;
-	margin: 20px;
-	margin-top: -14px;
+	top:0;
 	float: left;
 	font-family: Arial;
 	font-size: 12px;
 	text-decoration: none; 
-    padding-right: 50px; 
- 
+    padding-right: 8%; 
+ 	padding-top: 0px;
+ 	padding-bottom: 8px;
+ 	display: inline-block;
 	}
 	
 .nav a { color: #f7941e; }
@@ -67,15 +60,17 @@ a { text-decoration: none; }
 		color: #a8a8a8;}
 
 .navbar-fixed-top {
-     z-index: 200;
-     position: fixed;    
-     top: 8px;
+    z-index: 200;
+    position: fixed;    
+    top: 0;
+    background: black;
+    width: 100%;
      }
 
-.navbar-inner {
-	z-index: 200;
+.navbar-innerwrap {
+	padding: 10px;
 	}
-    
+   
 .sign-in span {
 	color: #f7941e;
 	padding: 6px;
@@ -85,19 +80,15 @@ a { text-decoration: none; }
 	color: #707070;
 	font-family: arial;
 	}
-		            
-.black-bar {
-    height: 34px;
-    background: black;
-    position: fixed;
-    width: 100%;
-    top: 0px;
-    left: 0;
-    z-index: 10;
-}
+
 
 #wrap {min-height: 100%; }
 
+.logo {
+	width: 95%;
+	max-width: 392px;
+	}
+	
 #logo_wrapper {
     margin: 70px 0px 20px 20px;
 	}
@@ -253,8 +244,9 @@ h2 {
 
 .add_cause {
 	display: inline-block;
-	margin-bottom: 30px;
+	margin-bottom: 10px;
 	margin-top: 4px;
+	margin-left: 20px;
 	width: 592px;
 	font-family: Arial;
 	color: black;
@@ -262,12 +254,13 @@ h2 {
 	
 .add_effect {
 	display: inline-block;
-	margin-bottom: 30px;
+	margin-bottom: 10px;
 	margin-top: 4px;
+	margin-left: 20px;
 	width: 592px;
 	font-family: Arial;
 	color: black;
-	}
+	}	
 				
 .expand_box {
 	position: absolute;
@@ -278,9 +271,36 @@ h2 {
 	margin-top: 5px;
 	z-index: 0;	
 	}	
-	
+
 .expand_box p:first-child {
 	margin-top: -18%;
+	color: white;
+	font-size: 15px;
+	}
+	
+.remove_box {
+	display: inline-block;
+	margin-bottom: 30px;
+	margin-top: 4px;
+	margin-left: 20px;
+	width: 592px;
+	font-family: Arial;
+	color: black;
+	}
+		
+.remove_box2 {
+	position: absolute;
+	width: 14px;
+	height: 14px;
+	border-radius: 2px;
+	background: #1C75BC;
+	margin-top: 5px;
+	z-index: 0;	
+	}
+	
+.remove_box2 p:first-child {
+	margin-top: -18%;
+	margin-left: 2px;
 	color: white;
 	font-size: 15px;
 	}		
@@ -321,12 +341,16 @@ h2 {
 .about-content {
 	margin-top: 50px;
 	margin-left: 30px;
+	margin-bottom:30px;
+	padding-bottom: 30px;
 	}
 		
 #about-body {
-	width: 580px;
+	width: 85%;
+	max-width: 580px;
 	font-family: Arial;
 	line-height: 1.6;
+
 	}		
 		
 .info_text_wrapper {
@@ -500,31 +524,39 @@ h2 {
 	height: 30px;
 	}
 	
-.twitter-follow-button {
-	margin-left: 350px;
-	}	
-	
-#footer-bar {
+footer {
 	position: absolute;
-	bottom: 0;
-	margin-top: 70px; /* negative value of footer height */
-	height: 70px;
+	bottom: 0;	
+	margin-top: 70px; /* negative value of footer height */	
+	z-index: 0;  
+	padding: 8px;
 	width: 100%;
-	background: black;
-	z-index: 0;    
-	}
-	
-#footertable {	
-	margin-left: 10px;
+	background: black;  
 	}
 		
+#footercontentwrap {
+	display: table;
+	position: relative;
+	}
+
 #footer-copy {
 	font-family: Arial;
 	font-size: 11px;
 	color: #a8a8a8;
 	text-align: left;
 	padding: 16px;
+	margin-left: 10px;
+	margin-right: 50%;
+	position: relative;
+	display: inline-block;
 	}
+			
+.twitter-follow-button {
+	position: relative;
+	float: right;
+	margin-right: 10px;
+	margin-top: -4%;
+	}	
 	
 footer a {
 	color: #F7941E;
