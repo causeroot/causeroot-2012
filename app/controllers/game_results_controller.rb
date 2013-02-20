@@ -184,10 +184,10 @@ class GameResultsController < ApplicationController
           end
         end  
 
-        format.html { redirect_to :action=>'new', notice: 'Game result was successfully updated.'}
+        format.html { redirect_to :action=>'new'}
         format.json { render json: @game_result, status: :created, location: @game_result }
       else
-        format.html { render action: "new", notice: 'Game result was failed updated.' }
+        format.html { render action: "new" }
         format.json { render json: @game_result.errors, status: :unprocessable_entity }
       end
     end
