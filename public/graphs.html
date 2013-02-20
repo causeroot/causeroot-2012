@@ -15,6 +15,9 @@
     	.light {
     		fill: #666660;
     	}
+        .chart {
+            background: #E9EFF5;
+        }
     </style>
     <body>
         <div id="visualisation"></div>
@@ -27,20 +30,21 @@ function createSvgElements(data) {
 
 var theDomIsStupid = 'o'; // Prefix for DOM entities
 
-var margin = {top: 40, right: 40, bottom: 40, left: 40},
-    width = 700,
-    height = 500;
+var margin = {top: 1, right: 1, bottom: 1, left: 1},
+    width = 580,
+    height = 320;
+scaleFactor = Math.sqrt(width*width + height*height);
 
 var x = pad(d3.scale.linear()
     .domain(d3.extent(data, function(d) { return xval(d); }))
-    .range([0, width - margin.left - margin.right]), 40);
+    .range([0, width - margin.left - margin.right]), scaleFactor*0.025);
 
 var y = pad(d3.scale.linear()
     .domain(d3.extent(data, function(d) { return yval(d); }))
-    .range([height - margin.top - margin.bottom, 0]), 40);
+    .range([height - margin.top - margin.bottom, 0]), scaleFactor*0.025);
 
-var halfHeight = y(0.5),
-    halfWidth = x(0.5);
+var halfHeight = y(-0.1),
+    halfWidth = x(-0.1);
 
 var canvas = d3.select("body").append("svg")
     .attr("width", width)
@@ -48,6 +52,7 @@ var canvas = d3.select("body").append("svg")
     .attr("class", "dot chart")
 	.append("g");
 var svg = canvas.append("g")
+    .attr('class', 'bckg')
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 var axisColor = '#AAAAAA';
@@ -86,8 +91,8 @@ var txt = g2.append("svg:text")
     .attr("id", function(d){return idFunc(d)+'t';})
     .attr("x", function(d) {return x(xval(d));})
     .attr("y", function(d) {return y(yval(d));})
-    .attr("dx", function(d) {return 3*rad(d);})
-    .attr("dy", function(d) {return -3*rad(d);})
+    .attr("dx", function(d) {return 0.75*rad(d);})
+    .attr("dy", function(d) {return -0.75*rad(d);})
     .text(function(d) {return d['Problem Name'];})
     .attr("visibility", "hidden")
     .attr('dy', fixDYValue)
@@ -99,7 +104,7 @@ var circles = g.append("svg:circle")
     .attr("id", idFunc)
     .attr("cx", function(d) { return x(xval(d)); })
     .attr("cy", function(d) { return y(yval(d)); })
-    .attr("r", function(d) { return 4*rad(d) + 3.0; })
+    .attr("r", function(d) { return rad(d); })
     .attr("fill", function(d) { return cinterp(d.Cost);})
     .on("mouseover", function(){
         d3.select(".text").select('#'+this.id+'t')
@@ -174,12 +179,18 @@ function createLegend(svg) {
 function createButton(svg) {
     var button = svg.append('g')
             .append('svg:rect')
-            .attr('x', width-40)
-            .attr('y', height-40)
-            .attr('width', 20)
-            .attr('height', 20)
+            .attr('x', width*0.96)
+            .attr('y', height*0.96)
+            .attr('width', scaleFactor*0.02)
+            .attr('height', scaleFactor*0.02)
             .attr('r', 10)
-            .attr('fill', '#3311FF');
+            .attr('fill', '#3311FF')
+            .on("mouseover", function(){
+                d3.select(this).transition().style("fill", "#FF0000");
+            })
+            .on('mouseout', function() {
+                d3.select(this).transition().style("fill", "#00FF00");
+            });
 }
 
 function pad(scale, k) {
@@ -204,7 +215,7 @@ function cinterp (t) {
 
 function xval(d) { return d.Importance }
 function yval(d) { return d.Immediacy }
-function rad(d) { return 10 * (d.Cost) }
+function rad(d) { return 0.04 * scaleFactor * (d.Cost) + 3.0 }
 function shapefn(d) {
     var x = xval(d);
     var y = yval(d);
