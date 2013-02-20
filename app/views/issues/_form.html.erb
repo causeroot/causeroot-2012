@@ -22,7 +22,7 @@
 	<div class="form-content">
 		<h1>CAUSES: WHAT ARE THE PROBLEMS WHICH PROVOKE THIS?</h1>
                   <%= f.fields_for :causes do |cause_form| %>
-                    <%= cause_form.text_area :cause, :placeholder => "Problems leading to the Issue mentioned above", :class => 'textbox', :wrap => 'physical' %>
+                    <%= cause_form.text_area :cause, :placeholder => "Problems leading to the Issue mentioned above - Please list one at a time", :class => 'textbox', :wrap => 'physical' %>
                     <%= cause_form.link_to_remove "Remove this cause" %>
                   <% end %>
 
