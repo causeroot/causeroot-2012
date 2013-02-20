@@ -30,18 +30,18 @@ function createSvgElements(data) {
 
     var theDomIsStupid = 'o'; // Prefix for DOM entities
 
-    var margin = {top: 1, right: 1, bottom: 1, left: 1},
-            width = 580,
-            height = 320;
+    var margin = {top: 1, right: 1, bottom: 1, left: 1};
+    width = 580;
+    height = 320;
     scaleFactor = Math.sqrt(width*width + height*height);
 
     var x = pad(d3.scale.linear()
             .domain(d3.extent(data, function(d) { return xval(d); }))
-            .range([0, width - margin.left - margin.right]), scaleFactor*0.025);
+            .range([0, width - margin.left - margin.right]), scaleFactor*0.030);
 
     var y = pad(d3.scale.linear()
             .domain(d3.extent(data, function(d) { return yval(d); }))
-            .range([height - margin.top - margin.bottom, 0]), scaleFactor*0.025);
+            .range([height - margin.top - margin.bottom, 0]), scaleFactor*0.030);
 
     var halfHeight = y(-0.1),
             halfWidth = x(-0.1);
@@ -114,7 +114,7 @@ function createSvgElements(data) {
                         .attr("visibility","hidden");});
 
     createButton(canvas);
-    //createLegend(canvas);
+    createLegend(canvas);
 
     function idFunc(d) {
         return theDomIsStupid+hash(d['Problem Name']);
@@ -124,10 +124,21 @@ function createSvgElements(data) {
         var c = d3.select(this);
     };
 
+    function textLength(obj) {
+        return parseInt(d3.select('#' + obj.id)[0][0].getComputedTextLength());
+    }
+
+    function centerY() {
+        return (height-textLength(this))/2;
+    }
+
+    function centerX() {
+        return (width-textLength(this))/2;
+    }
+
     function xValueOffset(obj) {
         var rightPadding = 10;
-        var textWidth = parseInt(d3.select('.text').select('#' + obj.id)[0][0]
-                .getComputedTextLength()) + margin.left +
+        var textWidth = textLength(obj) + margin.left +
                 parseInt(obj.getAttribute('dx')) + rightPadding; // additions due to padding and shift.
         var textX = parseInt(obj.getAttribute('x'));
         var textEnd = textX + textWidth;
@@ -150,20 +161,24 @@ function createSvgElements(data) {
 
     function createLegend(svg) {
         var legend = svg.append('g')
-                .attr("transform", "translate(0,40)")
                 .attr('class', 'nodeText light');
-        var legendX = legend.append("svg:text")
-                .text('x-Axis: ');
-        textAppend(legendX, 'Importance');
+
+        var legendX = legend.append("svg:text").attr('x', width/2)
+                .attr('y', '' + (height - 5))
+                .attr('id','legendX')
+                .attr('text-anchor','middle')
+                .text('IMPORTANCE');
 
         var legendY = legend.append("svg:text")
-                .text('y-Axis: ')
-                .attr('dy', '20');
-        textAppend(legendY, 'Immediacy');
+                .text('IMMEDIACY').attr('id', 'legendY')
+                .attr('text-anchor', 'middle')
+                .attr('transform', 'rotate(-90)')
+                .attr('x', -height/2);
+        legendY.attr('y', document.getElementById('legendY').getBBox().height *.85);
 
-        var legendS = legend.append("svg:text")
+        /*var legendS = legend.append("svg:text")
                 .text('Size: ')
-                .attr('dy', '40');
+                .attr('dy', '45');
         textAppend(legendS, 'Cost');
 
         var legendC = legend.append('svg:text')
@@ -172,8 +187,8 @@ function createSvgElements(data) {
         textAppend(legendC, 'Cost');
 
         function textAppend(obj, txt) {
-            obj.append('tspan').text(txt).attr('class', 'legend nodeText dark');
-        }
+            obj.append('tspan').text(txt).attr('class', 'legend nodeText light');
+        }*/
     }
 
     function createButton(svg) {
