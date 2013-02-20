@@ -3,6 +3,7 @@ class Issue < ActiveRecord::Base
   attr_accessible :problem, :causes, :effects, :causes_attributes, :effects_attributes
   acts_as_taggable
 
+  validates :problem, :presence => true, :uniqueness => true
   has_many :causes
   has_many :effects
   accepts_nested_attributes_for :causes, :allow_destroy => true

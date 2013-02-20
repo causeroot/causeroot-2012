@@ -169,6 +169,15 @@ class GameResultsController < ApplicationController
     # Save user, result 
     @game_result = GameResult.new(params[:game_result])
     @game_result.user = current_user
+
+    if params[:answer] == 'same'
+      @game_result.same = true
+      @game_result.answer = 0
+    elsif params[:answer] == 'skip'
+      @game_result.skip = true
+      @game_result.answer = 0
+    end
+
     @game_result.save
     params[:issues].each do |issue_id|
       @game_result.issues << Issue.find(issue_id.last)
