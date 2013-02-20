@@ -11,6 +11,7 @@
       </ul>
     </div>
   <% end %>
+<div>
   <div class="game-content">
     <div id="game_question">
     	<h1><%= @game_result.question.question %></h1>
@@ -63,12 +64,20 @@
     <div class="skip_same_wrap">
         <div id="same_issue"><p>THESE ARE THE SAME ISSUE</p> <img id="same-i2" src="/SameQ.png" /> </div>
         <div id="skip_same_line"></div>
-        <div id="skip_question"><p>SKIP THIS QUESTION</p><img id="skip-i1" src="/Skip_Arrow.png" /></div>
-     </div>  
+        <div id="skip_question"><p>SKIP THIS QUESTION</p><img id="skip-i1" src="/Skip_Arrow.png" /></div>		
+ 		<div id="results_title"> 
+			Map Your Results
+			<div class="results_map"> </div>
+		</div>
+ 
+    </div>
     
       
-  </div>
+</div>
 <% end %>
+
+</div>
+
 <script>
 $('#same_issue').bind('mouseover',function(){
     $('#same-i2').data({ original:$('#same-i2').attr('src') })

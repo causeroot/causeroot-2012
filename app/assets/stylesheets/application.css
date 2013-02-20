@@ -15,31 +15,30 @@
 
 		
 html, body {
-	margin: 0 auto;
+	margin: 0;
 	padding: 0;
-	height: 97%;
+	height: 98%;
 	}
 
 a { text-decoration: none; }	
 
-
+.container {  
+    min-height: 100%;
+    position: relative;
+	}
+	
 .page_wrapper {
 	margin-left: auto;
 	margin-right: auto;
-	min-height: 100%;
-	position: relative;
-	}
-       
-.container {
-    z-index: 200;  
-      
-	}
-	
+	padding-bottom: 70px;
+	z-index: 100;
+	}      
+
 .nav {	
 	float: left;
 	width: 1000px;
 	position: absolute;
-
+	z-index: 200;
 	}
 	
 .nav ul {
@@ -440,11 +439,10 @@ h2 {
 	color: #BE1E2D;
 }	
 	
-.skip_same_wrap {
-	text-align: right;
+.skip_same_wrap {	
 	padding-top: 20px;
-	padding-right: 20px;
-	float: right;
+	float: left;
+
 	}
 	
 #same_issue p {
@@ -453,7 +451,7 @@ h2 {
 	font-family: Arial;
 	font-size: 11px;
 	display: inline-block;
-	padding: 0px 6px;
+	padding: 0px 6px 0px 0px;
 	}
 
 #skip_question p {
@@ -462,7 +460,7 @@ h2 {
 	font-family: Arial;
 	font-size: 11px;
 	display: inline-block;
-	padding: 0px 6px;
+	padding: 0px 6px 0px 0px;
 	}
 
 #same_issue p:hover {
@@ -480,7 +478,24 @@ h2 {
 	width: 190px;
 	height: 1px;	
 	}
+
+.results_map {
+	background: #E9EFF5;
+	width: 580px;
+	height: 320px;
+	border-radius: 5px 5px 5px 5px;
+	margin-top: 10px;
+	z-index: 100;
+	}
 	
+#results_title {
+	float: left;
+	font-family: Arial;
+	font-size: 16px;
+	text-align: left;
+	padding: 30px 0px 10px 0px;
+}	
+		
 .whitespace {
 	height: 30px;
 	}
@@ -491,13 +506,12 @@ h2 {
 	
 #footer-bar {
 	position: absolute;
+	bottom: 0;
 	margin-top: 70px; /* negative value of footer height */
 	height: 70px;
 	width: 100%;
-	bottom: 0px;
 	background: black;
-	left: 0;
-        padding: 10px;
+	z-index: 0;    
 	}
 	
 #footertable {	
