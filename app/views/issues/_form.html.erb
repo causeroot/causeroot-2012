@@ -24,17 +24,19 @@
                 <%= f.fields_for :causes do |cause_form| %>
 
                 <%= cause_form.text_area :cause, :placeholder => "Problems leading to the Issue mentioned above", :class => 'textbox', :wrap => 'physical' %>
-
-		<div class="expand_box">
-    			<p><span>+</span></p>
-    	</div>
-        <%= f.link_to_add "Add a Cause", :causes, :class => 'add_cause' %>
-
-		<div class="remove_box2">
+		
+	<!--<div class="remove_box2">
     			<p><span>–</span></p>
-    	</div>
+    	</div> -->
 		<%= cause_form.link_to_remove "Remove this cause", :class => 'remove_box' %>
 		<% end %>
+		
+	<!--<div class="expand_box">
+    			<p><span>+</span></p>
+    	</div> -->
+        <%= f.link_to_add "Add a Cause", :causes, :class => 'add_cause' %>
+
+		
 </div>
 
 <br/>
@@ -44,16 +46,17 @@
                   <%= f.fields_for :effects do |effect_form| %>
                 <%= effect_form.text_area :effect, :placeholder => "Effects of the Issue mentioned above - Please list one at a time", :class => 'textbox', :wrap => 'physical' %>
 
-        <div class="expand_box">
-    			<p><span>+</span></p>
-    	</div>
-		<%= f.link_to_add "Add an Effect", :effects, :class => 'add_effect' %>
-          		 
-        <div class="remove_box2">
-    			<p><span>–</span></p>
-    	</div>
+	<!--<div class="remove_box2">
+    		<p><span>–</span></p>
+    	</div> -->
         <%= effect_form.link_to_remove "Remove this effect", :class => 'remove_box' %>
         <% end %>
+
+     <!--<div class="expand_box">
+    			<p><span>+</span></p>
+    	</div>-->
+		<%= f.link_to_add "Add an Effect", :effects, :class => 'add_effect' %>
+          		 
           
         <div class="actions">
                 <%= f.submit "SUBMIT", :class => 'submit_button' %>

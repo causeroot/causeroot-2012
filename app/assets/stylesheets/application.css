@@ -246,7 +246,6 @@ h2 {
 	display: inline-block;
 	margin-bottom: 10px;
 	margin-top: 4px;
-	margin-left: 20px;
 	width: 592px;
 	font-family: Arial;
 	color: black;
@@ -256,7 +255,6 @@ h2 {
 	display: inline-block;
 	margin-bottom: 10px;
 	margin-top: 4px;
-	margin-left: 20px;
 	width: 592px;
 	font-family: Arial;
 	color: black;
@@ -280,9 +278,9 @@ h2 {
 	
 .remove_box {
 	display: inline-block;
-	margin-bottom: 30px;
+	margin-bottom: 8px;
 	margin-top: 4px;
-	margin-left: 20px;
+
 	width: 592px;
 	font-family: Arial;
 	color: black;
@@ -522,9 +520,8 @@ h2 {
 }
 	
 footer {
-
 	bottom: 0;	
-	margin-top: 70px; /* negative value of footer height */	
+	margin-top: -60px; /* negative value of footer height */	
 	z-index: 0;  
 	padding: 8px;
 	width: 100%;
