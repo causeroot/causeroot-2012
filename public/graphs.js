@@ -49,7 +49,7 @@ function createSvgElements(data) {
         .attr("stroke", axisColor);
 
     var g = svg.append("g").attr("class", "circles").selectAll("circles")
-        .data(data)
+        .data(data, key)
         .enter().append("svg:g")
         .attr("class", "c");
 
