@@ -1,17 +1,15 @@
-<p id="notice"><%= notice %></p>
 
+<b>Owner:</b>
+    <%= User.all[@issue.user_id].username %>
+</p>
+<br>
 <p>
   <b>Problem:</b>
-  <%= @issue.problem %>
+  <p><%= @issue.problem %></p>
 </p>
-
-<p>
-<b>Owner:</b>
-    <%= @issue.user.username %>
-</p>
-
 <p>
 
+<p>
 <p>
   <b>Causes:</b>
   <% @issue.causes.each do |cause| %>
@@ -25,7 +23,7 @@
     <p><%= effect.effect %></p>
   <% end %>
 </p>
-
+<br>
 
 <%= link_to 'Edit', edit_issue_path(@issue) %> |
-<%= link_to 'Back', issues_path %>
+<%= link_to 'Back', new_issue_path %>

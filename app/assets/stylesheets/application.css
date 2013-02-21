@@ -570,3 +570,18 @@ footer a:hover {
 p.chosen {
   background-color: #ddd;
 }
+
+.nodeText {
+    font-family: sans-serif;
+    font: arial;
+    font-size: 1.1em;
+}
+.dark {
+    fill: black;
+}
+.light {
+    fill: #666660;
+}
+.chart {
+    background: #E9EFF5;
+}
