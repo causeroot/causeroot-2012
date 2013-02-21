@@ -6,7 +6,7 @@
 
 <p>
 <b>Owner:</b>
-    <%= @issue.user.username %>
+    <%= User.all[@issue.user_id].username %>
 </p>
 
 <p>
