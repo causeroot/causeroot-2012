@@ -21,7 +21,7 @@ function createSvgElements(data) {
     var halfHeight = y(-0.1),
         halfWidth = x(-0.1);
 
-    var canvas = d3.select("body").append("svg")
+    var canvas = d3.select("#results_placeholder").append("svg")
         .attr("width", width)
         .attr("height", height)
         .attr("class", "dot chart")
