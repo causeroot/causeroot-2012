@@ -71,8 +71,8 @@ function createSvgElements(data) {
         .attr("dy", function(d) {return -0.75*rad(d);})
         .text(function(d) {
             var txt = d['Problem Name'];
-            if (txt.length > 70) {
-                txt = txt.slice(0,70) + '...';
+            if (txt.length > 65) {
+                txt = txt.slice(0,65) + '...';
             }
             return txt;
         })
@@ -221,11 +221,6 @@ function key(d) { return d['Problem Name'] }
 function xval(d) { return d.Importance }
 function yval(d) { return d.Immediacy }
 function rad(d) { return 0.04 * scaleFactor * (d.Cost) + 3.0 }
-function shapefn(d) {
-    var x = xval(d);
-    var y = yval(d);
-    return 1-2*((x-0.5)*(x-0.5)+(y-0.5)*(y-0.5));
-}
 
 /*Simple, fast, non-secure hash*/
 function hash(str) {
