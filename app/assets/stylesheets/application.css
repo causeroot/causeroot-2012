@@ -510,6 +510,7 @@ h2 {
 	border-radius: 5px 5px 5px 5px;
 	margin-top: 10px;
 	z-index: 100;
+	margin-bottom: 30px;
 	}
 	
 #results_title {
@@ -518,20 +519,17 @@ h2 {
 	font-size: 16px;
 	text-align: left;
 	padding: 30px 0px 10px 0px;
-}	
-		
-.whitespace {
-	height: 30px;
-	}
+}
 	
 footer {
-	position: absolute;
+
 	bottom: 0;	
 	margin-top: 70px; /* negative value of footer height */	
 	z-index: 0;  
 	padding: 8px;
 	width: 100%;
-	background: black;  
+	background: black; 
+	clear: both; 
 	}
 		
 #footercontentwrap {
@@ -549,6 +547,7 @@ footer {
 	margin-right: 50%;
 	position: relative;
 	display: inline-block;
+
 	}
 			
 .twitter-follow-button {

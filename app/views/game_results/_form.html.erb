@@ -1,76 +1,73 @@
 <%= form_for(@game_result) do |f| %>
-  <%= hidden_field(:game_result, :question_id) %>
-  <% if @game_result.errors.any? %>
+<%= hidden_field(:game_result, :question_id) %>
+<% if @game_result.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@game_result.errors.count, "error") %> prohibited this game_result from being saved:</h2>
+    	<h2><%= pluralize(@game_result.errors.count, "error") %> prohibited this game_result from being saved:</h2>
 
-      <ul>
-      <% @game_result.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+		<ul>
+      		<% @game_result.errors.full_messages.each do |msg| %>
+        	<li><%= msg %></li>
+      		<% end %>
+      	</ul>
     </div>
-  <% end %>
-<div>
-  <div class="game-content">
-    <div id="game_question">
-    	<h1><%= @game_result.question.question %></h1>
-    </div>	
-    <% @game_result.issues.each_with_index do |issue, i| %>
-      <%= fields_for :issues do |issue_fields| %>
-            <%= issue_fields.hidden_field i, :value => issue.id %>
-      <% end %>
-    <% end %>
-      
-    <table id="issues_wrap" cellspacing="20">
-        <tr class="row1">
-          <td class="ab_label"> <div>A</div>
-          </td>
-          <td class="ab_label"> <div>B</div>
-          </td>
-        </tr>
-        <script language="javascript"> 
-          function submitForm(answer) {
-            $('#game_result_answer').val(answer);
-            $('#new_game_result').submit();
-            return false;
-          }
-        </script> 
-
-        <%= f.hidden_field(:answer) %>
-                                        
-        <tr class="row2"> 	
-          <% @game_result.issues.each_with_index do |issue, i| %>
-              <td class="ab_content">    
-                <%= button_to_function "#{issue.problem}", "submitForm(#{issue.id})", :class => 'ab_content' %> 
-
-              </td>
-          <% end %>             
-        </tr>
-
-        <tr>
-          <% @game_result.issues.each do |issue| %>
-          <td class="flag_issue">    
-                  <%= f.submit "flag", :name => "flag[#{issue.id}]", :value => "FLAG", :class => 'flag', :confirm => "Are you sure that you want flag this issue as innapropriate?" %><img id="flag-i2" src="/Flag.png" />
-          </td>   
-                  <% end %>
-        </tr>
-    </table>
-    <div class="skip_same_wrap">
-      <div id="same_issue"> <p><a class="same_issue" href="#" onclick="submitForm('same'); return false;">THESE ISSUES ARE THE SAME &nbsp; <img id="same-i2" src="/SameQ.png" /></a></p> </div>
-        <div id="skip_same_line"></div>
-        <div id="skip_question"><p><a class="skip_question" href="#" onClick="submitForm('skip'); return false;">SKIP THIS QUESTION &nbsp; <img id="skip-i1" src="/Skip_Arrow.png" /></a></p></div>		
-        <div id="results_title"> 
-          Map Your Results
-          <div class="results_map"> </div>
-        </div>
- 
-    </div>
-    
-      
-</div>
 <% end %>
 
+<div>
+	<div class="game-content">
+    	<div id="game_question">
+    		<h1><%= @game_result.question.question %></h1>
+    	</div>	
+    	<% @game_result.issues.each_with_index do |issue, i| %>
+      	<%= fields_for :issues do |issue_fields| %>
+        <%= issue_fields.hidden_field i, :value => issue.id %>
+    	<% end %>
+    	<% end %>
+      
+    	<table id="issues_wrap" cellspacing="20">
+        	<tr class="row1">
+          		<td class="ab_label"> <div>A</div>
+          		</td>
+         		<td class="ab_label"> <div>B</div>
+          		</td>
+        	</tr>
+        	<script language="javascript"> 
+          		function submitForm(answer) {
+            	$('#game_result_answer').val(answer);
+            	$('#new_game_result').submit();
+            	return false;
+          		}
+        	</script> 
+
+        	<%= f.hidden_field(:answer) %>
+                                        
+        	<tr class="row2"> 	
+          		<% @game_result.issues.each_with_index do |issue, i| %>
+              	<td class="ab_content">    
+                	<%= button_to_function "#{issue.problem}", "submitForm(#{issue.id})", :class => 'ab_content' %> 
+				</td>
+          			<% end %>             
+        	</tr>
+
+        	<tr>
+          		<% @game_result.issues.each do |issue| %>
+          		<td class="flag_issue">    
+                  <%= f.submit "flag", :name => "flag[#{issue.id}]", :value => "FLAG", :class => 'flag', :confirm => "Are you sure that you want flag this issue as innapropriate?" %><img id="flag-i2" src="/Flag.png" />
+          		</td>   
+                  <% end %>
+        	</tr>
+    	</table>
+    	<div class="skip_same_wrap">
+      		<div id="same_issue"> <p><a class="same_issue" href="#" onclick="submitForm('same'); return false;">THESE ISSUES ARE THE SAME &nbsp; <img id="same-i2" src="/SameQ.png" /></a></p> </div>
+        	<div id="skip_same_line"></div>
+        	<div id="skip_question"><p><a class="skip_question" href="#" onClick="submitForm('skip'); return false;">SKIP THIS QUESTION &nbsp; <img id="skip-i1" src="/Skip_Arrow.png" /></a></p></div>		
+        	<div id="results_title"> 
+          		Map Your Results
+          		<div class="results_map"> </div>
+        	</div>
+		</div>
+     
+	</div>
+	<% end %>
 </div>
 
 <script>
