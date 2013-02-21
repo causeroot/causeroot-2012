@@ -50,8 +50,9 @@
 
         	<tr>
           		<% @game_result.issues.each do |issue| %>
-          		<td class="flag_issue">    
-                  <%= f.submit "flag", :name => "flag[#{issue.id}]", :value => "FLAG", :class => 'flag', :confirm => "Are you sure that you want flag this issue as innapropriate?" %><img id="flag-i2" src="/Flag.png" />
+          		<td>                     
+                  	<%= f.submit "flag", :name => "flag[#{issue.id}]", :value => "FLAG  "+"\u2691 [:id => 'flag_icon']", :class => 'flag', :confirm => "Are you sure that you want flag this issue as innapropriate?" %>                  	
+                 	<!-- <img id="flag-i2" src="/Flag.png" /> -->
           		</td>   
                   <% end %>
         	</tr>

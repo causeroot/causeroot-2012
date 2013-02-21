@@ -55,10 +55,13 @@ a { text-decoration: none; }
 .nav a { color: #f7941e; }
 
 .nav a:hover { color: #cc6600; }
-	
-.menu-item-beta {
-		color: #a8a8a8;}
 
+.nav a:active { color: #ffffff; }
+	
+#menu-item-beta {
+		color: #a8a8a8;
+		}
+		
 .navbar-fixed-top {
     z-index: 200;
     position: fixed;    
@@ -244,9 +247,7 @@ h2 {
 
 .add_cause {
 	display: inline-block;
-	margin-bottom: 10px;
 	margin-top: 4px;
-	width: 592px;
 	font-family: Arial;
 	color: black;
 	}
@@ -255,7 +256,6 @@ h2 {
 	display: inline-block;
 	margin-bottom: 10px;
 	margin-top: 4px;
-	width: 592px;
 	font-family: Arial;
 	color: black;
 	}	
@@ -278,10 +278,8 @@ h2 {
 	
 .remove_box {
 	display: inline-block;
-	margin-bottom: 8px;
+	margin-bottom: 2px;
 	margin-top: 4px;
-
-	width: 592px;
 	font-family: Arial;
 	color: black;
 	}
@@ -321,11 +319,11 @@ h2 {
 	
 .submit_button {
 	border: none;
-	margin-top: 5px;
-	margin-bottom: 70px;
-	float: right;
-	width: 80px;
-	height: 21px;
+	margin-top: 35px;
+	margin-bottom: 20px;
+	float: left;
+	width: 100px;
+	height: 24px;
 	border-radius: 2px;
 	background: #F7941D;
 	text-align: center;
@@ -343,14 +341,19 @@ h2 {
 	padding-bottom: 30px;
 	}
 		
-#about-body {
+.about-body {
 	width: 85%;
 	max-width: 580px;
 	font-family: Arial;
 	line-height: 1.6;
-
+	color: #606060;
 	}		
-		
+
+.about-content span {
+	font-size: 13px;
+	color: #F7941D;
+	}
+			
 .info_text_wrapper {
     display: none;    
     width: 225px;
@@ -358,7 +361,7 @@ h2 {
     margin-top: 10px;
     z-index: 0;
     position: absolute;
-}
+	}
 
 .info_text_inner_wrapper p {
 	font-size: 12px;
@@ -442,10 +445,6 @@ h2 {
 	background: #FEE8C9; 
 	color: black;
 	}
-
-.flag_issue {
-
-	}
 	
 .flag {
 	border: none;
@@ -460,11 +459,17 @@ h2 {
 .flag:hover {
 	color: #BE1E2D;
 }	
+
+.flag_icon {
+	size: 16px;
+
+}
+
 	
 .skip_same_wrap {	
 	padding-top: 20px;
 	float: left;
-
+	width: 200px;
 	}
 	
 #same_issue a {
