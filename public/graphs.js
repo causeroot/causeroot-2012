@@ -7,14 +7,15 @@ var canvas = d3.select("#results_placeholder").append("svg")
     .attr("height", height)
     .attr("class", "dot chart")
     .append("g");
+var svg = canvas.append("g")
+    .attr('class', 'bckg')
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+var theDomIsStupid = 'o'; // Prefix for DOM entities
 
 d3.csv("/graphs.csv", createSvgElements);
 
 function createSvgElements(data) {
     data.sort(function(a,b) {return b.Cost - a.Cost;});
-
-    var theDomIsStupid = 'o'; // Prefix for DOM entities
-
 
     var x = pad(d3.scale.linear()
         .domain(d3.extent(data, function(d) { return xval(d); }))
@@ -26,10 +27,6 @@ function createSvgElements(data) {
 
     var halfHeight = y(-0.1),
         halfWidth = x(-0.1);
-
-    var svg = canvas.append("g")
-        .attr('class', 'bckg')
-        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
     var axisColor = '#AAAAAA';
 
@@ -96,27 +93,14 @@ function createSvgElements(data) {
             d3.select(".text").select('#'+this.id+'t')
                 .attr("visibility","hidden");});
 
-    //createButton(canvas);
     createLegend(canvas);
 
     function idFunc(d) {
         return theDomIsStupid+hash(d['Problem Name']);
     }
 
-    var mouseOverFunction = function () {
-        var c = d3.select(this);
-    };
-
     function textLength(obj) {
         return parseInt(d3.select('#' + obj.id)[0][0].getComputedTextLength());
-    }
-
-    function centerY() {
-        return (height-textLength(this))/2;
-    }
-
-    function centerX() {
-        return (width-textLength(this))/2;
     }
 
     function xValueOffset(obj) {
@@ -165,38 +149,8 @@ function createSvgElements(data) {
             .attr('transform', 'rotate(-90)')
             .attr('x', -height/2);
         legendY.attr('y', document.getElementById('legendY').getBBox().height *.85);
-
-        /*var legendS = legend.append("svg:text")
-         .text('Size: ')
-         .attr('dy', '45');
-         textAppend(legendS, 'Cost');
-
-         var legendC = legend.append('svg:text')
-         .text('Color: ')
-         .attr('dy', '60');
-         textAppend(legendC, 'Cost');
-
-         function textAppend(obj, txt) {
-         obj.append('tspan').text(txt).attr('class', 'legend nodeText light');
-         }*/
     }
 
-    function createButton(svg) {
-        var button = svg.append('g')
-            .append('svg:rect')
-            .attr('x', width*0.96)
-            .attr('y', height*0.96)
-            .attr('width', scaleFactor*0.02)
-            .attr('height', scaleFactor*0.02)
-            .attr('r', 10)
-            .attr('fill', '#3311FF')
-            .on("mouseover", function(){
-                d3.select(this).transition().style("fill", "#FF0000");
-            })
-            .on('mouseout', function() {
-                d3.select(this).transition().style("fill", "#00FF00");
-            });
-    }
 
     function pad(scale, k) {
         var range = scale.range();
