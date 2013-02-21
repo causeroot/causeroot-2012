@@ -68,7 +68,13 @@ function createSvgElements(data) {
         .attr("y", function(d) {return y(yval(d));})
         .attr("dx", function(d) {return 0.75*rad(d);})
         .attr("dy", function(d) {return -0.75*rad(d);})
-        .text(function(d) {return d['Problem Name'];})
+        .text(function(d) {
+            var txt = d['Problem Name'];
+            if (txt.length > 70) {
+                txt = txt.slice(0,70) + '...';
+            }
+            return txt;
+        })
         .attr("visibility", "hidden")
         .attr('dy', fixDYValue)
         .attr('dy', fixYDYValue)
