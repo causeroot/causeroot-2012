@@ -1,3 +1,13 @@
+var margin = {top: 1, right: 1, bottom: 1, left: 1};
+var width = 580;
+var height = 320;
+var scaleFactor = Math.sqrt(width*width + height*height);
+var canvas = d3.select("#results_placeholder").append("svg")
+    .attr("width", width)
+    .attr("height", height)
+    .attr("class", "dot chart")
+    .append("g");
+
 d3.csv("/graphs.csv", createSvgElements);
 
 function createSvgElements(data) {
@@ -5,10 +15,6 @@ function createSvgElements(data) {
 
     var theDomIsStupid = 'o'; // Prefix for DOM entities
 
-    var margin = {top: 1, right: 1, bottom: 1, left: 1};
-    width = 580;
-    height = 320;
-    scaleFactor = Math.sqrt(width*width + height*height);
 
     var x = pad(d3.scale.linear()
         .domain(d3.extent(data, function(d) { return xval(d); }))
@@ -21,11 +27,6 @@ function createSvgElements(data) {
     var halfHeight = y(-0.1),
         halfWidth = x(-0.1);
 
-    var canvas = d3.select("#results_placeholder").append("svg")
-        .attr("width", width)
-        .attr("height", height)
-        .attr("class", "dot chart")
-        .append("g");
     var svg = canvas.append("g")
         .attr('class', 'bckg')
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
@@ -56,7 +57,7 @@ function createSvgElements(data) {
         .attr("class", "c");
 
     var g2 = svg.append("g").attr("class", "text").selectAll("text")
-        .data(data)
+        .data(data, key)
         .enter().append("svg:g")
         .attr("class", "c");
 
@@ -216,7 +217,7 @@ function cinterp (t) {
     }
     return d3.interpolateHsl(cl[idx],cl[idx+1])(t);
 }
-
+function key(d) { return d['Problem Name'] }
 function xval(d) { return d.Importance }
 function yval(d) { return d.Immediacy }
 function rad(d) { return 0.04 * scaleFactor * (d.Cost) + 3.0 }
