@@ -17,83 +17,28 @@ d3.csv("/graphs.csv", createSvgElements);
 function createSvgElements(data) {
     data.sort(function(a,b) {return b.Cost - a.Cost;});
 
+    // Scale data to our viewport.
     var x = pad(d3.scale.linear()
         .domain(d3.extent(data, function(d) { return xval(d); }))
-        .range([0, width - margin.left - margin.right]), scaleFactor*0.030);
+        .range([0, width - margin.left - margin.right]), 1);
 
     var y = pad(d3.scale.linear()
         .domain(d3.extent(data, function(d) { return yval(d); }))
-        .range([height - margin.top - margin.bottom, 0]), scaleFactor*0.030);
+        .range([height - margin.top - margin.bottom, 0]), 1);
 
-    var halfHeight = y(-0.1),
-        halfWidth = x(-0.1);
+    var bottomPos = y(-0.1),
+        leftPos = x(-0.1);
 
     var axisColor = '#AAAAAA';
 
-    var xLine = svg.append("svg:line")
-        .attr("class", "line")
-        .attr("id", "xline")
-        .attr("x1", 0)
-        .attr("y1", halfHeight)
-        .attr("x2", width)
-        .attr("y2", halfHeight)
-        .attr("stroke", axisColor);
+    var xLineAttrs = {class: 'line', stroke: axisColor, id: "xline", x1:0, x2: width, y1: bottomPos, y2:bottomPos};
+    var xLine = svg.append("svg:line").attr(xLineAttrs);
 
-    var yLine = svg.append("svg:line")
-        .attr("class", "line")
-        .attr("id", "xline")
-        .attr("x1", halfWidth)
-        .attr("y1", 0)
-        .attr("x2", halfWidth)
-        .attr("y2", height)
-        .attr("stroke", axisColor);
-
-    var g = svg.append("g").attr("class", "circles").selectAll("circles")
-        .data(data)
-        .enter().append("svg:g")
-        .attr("class", "c");
-
-    var g2 = svg.append("g").attr("class", "text").selectAll("text")
-        .data(data, key)
-        .enter().append("svg:g")
-        .attr("class", "c");
-
-// Text for individual problem data points
-    var txt = g2.append("svg:text")
-        .attr("class", "nodeText")
-        .attr("id", function(d){return idFunc(d)+'t';})
-        .attr("x", function(d) {return x(xval(d));})
-        .attr("y", function(d) {return y(yval(d));})
-        .attr("dx", function(d) {return 0.75*rad(d);})
-        .attr("dy", function(d) {return -0.75*rad(d);})
-        .text(function(d) {
-            var txt = d['Problem Name'];
-            if (txt.length > 65) {
-                txt = txt.slice(0,65) + '...';
-            }
-            return txt;
-        })
-        .attr("visibility", "hidden")
-        .attr('dy', fixDYValue)
-        .attr('dy', fixYDYValue)
-        .attr('x', fixXValue);
-
-// Problem data points represented as circles
-    var circles = g.append("svg:circle")
-        .attr("class", "dot")
-        .attr("id", idFunc)
-        .attr("cx", function(d) { return x(xval(d)); })
-        .attr("cy", function(d) { return y(yval(d)); })
-        .attr("r", function(d) { return rad(d); })
-        .attr("fill", function(d) { return cinterp(d.Complexity);})
-        .on("mouseover", function(){
-            d3.select(".text").select('#'+this.id+'t')
-                .attr("visibility","visible");})
-        .on("mouseout", function(){
-            d3.select(".text").select('#'+this.id+'t')
-                .attr("visibility","hidden");});
+    var yLineAttrs = {class: 'line', stroke: axisColor, id: "yline", x1:leftPos, x2: leftPos, y1: 0, y2:height};
+    var yLine = svg.append("svg:line").attr(yLineAttrs);
 
     createLegend(canvas);
+    update(svg, data);
 
     function idFunc(d) {
         return theDomIsStupid+hash(d['Problem Name']);
@@ -157,6 +102,69 @@ function createSvgElements(data) {
         if (range[0] > range[1]) k *= -1;
         return scale.domain([range[0] - k, range[1] + k].map(scale.invert)).nice();
     }
+
+    function update(svg, data) {
+        // DATA JOIN
+        var circles = svg.selectAll("circles")
+            .data(data, key);
+
+        var text = svg.selectAll("text")
+            .data(data, key);
+
+        // UPDATE
+        // Update old data
+
+        // ENTER: Create new elements as needed.
+        circles.enter().append("svg:g")
+            .attr("class", "circles");
+        text.enter().append("svg:g")
+            .attr("class", "text");
+        // ENTER + UPDATE
+        // Appending to the enter selection expands the update selection to include
+        // entering elements; so, operations on the update selection after appending to
+        // the enter selection will apply to both entering and updating nodes.
+
+// Text for individual problem data points
+        text.append("svg:text")
+            .attr("class", "nodeText")
+            .attr("id", function(d){return idFunc(d)+'t';})
+            .attr("x", function(d) {return x(xval(d));})
+            .attr("y", function(d) {return y(yval(d));})
+            .attr("dx", function(d) {return 0.75*rad(d);})
+            .attr("dy", function(d) {return -0.75*rad(d);})
+            .text(function(d) {
+                var txt = d['Problem Name'];
+                if (txt.length > 65) {
+                    txt = txt.slice(0,65) + '...';
+                }
+                return txt;
+            })
+            .attr("visibility", "hidden")
+            .attr('dy', fixDYValue)
+            .attr('dy', fixYDYValue)
+            .attr('x', fixXValue);
+
+// Problem data points represented as circles
+        circles.append("svg:circle").transition().duration(750)
+            .attr("class", "dot")
+            .attr("id", idFunc)
+            .attr("cx", function(d) { return x(xval(d)); })
+            .attr("cy", function(d) { return y(yval(d)); })
+            .attr("r", function(d) { return rad(d); })
+            .attr("fill", function(d) { return cinterp(d.Complexity);});
+        circles
+            .on("mouseover", function(){
+                d3.selectAll(".text").select('#'+this.id+'t')
+                    .attr("visibility","visible");})
+            .on("mouseout", function(){
+                d3.selectAll(".text").select('#'+this.id+'t')
+                    .attr("visibility","hidden");});
+
+        // EXIT
+        // Remove old elements as needed.
+        circles.exit().remove();
+        text.exit().remove();
+    }
 }
 
 /* This path interpolates along any path in color space smoothly!*/
@@ -171,6 +179,7 @@ function cinterp (t) {
     }
     return d3.interpolateHsl(cl[idx],cl[idx+1])(t);
 }
+
 function key(d) { return d['Problem Name'] }
 function xval(d) { return d.Importance }
 function yval(d) { return d.Immediacy }

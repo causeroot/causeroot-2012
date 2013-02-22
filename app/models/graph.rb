@@ -43,10 +43,10 @@ class Graph
         problem_set = problem_temp1.uniq.sort
         
         # Define an array of the User ID's in the subset of data chosen
-        user_set = user_temp.uniq.sort
+        # user_set = user_temp.uniq.sort
         
         # TODO: FIGURE HOW WE WOULD REALLY WANT TO USE THIS VARIABLE
-        unique_pairs = problem_temp2.uniq.length #
+        # unique_pairs = problem_temp2.uniq.length #
     
     ######## CALCULATE RANKING DATA FOR ALL QUESTIONS #########
             

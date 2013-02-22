@@ -14,7 +14,7 @@
 		<h1>STATE YOUR ISSUE</h1>
 		<div class='TextBoxesGroup'>
 			<div class="TextBoxDiv">
-				<%= f.text_area :problem, :placeholder => "Identify the Issue you are most passionate about", :class => 'textbox', :id => 'issue_field1', :wrap => 'physical' %>
+				<%= f.text_area :problem, :placeholder => "Identify the Issue you are most passionate about.", :class => 'textbox', :id => 'issue_field1', :wrap => 'physical' %>
 			</div>
 		</div>
 </div>	
@@ -23,12 +23,13 @@
 		<h1>CAUSES: WHAT ARE THE PROBLEMS WHICH PROVOKE THIS?</h1>
                 <%= f.fields_for :causes do |cause_form| %>
 
-                <%= cause_form.text_area :cause, :placeholder => "Problems leading to the Issue mentioned above", :class => 'textbox', :wrap => 'physical' %>
+                <%= cause_form.text_area :cause, :placeholder => "Problems leading to the Issue mentioned above.", :class => 'textbox', :id => 'causes_field1', :wrap => 'physical' %>
 		
 	<!--<div class="remove_box2">
     			<p><span>–</span></p>
     	</div> -->
-		<%= cause_form.link_to_remove "Remove this cause", :class => 'remove_box' %>
+    	<br>
+		<%= cause_form.link_to_remove "Remove this Cause", :class => 'remove_box' %>
 		<% end %>
 		
 	<!--<div class="expand_box">
@@ -44,22 +45,24 @@
 <div class="form-content">
 		<h1>EFFECTS: WHAT ARE PROBLEMS THAT THIS CREATES?</h1>
                   <%= f.fields_for :effects do |effect_form| %>
-                <%= effect_form.text_area :effect, :placeholder => "Effects of the Issue mentioned above - Please list one at a time", :class => 'textbox', :wrap => 'physical' %>
+                <%= effect_form.text_area :effect, :placeholder => "Effects of the Issue mentioned above - please list one at a time.", :class => 'textbox', :id => 'effects_field1', :wrap => 'physical' %>
 
 	<!--<div class="remove_box2">
     		<p><span>–</span></p>
     	</div> -->
-        <%= effect_form.link_to_remove "Remove this effect", :class => 'remove_box' %>
+    	<br>
+        <%= effect_form.link_to_remove "Remove this Effect", :class => 'remove_box' %>
         <% end %>
 
      <!--<div class="expand_box">
     			<p><span>+</span></p>
     	</div>-->
 		<%= f.link_to_add "Add an Effect", :effects, :class => 'add_effect' %>
-          		 
+
           
         <div class="actions">
                 <%= f.submit "SUBMIT", :class => 'submit_button' %>
-        </div>		
+        </div>
+
 </div>		
 <% end %>
