@@ -453,18 +453,16 @@ h2 {
 	font-family: Arial;
 	font-size: 11px;
 	cursor: pointer;
-	padding: 0px 3px;
+	padding-left: 0;
 	}
+	
+#flag_icon {
+	font-size: 15px;
+}
 
 .flag:hover {
 	color: #BE1E2D;
 }	
-
-.flag_icon {
-	size: 16px;
-
-}
-
 	
 .skip_same_wrap {	
 	padding-top: 20px;

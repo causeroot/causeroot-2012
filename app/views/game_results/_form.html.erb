@@ -48,11 +48,13 @@
           			<% end %>             
         	</tr>
 
-        	<tr>
+        	<tr class="flag_row">
           		<% @game_result.issues.each do |issue| %>
           		<td>                     
-                  	<%= f.submit "flag", :name => "flag[#{issue.id}]", :value => "FLAG  "+"\u2691 [:id => 'flag_icon']", :class => 'flag', :confirm => "Are you sure that you want flag this issue as innapropriate?" %>                  	
-                 	<!-- <img id="flag-i2" src="/Flag.png" /> -->
+                  	<%= link_to_function "FLAG <span id=\"flag_icon\">&#x2691;</span>".html_safe, "submitForm(#{issue.id})", :name => "flag[#{issue.id}]", :class => 'flag', :confirm => "Are you sure that you want flag this issue as innapropriate?" %>
+                 	
+                 	<!-- <%= f.submit "flag", :name => "flag[#{issue.id}]", :value => "FLAG  <span>&#x2691;</span>".html_safe, :class => 'flag', :confirm => "Are you sure that you want flag this issue as innapropriate?" %>
+                 	-->
           		</td>   
                   <% end %>
         	</tr>
@@ -79,13 +81,7 @@ $('#same_issue').bind('mouseover',function(){
     $('#same-i2').attr({ src:$('#same-i2').data('original') })
 })
 
-$('.flag_issue').bind('mouseover',function(){
-    $('#flag-i2').data({ original:$('#flag-i2').attr('src') })
-    $('#flag-i2').attr({ src:'/Flag_Red.png' })
-}).bind('mouseout',function(){
-    $('#flag-i2').attr({ src:$('#flag-i2').data('original') })
-})
-
 </script>
+
 <script type="text/javascript" src="/d3.v3.min.js"></script>
 <script type="text/javascript" src="/graphs.js"></script>
