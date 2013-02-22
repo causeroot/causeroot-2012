@@ -42,12 +42,12 @@ function createSvgElements(data) {
     //allUsers();
 
     function individualUser() {
-        d3.csv('/graphs.csv', function(d) {update(svg, d);});
+        d3.csv('/mock_graphs.csv', function(d) {update(svg, d);});
         setTimeout(allUsers, 3000);
     }
 
     function allUsers() {
-        d3.csv('/graphs2.csv', function(d) {update(svg, d);});
+        d3.csv('/mock_graphs2.csv', function(d) {update(svg, d);});
         setTimeout(individualUser, 3000);
     }
 
