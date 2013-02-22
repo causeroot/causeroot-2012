@@ -17,6 +17,7 @@ d3.csv("/graphs.csv", createSvgElements);
 function createSvgElements(data) {
     data.sort(function(a,b) {return b.Cost - a.Cost;});
 
+    // Scale data to our viewport.
     var x = pad(d3.scale.linear()
         .domain(d3.extent(data, function(d) { return xval(d); }))
         .range([0, width - margin.left - margin.right]), scaleFactor*0.030);
@@ -25,28 +26,16 @@ function createSvgElements(data) {
         .domain(d3.extent(data, function(d) { return yval(d); }))
         .range([height - margin.top - margin.bottom, 0]), scaleFactor*0.030);
 
-    var halfHeight = y(-0.1),
-        halfWidth = x(-0.1);
+    var bottomPos = y(-0.1),
+        leftPos = x(-0.1);
 
     var axisColor = '#AAAAAA';
 
-    var xLine = svg.append("svg:line")
-        .attr("class", "line")
-        .attr("id", "xline")
-        .attr("x1", 0)
-        .attr("y1", halfHeight)
-        .attr("x2", width)
-        .attr("y2", halfHeight)
-        .attr("stroke", axisColor);
+    var xLineAttrs = {class: 'line', stroke: axisColor, id: "xline", x1:0, x2: width, y1: bottomPos, y2:bottomPos};
+    var xLine = svg.append("svg:line").attr(xLineAttrs);
 
-    var yLine = svg.append("svg:line")
-        .attr("class", "line")
-        .attr("id", "xline")
-        .attr("x1", halfWidth)
-        .attr("y1", 0)
-        .attr("x2", halfWidth)
-        .attr("y2", height)
-        .attr("stroke", axisColor);
+    var yLineAttrs = {class: 'line', stroke: axisColor, id: "yline", x1:leftPos, x2: leftPos, y1: 0, y2:height};
+    var yLine = svg.append("svg:line").attr(yLineAttrs);
 
     var g = svg.append("g").attr("class", "circles").selectAll("circles")
         .data(data, key)
