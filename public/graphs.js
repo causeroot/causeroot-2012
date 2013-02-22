@@ -39,7 +39,7 @@ function createSvgElements(data) {
 
     createLegend(canvas);
     update(svg, data);
-    allUsers();
+    //allUsers();
 
     function individualUser() {
         d3.csv('/graphs.csv', function(d) {update(svg, d);});
