@@ -88,6 +88,7 @@ class GameResultsController < ApplicationController
     Issue.all.each do |i|
         problem_list << i.id
     end
+
     p_all_max = problem_list.max
     
     Question.all.each do |q|
@@ -121,6 +122,8 @@ class GameResultsController < ApplicationController
     # ques_order = ques_order_partial + (questions_by_all_freq_sort.map{|k,v| k}-ques_order_partial)
     prob_order_partial = problems_by_user_freq_sort_rev.map{|k,v| k}
     prob_order = prob_order_partial + (problems_by_all_freq_sort.map{|k,v| k}-prob_order_partial)
+    prob_order = prob_order - remove_problem_user
+
     #TODO: Add Code here that throws out FLAGGED (SAME & SKIP?) type dudes
     
     # THIS CODE CHOOSE THE APPROPRIATE QUESTION TO ASK (with a randomizer function as well)
