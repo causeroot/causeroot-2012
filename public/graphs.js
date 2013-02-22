@@ -130,19 +130,28 @@ function createSvgElements(data) {
  // Remove old elements as needed.
  text.exit().remove();*/
     function update(svg, data) {
-        var g = svg.selectAll("circles")
-            .data(data, key)
-            .enter().append("svg:g")
+        // DATA JOIN
+        var circles = svg.selectAll("circles")
+            .data(data, key);
+
+        var text = svg.selectAll("text")
+            .data(data, key);
+
+        // UPDATE
+        // Update old data
+
+        // ENTER: Create new elements as needed.
+        circles.enter().append("svg:g")
             .attr("class", "circles");
-
-
-        var g2 = svg.selectAll("text")
-            .data(data, key)
-            .enter().append("svg:g")
+        text.enter().append("svg:g")
             .attr("class", "text");
+        // ENTER + UPDATE
+        // Appending to the enter selection expands the update selection to include
+        // entering elements; so, operations on the update selection after appending to
+        // the enter selection will apply to both entering and updating nodes.
 
 // Text for individual problem data points
-        var txt = g2.append("svg:text")
+        var txt2 = text.append("svg:text")
             .attr("class", "nodeText")
             .attr("id", function(d){return idFunc(d)+'t';})
             .attr("x", function(d) {return x(xval(d));})
@@ -162,7 +171,7 @@ function createSvgElements(data) {
             .attr('x', fixXValue);
 
 // Problem data points represented as circles
-        var circles = g.append("svg:circle")
+        var circles2 = circles.append("svg:circle")
             .attr("class", "dot")
             .attr("id", idFunc)
             .attr("cx", function(d) { return x(xval(d)); })
@@ -175,6 +184,11 @@ function createSvgElements(data) {
             .on("mouseout", function(){
                 d3.selectAll(".text").select('#'+this.id+'t')
                     .attr("visibility","hidden");});
+
+        // EXIT
+        // Remove old elements as needed.
+        circles.exit().remove();
+        text.exit().remove();
     }
 }
 
