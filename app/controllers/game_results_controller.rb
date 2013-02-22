@@ -39,6 +39,7 @@ class GameResultsController < ApplicationController
 
     ####### IDENTIFY THE BOUNDS OF THE DATASET ########    
     idata = {}
+    remove_problem_user = []
     questions_by_all = []
     questions_by_user = []
     problems_by_all = []
@@ -49,6 +50,7 @@ class GameResultsController < ApplicationController
     pq_by_user_set = {}
 
     # TODO: cache results at block level - rheyns
+
     @gdata_all.each do |value|
         if value.skip == false && value.same == false
             questions_by_all << value.question_id
@@ -70,7 +72,9 @@ class GameResultsController < ApplicationController
                 pq_by_user_set.merge!(value.question_id=>[])
             end
             pq_by_user_set[value.question_id]<<value.issue_ids.sort
-        end;
+ #       elsif value.same == true
+ #         && ;
+         end
     end;
     
     Issue.all.each do |i|
@@ -92,21 +96,21 @@ class GameResultsController < ApplicationController
     # TODO: This needs to be modified at some point to not only ask a single question excessively/heavily when a new one is added to the mix
     
     problems_by_user_freq_sort_rev = Hash[problems_by_user.counts.sort_by{|problem, freq| -freq}]
-    #questions_by_user_freq_sort = Hash[questions_by_user.counts.sort_by{|problem, freq| freq}]
+    # questions_by_user_freq_sort = Hash[questions_by_user.counts.sort_by{|problem, freq| freq}]
     
-    #p_user_num = problems_by_user.length/2
+    # p_user_num = problems_by_user.length/2
     
     pq_by_user_set.each do |key,value|
         value.uniq!
         value.sort_by!{|a,b| a*p_all_max+b}
     end
     pq_by_all_set.each do |key,value|
-        #value.uniq!
+        # value.uniq!
         value.sort_by!{|a,b| a*p_all_max+b}
     end 
     
-    #ques_order_partial = questions_by_all_freq_sort.map{|k,v| k}
-    #ques_order = ques_order_partial + (questions_by_all_freq_sort.map{|k,v| k}-ques_order_partial)
+    # ques_order_partial = questions_by_all_freq_sort.map{|k,v| k}
+    # ques_order = ques_order_partial + (questions_by_all_freq_sort.map{|k,v| k}-ques_order_partial)
     prob_order_partial = problems_by_user_freq_sort_rev.map{|k,v| k}
     prob_order = prob_order_partial + (problems_by_all_freq_sort.map{|k,v| k}-prob_order_partial)
     #TODO: Add Code here that throws out FLAGGED (SAME & SKIP?) type dudes
@@ -124,6 +128,7 @@ class GameResultsController < ApplicationController
     # TODO: Reorder some of this to only group stuff based on the "choice" variable to reduce required computation
     
     # THIS CODE CHOOSE THE APPROPRIATE PROBLEMS TO POSE (with a randomizer function as well)
+
     if !pq_by_user_set[next_question] == nil
         problems_left_focus = prob_order[0..def_priority_num_of_questions].combination(@game_result.question.problem_count).to_a-pq_by_user_set[next_question]
         problems_left_rest_remaining = (prob_order.combination(@game_result.question.problem_count).to_a-pq_by_user_set[next_question])-problems_left_focus
@@ -143,6 +148,7 @@ class GameResultsController < ApplicationController
     end
     
     # THIS CODE WRITES THE CHOSEN ISSUES TO THE GAME RESULT TO ASK THE USER
+
     a = next_question[0]-1
     b = next_question[1]-1
     if rand(2).to_i == 1
