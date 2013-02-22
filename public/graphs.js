@@ -98,6 +98,8 @@ function createSvgElements(data) {
             .attr('id','legendX')
             .attr('text-anchor','middle')
             .text('IMPORTANCE');
+        // TODO: Insert arrow below - Roux
+        //<polygon xmlns="http://www.w3.org/2000/svg" style="stroke:none; fill: #666660;" points="100,600 100,-200  500,200 500,-100  0,-600  -500,-100 -500,200 -100,-200 -100,600 " transform="scale(0.1)"/>
 
         var legendY = legend.append("svg:text")
             .text('IMMEDIACY').attr('id', 'legendY')
