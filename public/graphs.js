@@ -145,13 +145,14 @@ function createSvgElements(data) {
             .attr('x', fixXValue);
 
 // Problem data points represented as circles
-        circles.append("svg:circle")
+        circles.append("svg:circle").transition().duration(750)
             .attr("class", "dot")
             .attr("id", idFunc)
             .attr("cx", function(d) { return x(xval(d)); })
             .attr("cy", function(d) { return y(yval(d)); })
             .attr("r", function(d) { return rad(d); })
-            .attr("fill", function(d) { return cinterp(d.Complexity);})
+            .attr("fill", function(d) { return cinterp(d.Complexity);});
+        circles
             .on("mouseover", function(){
                 d3.selectAll(".text").select('#'+this.id+'t')
                     .attr("visibility","visible");})
