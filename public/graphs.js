@@ -102,33 +102,7 @@ function createSvgElements(data) {
         if (range[0] > range[1]) k *= -1;
         return scale.domain([range[0] - k, range[1] + k].map(scale.invert)).nice();
     }
-/*function update(data) {
 
- // DATA JOIN
- // Join new data with old elements, if any.
- var text = svg.selectAll("text")
- .data(data);
-
- // UPDATE
- // Update old elements as needed.
- text.attr("class", "update");
-
- // ENTER
- // Create new elements as needed.
- text.enter().append("text")
- .attr("class", "enter")
- .attr("x", function(d, i) { return i * 32; })
- .attr("dy", ".35em");
-
- // ENTER + UPDATE
- // Appending to the enter selection expands the update selection to include
- // entering elements; so, operations on the update selection after appending to
- // the enter selection will apply to both entering and updating nodes.
- text.text(function(d) { return d; });
-
- // EXIT
- // Remove old elements as needed.
- text.exit().remove();*/
     function update(svg, data) {
         // DATA JOIN
         var circles = svg.selectAll("circles")
@@ -151,7 +125,7 @@ function createSvgElements(data) {
         // the enter selection will apply to both entering and updating nodes.
 
 // Text for individual problem data points
-        var txt2 = text.append("svg:text")
+        text.append("svg:text")
             .attr("class", "nodeText")
             .attr("id", function(d){return idFunc(d)+'t';})
             .attr("x", function(d) {return x(xval(d));})
@@ -171,7 +145,7 @@ function createSvgElements(data) {
             .attr('x', fixXValue);
 
 // Problem data points represented as circles
-        var circles2 = circles.append("svg:circle")
+        circles.append("svg:circle")
             .attr("class", "dot")
             .attr("id", idFunc)
             .attr("cx", function(d) { return x(xval(d)); })
