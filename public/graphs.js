@@ -102,17 +102,44 @@ function createSvgElements(data) {
         if (range[0] > range[1]) k *= -1;
         return scale.domain([range[0] - k, range[1] + k].map(scale.invert)).nice();
     }
+/*function update(data) {
 
+ // DATA JOIN
+ // Join new data with old elements, if any.
+ var text = svg.selectAll("text")
+ .data(data);
+
+ // UPDATE
+ // Update old elements as needed.
+ text.attr("class", "update");
+
+ // ENTER
+ // Create new elements as needed.
+ text.enter().append("text")
+ .attr("class", "enter")
+ .attr("x", function(d, i) { return i * 32; })
+ .attr("dy", ".35em");
+
+ // ENTER + UPDATE
+ // Appending to the enter selection expands the update selection to include
+ // entering elements; so, operations on the update selection after appending to
+ // the enter selection will apply to both entering and updating nodes.
+ text.text(function(d) { return d; });
+
+ // EXIT
+ // Remove old elements as needed.
+ text.exit().remove();*/
     function update(svg, data) {
-        var g = svg.append("g").attr("class", "circles").selectAll("circles")
+        var g = svg.selectAll("circles")
             .data(data, key)
             .enter().append("svg:g")
-            .attr("class", "c");
+            .attr("class", "circles");
 
-        var g2 = svg.append("g").attr("class", "text").selectAll("text")
+
+        var g2 = svg.selectAll("text")
             .data(data, key)
             .enter().append("svg:g")
-            .attr("class", "c");
+            .attr("class", "text");
 
 // Text for individual problem data points
         var txt = g2.append("svg:text")
@@ -143,10 +170,10 @@ function createSvgElements(data) {
             .attr("r", function(d) { return rad(d); })
             .attr("fill", function(d) { return cinterp(d.Complexity);})
             .on("mouseover", function(){
-                d3.select(".text").select('#'+this.id+'t')
+                d3.selectAll(".text").select('#'+this.id+'t')
                     .attr("visibility","visible");})
             .on("mouseout", function(){
-                d3.select(".text").select('#'+this.id+'t')
+                d3.selectAll(".text").select('#'+this.id+'t')
                     .attr("visibility","hidden");});
     }
 }
