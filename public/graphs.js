@@ -39,6 +39,17 @@ function createSvgElements(data) {
 
     createLegend(canvas);
     update(svg, data);
+    allUsers();
+
+    function individualUser() {
+        d3.csv('/graphs.csv', function(d) {update(svg, d);});
+        setTimeout(allUsers, 3000);
+    }
+
+    function allUsers() {
+        d3.csv('/graphs2.csv', function(d) {update(svg, d);});
+        setTimeout(individualUser, 3000);
+    }
 
     function idFunc(d) {
         return theDomIsStupid+hash(d['Problem Name']);
@@ -105,18 +116,57 @@ function createSvgElements(data) {
 
     function update(svg, data) {
         // DATA JOIN
-        var circles = svg.selectAll("circles")
-            .data(data, key);
+        var circles = svg.selectAll("circle")
+            .data(data, function(d) {return idFunc(d)});
 
         var text = svg.selectAll("text")
             .data(data, key);
 
         // UPDATE
         // Update old data
+        text.attr("class", "nodeText")
+            .attr("id", function(d){return idFunc(d)+'t';})
+            .text(function(d) {
+                var txt = d['Problem Name'];
+                if (txt.length > 65) {
+                    txt = txt.slice(0,65) + '...';
+                }
+                return txt;
+            })
+            .transition().duration(750)
+            .attr("x", function(d) {return x(xval(d));})
+            .attr("y", function(d) {return y(yval(d));})
+            .attr("dx", function(d) {return 0.75*rad(d);})
+            .attr("dy", function(d) {return -0.75*rad(d);})
+            .attr("visibility", "hidden")
+            .attr('dy', fixDYValue)
+            .attr('dy', fixYDYValue)
+            .attr('x', fixXValue);
+
+        circles.attr("class", "dot")
+            .attr("id", idFunc)
+            .transition().duration(750)
+            .attr("cx", function(d) { return x(xval(d)); })
+            .attr("cy", function(d) { return y(yval(d)); })
+            .attr("r", function(d) { return rad(d); })
+            .attr("fill", function(d) { return cinterp(d.Complexity);});
 
         // ENTER: Create new elements as needed.
         circles.enter().append("svg:g")
-            .attr("class", "circles");
+            .attr("class", "circles").append("svg:circle")
+            .on("mouseover", function(){
+                d3.selectAll(".text").select('#'+this.id+'t')
+                    .attr("visibility","visible");})
+            .on("mouseout", function(){
+                d3.selectAll(".text").select('#'+this.id+'t')
+                    .attr("visibility","hidden");})
+            .transition().duration(750)
+            .attr("class", "dot")
+            .attr("id", idFunc)
+            .attr("cx", function(d) { return x(xval(d)); })
+            .attr("cy", function(d) { return y(yval(d)); })
+            .attr("r", function(d) { return rad(d); })
+            .attr("fill", function(d) { return cinterp(d.Complexity);});
         text.enter().append("svg:g")
             .attr("class", "text");
         // ENTER + UPDATE
@@ -145,20 +195,7 @@ function createSvgElements(data) {
             .attr('x', fixXValue);
 
 // Problem data points represented as circles
-        circles.append("svg:circle").transition().duration(750)
-            .attr("class", "dot")
-            .attr("id", idFunc)
-            .attr("cx", function(d) { return x(xval(d)); })
-            .attr("cy", function(d) { return y(yval(d)); })
-            .attr("r", function(d) { return rad(d); })
-            .attr("fill", function(d) { return cinterp(d.Complexity);});
-        circles
-            .on("mouseover", function(){
-                d3.selectAll(".text").select('#'+this.id+'t')
-                    .attr("visibility","visible");})
-            .on("mouseout", function(){
-                d3.selectAll(".text").select('#'+this.id+'t')
-                    .attr("visibility","hidden");});
+
 
         // EXIT
         // Remove old elements as needed.
