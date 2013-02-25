@@ -3,6 +3,7 @@ require 'csv'
 class Graph
     # attr_accessible :title, :body
     def self.grabdata(uId={:id=>0})
+        problem_limit = 20
         question_themes= Hash[Question.all.map do |question|
             [question.id, question.name]
         end]
@@ -14,7 +15,7 @@ class Graph
             questions = answers.map do |answer|
                 answer[:question_id]
             end.uniq!
-            {:problem => issue.problem, :results =>
+            {:problem => issue.problem, :count => answers.size, :results =>
                 if questions == nil
                     nil
                 else
@@ -30,7 +31,7 @@ class Graph
                     end]
                 end
             }
-        end
+        end.sort{|a,b| b[:count] <=> a[:count]}.first(problem_limit)
         hashResults = Hash[results.map{|r| [r[:problem], r[:results]]}]
 
 
