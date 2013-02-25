@@ -1,23 +1,15 @@
 require 'csv'
 
 class Graph
-
-
     # attr_accessible :title, :body
     def self.grabdata(uId={:id=>0})
         problem_limit = 20
-        question_themes= Hash[Question.all.map do |question|
-            [question.id, question.name]
-        end]
-
+        question_themes= Hash[Question.all.map{ |question| [question.id, question.name] }]
         results = Issue.all.map do |issue|
             answers = issue.game_result.select{|r| uId[:id] == 0 or r.user_id == uId[:id]}.map do |result|
                 {:question_id => result.question_id, :winner => result.answer}
             end
-            questions = answers.map do |answer|
-                answer[:question_id]
-            end.uniq!
-            questions = (questions or [])
+            questions = answers.map{ |answer| answer[:question_id] }.uniq! || []
             {:problem => issue.problem,
              :count => answers.size,
              :results =>
@@ -31,16 +23,13 @@ class Graph
         end.sort{|a,b| b[:count] <=> a[:count]}.first(problem_limit)
         hashResults = Hash[results.map{|r| [r[:problem], r[:results]]}]
 
-        csvstr = CSV.generate() do |csv|
+        CSV.generate() do |csv|
             questions = question_themes.values.sort
             csv << ["Problem Name"] + questions
             hashResults.each do |name, scores|
-                if scores != nil
-                    csv << ["#{name}"] + (questions.map{|question| scores[question] or 0.5})
-                end
+                csv << ["#{name}"] + (questions.map { |question| scores[question] or 0.5 }) if scores != nil
             end
-        end;
-        csvstr
+        end
     end
 end
 
