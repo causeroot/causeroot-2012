@@ -24,11 +24,7 @@ class Graph
                 Hash[questions.map do |question|
                     questions_asked = answers.count { |ans| ans[:question_id] == question}
                     questions_won = answers.count { |ans| ans[:question_id] == question && ans[:winner] == issue.id}
-                    if questions_asked == 0
-                        score = 0
-                    else
-                        score = questions_won.to_f / questions_asked.to_f
-                    end
+                    score = questions_asked == 0 ?  0 : questions_won.to_f / questions_asked.to_f
                     [question_themes[question], score]
                 end]
             }
@@ -36,11 +32,11 @@ class Graph
         hashResults = Hash[results.map{|r| [r[:problem], r[:results]]}]
 
         csvstr = CSV.generate() do |csv|
-            q = question_themes.values.sort
-            csv << ["Problem Name"] + q
+            questions = question_themes.values.sort
+            csv << ["Problem Name"] + questions
             hashResults.each do |name, scores|
                 if scores != nil
-                    csv << ["#{name}"] + (q.map{|question| scores[question] or 0.5})
+                    csv << ["#{name}"] + (questions.map{|question| scores[question] or 0.5})
                 end
             end
         end;
