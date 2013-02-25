@@ -21,6 +21,7 @@ class Graph
     ####### IDENTIFY THE BOUNDS OF THE DATASET ########
               
         idata = {}
+        outdata = {}
         question_temp = []
         problem_temp1 = []
         problem_temp2 = []
@@ -41,7 +42,16 @@ class Graph
         
         # Define an array of the Problem ID's in the subset of data chosen
         problem_set = problem_temp1.uniq.sort
-        
+        problem_set_freq_sort = problem_temp1.counts.sort_by{|k,v| v}.map{|k,v| k}
+
+
+
+        if repeat == 0
+          problem_set_freq_sort = problem_set_freq_sort[0..59].sort
+        else
+          problem_set_freq_sort = problem_set_freq_sort[0..14].sort
+        end
+
         # Define an array of the User ID's in the subset of data chosen
         # user_set = user_temp.uniq.sort
         
@@ -52,6 +62,8 @@ class Graph
             
         # Create data arrays corresponding for each problem, where each array will have values
         # corresponding to each of questions in the question_set
+
+        #TODO: Make it to the max number here!!!
         problem_set.each do |j|
             idata = idata.merge(j => {})
             question_set.each do |q|
@@ -78,13 +90,14 @@ class Graph
                     idata[item.issue_ids[0]][item.question_id][1] = idata[item.issue_ids[0]][item.question_id][1]+1
                 end
             end
-        end            
-        
+        end
+
+
         problem_set.each do |prob|
             question_set.each do |quest|
                 if idata[prob][quest][1].to_f == 0.0
                     if repeat == 0
-                        idata[prob][quest] = 0.5 
+                        idata[prob][quest] = 0.5
                     else
                         idata[prob][quest] = idata_all[prob][quest]
                     end
@@ -102,7 +115,19 @@ class Graph
         end 
     end
 
-        ######### WRITE THE CALCULATED DATA TO CSV FILE ###########
+    problems = []
+
+    problem_set_freq_sort.each do |entry|
+
+      # outdata[problem_set_freq_sort.index(entry)] = idata[entry]
+
+      outdata[entry] = idata[entry]
+      problems << Issue.find(entry).problem
+    end;
+
+    #TODO: TEST THIS OUT - ITS STILL BUGGY??? Not all the right issues are being written?
+
+        ####### WRITE THE CALCULATED DATA TO CSV FILE ###########
         #TODO: Limit the numbers that are being written here      
     
     question_Themes = []
@@ -112,20 +137,27 @@ class Graph
     questions.values.each do |q|
         question_Themes << q['name']
     end;
-    
-    problems = []
-    
-    Issue.uniq.each do |i|
-        problems << i.problem
-    end;
+
+    #Issue.uniq.each do |i|
+    #    problems << i.problem
+    #end;
 
     csvstr = CSV.generate() do |csv|
       csv << ["Problem Name"] + question_set.map{|i| question_Themes[i-1] }
-      idata.each do |k,v|    
-          csv <<  ["#{problems[k-1]}"] + (question_set.map{|i| %Q[#{v[i]}] })
+      outdata.each do |k,v|
+          csv <<  ["#{problems[problem_set_freq_sort.index(k)]}"] + (question_set.map{|i| %Q[#{v[i]}] })
       end
     end;
     
     csvstr
+  end
+end
+
+class Array
+  def counts
+    inject( Hash.new(0) ){ |hash,element|
+      hash[ element ] +=1
+      hash
+    }
   end
 end
