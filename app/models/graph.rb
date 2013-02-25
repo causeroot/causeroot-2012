@@ -17,21 +17,20 @@ class Graph
             questions = answers.map do |answer|
                 answer[:question_id]
             end.uniq!
-            {:problem => issue.problem, :count => answers.size, :results =>
-                if questions == nil
-                    nil
-                else
-                    Hash[questions.map do |question|
-                        questions_asked = answers.count { |ans| ans[:question_id] == question}
-                        questions_won = answers.count { |ans| ans[:question_id] == question && ans[:winner] == issue.id}
-                        if questions_asked == 0
-                            score = 0
-                        else
-                            score = questions_won.to_f / questions_asked.to_f
-                        end
-                        [question_themes[question], score]
-                    end]
-                end
+            questions = (questions or [])
+            {:problem => issue.problem,
+             :count => answers.size,
+             :results =>
+                Hash[questions.map do |question|
+                    questions_asked = answers.count { |ans| ans[:question_id] == question}
+                    questions_won = answers.count { |ans| ans[:question_id] == question && ans[:winner] == issue.id}
+                    if questions_asked == 0
+                        score = 0
+                    else
+                        score = questions_won.to_f / questions_asked.to_f
+                    end
+                    [question_themes[question], score]
+                end]
             }
         end.sort{|a,b| b[:count] <=> a[:count]}.first(problem_limit)
         hashResults = Hash[results.map{|r| [r[:problem], r[:results]]}]
