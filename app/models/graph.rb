@@ -3,7 +3,7 @@ require 'csv'
 class Graph
     # attr_accessible :title, :body
     def self.grabdata(uId={:id=>0})
-        problem_limit = 60 if uId[:id] == 0 else 15
+        problem_limit =  uId[:id] == 0 ? 60 : 15
         question_themes= Hash[Question.all.map{ |question| [question.id, question.name] }]
         results = Issue.all.map do |issue|
             answers = issue.game_result.select{|r| uId[:id] == 0 or r.user_id == uId[:id]}.map do |result|
