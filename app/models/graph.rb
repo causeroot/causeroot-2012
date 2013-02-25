@@ -1,131 +1,50 @@
 require 'csv'
 
 class Graph
-  # attr_accessible :title, :body
-  def self.grabdata(uId=0)
-    
-    idata_all = {}
-    repeat = 0
-    
-    while repeat < 2 do
-    
-        if repeat == 0
-            @game_data = GameResult.all
-        elsif repeat == 1
-            @game_data = GameResult.where({:user_id => uId})
-            repeat = 3
-        end
-    
-        num_of_entries = @game_data.size
-        
-    ####### IDENTIFY THE BOUNDS OF THE DATASET ########
-              
-        idata = {}
-        question_temp = []
-        problem_temp1 = []
-        problem_temp2 = []
-        user_temp = []
-        
-        @game_data.each do |value|
-            if value.skip == false && value.same == false
-                question_temp << value.question_id
-                problem_temp1 << value.issue_ids[0]
-                problem_temp1 << value.issue_ids[1]
-                problem_temp2 << value.issue_ids.sort
-                user_temp << value.user_id
-            end
-        end
-    
-        # Define an array of the Question ID's in the subset of data chosen 
-        question_set = question_temp.uniq.sort  
-        
-        # Define an array of the Problem ID's in the subset of data chosen
-        problem_set = problem_temp1.uniq.sort
-        
-        # Define an array of the User ID's in the subset of data chosen
-        # user_set = user_temp.uniq.sort
-        
-        # TODO: FIGURE HOW WE WOULD REALLY WANT TO USE THIS VARIABLE
-        # unique_pairs = problem_temp2.uniq.length #
-    
-    ######## CALCULATE RANKING DATA FOR ALL QUESTIONS #########
-            
-        # Create data arrays corresponding for each problem, where each array will have values
-        # corresponding to each of questions in the question_set
-        problem_set.each do |j|
-            idata = idata.merge(j => {})
-            question_set.each do |q|
-                if q==question_set.first          
-                    idata[j] = {q => [0,0]}
-                else
-                    temp = idata[j]            
-                    idata[j] = {q => [0,0]}.merge(temp)
-                end
-            end
-        end
+    # attr_accessible :title, :body
+    def self.grabdata(uId={:id=>0})
+        question_themes= Hash[Question.all.map do |question|
+            [question.id, question.name]
+        end]
 
-        @game_data.each do |item|
-            if item.skip == false && item.same == false
-                if item.answer == item.issue_ids[0]
-                    idata[item.issue_ids[0]][item.question_id][0] = idata[item.issue_ids[0]][item.question_id][0]+1
-                    idata[item.issue_ids[0]][item.question_id][1] = idata[item.issue_ids[0]][item.question_id][1]+1
-                    idata[item.issue_ids[1]][item.question_id][0] = idata[item.issue_ids[1]][item.question_id][0]-1
-                    idata[item.issue_ids[1]][item.question_id][1] = idata[item.issue_ids[1]][item.question_id][1]+1                  
-                elsif item.answer == item.issue_ids[1] 
-                    idata[item.issue_ids[1]][item.question_id][0] = idata[item.issue_ids[1]][item.question_id][0]+1
-                    idata[item.issue_ids[1]][item.question_id][1] = idata[item.issue_ids[1]][item.question_id][1]+1               
-                    idata[item.issue_ids[0]][item.question_id][0] = idata[item.issue_ids[0]][item.question_id][0]-1
-                    idata[item.issue_ids[0]][item.question_id][1] = idata[item.issue_ids[0]][item.question_id][1]+1
-                end
+        results = Issue.all.map do |issue|
+            answers = issue.game_result.select{|r| uId[:id] == 0 or r.user_id == uId[:id]}.map do |result|
+                {:question_id => result.question_id, :winner => result.answer}
             end
-        end            
-        
-        problem_set.each do |prob|
-            question_set.each do |quest|
-                if idata[prob][quest][1].to_f == 0.0
-                    if repeat == 0
-                        idata[prob][quest] = 0.5 
-                    else
-                        idata[prob][quest] = idata_all[prob][quest]
-                    end
+            questions = answers.map do |answer|
+                answer[:question_id]
+            end.uniq!
+            {:problem => issue.problem, :results =>
+                if questions == nil
+                    nil
                 else
-                    idata[prob][quest] = idata[prob][quest][0].to_f/(idata[prob][quest][1].to_f*2)+0.5
+                    Hash[questions.map do |question|
+                        questions_asked = answers.count { |ans| ans[:question_id] == question}
+                        questions_won = answers.count { |ans| ans[:question_id] == question && ans[:winner] == issue.id}
+                        if questions_asked == 0
+                            score = 0
+                        else
+                            score = questions_won.to_f / questions_asked.to_f
+                        end
+                        [question_themes[question], score]
+                    end]
+                end
+            }
+        end
+        hashResults = Hash[results.map{|r| [r[:problem], r[:results]]}]
+
+
+
+        csvstr = CSV.generate() do |csv|
+            q = question_themes.values.sort
+            csv << ["Problem Name"] + q
+            hashResults.each do |name, scores|
+                if scores != nil
+                    csv << ["#{name}"] + (q.map{|question| scores[question] or 0.5})
                 end
             end
-        end
-        
-        if uId == 0
-            repeat = 3
-        elsif repeat == 0
-            repeat = 1
-            idata_all = idata
-        end 
+        end;
+
+        csvstr
     end
-
-        ######### WRITE THE CALCULATED DATA TO CSV FILE ###########
-        #TODO: Limit the numbers that are being written here      
-    
-    question_Themes = []
-    
-    # TODO questions = Question.all
-    questions = YAML::load_file('db/questions.yml')
-    questions.values.each do |q|
-        question_Themes << q['name']
-    end;
-    
-    problems = []
-    
-    Issue.uniq.each do |i|
-        problems << i.problem
-    end;
-
-    csvstr = CSV.generate() do |csv|
-      csv << ["Problem Name"] + question_set.map{|i| question_Themes[i-1] }
-      idata.each do |k,v|    
-          csv <<  ["#{problems[k-1]}"] + (question_set.map{|i| %Q[#{v[i]}] })
-      end
-    end;
-    
-    csvstr
-  end
 end
