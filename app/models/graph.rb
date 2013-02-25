@@ -118,17 +118,11 @@ class Graph
     problems = []
 
     problem_set_freq_sort.each do |entry|
-
-      # outdata[problem_set_freq_sort.index(entry)] = idata[entry]
-
       outdata[entry] = idata[entry]
       problems << Issue.find(entry).problem
     end;
 
-    #TODO: TEST THIS OUT - ITS STILL BUGGY??? Not all the right issues are being written?
-
         ####### WRITE THE CALCULATED DATA TO CSV FILE ###########
-        #TODO: Limit the numbers that are being written here      
     
     question_Themes = []
     
@@ -137,10 +131,6 @@ class Graph
     questions.values.each do |q|
         question_Themes << q['name']
     end;
-
-    #Issue.uniq.each do |i|
-    #    problems << i.problem
-    #end;
 
     csvstr = CSV.generate() do |csv|
       csv << ["Problem Name"] + question_set.map{|i| question_Themes[i-1] }
