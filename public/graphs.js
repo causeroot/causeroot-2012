@@ -31,11 +31,6 @@ function createSvgElements(data) {
 
     var axisColor = '#AAAAAA';
 
-    /*var xLineAttrs = {class: 'line', stroke: axisColor, id: "xline", x1:0, x2: width, y1: bottomPos, y2:bottomPos};
-    var xLine = svg.append("svg:line").attr(xLineAttrs);
-
-    var yLineAttrs = {class: 'line', stroke: axisColor, id: "yline", x1:leftPos, x2: leftPos, y1: 0, y2:height};
-    var yLine = svg.append("svg:line").attr(yLineAttrs);*/
 
     createLegend(canvas);
     update(svg, data);
