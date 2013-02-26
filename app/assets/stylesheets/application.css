@@ -542,16 +542,6 @@ h2 {
 	width: 190px;
 	height: 1px;	
 	}
-
-.results_map {
-	background: #E9EFF5;
-	width: 580px;
-	height: 320px;
-	border-radius: 5px 5px 5px 5px;
-	margin-top: 10px;
-	z-index: 100;
-	margin-bottom: 30px;
-	}
 	
 #results_title {
 	float: left;
@@ -559,8 +549,42 @@ h2 {
 	font-size: 16px;
 	text-align: left;
 	padding: 30px 0px 10px 0px;
-}
-	
+	display: inline block;
+	}
+
+.results_map {
+	background: #E9EFF5;
+	width: 580px;
+	height: 320px;
+	border-radius: 5px 5px 5px 5px;
+	margin-top: 10px;
+	margin-bottom: 15px;
+	display: inline block;
+	position: relative;
+	z-index: 100;
+	}
+
+#graph_key {
+	width: 580px;
+	height: 10px;
+	background: -moz-linear-gradient(left, #2FBF19, #737223, #F2C449, #7A4520, #CC322D);
+	background: -webkit-gradient(left, #2FBF19, #737223, #F2C449, #7A4520, #CC322D);  /* Safari 4-5, Chrome 1-9 */
+	background: -webkit-linear-gradient(left, #2FBF19, #737223, #F2C449, #7A4520, #CC322D);  /* Safari 5.1+, Chrome 10+ */
+	display: inline-block;
+	position: relative;
+	margin-top: 10px;
+	margin-bottom: 50px;
+	}
+
+#graph_key p {
+	font-family: Arial;
+	font-size: 12px;
+	}
+
+#graph_key p span {
+	padding-left: 390px;
+	}
+			
 footer {
 	bottom: 0;	
 	margin-top: -60px; /* negative value of footer height */	
