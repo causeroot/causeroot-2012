@@ -80,7 +80,7 @@ a { text-decoration: none; }
 	
 .notice {
 	margin-left: 30px;
-	color: #707070;
+	color: #1C75BC;
 	font-family: arial;
 	}
 
@@ -321,6 +321,7 @@ h2 {
 	border: none;
 	margin-top: 35px;
 	margin-bottom: 20px;
+	margin-right: 20px;
 	float: left;
 	width: 100px;
 	height: 24px;
@@ -334,6 +335,44 @@ h2 {
 	z-index: 0;	
 	}			
 	
+.edit_button {
+	border: none;
+	margin-top: 25px;
+	margin-bottom: 20px;
+	margin-right: 20px;
+	padding-top: 4px;
+	float: left;
+	width: 100px;
+	height: 20px;
+	border-radius: 2px;
+	background: #F7941D;
+	text-align: center;
+	color: white;
+	font-family: Arial;
+	font-size: 12px;
+	cursor: pointer;
+	z-index: 0;	
+	}	
+		
+.back_button {
+	border: none;
+	margin-top: -15px;
+	margin-bottom: 20px;
+	margin-right: 20px;
+	padding-top: 4px;
+	float: left;
+	width: 100px;
+	height: 20px;
+	border-radius: 2px;
+	background: #F7941D;
+	text-align: center;
+	color: white;
+	font-family: Arial;
+	font-size: 12px;
+	cursor: pointer;
+	z-index: 0;	
+	}	
+				
 .about-content {
 	margin-top: 50px;
 	margin-left: 30px;
@@ -533,8 +572,7 @@ footer {
 	}
 		
 #footercontentwrap {
-	display: table;
-	position: relative;
+	display: inline-block;
 	}
 
 #footer-copy {
@@ -545,13 +583,13 @@ footer {
 	padding: 16px;
 	margin-left: 10px;
 	margin-right: 50%;
-	position: relative;
 	display: inline-block;
 
 	}
 			
 .twitter-follow-button {
-	position: relative;
+
+	display: inline-block;
 	float: right;
 	margin-right: 10px;
 	margin-top: -4%;
