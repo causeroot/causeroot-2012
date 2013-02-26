@@ -31,11 +31,11 @@ function createSvgElements(data) {
 
     var axisColor = '#AAAAAA';
 
-    var xLineAttrs = {class: 'line', stroke: axisColor, id: "xline", x1:0, x2: width, y1: bottomPos, y2:bottomPos};
+    /*var xLineAttrs = {class: 'line', stroke: axisColor, id: "xline", x1:0, x2: width, y1: bottomPos, y2:bottomPos};
     var xLine = svg.append("svg:line").attr(xLineAttrs);
 
     var yLineAttrs = {class: 'line', stroke: axisColor, id: "yline", x1:leftPos, x2: leftPos, y1: 0, y2:height};
-    var yLine = svg.append("svg:line").attr(yLineAttrs);
+    var yLine = svg.append("svg:line").attr(yLineAttrs);*/
 
     createLegend(canvas);
     update(svg, data);
@@ -107,6 +107,14 @@ function createSvgElements(data) {
             .attr('transform', 'rotate(-90)')
             .attr('x', -height/2);
         legendY.attr('y', document.getElementById('legendY').getBBox().height *.85);
+
+        var yArrow = legend.append("svg:polygon")
+            .attr('points', '100,600 100,-200  500,200 500,-100  0,-600  -500,-100 -500,200 -100,-200 -100,600')
+            .attr('transform', 'matrix(0.015, 0, 0, 0.015, 13, 93)');
+
+        var xArrow = legend.append("svg:polygon")
+            .attr('points', '-600,100 200,100  -200,500 100,500 600,0 100,-500 -200,-500 200,-100 -600,-100')
+            .attr('transform', 'matrix(0.015, 0, 0, 0.015, 367, 308)');
     }
 
 
