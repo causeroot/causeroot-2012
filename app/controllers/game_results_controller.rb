@@ -28,7 +28,7 @@ class GameResultsController < ApplicationController
   
     # Define Constants
     def_priority_num_of_questions = 15
-    percent_weight_focus_on_completion = 0.7
+    percent_weight = 0.7
     epsilon = 0.00000001
     
     @gdata_all = GameResult.all
@@ -72,14 +72,23 @@ class GameResultsController < ApplicationController
                 pq_by_user_set.merge!(value.question_id=>[])
             end
             pq_by_user_set[value.question_id]<<value.issue_ids.sort
- #       elsif value.same == true
- #         && ;
-         end
+        elsif value.same
+            remove_problem_user << value.issue_ids-[value.answer]
+        end
     end;
-    
+
+    FlaggedIssues.all.each do |f|
+       if GameResult.find(f.game_result_id).user_id == @current_user && !f.issue_id == nil
+         remove_problem_user << f.issue_id
+       end
+    end
+
+    remove_problem_user.flatten!
+
     Issue.all.each do |i|
         problem_list << i.id
     end
+
     p_all_max = problem_list.max
     
     Question.all.each do |q|
@@ -113,12 +122,14 @@ class GameResultsController < ApplicationController
     # ques_order = ques_order_partial + (questions_by_all_freq_sort.map{|k,v| k}-ques_order_partial)
     prob_order_partial = problems_by_user_freq_sort_rev.map{|k,v| k}
     prob_order = prob_order_partial + (problems_by_all_freq_sort.map{|k,v| k}-prob_order_partial)
+    prob_order = prob_order - remove_problem_user
+
     #TODO: Add Code here that throws out FLAGGED (SAME & SKIP?) type dudes
     
     # THIS CODE CHOOSE THE APPROPRIATE QUESTION TO ASK (with a randomizer function as well)
     q_order = questions_by_all_freq_sort.map{|k,v| Hash[k=>questions_by_user.counts[k] ]}
     # If needed, we can use: q_order = Hash[Hash[q_order.map!{|k| k.flatten}].sort_by{|k,v| v}]
-    if (rand()+epsilon) < percent_weight_focus_on_completion
+    if (rand()+epsilon) < percent_weight
         next_question = Hash[q_order.map!{|k| k.flatten}].min_by{|k,v| v}[0]
     else
         next_question = question_list[rand(q_all_max)]
@@ -139,8 +150,8 @@ class GameResultsController < ApplicationController
     
     choice = rand()+epsilon
     
-    if choice < percent_weight_focus_on_completion && problems_left_focus.length > 0
-        next_question = problems_left_focus[(choice*(1.0/percent_weight_focus_on_completion))*problems_left_focus.length-1]
+    if choice < percent_weight && problems_left_focus.length > 0
+        next_question = problems_left_focus[(choice*(1.0/percent_weight))*problems_left_focus.length-1]
     elsif problems_left_rest_remaining.length > 0
         next_question = problems_left_rest_remaining[(rand()+epsilon)*problems_left_rest_remaining.length-1 ]
     else
