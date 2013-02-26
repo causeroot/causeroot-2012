@@ -12,12 +12,22 @@ var svg = canvas.append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 var theDomIsStupid = 'o'; // Prefix for DOM entities
 
+var allUsers = false;
 d3.csv("/graphs.csv", createSvgElements);
 
+function toggleGraph() {
+    if (allUsers) {
+        graphDraw("/graphs.csv");
+        allUsers = false;
+    } else {
+        graphDraw("/graphs.csv?allUserFlag=true");
+        allUsers = true;
+    }
+}
 // graphDraw("/graphs.csv") for single user
 // graphDraw("/graphs.csv?allUserFlag=true") for all users
 function graphDraw(url) {
-    d3.csv(url, function(d) {createSvgElements.update(svg, d);});
+    d3.csv(url, function(d) {this.update(svg, d);});
 }
 
 function createSvgElements(data) {
@@ -32,12 +42,15 @@ function createSvgElements(data) {
         .domain(d3.extent(data, function(d) { return yval(d); }))
         .range([height - margin.top - margin.bottom, 0]), 1);
 
-    var bottomPos = y(-0.1),
-        leftPos = x(-0.1);
-
-    var axisColor = '#AAAAAA';
-
     this.update = function(svg, data) {
+        var x = pad(d3.scale.linear()
+            .domain(d3.extent(data, function(d) { return xval(d); }))
+            .range([0, width - margin.left - margin.right]), 1);
+
+        var y = pad(d3.scale.linear()
+            .domain(d3.extent(data, function(d) { return yval(d); }))
+            .range([height - margin.top - margin.bottom, 0]), 1);
+
         // DATA JOIN
         var circles = svg.selectAll("circle")
             .data(data, function(d) {return idFunc(d)});
