@@ -14,6 +14,12 @@ var theDomIsStupid = 'o'; // Prefix for DOM entities
 
 d3.csv("/graphs.csv", createSvgElements);
 
+// graphDraw("/graphs.csv") for single user
+// graphDraw("/graphs.csv?allUserFlag=true") for all users
+function graphDraw(url) {
+    d3.csv(url, function(d) {createSvgElements.update(svg, d);});
+}
+
 function createSvgElements(data) {
     data.sort(function(a,b) {return b.Cost - a.Cost;});
 
@@ -31,93 +37,7 @@ function createSvgElements(data) {
 
     var axisColor = '#AAAAAA';
 
-
-    createLegend(canvas);
-    update(svg, data);
-    //allUsers();
-
-    function individualUser() {
-        d3.csv('/mock_graphs.csv', function(d) {update(svg, d);});
-        setTimeout(allUsers, 3000);
-    }
-
-    function allUsers() {
-        d3.csv('/mock_graphs2.csv', function(d) {update(svg, d);});
-        setTimeout(individualUser, 3000);
-    }
-
-    function idFunc(d) {
-        return theDomIsStupid+hash(d['Problem Name']);
-    }
-
-    function textLength(obj) {
-        return parseInt(d3.select('#' + obj.id)[0][0].getComputedTextLength());
-    }
-
-    function xValueOffset(obj) {
-        var rightPadding = 10;
-        var textWidth = textLength(obj) + margin.left +
-            parseInt(obj.getAttribute('dx')) + rightPadding; // additions due to padding and shift.
-        var textX = parseInt(obj.getAttribute('x'));
-        var textEnd = textX + textWidth;
-        return Math.max(0, textEnd - width);
-    }
-
-
-    function fixXValue() {
-        var textX = parseInt(this.getAttribute('x'));
-        return textX - xValueOffset(this);
-    }
-
-    function fixYDYValue() {
-        var textY = parseInt(this.getAttribute('y'));
-        var textDY = parseInt(this.getAttribute('dy'));
-        var boxHeight = this.getBBox().height;
-        return (textY+textDY-boxHeight >= 0) ? textDY : textY - boxHeight;
-    }
-
-    function fixDYValue() {
-        var textDY = parseInt(this.getAttribute('dy'));
-        if (xValueOffset(this)) {
-            return textDY * 1.4;
-        }
-        return textDY;
-    }
-
-    function createLegend(svg) {
-        var legend = svg.append('g')
-            .attr('class', 'nodeText light');
-
-        var legendX = legend.append("svg:text").attr('x', width/2)
-            .attr('y', '' + (height - 5))
-            .attr('id','legendX')
-            .attr('text-anchor','middle')
-            .text('IMPORTANCE');
-
-        var legendY = legend.append("svg:text")
-            .text('IMMEDIACY').attr('id', 'legendY')
-            .attr('text-anchor', 'middle')
-            .attr('transform', 'rotate(-90)')
-            .attr('x', -height/2);
-        legendY.attr('y', document.getElementById('legendY').getBBox().height *.85);
-
-        var yArrow = legend.append("svg:polygon")
-            .attr('points', '100,600 100,-200  500,200 500,-100  0,-600  -500,-100 -500,200 -100,-200 -100,600')
-            .attr('transform', 'matrix(0.015, 0, 0, 0.015, 13, 93)');
-
-        var xArrow = legend.append("svg:polygon")
-            .attr('points', '-600,100 200,100  -200,500 100,500 600,0 100,-500 -200,-500 200,-100 -600,-100')
-            .attr('transform', 'matrix(0.015, 0, 0, 0.015, 367, 308)');
-    }
-
-
-    function pad(scale, k) {
-        var range = scale.range();
-        if (range[0] > range[1]) k *= -1;
-        return scale.domain([range[0] - k, range[1] + k].map(scale.invert)).nice();
-    }
-
-    function update(svg, data) {
+    this.update = function(svg, data) {
         // DATA JOIN
         var circles = svg.selectAll("circle")
             .data(data, function(d) {return idFunc(d)});
@@ -205,6 +125,92 @@ function createSvgElements(data) {
         circles.exit().remove();
         text.exit().remove();
     }
+
+    createLegend(canvas);
+    this.update(svg, data);
+    //allUsers();
+
+    function individualUser() {
+        d3.csv('/mock_graphs.csv', function(d) {update(svg, d);});
+        setTimeout(allUsers, 3000);
+    }
+
+    function allUsers() {
+        d3.csv('/mock_graphs2.csv', function(d) {update(svg, d);});
+        setTimeout(individualUser, 3000);
+    }
+
+    function idFunc(d) {
+        return theDomIsStupid+hash(d['Problem Name']);
+    }
+
+    function textLength(obj) {
+        return parseInt(d3.select('#' + obj.id)[0][0].getComputedTextLength());
+    }
+
+    function xValueOffset(obj) {
+        var rightPadding = 10;
+        var textWidth = textLength(obj) + margin.left +
+            parseInt(obj.getAttribute('dx')) + rightPadding; // additions due to padding and shift.
+        var textX = parseInt(obj.getAttribute('x'));
+        var textEnd = textX + textWidth;
+        return Math.max(0, textEnd - width);
+    }
+
+
+    function fixXValue() {
+        var textX = parseInt(this.getAttribute('x'));
+        return textX - xValueOffset(this);
+    }
+
+    function fixYDYValue() {
+        var textY = parseInt(this.getAttribute('y'));
+        var textDY = parseInt(this.getAttribute('dy'));
+        var boxHeight = this.getBBox().height;
+        return (textY+textDY-boxHeight >= 0) ? textDY : textY - boxHeight;
+    }
+
+    function fixDYValue() {
+        var textDY = parseInt(this.getAttribute('dy'));
+        if (xValueOffset(this)) {
+            return textDY * 1.4;
+        }
+        return textDY;
+    }
+
+    function createLegend(svg) {
+        var legend = svg.append('g')
+            .attr('class', 'nodeText light');
+
+        var legendX = legend.append("svg:text").attr('x', width/2)
+            .attr('y', '' + (height - 5))
+            .attr('id','legendX')
+            .attr('text-anchor','middle')
+            .text('IMPORTANCE');
+
+        var legendY = legend.append("svg:text")
+            .text('IMMEDIACY').attr('id', 'legendY')
+            .attr('text-anchor', 'middle')
+            .attr('transform', 'rotate(-90)')
+            .attr('x', -height/2);
+        legendY.attr('y', document.getElementById('legendY').getBBox().height *.85);
+
+        var yArrow = legend.append("svg:polygon")
+            .attr('points', '100,600 100,-200  500,200 500,-100  0,-600  -500,-100 -500,200 -100,-200 -100,600')
+            .attr('transform', 'matrix(0.015, 0, 0, 0.015, 13, 93)');
+
+        var xArrow = legend.append("svg:polygon")
+            .attr('points', '-600,100 200,100  -200,500 100,500 600,0 100,-500 -200,-500 200,-100 -600,-100')
+            .attr('transform', 'matrix(0.015, 0, 0, 0.015, 367, 308)');
+    }
+
+
+    function pad(scale, k) {
+        var range = scale.range();
+        if (range[0] > range[1]) k *= -1;
+        return scale.domain([range[0] - k, range[1] + k].map(scale.invert)).nice();
+    }
+
 }
 
 /* This path interpolates along any path in color space smoothly!*/
