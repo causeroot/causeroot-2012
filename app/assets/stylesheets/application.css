@@ -554,13 +554,28 @@ h2 {
 	
 #results_title {
 	float: left;
-	font-family: Arial;
-	font-size: 16px;
 	text-align: left;
+	font-size: 16px;
+	font-family: Arial;
 	padding: 30px 0px 10px 0px;
 	display: inline block;
 	}
 
+#graph_toggle {
+	float: right;
+	font-size: 12px;
+	font-family: Arial;
+	color: #808080;
+	}
+
+#graph_toggle a {
+	color: #808080;
+	}
+	
+#graph_toggle a:hover { 
+	color: #f7941e; 
+	}
+		
 .results_map {
 	background: #E9EFF5;
 	width: 580px;
@@ -597,9 +612,9 @@ h2 {
 			
 footer {
 	bottom: 0;	
-	margin-top: -60px; /* negative value of footer height */	
+	/*margin-top: -20px;  negative value of footer height */	
 	z-index: 0;  
-	padding: 8px;
+	padding: 0 4px;
 	width: 100%;
 	background: black; 
 	clear: both; 
@@ -610,7 +625,7 @@ footer {
 	font-size: 11px;
 	color: #a8a8a8;
 	text-align: left;
-	padding: 16px;
+	padding: 10px;
 	margin-left: 10px;
 	display: inline-block;
 	}
@@ -619,7 +634,7 @@ footer {
 	display: inline-block;
 	float: right;
 	margin-right: 30px;
-	margin-top: -5%;
+	margin-top: -4%;
 	}	
 	
 footer a {
