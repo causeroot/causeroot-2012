@@ -5,17 +5,12 @@ gem 'rails', '~> 3.2.6'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
-
-gem 'delayed_job', '~> 3.0.4'
-
 gem "acts-as-taggable-on", "~> 2.3.3"
 
 gem 'sorcery'
 
 gem 'rvm-capistrano'
 gem "nested_form"
-
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -48,6 +43,7 @@ gem 'kaminari'
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
 group :test, :development do
+  gem 'sqlite3'
   gem 'debugger'
   gem 'guard'
   gem 'guard-cucumber'
