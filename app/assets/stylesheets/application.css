@@ -573,13 +573,17 @@ h2 {
 	color: #808080;
 	}
 
-#graph_toggle a {
+.graph_toggle_highlighted {
+    color: #f7941e;
+}
+
+/*#graph_toggle a {
 	color: #808080;
 	}
 	
 #graph_toggle a:hover { 
 	color: #f7941e; 
-	}
+	}*/
 		
 .results_map {
 	background: #E9EFF5;
