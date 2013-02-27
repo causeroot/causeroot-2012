@@ -16,6 +16,8 @@ var allUsers = false;
 d3.csv("/graphs.csv", createSvgElements);
 
 function toggleGraph() {
+    $("#all_data").toggleClass("graph_toggle_highlighted");
+    $("#my_data").toggleClass("graph_toggle_highlighted");
     if (allUsers) {
         graphDraw("/graphs.csv");
         allUsers = false;
