@@ -1,6 +1,6 @@
 var margin = {top: 15, right: 1, bottom: 1, left: 1};
-var width = 580;
-var height = 320;
+var width = 780;
+var height = 500;
 var scaleFactor = Math.sqrt(width*width + height*height);
 var canvas = d3.select("#results_placeholder").append("svg")
     .attr("width", width)
@@ -210,11 +210,11 @@ function createSvgElements(data) {
 
         var yArrow = legend.append("svg:polygon")
             .attr('points', '100,600 100,-200  500,200 500,-100  0,-600  -500,-100 -500,200 -100,-200 -100,600')
-            .attr('transform', 'matrix(0.015, 0, 0, 0.015, 13, 93)');
+            .attr('transform', 'matrix(0.015, 0, 0, 0.015, 13, '+ ((height/2)-65) +')');
 
         var xArrow = legend.append("svg:polygon")
             .attr('points', '-600,100 200,100  -200,500 100,500 600,0 100,-500 -200,-500 200,-100 -600,-100')
-            .attr('transform', 'matrix(0.015, 0, 0, 0.015, 367, 308)');
+            .attr('transform', 'matrix(0.015, 0, 0, 0.015,'+ ((width/2)+75) +', '+(height - 12)+')');
     }
 
 
