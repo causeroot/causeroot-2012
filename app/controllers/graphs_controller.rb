@@ -8,7 +8,7 @@ class GraphsController < ApplicationController
   
   def index
     if params[:allUserFlag]
-  	    csvstr = Graph.grabdata(0)
+  	    csvstr = Graph.grabdata({:id=>0})
     else
         csvstr = Graph.grabdata(@current_user)
     end

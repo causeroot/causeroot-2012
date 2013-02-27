@@ -1,29 +1,31 @@
+<div class="login_wrap">
+	<p>
+		<b>Owner:</b>
+    	<p><%= current_user.username %></p>
+	</p>
+	<br>
+	<p>
+  		<b>Problem:</b>
+  		<p><%= @issue.problem %></p>
+	</p>
+	
+	<br>
+	
+	<p>
+  		<b>Causes:</b>
+  		<% @issue.causes.each do |cause| %>
+    	<p><%= cause.cause %></p>
+  		<% end %>
+	</p>
+	<br>
+	<p>
+  		<b>Effect:</b>
+  		<% @issue.effects.each do |effect| %>
+    	<p><%= effect.effect %></p>
+  		<% end %>
+	</p>
+	<br>
+	<%= link_to 'EDIT', edit_issue_path(@issue), :class => 'edit_button' %>
+	<%= link_to 'BACK', new_issue_path, :class => 'edit_button' %>
 
-<b>Owner:</b>
-    <%= current_user.username %>
-</p>
-<br>
-<p>
-  <b>Problem:</b>
-  <p><%= @issue.problem %></p>
-</p>
-<p>
-
-<p>
-<p>
-  <b>Causes:</b>
-  <% @issue.causes.each do |cause| %>
-    <p><%= cause.cause %></p>
-  <% end %>
-</p>
-
-<p>
-  <b>Effect:</b>
-  <% @issue.effects.each do |effect| %>
-    <p><%= effect.effect %></p>
-  <% end %>
-</p>
-<br>
-
-<%= link_to 'Edit', edit_issue_path(@issue) %> |
-<%= link_to 'Back', new_issue_path %>
+</div>
