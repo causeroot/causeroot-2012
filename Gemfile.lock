@@ -134,9 +134,6 @@ GEM
     json (1.7.7)
     jwt (0.1.5)
       multi_json (>= 1.0)
-    kaminari (0.14.1)
-      actionpack (>= 3.0.0)
-      activesupport (>= 3.0.0)
     launchy (2.2.0)
       addressable (~> 2.3)
     libv8 (3.11.8.13)
@@ -288,7 +285,6 @@ DEPENDENCIES
   guard-cucumber
   guard-rspec
   jquery-rails
-  kaminari
   nested_form
   pg
   rails (~> 3.2.6)
