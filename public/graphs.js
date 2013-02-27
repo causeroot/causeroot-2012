@@ -1,6 +1,6 @@
 var margin = {top: 15, right: 1, bottom: 1, left: 1};
-var width = 780;
-var height = 500;
+var width = 580;
+var height = 320;
 var scaleFactor = Math.sqrt(width*width + height*height);
 var canvas = d3.select("#results_placeholder").append("svg")
     .attr("width", width)
