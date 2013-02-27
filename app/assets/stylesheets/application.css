@@ -169,6 +169,11 @@ h2 {
 	font-size: 14px;
 	}	
 	
+#issue_review {
+	width: 85%;
+	max-width: 580px;
+	}
+		
 .form-box {
 	border: 1px solid #c8c8c8;
 	width: 592px;
