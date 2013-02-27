@@ -84,6 +84,15 @@ a { text-decoration: none; }
 	font-family: arial;
 	}
 
+.alert {
+	margin-left: 30px;
+	color: #1C75BC;
+	font-family: arial;
+	}
+
+#error_explanation {
+	margin-left: 30px;
+	}
 
 #wrap {min-height: 100%; }
 
@@ -570,6 +579,7 @@ h2 {
 	background: -moz-linear-gradient(left, #2FBF19, #737223, #F2C449, #7A4520, #CC322D);
 	background: -webkit-gradient(left, #2FBF19, #737223, #F2C449, #7A4520, #CC322D);  /* Safari 4-5, Chrome 1-9 */
 	background: -webkit-linear-gradient(left, #2FBF19, #737223, #F2C449, #7A4520, #CC322D);  /* Safari 5.1+, Chrome 10+ */
+	background: -ms-linear-gradient(left, #2FBF19, #737223, #F2C449, #7A4520, #CC322D);  /* IE 10 */
 	display: inline-block;
 	position: relative;
 	margin-top: 10px;
