@@ -1,4 +1,4 @@
-var margin = {top: 1, right: 1, bottom: 1, left: 1};
+var margin = {top: 15, right: 1, bottom: 1, left: 1};
 var width = 580;
 var height = 320;
 var scaleFactor = Math.sqrt(width*width + height*height);
