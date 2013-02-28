@@ -13,6 +13,7 @@
 <div class="form-content">
 		<h1>STATE YOUR ISSUE</h1>
 		<div class='TextBoxesGroup'>
+                        <p><%= f.text_field :title %></p>
 			<div class="TextBoxDiv">
 				<%= f.text_area :problem, :placeholder => "Identify the Issue you are most passionate about.", :class => 'textbox', :id => 'issue_field1', :wrap => 'physical' %>
 			</div>
@@ -22,7 +23,8 @@
 <div class="form-content">
 		<h1>CAUSES: WHAT ARE THE PROBLEMS WHICH PROVOKE THIS?</h1>
                 <%= f.fields_for :causes do |cause_form| %>
-
+              
+                 <p><%= cause_form.text_field :title %></p>
                 <%= cause_form.text_area :cause, :placeholder => "Problems leading to the Issue mentioned above.", :class => 'textbox', :id => 'causes_field1', :wrap => 'physical' %>
 		
 	<!--<div class="remove_box2">
@@ -45,6 +47,7 @@
 <div class="form-content">
 		<h1>EFFECTS: WHAT ARE PROBLEMS THAT THIS CREATES?</h1>
                   <%= f.fields_for :effects do |effect_form| %>
+                    <p><%= effect_form.text_field :title %></p>
                 <%= effect_form.text_area :effect, :placeholder => "Effects of the Issue mentioned above - please list one at a time.", :class => 'textbox', :id => 'effects_field1', :wrap => 'physical' %>
 
 	<!--<div class="remove_box2">
