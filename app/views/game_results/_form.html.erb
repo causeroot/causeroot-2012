@@ -32,21 +32,49 @@
                       </tr>
 
         	<script language="javascript"> 
+                    var same = false;
+                    var oldQuestion = $('#game_question').html();
           		function submitForm(answer) {
                             $('#game_result_answer').val(answer);
                             $('#new_game_result').submit();
                             return false;
-          		}
+                          }
+
                         function flagIssue(id) {
                             if (confirm('Are you sure that you want flag this issue as innapropriate?')) {
                               $('#game_result_flag').val(id);
                               $('#new_game_result').submit();
                             }
                             return false;
+                          }
+
+                        function sameIssues() {
+                          if (true == same) {
+                                same = false;
+                                $('#game_question').html(oldQuestion);
+                                $('#game_result_same').val(same)
+                                $('td.ab_same').toggleClass('ab_content');
+                                $('td.ab_content').toggleClass('ab_same');
+                              } else {
+                                $('#game_question').html('<h1 class="ab_same">Please select which issue is better</h1>');
+                                same = true;
+                                $('#game_result_same').val(same)
+                                $('td.ab_content').toggleClass('ab_same');
+                                $('td.ab_same').toggleClass('ab_content');
+                              }
+                              return false;
+                        }
+
+                        function skipIssues() {
+                            $('#game_result_skip').val(true);
+                            $('#new_game_result').submit();
+                            return false;
                         }
         	</script> 
 
         	<%= f.hidden_field(:answer) %>
+        	<%= f.hidden_field(:same) %>
+        	<%= f.hidden_field(:skip) %>
                 <input id="game_result_flag" name="flag" type="hidden" value="false" />
                                         
         	<tr class="row2"> 	
@@ -70,13 +98,13 @@
     	</table>
     	<div class="skip_same_wrap">
       		<div id="same_issue">
-      			<p><a class="same_issue" href="#" onclick="submitForm('same'); return false;">THESE ISSUES ARE THE SAME &nbsp; <img id="same-i2" src="/SameQ.png" /></a></p>
+      			<p><a class="same_issue" href="#" onclick="sameIssues(); return false;">THESE ISSUES ARE THE SAME &nbsp; <img id="same-i2" src="/SameQ.png" /></a></p>
       		</div>
 
         	<div id="skip_same_line"></div>
         	
         	<div id="skip_question">
-        		<p><a class="skip_question" href="#" onClick="submitForm('skip'); return false;">SKIP THIS QUESTION &nbsp;》</a></p>  <!--<img id="skip-i1" src="/Skip_Arrow.png" />-->
+        		<p><a class="skip_question" href="#" onClick="skipIssues(); return false;">SKIP THIS QUESTION &nbsp;》</a></p>  <!--<img id="skip-i1" src="/Skip_Arrow.png" />-->
         	</div>		
         	
         	<div id="results_title"> 
