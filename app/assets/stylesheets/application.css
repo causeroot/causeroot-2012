@@ -492,6 +492,15 @@ h2 {
 	background: #FEE8C9; 
 	color: black;
 	}
+
+.ab_same {
+       background: red;
+}
+
+.ad_same:hover {
+        background: black;
+        color: gray;
+}
 	
 .flag {
 	border: none;
