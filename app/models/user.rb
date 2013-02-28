@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   attr_accessible :username, :email, :password, :password_confirmation
   acts_as_tagger
   
+  validates_uniqueness_of :username
   validates_confirmation_of :password
   validates_presence_of :password, :on => :create
   validates_presence_of :email
