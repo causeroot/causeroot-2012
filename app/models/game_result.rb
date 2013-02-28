@@ -17,12 +17,12 @@ class GameResult < ActiveRecord::Base
 
     @game_result.question = Question.offset(rand(Question.count)).first
 
-    c = Issue.count
+    c = Issue.count + 1
     used = []
-    for i in 1..@game_result.question.problem_count
+    @game_result.question.problem_count.times do
       # prevent using the same random number twice
       iid = rand(c)
-      while used.include? iid and c > 3
+      while used.include? iid and c > 2
         iid = rand(c)
       end
       used << iid
