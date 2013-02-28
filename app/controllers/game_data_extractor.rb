@@ -89,6 +89,7 @@
 # class GameDataController #< ApplicationController
 #
 #    def game_data_extractor
+
         
         game_data = GameResult.all
 
@@ -105,7 +106,7 @@
         problem_temp2 = []
         user_temp = []
         
-        game_data.each do |value|
+        @game_data.each do |value|
             question_temp << value.question_id
             problem_temp1 << value.issue_ids[0]
             problem_temp1 << value.issue_ids[1]
