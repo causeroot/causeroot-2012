@@ -207,6 +207,7 @@ class GameResultsController < ApplicationController
           flagged_issue = FlaggedIssues.new do |i|
             #i.issue_id = params[:flag].first[0]
             i.game_result_id = @game_result.id
+            i.issue_id = params[:flag]
             i.save
           end
         end  
