@@ -17,7 +17,7 @@ class GameResult < ActiveRecord::Base
 
     @game_result.question = Question.offset(rand(Question.count)).first
 
-    c = Issue.count + 1
+    c = Issue.count
     used = []
     @game_result.question.problem_count.times do
       # prevent using the same random number twice
