@@ -203,7 +203,7 @@ class GameResultsController < ApplicationController
     
     respond_to do |format|
       if @game_result.save
-        if defined?(params[:flag])
+        if params[:flag] != "false"
           flagged_issue = FlaggedIssues.new do |i|
             #i.issue_id = params[:flag].first[0]
             i.game_result_id = @game_result.id
