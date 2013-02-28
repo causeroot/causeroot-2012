@@ -494,13 +494,19 @@ h2 {
 	}
 
 .ab_same {
-       background: red;
-}
+    border: 1px solid red;
+    height: 24px;   
+	}
 
+#ab_sameQ {
+	padding-top: 4px;
+
+	}
+	    
 .ad_same:hover {
         background: black;
         color: gray;
-}
+	}
 	
 .flag {
 	border: none;
