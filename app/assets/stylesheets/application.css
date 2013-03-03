@@ -25,8 +25,7 @@ a { text-decoration: none; }
 .container {  
     min-height: 100%;
     position: relative;
-
-	}
+	}	
 	
 .page_wrapper {
 	margin-left: auto;
@@ -36,7 +35,6 @@ a { text-decoration: none; }
 	z-index: 100;
 	width: 100%;
 	height: 100%;
-
 	}      
 		
 .nav li {
@@ -56,7 +54,6 @@ a { text-decoration: none; }
 
 .nav a:hover { color: #cc6600; }
 
-
 #menu-item-beta {
 		color: #a8a8a8;
 		}
@@ -69,9 +66,6 @@ a { text-decoration: none; }
     width: 100%;
      }
 
-.navbar-innerwrap {
-	padding: 10px;
-	}
    
 .sign-in span {
 	color: #f7941e;
@@ -94,15 +88,15 @@ a { text-decoration: none; }
 	margin-left: 30px;
 	}
 
-#wrap {min-height: 100%; }
-
 .logo {
 	width: 95%;
 	max-width: 392px;
+
 	}
 	
 #logo_wrapper {
     margin: 70px 0px 20px 20px;
+    clear: both;
 	}
 	
 .sign_in_2 {
@@ -497,6 +491,21 @@ h2 {
 .ab_content:hover {
 	background: #FEE8C9; 
 	color: black;
+	}
+
+.ab_same {
+    border: 1px solid red;
+    height: 24px;   
+	}
+
+#ab_sameQ {
+	padding-top: 4px;
+
+	}
+	    
+.ad_same:hover {
+        background: black;
+        color: gray;
 	}
 	
 .flag {

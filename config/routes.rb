@@ -1,5 +1,11 @@
 CauseRoot::Application.routes.draw do
 
+  get "password_resets/create"
+
+  get "password_resets/edit"
+
+  get "password_resets/update"
+
   resources :graphs
 
 
@@ -8,6 +14,7 @@ CauseRoot::Application.routes.draw do
 
   resources :issues
   resources :questions
+  resources :password_resets
 #  root :to => "demo#index"
   root :to => "issues#new"
 
