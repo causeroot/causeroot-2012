@@ -11,38 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130228052758) do
+ActiveRecord::Schema.define(:version => 20130304044403) do
 
   create_table "causes", :force => true do |t|
     t.integer  "issue_id"
     t.text     "cause"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.string   "title"
   end
-
-  create_table "delayed_jobs", :force => true do |t|
-    t.integer  "priority",   :default => 0
-    t.integer  "attempts",   :default => 0
-    t.text     "handler"
-    t.text     "last_error"
-    t.datetime "run_at"
-    t.datetime "locked_at"
-    t.datetime "failed_at"
-    t.string   "locked_by"
-    t.string   "queue"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
-  end
-
-  add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
 
   create_table "effects", :force => true do |t|
     t.integer  "issue_id"
     t.text     "effect"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.string   "title"
   end
 
   create_table "flagged_issues", :force => true do |t|
@@ -79,7 +61,6 @@ ActiveRecord::Schema.define(:version => 20130228052758) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "user_id"
-    t.string   "title"
   end
 
   create_table "questions", :force => true do |t|
