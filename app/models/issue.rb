@@ -1,6 +1,6 @@
 # Issue
 class Issue < ActiveRecord::Base
-  attr_accessible :problem, :causes, :effects, :causes_attributes, :effects_attributes
+  attr_accessible :title, :problem, :causes, :effects, :causes_attributes, :effects_attributes
   acts_as_taggable
 
   validates :problem, :presence => true
