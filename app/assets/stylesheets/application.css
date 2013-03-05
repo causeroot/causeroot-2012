@@ -493,6 +493,13 @@ h2 {
 	color: black;
 	}
 
+.ab_same_highlight {
+    border: 1px solid red;
+}
+.ab_same_no_highlight {
+
+}
+
 .ab_same {
     border: 1px solid red;
     height: 24px;   

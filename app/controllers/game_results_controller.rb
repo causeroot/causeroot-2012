@@ -53,7 +53,7 @@ class GameResultsController < ApplicationController
       @game_result.issues << Issue.find(issue_id.last)
     end
     
-    respond_to do |format|
+    gmaerespond_to do |format|
       if @game_result.save
         if params[:game_result][:flag] != "false"
           flagged_issue = FlaggedIssues.new do |i|
