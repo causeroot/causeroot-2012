@@ -27,7 +27,7 @@ class GameResultsController < ApplicationController
   def new
 
     # Select next two issues to display
-    @game_result = GameResult.pick_result
+    @game_result = GameResult.pick_result(@current_user)
     logger.info(@game_result.inspect)
 
     respond_to do |format|

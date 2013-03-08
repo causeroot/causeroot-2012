@@ -12,13 +12,40 @@ class GameResult < ActiveRecord::Base
       self.same = false if (self.has_attribute? :same) && self.same.nil?
     end
 
-  def self.pick_result
+  def self.pick_result(current_user)
     @game_result = GameResult.new
+    question_randomizing_prob = 0.7
 
-    @game_result.question = Question.offset(rand(Question.count)).first
+    played_games = GameResult.all.select{|g| g.user_id == current_user && g.skip == false}
+    if rand() > question_randomizing_prob && !played_games == nil
+      questions_asked = played_games.map{|g| g.question_id}
+      question_list = Question.all.map{|q| q.id}
+      next_question_id = question_list[question_list.map{|nv| questions_asked.count(nv)}.index(question_list.map{|nv| questions_asked.count(nv)}.min)]
+      #next_question_id = played_games.map{|g| g.question_id}.group_by { |e| e }.values.min_by(&:size).first
+    else
+      questions_asked = played_games.map{|g| g.question_id}.uniq
+      next_question_id = questions_asked[rand(questions_asked.size)]
+    end
+    ## TODO: This needs to be modified at some point to not only ask a single question excessively/heavily when a new one is added to the mix
+
+
+    #questions_asked = Hash[played_games.map{|g| g.question_id}.uniq, played_games.count
+    #game_info =  played_games.map{|pg| Hash[pg.question_id => pg.issue_ids.sort]}.uniq
+    #questions = game_info.map{|k,v| k}
+    #problem_pairs = game_info.map{|k,v| }
+    #problem_pairs = played_games.map{|pg| pg.issue_ids.sort}.uniq.sort
+
+    #game_results_with_flags = FlaggedIssues.select{|f| f.issue_id > 0}
+    #remove_flags = game_results_with_flags.select{|grwf| GameResult.find{|g| g.id == grwf.game_result_id }}
+    #remove_same = played_games.select{|g| g.same==true}.map{|q| q.issue_ids-[q.answer]}.flatten
+
+
+    nq_id = next_question_id.to_i-1
+    @game_result.question = Question.offset(nq_id).first
 
     c = Issue.count
     used = []
+
     @game_result.question.problem_count.times do
       # prevent using the same random number twice
       iid = rand(c)
