@@ -10,7 +10,7 @@ CauseRoot::Application.routes.draw do
   resources :questions
   resources :password_resets
 #  root :to => "demo#index"
-  root :to => "issues#new"
+  root :to => "game_results#new"
 
   match '/about', :to => 'about#index'
   match '/demo', :to => 'demo#index'
