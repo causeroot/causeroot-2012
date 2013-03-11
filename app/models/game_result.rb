@@ -15,8 +15,8 @@ class GameResult < ActiveRecord::Base
 
   def self.pick_result(uId)
     @game_result = GameResult.new
-    question_randomizing_prob = 0.9999
-    problem_randomizing_prob = 0.999
+    question_randomizing_prob = 0.75
+    problem_randomizing_prob = 0.75
     epsilon = 0.00000001
 
     played_games = GameResult.select{|g| g.user_id == uId && g.skip == false}
@@ -42,7 +42,7 @@ class GameResult < ActiveRecord::Base
 
     remove_flags = []
     game_results_with_flags.select{|grwf| GameResult.find{|g| g.user_id == uId && g.id == grwf.game_result_id }}.each do |gr|
-      remove_flags << gr.issue_id       #TODO: REMOVE THE 2 above before pushing!!!!
+      remove_flags << gr.issue_id
     end
 
     remove_same = played_games.select{|g| g.same }.map{|q| q.issue_ids-[q.answer]}.flatten
