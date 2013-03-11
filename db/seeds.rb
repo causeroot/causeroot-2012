@@ -23,7 +23,7 @@ require 'securerandom'
 
 issues_filename = File.expand_path(File.dirname(__FILE__)) + '/issues.txt'
 
-if ! User.exists?(:username => "causeroot")
+unless User.exists?(:username => "causeroot")
   puts "Adding causeroot user."
   user_one = User.new;
   user_one.username = 'causeroot'
@@ -36,7 +36,7 @@ end
 
 
 File.open(issues_filename).each do |prob|
-  if ! Issue.exists?(:problem => prob)
+  unless Issue.exists?(:problem => prob)
     puts "Adding issue: #{prob}"
     i = Issue.new
     i.user = user_one
