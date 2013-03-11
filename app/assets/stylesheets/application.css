@@ -156,13 +156,32 @@ a { text-decoration: none; }
 h1 {
 	font-family: Arial;
 	font-size: 16px;
+	line-height: 22px;
 	}
 	
+h1 a {
+	color: #f7941e;
+	}
+		
+h1 a:hover { 
+	color: #cc6600; 
+	}		
+		
 h2 {
 	font-family: Arial;
 	font-size: 14px;
 	}	
-	
+
+.intro_statement {
+	width: 580px;
+	margin-left: 30px;
+	margin-top: 20px;
+	font-family: Arial;
+	font-size: 18px;
+	line-height: 1.6;
+	color: #909090;
+	}
+		
 #issue_review {
 	width: 85%;
 	max-width: 580px;
@@ -393,12 +412,12 @@ h2 {
 	max-width: 580px;
 	font-family: Arial;
 	line-height: 1.6;
-	color: #707070;
+	color: #606060;
 	}		
 
 .about-content span {
-	font-size: 14px;
-	color: #F7941D;
+	font-size: 16px;
+	color: #000000;
 	}
 			
 .info_text_wrapper {
@@ -453,7 +472,7 @@ h2 {
 	
 .game-content {
 	width: 600px;
-	margin-top: 80px;
+	margin-top: 60px;
 	margin-left: 30px;
 	}
 
@@ -648,13 +667,17 @@ footer {
 #footer-copy p {
 	font-family: Arial;
 	font-size: 11px;
-	color: #a8a8a8;
+	color: #B8B8B8;
 	text-align: left;
 	padding: 10px;
 	margin-left: 10px;
 	display: inline-block;
 	}
-			
+
+#footer-copy p span {
+	font-size: 9px;
+	}
+				
 .twitter-follow-button {
 	display: inline-block;
 	float: right;
