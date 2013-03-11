@@ -16,6 +16,8 @@ class GameResult < ActiveRecord::Base
   def self.pick_result(uId)
     @game_result = GameResult.new
     question_randomizing_prob = 0.70
+    problem_randomizing_prob = 0.70
+    epsilon = 0.00000001
 
     played_games = GameResult.select{|g| g.user_id == uId && g.skip == false}
 
@@ -28,11 +30,54 @@ class GameResult < ActiveRecord::Base
       next_question_id = questions_asked[rand(questions_asked.size)]
     end
 
+    @game_result.question = Question.offset(next_question_id.to_i-1).first
 
+    game_info_for_single_question = played_games.select{|pg| pg.question_id == next_question_id}
+    problem_pairs = game_info_for_single_question.map{|pg| pg.issue_ids.sort}.uniq.sort
+
+    game_results_with_flags = FlaggedIssues.select{|f| f.issue_id > 0}
+
+    remove_flags = []
+    game_results_with_flags.select{|grwf| GameResult.find{|g| g.user_id == 2 && g.id == grwf.game_result_id }}.each do |gr|
+      remove_flags << gr.issue_id       #TODO: REMOVE THE 2 above before pushing!!!!
+    end
+
+    remove_same = played_games.select{|g| g.same }.map{|q| q.issue_ids-[q.answer]}.flatten
+
+    #Probs is all of the problems that we could potentially ask the user
+    probs = Issue.all.map{|r| r.id} - remove_flags - remove_same
+    #problems_seen = problem_pairs.flatten
+
+    probs_focus = probs.sort_by{|p| -problem_pairs.flatten.count(p)}[0..4]
+    probs_left = probs - probs_focus
+
+    #TODO Add Code here that makes the world better ... by sorting the most asked problems
+
+    #TODO: FIX this code to accomodate more than 2 problems
+    choice = rand()+epsilon
+
+    if rand() < problem_randomizing_prob || probs_left == nil
+      problem_choices = probs_focus.combination(2).to_a-problem_pairs
+      choice = rand()+epsilon
+      next_issues = problem_choices[rand(problem_choices.length)]
+    else
+      problem_choices = probs_left.combination(2).to_a-problem_pairs
+      next_issues = problem_choices[rand(problem_choices.length)]
+    end
+
+    a = next_issues[0]-1
+    b = next_issues[1]-1
+
+    if rand(2).to_i == 1
+      @game_result.issues << Issue.offset(a).first
+      @game_result.issues << Issue.offset(b).first
+    else
+      @game_result.issues << Issue.offset(b).first
+      @game_result.issues << Issue.offset(a).first
+    end
 
 
     ## TODO: This needs to be modified at some point to not only ask a single question excessively/heavily when a new one is added to the mix
-
 
     #questions_asked = Hash[played_games.map{|g| g.question_id}.uniq, played_games.count
     #game_info =  played_games.map{|pg| Hash[pg.question_id => pg.issue_ids.sort]}.uniq
@@ -45,20 +90,19 @@ class GameResult < ActiveRecord::Base
     #remove_same = played_games.select{|g| g.same==true}.map{|q| q.issue_ids-[q.answer]}.flatten
 
 
-    @game_result.question = Question.offset(next_question_id.to_i-1).first
 
-    c = Issue.count
-    used = []
+    #c = Issue.count
+    #used = []
 
-    @game_result.question.problem_count.times do
+    #@game_result.question.problem_count.times do
       # prevent using the same random number twice
-      iid = rand(c)
-      while used.include? iid and c > 2
-        iid = rand(c)
-      end
-      used << iid
-      @game_result.issues << Issue.offset(iid).first
-    end
+      #iid = rand(c)
+      #while used.include? iid and c > 2
+      #  iid = rand(c)
+     # end
+     # used << iid
+     # @game_result.issues << Issue.offset(iid).first
+   # end
 
     ## Define Constants
     #def_priority_num_of_questions = 15
