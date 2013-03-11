@@ -156,8 +156,17 @@ a { text-decoration: none; }
 h1 {
 	font-family: Arial;
 	font-size: 16px;
+	line-height: 22px;
 	}
 	
+h1 a {
+	color: #f7941e;
+	}
+		
+h1 a:hover { 
+	color: #cc6600; 
+	}		
+		
 h2 {
 	font-family: Arial;
 	font-size: 14px;
@@ -398,7 +407,7 @@ h2 {
 
 .about-content span {
 	font-size: 14px;
-	color: #F7941D;
+	color: #000000;
 	}
 			
 .info_text_wrapper {
