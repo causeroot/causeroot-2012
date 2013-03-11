@@ -15,30 +15,33 @@ class GameResult < ActiveRecord::Base
 
   def self.pick_result(uId)
     @game_result = GameResult.new
-    question_randomizing_prob = 0.70
-    problem_randomizing_prob = 0.70
+    question_randomizing_prob = 0.9999
+    problem_randomizing_prob = 0.999
     epsilon = 0.00000001
 
     played_games = GameResult.select{|g| g.user_id == uId && g.skip == false}
 
     if rand() < question_randomizing_prob && played_games != nil
-      questions_asked = played_games.map{|g| g.question_id}
       question_list = Question.all.map{|q| q.id}
-      next_question_id = played_games.map{|g| g.question_id}.group_by { |e| e }.values.min_by(&:size).first
+      next_question_id = question_list.sort_by{|q| played_games.select{|g| g.question_id == q}.count}.first
     else
-      questions_asked = played_games.map{|g| g.question_id}.uniq
-      next_question_id = questions_asked[rand(questions_asked.size)]
+      question_list = Question.all.map{|q| q.id}
+      next_question_id = question_list[rand(question_list.size)]
     end
 
-    @game_result.question = Question.offset(next_question_id.to_i-1).first
+    #logger.info(@game_result.inspect)
+
+    @game_result.question = Question.offset(next_question_id-1).first
 
     game_info_for_single_question = played_games.select{|pg| pg.question_id == next_question_id}
+    #problem_pairs = game_info_for_single_question.map{|pg| pg.issue_ids.sort}.sort
+
     problem_pairs = game_info_for_single_question.map{|pg| pg.issue_ids.sort}.uniq.sort
 
     game_results_with_flags = FlaggedIssues.select{|f| f.issue_id > 0}
 
     remove_flags = []
-    game_results_with_flags.select{|grwf| GameResult.find{|g| g.user_id == 2 && g.id == grwf.game_result_id }}.each do |gr|
+    game_results_with_flags.select{|grwf| GameResult.find{|g| g.user_id == uId && g.id == grwf.game_result_id }}.each do |gr|
       remove_flags << gr.issue_id       #TODO: REMOVE THE 2 above before pushing!!!!
     end
 
@@ -46,24 +49,39 @@ class GameResult < ActiveRecord::Base
 
     #Probs is all of the problems that we could potentially ask the user
     probs = Issue.all.map{|r| r.id} - remove_flags - remove_same
-    #problems_seen = problem_pairs.flatten
 
-    probs_focus = probs.sort_by{|p| -problem_pairs.flatten.count(p)}[0..4]
+    probs_focus = probs.sort_by{|p| -problem_pairs.flatten.count(p)}[0..10]
     probs_left = probs - probs_focus
 
     #TODO Add Code here that makes the world better ... by sorting the most asked problems
 
-    #TODO: FIX this code to accomodate more than 2 problems
+    #TODO: FIX this code to accommodate more than 2 problems
     choice = rand()+epsilon
 
-    if rand() < problem_randomizing_prob || probs_left == nil
-      problem_choices = probs_focus.combination(2).to_a-problem_pairs
-      choice = rand()+epsilon
-      next_issues = problem_choices[rand(problem_choices.length)]
+    #TODO: Its the order combinations that's throwing this off.  2,5 is the same as 5,2 ...
+    if choice < problem_randomizing_prob || probs_left == nil
+      #logger.info("focus")
+
+      problem_choices = probs_focus.combination(2).to_a.map{|a| a.sort}-problem_pairs
+
+      if problem_choices == []
+        next_issues = problem_pairs[rand(problem_pairs.length)]
+      else
+        next_issues = problem_choices[rand(problem_choices.length)]
+      end
+
     else
-      problem_choices = probs_left.combination(2).to_a-problem_pairs
-      next_issues = problem_choices[rand(problem_choices.length)]
+      #logger.info("left")
+
+      problem_choices = probs_left.combination(2).to_a.map{|a| a.sort}-problem_pairs
+      if problem_choices == []
+        next_issues = problem_pairs[rand(problem_pairs.length)]
+      else
+        next_issues = problem_choices[rand(problem_choices.length)]
+      end
     end
+
+    puts next_issues
 
     a = next_issues[0]-1
     b = next_issues[1]-1
