@@ -171,7 +171,17 @@ h2 {
 	font-family: Arial;
 	font-size: 14px;
 	}	
-	
+
+.intro_statement {
+	width: 580px;
+	margin-left: 30px;
+	margin-top: 20px;
+	font-family: Arial;
+	font-size: 18px;
+	line-height: 1.6;
+	color: #909090;
+	}
+		
 #issue_review {
 	width: 85%;
 	max-width: 580px;
@@ -462,7 +472,7 @@ h2 {
 	
 .game-content {
 	width: 600px;
-	margin-top: 80px;
+	margin-top: 60px;
 	margin-left: 30px;
 	}
 
