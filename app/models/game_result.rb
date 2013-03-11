@@ -12,20 +12,26 @@ class GameResult < ActiveRecord::Base
       self.same = false if (self.has_attribute? :same) && self.same.nil?
     end
 
-  def self.pick_result(current_user)
+  def self.pick_result(uId)
     @game_result = GameResult.new
-    question_randomizing_prob = 0.7
+    question_randomizing_prob = 0.99
 
-    played_games = GameResult.all.select{|g| g.user_id == current_user && g.skip == false}
+    played_games = GameResult.select{|g| g.user_id == uId && g.skip == false}
+
     if rand() > question_randomizing_prob && !played_games == nil
+    # TODO: does !played_games == nil do what I think it does?
+      played_games = GameResult.select{|g| g.user_id == 2 && g.skip == false}
       questions_asked = played_games.map{|g| g.question_id}
       question_list = Question.all.map{|q| q.id}
-      next_question_id = question_list[question_list.map{|nv| questions_asked.count(nv)}.index(question_list.map{|nv| questions_asked.count(nv)}.min)]
+
+      #next_question_id = question_list[question_list.map{|nv| questions_asked.count(nv)}.index(question_list.map{|nv| questions_asked.count(nv)}.min)]
       #next_question_id = played_games.map{|g| g.question_id}.group_by { |e| e }.values.min_by(&:size).first
+
     else
       questions_asked = played_games.map{|g| g.question_id}.uniq
       next_question_id = questions_asked[rand(questions_asked.size)]
     end
+
     ## TODO: This needs to be modified at some point to not only ask a single question excessively/heavily when a new one is added to the mix
 
 
@@ -40,8 +46,7 @@ class GameResult < ActiveRecord::Base
     #remove_same = played_games.select{|g| g.same==true}.map{|q| q.issue_ids-[q.answer]}.flatten
 
 
-    nq_id = next_question_id.to_i-1
-    @game_result.question = Question.offset(nq_id).first
+    @game_result.question = Question.offset(next_question_id.to_i-1).first
 
     c = Issue.count
     used = []
