@@ -15,11 +15,12 @@ class GameResult < ActiveRecord::Base
 
   def self.pick_result(uId)
     @game_result = GameResult.new
-    question_randomizing_prob = 0.75
-    problem_randomizing_prob = 0.75
+    question_randomizing_prob = 0.70
+    problem_randomizing_prob = 0.70
     epsilon = 0.00000001
 
     played_games = GameResult.select{|g| g.user_id == uId && g.skip == false}
+    #played_games = GameResult.select{|g| g.user_id == uId && g.skip == false}
 
     if rand() < question_randomizing_prob && played_games != nil
       question_list = Question.all.map{|q| q.id}
@@ -51,23 +52,25 @@ class GameResult < ActiveRecord::Base
     #TODO: FIX this code to accommodate more than 2 problems
     choice = rand()+epsilon
 
-    if choice < problem_randomizing_prob || probs_left == nil
+    if choice < problem_randomizing_prob || probs_left == [] || probs_left == nil
       problem_choices = probs_focus.combination(2).to_a.map{|a| a.sort}-problem_pairs
       if problem_choices == []
-        next_issues = problem_pairs[rand(problem_pairs.length)]
+        remove_same_flag_problems = probs_focus.combination(2).to_a.map{|a| a.sort}
+        next_issues = remove_same_flag_problems[rand(remove_same_flag_problems.length)]
       else
         next_issues = problem_choices[rand(problem_choices.length)]
       end
     else
       problem_choices = probs_left.combination(2).to_a.map{|a| a.sort}-problem_pairs
       if problem_choices == []
-        next_issues = problem_pairs[rand(problem_pairs.length)]
+        remove_same_flag_problems = probs_focus.combination(2).to_a.map{|a| a.sort}
+        next_issues = remove_same_flag_problems[rand(remove_same_flag_problems.length)]
       else
         next_issues = problem_choices[rand(problem_choices.length)]
       end
     end
 
-    puts next_issues
+    #puts next_issues
     a = next_issues[0]-1
     b = next_issues[1]-1
 
