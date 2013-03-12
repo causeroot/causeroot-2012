@@ -45,7 +45,7 @@ class GameResult < ActiveRecord::Base
     #Probs is all of the problems that we could potentially ask the user
     probs = Issue.all.map{|r| r.id} - remove_flags - remove_same
 
-    probs_focus = probs.sort_by{|p| -problem_pairs.flatten.count(p)}[0..10]
+    probs_focus = probs.sort_by{|p| -problem_pairs.flatten.count(p)}[0..14]
     probs_left = probs - probs_focus
 
     #TODO: FIX this code to accommodate more than 2 problems
