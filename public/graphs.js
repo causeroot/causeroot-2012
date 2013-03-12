@@ -58,7 +58,7 @@ function createSvgElements(data) {
             .data(data, function(d) {return idFunc(d)});
 
         var text = svg.selectAll("text")
-            .data(data, key);
+            .data(data, function(d) {return idFunc(d)+'t'});
 
         // UPDATE
         // Update old data
@@ -71,7 +71,6 @@ function createSvgElements(data) {
                 }
                 return txt;
             })
-            .transition().duration(750)
             .attr("x", function(d) {return x(xval(d));})
             .attr("y", function(d) {return y(yval(d));})
             .attr("dx", function(d) {return 0.75*rad(d);})
@@ -106,14 +105,8 @@ function createSvgElements(data) {
             .attr("r", function(d) { return rad(d); })
             .attr("fill", function(d) { return cinterp(d.Complexity);});
         text.enter().append("svg:g")
-            .attr("class", "text");
-        // ENTER + UPDATE
-        // Appending to the enter selection expands the update selection to include
-        // entering elements; so, operations on the update selection after appending to
-        // the enter selection will apply to both entering and updating nodes.
-
-// Text for individual problem data points
-        text.append("svg:text")
+            .attr("class", "text")
+            .append("svg:text")
             .attr("class", "nodeText")
             .attr("id", function(d){return idFunc(d)+'t';})
             .attr("x", function(d) {return x(xval(d));})
@@ -139,7 +132,7 @@ function createSvgElements(data) {
         // Remove old elements as needed.
         circles.exit().remove();
         text.exit().remove();
-    }
+    };
 
     createLegend(canvas);
     this.update(svg, data);
