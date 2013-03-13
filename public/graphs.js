@@ -89,13 +89,12 @@ function createSvgElements(data) {
             .attr("fill", function(d) { return cinterp(d.Complexity);});
 
         // ENTER: Create new elements as needed.
-        circles.enter().append("svg:g")
-            .attr("class", "circles").append("svg:circle")
+        circles.enter().append("svg:circle")
             .on("mouseover", function(){
-                d3.selectAll(".text").select('#'+this.id+'t')
+                d3.selectAll(".bckg").select('#'+this.id+'t')
                     .attr("visibility","visible");})
             .on("mouseout", function(){
-                d3.selectAll(".text").select('#'+this.id+'t')
+                d3.selectAll(".bckg").select('#'+this.id+'t')
                     .attr("visibility","hidden");})
             .transition().duration(750)
             .attr("class", "dot")
@@ -104,9 +103,7 @@ function createSvgElements(data) {
             .attr("cy", function(d) { return y(yval(d)); })
             .attr("r", function(d) { return rad(d); })
             .attr("fill", function(d) { return cinterp(d.Complexity);});
-        text.enter().append("svg:g")
-            .attr("class", "text")
-            .append("svg:text")
+        text.enter().append("svg:text")
             .attr("class", "nodeText")
             .attr("id", function(d){return idFunc(d)+'t';})
             .attr("x", function(d) {return x(xval(d));})
