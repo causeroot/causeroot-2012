@@ -53,11 +53,13 @@ function createSvgElements(data) {
             .domain(d3.extent(data, function(d) { return yval(d); }))
             .range([height - margin.top - margin.bottom, 0]), 1);
 
+        svg.append("g").attr("class", "circles");
+        svg.append("g").attr("class", "text");
         // DATA JOIN
-        var circles = svg.selectAll("circle")
+        var circles = svg.select('.circles').selectAll("circle")
             .data(data, function(d) {return idFunc(d)});
 
-        var text = svg.selectAll("text")
+        var text = svg.select('.text').selectAll("text")
             .data(data, function(d) {return idFunc(d)+'t'});
 
         // UPDATE
@@ -89,7 +91,7 @@ function createSvgElements(data) {
             .attr("fill", function(d) { return cinterp(d.Complexity);});
 
         // ENTER: Create new elements as needed.
-        circles.enter().append("svg:circle")
+        circles.enter().insert("svg:circle")
             .on("mouseover", function(){
                 d3.selectAll(".bckg").select('#'+this.id+'t')
                     .attr("visibility","visible");})
