@@ -1,2 +1,2 @@
 #!/bin/bash
-scp public/* causeroot@monkian.dreamhost.com:causeroot.org/
+scp public/* causeroot@causeroot.org:causeroot.org/
