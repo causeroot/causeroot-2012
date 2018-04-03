@@ -44,12 +44,12 @@ gem 'jquery-rails'
 
 group :test, :development do
   gem 'sqlite3'
-  gem 'debugger'
+  gem 'byebug'
   gem 'guard'
   gem 'guard-cucumber'
   gem 'guard-bundler'
   gem 'guard-rspec'
-  gem 'terminal-notifier-guard'	
+  gem 'terminal-notifier-guard'
   gem "brakeman"
   gem "rspec-rails", "~> 2.0"
   gem "factory_girl_rails", "~> 4.0"
